@@ -41,10 +41,12 @@ public class Bairro {
 
     public String getStatusBai() {
         return statusBai;
+        
     }
 
     public void setStatusBai(final String statusBai) {
         this.statusBai = statusBai;
+        
     }
     
     
