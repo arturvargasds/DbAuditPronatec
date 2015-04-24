@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Cep
+public class Cep 
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CEP")

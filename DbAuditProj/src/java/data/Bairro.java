@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-
+//Estou adicionando um comment para testar
 
 @Entity
 public class Bairro {
@@ -41,10 +41,12 @@ public class Bairro {
 
     public String getStatusBai() {
         return statusBai;
+        
     }
 
     public void setStatusBai(final String statusBai) {
         this.statusBai = statusBai;
+        
     }
     
     
