@@ -151,8 +151,5 @@ public class Auditoria
     public void setCliente(String cliente) {
         this.cliente = cliente;
     }
-    
-    
-
-        
+     
 }
