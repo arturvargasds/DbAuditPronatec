@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
-public class Colaboradores 
+public class Colaborador
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDCOLA")

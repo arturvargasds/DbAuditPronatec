@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
-public class Clientes 
+public class Cliente 
 {
     
     @Id
