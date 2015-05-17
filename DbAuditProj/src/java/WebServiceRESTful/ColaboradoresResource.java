@@ -97,6 +97,7 @@ public class ColaboradoresResource {
             colaboradorToUpdate.setObsCola(colaborador.getObsCola());
             colaboradorToUpdate.setStatusCola(colaborador.getStatusCola());
             colaborador = entityManager.merge(colaboradorToUpdate);
+            //ppp
         }
 
         return colaborador;
