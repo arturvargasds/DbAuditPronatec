@@ -21,8 +21,11 @@ public class Cliente
     private Long id;
     
     // troca cep String por idcep integer
-    @Column(name = "CEP", length =8 )
-    private String cep;  
+    //@Column(name = "CEP", length =8 )
+    //private String cep; 
+    
+    @Column(name = "IDCEP")
+    private int idcep;
 
     @Column(name = "RAZAOCLI", length =60 )
     private String razaoCli ;  
@@ -72,13 +75,15 @@ public class Cliente
         this.id = id;
     }
 
-    public String getCep() {
-        return cep;
+    public int getIdcep() {
+        return idcep;
     }
 
-    public void setCep(final String cep) {
-        this.cep = cep;
+    public void setIdcep(int idcep) {
+        this.idcep = idcep;
     }
+
+    
 
     public String getRazaoCli() {
         return razaoCli;
