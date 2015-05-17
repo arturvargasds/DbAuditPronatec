@@ -13,6 +13,7 @@ public class Auditoria
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDAUDIT")
     @SequenceGenerator(name = "IDAUDIT", sequenceName = "AUDITORIAS")
+    
     @Column(name = "IDAUDIT")
     private Long id;   
     
