@@ -21,11 +21,13 @@ public class GenericResource extends Application
     public CidadeResource cidadeResource()
     {
        return new CidadeResource(); 
-    }  
+    }
     
-    
-    
-    
+    @Path("auditorias")
+    public AuditoriaResource auditoriaResource()
+    {
+       return new AuditoriaResource(); 
+    }
     
     
     
