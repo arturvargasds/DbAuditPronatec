@@ -20,6 +20,7 @@ public class Cliente
     @Column(name = "IDCLI")
     private Long id;
     
+    // troca cep String por idcep integer
     @Column(name = "CEP", length =8 )
     private String cep;  
 

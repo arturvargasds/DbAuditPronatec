@@ -24,7 +24,10 @@ public class Auditor
     
     @Column(name = "CPFAUDIT", length = 11)
     private String cpfAudit;
-    
+        
+    @Column(name = "IDCEP")
+    private int idcep;
+        
     @Column(name = "FONE1AUDIT", length = 12)
     private String fone1Audit;
         
@@ -36,7 +39,10 @@ public class Auditor
     
     @Column(name = "COMPLEENDAUDIT", length = 60)
     private String compleEndAudit;
-        
+    
+    @Column (name ="TIPOAUDIT", length = 1)
+    private String tipoAudit;
+  
     @Column(name = "OBSAUDIT", length = 100)
     private String obsAudit; 
     
@@ -73,6 +79,15 @@ public class Auditor
         this.cpfAudit = cpfAudit;
     }
 
+    public int getIdcep() {
+        return idcep;
+    }
+
+    public void setIdcep(int idcep) {
+        this.idcep = idcep;
+    }
+
+    
     public String getFone1Audit() {
         return fone1Audit;
     }
@@ -104,6 +119,15 @@ public class Auditor
     public void setCompleEndAudit(final String compleEndAudit) {
         this.compleEndAudit = compleEndAudit;
     }
+
+    public String getTipoAudit() {
+        return tipoAudit;
+    }
+
+    public void setTipoAudit(String tipoAudit) {
+        this.tipoAudit = tipoAudit;
+    }
+
 
     public String getObsAudit() {
         return obsAudit;
