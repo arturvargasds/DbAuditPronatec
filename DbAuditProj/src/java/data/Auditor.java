@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
-public class Auditores 
+public class Auditor
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDAUDITOR")
@@ -22,7 +22,7 @@ public class Auditores
     private String nomeAudit;
     
     
-    @Column(name = "CPFAUDIT", length = 8)
+    @Column(name = "CPFAUDIT", length = 11)
     private String cpfAudit;
     
     @Column(name = "FONE1AUDIT", length = 12)
