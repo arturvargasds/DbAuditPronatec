@@ -29,6 +29,39 @@ public class GenericResource extends Application
        return new AuditoriaResource(); 
     }
     
+    @Path("equipeAuditores")
+    public EquipeAuditoresResource EquipeAuditoresResource()
+    {
+       return new EquipeAuditoresResource(); 
+    }
+    
+     @Path("auditores")
+    public AuditorResource AuditorResource()
+    {
+       return new AuditorResource(); 
+    }
+    
+    @Path("ceps")
+    public CepResource CepResource()
+    {
+       return new CepResource(); 
+    }
+    
+     @Path("clientes")
+    public ClienteResource ClienteResource()
+    {
+       return new ClienteResource(); 
+    }
+    
+      @Path("colaboradores")
+    public ColaboradoresResource ColaboradoresResource()
+    {
+       return new ColaboradoresResource(); 
+    }
+    
+    
+    
+    
     
     
     
