@@ -14,8 +14,8 @@
 			Class.forName("org.postgresql.Driver");
 			//out.println("Conseguiu carregar o driver");
 			
-			Connection con = DriverManager.getConnection("jdbc:postgresql://localhost/aula_neri","postgres","admin");
-			//out.println("Conexão com sucesso");
+			Connection con = DriverManager.getConnection("jdbc:postgresql://localhost/DbAudit","postgres","admin");
+			out.println("Conexão com sucesso");
 			
 			if (request.getParameter("usuario") != null)
 			{
@@ -24,8 +24,8 @@
 				//out.println("passou pelo statement");
 				//prof Neri Neitzke - videoaulas@informaticon.com.br
 			
-				ResultSet rs = st.executeQuery("select * from login where log_usuario = '"+
-				request.getParameter("usuario")+"' and log_senha = '"+
+				ResultSet rs = st.executeQuery("select * from auditor where usuaudit = '"+
+				request.getParameter("usuario")+"' and senhaudit = '"+
 				request.getParameter("senha")+"'");
 			
 				if (rs.next())

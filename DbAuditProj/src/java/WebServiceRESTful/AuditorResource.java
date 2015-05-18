@@ -76,7 +76,7 @@ public class AuditorResource
     @POST
     public Auditor saveAuditor(Auditor auditor) {
         if (auditor.getId() == null) {
-            Auditor auditorToSave = new Auditor();            
+            Auditor auditorToSave = new Auditor();
             auditorToSave.setIdcep(auditor.getIdcep());
             auditorToSave.setNomeAudit(auditor.getNomeAudit());
             auditorToSave.setCpfAudit(auditor.getCpfAudit());
