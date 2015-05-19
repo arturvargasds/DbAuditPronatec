@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.xml.bind.annotation.XmlRootElement;
 
+
 @Entity
 @XmlRootElement
 public class Auditor
@@ -15,7 +16,7 @@ public class Auditor
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDAUDITOR")
     @SequenceGenerator(name = "IDAUDITOR", sequenceName = "AUDITORES")
-    @Column(name = "IDAUDITORES")
+    @Column(name = "IDAUDITOR")
     private Long id;
     
     @Column(name = "NOMEAUDIT", length = 60)
