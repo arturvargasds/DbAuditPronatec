@@ -59,6 +59,30 @@ public class GenericResource extends Application
        return new ColaboradoresResource(); 
     }
     
+     @Path("certificadoras")
+    public CertificadorasResource CertificadorasResource()
+    {
+       return new CertificadorasResource(); 
+    }
+    
+    @Path("checklist")
+    public CheckListResource CheckListResource()
+    {
+       return new CheckListResource(); 
+    }
+    
+    @Path("naoconformidades")
+    public NaoConformidadesResource NaoConformidadesResource()
+    {
+       return new NaoConformidadesResource(); 
+    }
+    
+    @Path("ocorrencias")
+    public OcorrenciasResource OcorrenciasResource()
+    {
+       return new OcorrenciasResource(); 
+    }
+    
     
     
     
