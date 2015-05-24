@@ -23,7 +23,12 @@ import javax.ws.rs.core.MediaType;
 
 public class CheckListResource
 {
-  private EntityManager entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
+  private EntityManager entityManager ;
+
+    public CheckListResource() {
+        entityManager = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+    }
+  
 
     private Integer  countCheckList()
     {

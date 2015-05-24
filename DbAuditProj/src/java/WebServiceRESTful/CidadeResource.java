@@ -23,7 +23,13 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 public class CidadeResource  {
     
-    private EntityManager entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
+    private EntityManager entityManager ;
+
+    public CidadeResource() {
+        entityManager = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+    }
+    
+    
 
     private Integer countCidades() {
         Query query = entityManager.createQuery("SELECT COUNT(c.id) FROM Cidades c");

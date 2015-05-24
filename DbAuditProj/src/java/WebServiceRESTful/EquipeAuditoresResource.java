@@ -25,7 +25,13 @@ import javax.ws.rs.core.MediaType;
 
 public class EquipeAuditoresResource 
 {
-   private EntityManager entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
+   private EntityManager entityManager ;
+
+    public EquipeAuditoresResource() {
+        entityManager  = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+    }
+   
+   
 
     private Integer countEquipeAuditores() {
         Query query = entityManager.createQuery("SELECT COUNT(eqa.id) FROM EquipeAuditores eqa");

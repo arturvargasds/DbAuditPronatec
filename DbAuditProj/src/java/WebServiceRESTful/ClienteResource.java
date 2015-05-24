@@ -23,7 +23,12 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 public class ClienteResource 
 {
-  private EntityManager entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
+  private EntityManager entityManager ;
+
+    public ClienteResource() {
+        entityManager = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+    }
+  
 
     private Integer countClientes() {
         Query query = entityManager.createQuery("SELECT COUNT(cli.id) FROM Cliente cli");

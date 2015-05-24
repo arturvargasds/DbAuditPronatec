@@ -22,8 +22,12 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 public class AuditorResource 
 {
-  private EntityManager entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
+  private EntityManager entityManager ;
 
+    public AuditorResource() {
+        entityManager = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+    }
+  
     private Integer countAuditores() {
         Query query = entityManager.createQuery("SELECT COUNT(au.id) FROM Auditor au");
         return ((Long) query.getSingleResult()).intValue();

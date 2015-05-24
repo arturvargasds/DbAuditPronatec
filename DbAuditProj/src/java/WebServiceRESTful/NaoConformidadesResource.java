@@ -23,7 +23,12 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class NaoConformidadesResource {
-     private EntityManager entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
+     private EntityManager entityManager ;
+
+    public NaoConformidadesResource() {
+        entityManager = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+    }
+     
 
     private Integer countNaoConformidadesResource() {
         Query query = entityManager.createQuery("SELECT COUNT(NC.id) FROM NAOCONFORMIDADES NC");

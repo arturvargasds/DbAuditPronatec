@@ -26,7 +26,12 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 
 public class ColaboradoresResource {
-     private EntityManager entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
+     private EntityManager entityManager ;
+
+    public ColaboradoresResource() {
+        entityManager = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+    }
+     
 
     private Integer countColaboradores() {
         Query query = entityManager.createQuery("SELECT COUNT(c.id) FROM Colaboradores c");

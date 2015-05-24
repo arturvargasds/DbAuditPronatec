@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 import data.*;
 
 @Stateless
-@ApplicationPath("/api")
+@ApplicationPath("/apipronatec")
 @Path("")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)

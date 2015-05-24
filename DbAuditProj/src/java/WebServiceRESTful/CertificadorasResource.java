@@ -23,7 +23,12 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class CertificadorasResource {
-    private EntityManager entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
+    private EntityManager entityManager ;
+
+    public CertificadorasResource() {
+        entityManager = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+    }
+    
 
     private Integer countCertificadoras() {
         Query query = entityManager.createQuery("SELECT COUNT(cert.id) FROM Certificadora cert");

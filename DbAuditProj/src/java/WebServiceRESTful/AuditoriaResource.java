@@ -24,8 +24,13 @@ import javax.ws.rs.core.MediaType;
 
 public class AuditoriaResource 
 {
-  private EntityManager entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
+  private EntityManager entityManager ;
 
+    public AuditoriaResource() {
+        entityManager = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+    }
+
+  
     private Integer countAuditorias()
     {
         Query query = entityManager.createQuery("SELECT COUNT(au.id) FROM Auditoria au");

@@ -24,7 +24,13 @@ import javax.ws.rs.core.MediaType;
 
 public class OcorrenciasResource 
 {
-  private EntityManager entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
+  private EntityManager entityManager ;
+
+    public OcorrenciasResource() {
+        entityManager = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+    }
+  
+  
 
     private Integer countOcorrencias() {
         Query query = entityManager.createQuery("SELECT COUNT(OCORRE.ID) FROM OCORRENCIAS OCORRE");

@@ -25,7 +25,13 @@ public class CepResource
 {
     
       
-  private EntityManager entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
+  private EntityManager entityManager ;
+
+    public CepResource() {
+        entityManager = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+    }
+  
+  
 
     private Integer countCeps() {
         Query query = entityManager.createQuery("SELECT COUNT(cep.id) FROM Cep cep");
