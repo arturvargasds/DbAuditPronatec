@@ -5,11 +5,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * Wraps all the information needed to paginate a table.
- *
- * @author Roberto Cortez
- */
 @XmlRootElement
 public class PaginatedListWrapper<T> implements Serializable {
     private Integer currentPage;
