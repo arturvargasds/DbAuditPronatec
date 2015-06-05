@@ -1,6 +1,11 @@
 /* global angular */
 
-var app = angular.module('DbAudit_App', ['ngRoute']);
+          angular.module('DbAudit_App', ['ngRoute']);
+          angular.module('DbAudit_App',['ngMessages']);
+          angular.module('DbAudit_App').controller("PageCtrl", function ($scope)
+        {
+            $scope.app = "DB Auditoria";                   
+        }); 
 
 /**
  * configurando as rotas (Routes)

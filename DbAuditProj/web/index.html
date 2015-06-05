@@ -23,8 +23,7 @@
             width: auto;
             text-align: center;
             margin-left:auto;
-            margin-right: auto;
-            margin-top: 10px;            
+            margin-right: auto;                        
         }
         .table {
             margin-top: 10px;
@@ -42,33 +41,18 @@
 
     <script>
         angular.module("DbAudit_App",["ngMessages"]);
-        angular.module("DbAudit_App").controller("DbAudit_AppCtrl", function ($scope){
-            $scope.app = "DB Auditoria";
-            
-            $scope.abrirPagina = function (pagina){
-                $scope.pagina.push(angular.copy(pagina));
-                delete $scope.pagina;
-                
-            };
+        angular.module("DbAudit_App").controller("DbAudit_AppCtrl", function ($scope)
+        {
+            $scope.app = "DB Auditoria";                   
+        });
 
-            $scope.ApagarContato = function (contatos){
-                $scope.contatos = contatos.filter(function (contato){
-                    if (!contato.selecionado) return contato;                   
-                });                 
-            };
-            $scope.isContatoSelecionado = function (contatos){
-                return contatos.some(function (contato) {
-                    return contato.selecionado; 
-                });             
-            };      
-        });  
     </script>    
 </head>
 
 <!-- inicio do corpo -->
 <body ng-controller="DbAudit_AppCtrl">
     <div class="jumbotron">
-        <h3>DB Audit</h3>
+        <h4>{{app}}</h4>
         <table class="table">
             <tr>
                 <th></th>
@@ -79,6 +63,6 @@
             </tr>               
         </table>
         <hr/>
-        <button ng-show="contatoForm.$valid" class="btn btn-primary btn-block"ng-click="AdicionarContato(contato)" ng-disabled="contatoForm.$invalid">Adicionar Contato</button>
+        <button class="btn btn-primary btn-block"ng-click="">Adicionar Contato</button>
 </body>
 </html>
