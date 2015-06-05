@@ -1,5 +1,5 @@
 
-<html class="no-js" lang="pt-br"> <!--[endif]--- detectá e tratá casos dde imcopatibilidades do browsers, com a biblioteca Modernizr.-->
+<html ng-app="DbAudit_App" class="no-js" lang="pt-br"> <!--[endif]--- detectá e tratá casos dde imcopatibilidades do browsers, com a biblioteca Modernizr.-->
     
 <head>
     <!-- Meta -->
@@ -10,33 +10,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- aonde da uma olhada http://getbootstrap.com -->  
-    <link  rel= "stylesheet"  href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" >
-    <link  rel= "stylesheet"  href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" >
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel= "stylesheet" href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" >
+    <link rel= "stylesheet" href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" >
+    <link rel= "stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel= "stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" >
 
-    <!--  CSS  -->
-    <link rel="stylesheet" href="css/main.css">
+    <!-- CSS -->
+    <link rel= "stylesheet" href="css/main.css">
+
+    <style>
+        .jumbotron{
+            width: auto;
+            text-align: center;
+            margin-left:auto;
+            margin-right: auto;
+            margin-top: 10px;            
+        }
+        .table {
+            margin-top: 10px;
+        }
+        .form-control{
+            margin-bottom: 5px;
+        }
+        .selecionado{
+            background-color: yellow; 
+        }
+    </style>
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-messages.js"></script>
+
+    <script>
+        angular.module("DbAudit_App",["ngMessages"]);
+        angular.module("DbAudit_App").controller("DbAudit_AppCtrl", function ($scope){
+            $scope.app = "DB Auditoria";
+            
+            $scope.abrirPagina = function (pagina){
+                $scope.pagina.push(angular.copy(pagina));
+                delete $scope.pagina;
+                
+            };
+
+            $scope.ApagarContato = function (contatos){
+                $scope.contatos = contatos.filter(function (contato){
+                    if (!contato.selecionado) return contato;                   
+                });                 
+            };
+            $scope.isContatoSelecionado = function (contatos){
+                return contatos.some(function (contato) {
+                    return contato.selecionado; 
+                });             
+            };      
+        });  
+    </script>    
 </head>
 
 <!-- inicio do corpo -->
-<body ng-app="DbAudit_App">
-
-<!-- menu -->
-<div ng-include='"views/menu.html"'></div>
-<!-- aonde serão carregadas paginas da pasta views-->
-<div ng-view></div>
-
-<!--  Javascripts -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-<!-- Angular, Javascripts -->
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"></script>
-
-<!--  Javascripts -->
-<script src="js/main.js"></script>
-
+<body ng-controller="DbAudit_AppCtrl">
+    <div class="jumbotron">
+        <h3>DB Audit</h3>
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>Home</th>
+                <th>Contato</th> 
+                <th>Sobre</th>               
+                <td></td> 
+            </tr>               
+        </table>
+        <hr/>
+        <button ng-show="contatoForm.$valid" class="btn btn-primary btn-block"ng-click="AdicionarContato(contato)" ng-disabled="contatoForm.$invalid">Adicionar Contato</button>
 </body>
 </html>
