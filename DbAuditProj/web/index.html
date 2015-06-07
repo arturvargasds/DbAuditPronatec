@@ -17,26 +17,7 @@
 
     <!-- CSS -->
     <link rel= "stylesheet" href="css/main.css">
-
-    <style>
-        .jumbotron{
-            width: auto;
-            text-align: center;
-            margin-left:auto;
-            margin-right: auto;                        
-        }
-        .table {
-            margin-top: 10px;
-        }
-        .form-control{
-            margin-bottom: 5px;
-        }
-        .selecionado{
-            background-color: yellow; 
-        }
-    </style>
-
-    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular.js"></script>   
     <script src="lib/angular/angular-messages.js"></script>
 
     <script>
@@ -52,13 +33,13 @@
 <!-- inicio do corpo -->
 <body ng-controller="DbAudit_AppCtrl">
     <div class="jumbotron">
-        <h4>{{app}}</h4>
+        <h4>DBAudit</h4>
         <table class="table">
             <tr>
                 <th></th>
-                <th>Home</th>
-                <th>Contato</th> 
-                <th>Sobre</th>               
+                <th><a href="views/home.html">Home</a></th>
+                <th><a href="views/contato.html">Contato</a></th> 
+                <th><a href="views/sobre.html">Sobre</a></th>               
                 <td></td> 
             </tr>               
         </table>
