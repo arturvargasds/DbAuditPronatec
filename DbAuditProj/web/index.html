@@ -17,15 +17,23 @@
 
     <!-- CSS -->
     <link rel= "stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
     <script src="lib/angular/angular.js"></script>   
     <script src="lib/angular/angular-messages.js"></script>
-
+    <script src="lib/angular/angular-resource.js"></script>
     <script>
         angular.module("DbAudit_App",["ngMessages"]);
-        angular.module("DbAudit_App").controller("DbAudit_AppCtrl", function ($scope)
+
+        //nova dependencia : ngResource esta sendo incluida
+        var DbAudit_App = new angular.module("DbAudit_App",["ngResource"]);       
+        
+
+        //injetando a dependencia       
+
+        DbAudit_App.controller("DbAudit_AppCtrl",[$scope,$resource,function ($scope,$resource)
         {
             $scope.app = "DB Auditoria";                   
-        });
+        }]);
 
     </script>    
 </head>
@@ -39,11 +47,12 @@
                 <th></th>
                 <th><a href="views/home.html">Home</a></th>
                 <th><a href="views/contato.html">Contato</a></th> 
+                <th><a href="views/menu.html">Menu</a></th> 
                 <th><a href="views/sobre.html">Sobre</a></th>               
                 <td></td> 
             </tr>               
         </table>
         <hr/>
-        <button class="btn btn-primary btn-block"ng-click="">Adicionar Contato</button>
+    <div>    
 </body>
 </html>
