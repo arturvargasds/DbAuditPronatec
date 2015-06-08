@@ -1,0 +1,58 @@
+
+<html ng-app="DbAudit_App" class="no-js" lang="pt-br"> <!--[endif]--- detectá e tratá casos dde imcopatibilidades do browsers, com a biblioteca Modernizr.-->
+    
+<head>
+    <!-- Meta -->
+    <title>DBAudit.</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="DbAudit.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- aonde da uma olhada http://getbootstrap.com -->  
+    <link rel= "stylesheet" href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" >
+    <link rel= "stylesheet" href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" >
+    <link rel= "stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel= "stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" >
+
+    <!-- CSS -->
+    <link rel= "stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <script src="lib/angular/angular.js"></script>   
+    <script src="lib/angular/angular-messages.js"></script>
+    <script src="lib/angular/angular-resource.js"></script>
+    <script>
+        angular.module("DbAudit_App",["ngMessages"]);
+
+        //nova dependencia : ngResource esta sendo incluida
+        var DbAudit_App = new angular.module("DbAudit_App",["ngResource"]);       
+        
+
+        //injetando a dependencia       
+
+        DbAudit_App.controller("DbAudit_AppCtrl",[$scope,$resource,function ($scope,$resource)
+        {
+            $scope.app = "DB Auditoria";                   
+        }]);
+
+    </script>    
+</head>
+
+<!-- inicio do corpo -->
+<body ng-controller="DbAudit_AppCtrl">
+    <div class="jumbotron">
+        <h4>DBAudit</h4>
+        <table class="table">
+            <tr>
+                <th></th>
+                <th><a href="views/home.html">Home</a></th>
+                <th><a href="views/contato.html">Contato</a></th> 
+                <th><a href="views/menu.html">Menu</a></th> 
+                <th><a href="views/sobre.html">Sobre</a></th>               
+                <td></td> 
+            </tr>               
+        </table>
+        <hr/>
+    <div>    
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Meta -->
+    <title>DBAudit.</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="DbAudit.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- aonde da uma olhada http://getbootstrap.com -->  
+    <link rel= "stylesheet" href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" >
+    <link rel= "stylesheet" href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" >
+    <link rel= "stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel= "stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" >
+
+    <!-- CSS -->
+    <link rel= "stylesheet" href="css/main.css">
+    <script src="lib/angular/angular.js"></script>   
+    <script src="lib/angular/angular-messages.js"></script>
+    <script>
+        angular.module("DbAudit_App",["ngMessages"]);
+        angular.module("DbAudit_App").controller("DbAudit_AppCtrl", function ($scope)
+        {
+            $scope.app = "DB Auditoria";                   
+        });
+
+    </script>    
+</head>    
+
+<body>
+  <div class="jumbotron">
+        <h4>DBAudit</h4>
+        <table class="table">
+            <tr>
+                <th></th>
+                <th><a href="home.html">Home</a></th>
+                <th><a href="contato.html">Contato</a></th> 
+                <th><a href="sobre.html">Sobre</a></th>               
+                <td></td> 
+            </tr>               
+        </table>
+        <hr/>
+    </div>
+    <div>Sobre!!!</div>
+</body>
+</html>
