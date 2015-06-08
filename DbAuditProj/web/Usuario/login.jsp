@@ -14,7 +14,7 @@
 			Class.forName("org.postgresql.Driver");
 			//out.println("Conseguiu carregar o driver");
 			
-			Connection con = DriverManager.getConnection("jdbc:postgresql://localhost/DbAudit","postgres","admin");
+			Connection con = DriverManager.getConnection("jdbc:postgresql://localhost/DbAudit","postgres","SAu4wS7Gkb");
 			out.println("Conexão com sucesso");
 			
 			if (request.getParameter("usuario") != null)

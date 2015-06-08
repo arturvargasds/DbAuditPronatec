@@ -34,7 +34,7 @@
         {
           Class.forName("org.postgresql.Driver");
 
-	 Connection con = DriverManager.getConnection("jdbc:postgresql://localhost/DbAudit","postgres","admin");
+	 Connection con = DriverManager.getConnection("jdbc:postgresql://localhost/DbAudit","postgres","SAu4wS7Gkb");
 
 	  Statement st = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
 	  ResultSet.CONCUR_READ_ONLY); 
