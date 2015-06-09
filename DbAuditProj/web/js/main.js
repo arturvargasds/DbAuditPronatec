@@ -1,11 +1,6 @@
 /* global angular */
 
-          angular.module('DbAudit_App', ['ngRoute']);
-          angular.module('DbAudit_App',['ngMessages']);
-          angular.module('DbAudit_App').controller("PageCtrl", function ($scope)
-        {
-            $scope.app = "DB Auditoria";                   
-        }); 
+var app = angular.module('DbAudit_App', ['ngRoute']);
 
 /**
  * configurando as rotas (Routes)
@@ -16,6 +11,7 @@ app.config(['$routeProvider', function ($routeProvider) {$routeProvider
     // Paginas
     .when("/contato", {templateUrl: "views/contato.html", controller: "PageCtrl"})
     .when("/sobre", {templateUrl: "views/sobre.html", controller: "PageCtrl"})
+    .when("/calendario", {templateUrl: "calendario/index.html", controller: "PageCtrl"})
     
     // é  como um else 
     .otherwise("/", {templateUrl: "views/home.html", controller: "PageCtrl"});
