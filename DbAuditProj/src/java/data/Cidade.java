@@ -1,6 +1,4 @@
 package data;
-
-import data.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +14,7 @@ public class Cidade
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDCID")
-    @SequenceGenerator(name = "IDCID", sequenceName = "seq_CIDADES")
+    @SequenceGenerator(name = "IDCID", sequenceName = "SEQ_CIDADES", allocationSize = 1)
     @Column(name = "idcid")
     private Long id;
     
@@ -59,6 +57,26 @@ public class Cidade
 
     public void setStatusCid(final String statusCid) {
         this.statusCid = statusCid;
+    }
+    
+       @Override
+       public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+    
+    /*
+        @Override
+       public boolean equals(Object o) {
+        if (this == o) { return true; }
+        if (o == null || getClass() != o.getClass()) { return false; }
+
+        Cidade cidade = (Cidade) o;
+
+        return id.equals(cidade.id);}*/
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
     
 }

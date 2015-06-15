@@ -1,0 +1,61 @@
+
+
+<html class="no-js" lang="pt-br"> <!--[endif]--- detectá e tratá casos dde imcopatibilidades do browsers, com a biblioteca Modernizr.-->
+    
+<head>
+    <!-- Meta 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+    <title>DBAudit.</title>
+    <meta charset="utf-8">
+   <meta name="description" content="DbAudit.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- aonde da uma olhada http://getbootstrap.com -->  
+    <link  rel= "stylesheet"  href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" >
+   <!--   
+   <link  rel= "stylesheet"  href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" > 
+   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+
+    <!--  CSS  -->
+    
+    <link href="docs/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="docs/assets/css/bootstrap-responsive.css" rel="stylesheet">
+       <link href="css/main.css" rel="stylesheet" type="text/css" /> 
+       <link href="css/bootstrap.css" rel="stylesheet"  />      
+       <link href="css/bootstrap.mim.css" rel="stylesheet"  />        
+       <link href="css/bootstrap-responsive.css"  />   
+       <link href="css/bootstrap-responsive.min.css" rel="stylesheet"  /> 
+        <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet"> 
+        <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    
+</head>
+
+<!-- inicio do corpo -->
+<body id="body_index" ng-app="DbAudit_App">
+
+<!-- menu -->
+<div id="" ng-include='"views/menu.html"'></div>
+<!-- aonde serão carregadas paginas da pasta views-->
+
+<div id="div_principal"> 
+ <div id="ng-views" ng-view> </div> 
+ <div id="patrocinador1"> patrocinador 1</div> 
+ <div id="patrocinador2"> patrocinador 2</div> 
+ <div id="patrocinador3"> patrocinador 3</div>  
+ <div id="patrocinador4"> patrocinador 4</div> 
+ 
+ <div id="notes">  </div> 
+</div>
+<!--  Javascripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<!-- Angular, Javascripts -->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"></script>
+
+<!--  Javascripts -->
+<script src="js/main.js"></script>
+
+</body>
+</html>

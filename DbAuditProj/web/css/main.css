@@ -1,10 +1,135 @@
+#body_index
+{
+	height: 100%;
+	background-color:#FAF9BC;
+        
+}
+#div_principal
+{
+	background-color: #929C0A;
+	width: 1179px;
+	height: 603px;
+	color: #000;
+	font-size: 18px;
+	margin: auto;
+	position: absolute;
+	margin-left: 35px;
+	left: 24px;
+	top: 65px;
 
-
-html, body {
-    height: 100%;
+}
+.hero-unit {
+  padding: 60px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 200px;
+  line-height: 350px;
+  color: inherit;
+  background-color: #eeeeee;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
 }
 
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+.hero-unit h1 {
+  margin-bottom: 0;
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: inherit;
+}
+
+.hero-unit li {
+  line-height: 30px;
+}
+#ng-views
+{
+	width: 812px;
+	height: 589px;
+	background-color: #fff;
+	color: #000;
+	font-size: 18px;
+	margin: auto;
+	position: absolute;
+	margin-left: 35px;
+	background-image: url(Imagens/plano8.jpg);
+	 /* border: 1px solid #000;  */
+	left: 157px;
+	top: 7px;
+	
+}
+#patrocinador1
+{
+	width: 164px;
+	height: 151px;
+	background-color: #FFF;
+	color: #000;
+	font-size: 18px;
+	margin: auto;
+	position: absolute;
+	margin-left: 37px;
+	left: 973px;
+	top: 7px;
+    /* border: 1px solid #000;  */
+	
+}
+#patrocinador2
+{
+	width: 164px;
+	height: 151px;
+	background-color: #FFF;
+	color: #000;
+	font-size: 18px;
+	margin: auto;
+	position: absolute;
+	margin-left: 37px;
+	left: 973px;
+	top: 165px;
+	 /* border: 1px solid #000;  */
+	
+}
+#patrocinador3
+{
+	width: 164px;
+	height: 146px;
+	background-color: #FFF;
+	color: #000;
+	font-size: 18px;
+	margin: auto;
+	position: absolute;
+	margin-left: 35px;
+	left: 975px;
+	top: 324px;
+	 /* border: 1px solid #000;  */
+	
+}
+#patrocinador4
+{
+	width: 164px;
+	height: 119px;
+	background-color: #FFF;
+	color: #000;
+	font-size: 18px;
+	margin: auto;
+	position: absolute;
+	margin-left: 35px;
+	left: 975px;
+	top: 477px;
+	 /* border: 1px solid #000;  */
+	
+}
+#notes
+{
+	width: 181px;
+	height: 587px;
+	background-color: #FFF;
+	color: #000;
+	font-size: 18px;
+	margin: auto;
+	position: absolute;
+	margin-left: 35px;
+	left: -30px;
+	top: 8px;
+	 /* border: 1px solid #000;  */
+	
 }
