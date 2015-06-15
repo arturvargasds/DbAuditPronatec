@@ -1,6 +1,7 @@
-package WebServiceRESTful;
 
-import data.Cidade;
+package WebServiceRESTful;
+import data.Bairro;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -15,40 +16,39 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
 
 
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class CidadeResource  {
+public class BairroResource  {
     
-    private EntityManager entityManager ;
+    private  EntityManager entityManager ;
 
-    public CidadeResource() {
+    public BairroResource() {
         entityManager = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
     }
     
     
 
-    private Integer countCidades() {
-        Query query = entityManager.createQuery("SELECT COUNT(c.id) FROM Cidades c");
+    private Integer countBairros() {
+        Query query = entityManager.createQuery("SELECT COUNT(c.id) FROM Bairros c");
         return ((Long) query.getSingleResult()).intValue();
     }
 
     @SuppressWarnings("unchecked")
-    private List<Cidade> findCidades(int startPosition, int maxResults, String sortFields, String sortDirections) {
+    private List<Bairro> findBairros(int startPosition, int maxResults, String sortFields, String sortDirections) {
         Query query =
-                entityManager.createQuery("SELECT c FROM Cidades c ORDER BY c." + sortFields + " " + sortDirections);
+                entityManager.createQuery("SELECT c FROM Bairros c ORDER BY c." + sortFields + " " + sortDirections);
         query.setFirstResult(startPosition);
         query.setMaxResults(maxResults);
         return query.getResultList();
     }
 
     private PaginatedListWrapper findCidades(PaginatedListWrapper wrapper) {
-        wrapper.setTotalResults(countCidades());
+        wrapper.setTotalResults(countBairros());
         int start = (wrapper.getCurrentPage() - 1) * wrapper.getPageSize();
-        wrapper.setList(findCidades(start,
+        wrapper.setList(findBairros(start,
                                     wrapper.getPageSize(),
                                     wrapper.getSortFields(),
                                     wrapper.getSortDirections()));
@@ -76,34 +76,33 @@ public class CidadeResource  {
 
     @GET
     @Path("{id}")
-    public Cidade getCidade(@PathParam("id") Long id) {
-        return entityManager.find(Cidade.class, id);
+    public Bairro getBairro(@PathParam("id") Long id) {
+        return entityManager.find(Bairro.class, id);
     }
 
     @POST
-    public Cidade saveCidade(Cidade cidade) {
-        if (cidade.getId() == null) {
-            Cidade cidadeToSave = new Cidade();
-            cidadeToSave.setNomeCid(cidade.getNomeCid());
-            cidadeToSave.setSiglaUf(cidade.getSiglaUf());
-            cidadeToSave.setStatusCid(cidade.getStatusCid());
-            entityManager.persist(cidade);
+    public Bairro saveBairro(Bairro bairro) {
+        if (bairro.getId() == null) {
+            Bairro bairroToSave = new Bairro();
+            bairroToSave.setDescricao(bairro.getDescricao());
+            bairroToSave.setStatusBai(bairro.getStatusBai());
+            entityManager.persist(bairro);
         } else {
-            Cidade cidadeToUpdate = getCidade(cidade.getId());
-            cidadeToUpdate.setNomeCid(cidade.getNomeCid());
-            cidadeToUpdate.setSiglaUf(cidade.getSiglaUf());
-            cidadeToUpdate.setStatusCid(cidade.getStatusCid());
-            cidade = entityManager.merge(cidadeToUpdate);
+            Bairro bairroToUpdate = getBairro(bairro.getId());
+            bairroToUpdate.setDescricao(bairro.getDescricao());     
+            bairroToUpdate.setStatusBai(bairro.getStatusBai());
+            bairro = entityManager.merge(bairroToUpdate);
         }
-         entityManager.getTransaction().commit();
-     
-        return cidade;
+        entityManager.getTransaction().commit();
+
+        return bairro;
     }
 
     @DELETE
     @Path("{id}")
-    public void deleteCidade(@PathParam("id") Long id) {
-        entityManager.remove(getCidade(id));
+    public void deleteBairro(@PathParam("id") Long id) {
+        entityManager.remove(getBairro(id));
         entityManager.getTransaction().commit();
     }
 }
+

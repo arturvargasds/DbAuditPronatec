@@ -15,7 +15,7 @@ public class Auditor
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDAUDITOR")
-    @SequenceGenerator(name = "IDAUDITOR", sequenceName = "AUDITORES")
+    @SequenceGenerator(name = "IDAUDITOR", sequenceName = "SEQ_ADITORES", allocationSize = 1)
     @Column(name = "IDAUDITOR")
     private Long id;
     
@@ -162,6 +162,15 @@ public class Auditor
         this.usuAudit = usuAudit;
     }
       
+           @Override
+       public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
     
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
     
 }

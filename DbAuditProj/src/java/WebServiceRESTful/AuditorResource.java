@@ -109,6 +109,7 @@ public class AuditorResource
             auditorToUpdate.setSenhAudit(auditor.getSenhAudit());
             auditorToUpdate.setStatusAuditores(auditor.getStatusAuditores());
             auditor = entityManager.merge(auditorToUpdate);
+            entityManager.getTransaction().commit();
         }
         return auditor;
     }
@@ -117,6 +118,7 @@ public class AuditorResource
     @Path("{id}")
     public void deleteAuditor(@PathParam("id") Long id) {
         entityManager.remove(getAuditores(id));
+        entityManager.getTransaction().commit();
     }   
       
 }

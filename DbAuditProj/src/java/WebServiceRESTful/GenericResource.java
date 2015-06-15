@@ -6,7 +6,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
-import data.*;
 
 @Stateless
 @ApplicationPath("/api")
@@ -21,6 +20,12 @@ public class GenericResource extends Application
     public CidadeResource cidadeResource()
     {
        return new CidadeResource(); 
+    }
+    
+    @Path("bairros")
+    public BairroResource bairroResource()
+    {
+       return new BairroResource(); 
     }
     
     @Path("auditorias")
