@@ -26,7 +26,9 @@ public class CidadeResource  {
     private EntityManager entityManager ;
 
     public CidadeResource() {
+        
         entityManager = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+        
     }
     
     
@@ -81,7 +83,10 @@ public class CidadeResource  {
     }
 
     @POST
-    public Cidade saveCidade(Cidade cidade) {
+    public Cidade saveCidade(Cidade cidade) 
+    {
+        entityManager.getTransaction().begin();
+        /////
         if (cidade.getId() == null) {
             Cidade cidadeToSave = new Cidade();
             cidadeToSave.setNomeCid(cidade.getNomeCid());
@@ -95,13 +100,20 @@ public class CidadeResource  {
             cidadeToUpdate.setStatusCid(cidade.getStatusCid());
             cidade = entityManager.merge(cidadeToUpdate);
         }
-
+        entityManager.getTransaction().commit();
+        /////
         return cidade;
     }
 
     @DELETE
     @Path("{id}")
-    public void deleteCidade(@PathParam("id") Long id) {
-        entityManager.remove(getCidade(id));
+    public void deleteCidade(@PathParam("id") Long id) 
+    {
+        entityManager.getTransaction().begin(); 
+        ////Startando a transação
+        entityManager.remove(getCidade(id));  
+        
+        entityManager.getTransaction().commit();
+        ////Tentando gravar a transação
     }
 }

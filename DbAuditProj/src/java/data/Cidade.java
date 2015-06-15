@@ -16,7 +16,7 @@ public class Cidade
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDCID")
-    @SequenceGenerator(name = "IDCID", sequenceName = "CIDADES")
+    @SequenceGenerator(name = "IDCID", sequenceName = "seq_CIDADES")
     @Column(name = "idcid")
     private Long id;
     
