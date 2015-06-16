@@ -81,6 +81,7 @@ public class CertificadorasResource {
 
     @POST
     public Certificadora saveCertificadoras(Certificadora certificadora) {
+        entityManager.getTransaction().begin();
         if (certificadora.getId() == null) {
             Certificadora certificadoraToSave = new Certificadora();            
             certificadoraToSave.setId(certificadora.getId());
@@ -115,12 +116,17 @@ public class CertificadorasResource {
             certificadoraToUpdate.setStatusCert(certificadora.getStatusCert());
             certificadora = entityManager.merge(certificadoraToUpdate);
         }
+        entityManager.getTransaction().commit();
         return certificadora;
     }
 
     @DELETE
     @Path("{id}")
     public void deleteCliente(@PathParam("id") Long id) {
-        entityManager.remove(getCertificadoras(id));
+        entityManager.getTransaction().begin(); 
+        ////Startando a transação
+        entityManager.remove(getCertificadoras(id));         
+        entityManager.getTransaction().commit();
+        ////Tentando gravar a transaçã
     }
 }
