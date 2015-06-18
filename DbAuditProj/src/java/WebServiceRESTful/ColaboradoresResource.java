@@ -84,6 +84,7 @@ public class ColaboradoresResource {
 
     @POST
     public Colaborador saveColaborador(Colaborador colaborador) {
+        entityManager.getTransaction().begin();
         if (colaborador.getId() == null) {
             Colaborador colaboradorToSave = new Colaborador();
             colaboradorToSave.setNomeCola(colaborador.getNomeCola());
@@ -104,14 +105,16 @@ public class ColaboradoresResource {
             colaborador = entityManager.merge(colaboradorToUpdate);
             //ppp
         }
-
+        entityManager.getTransaction().commit();
         return colaborador;
     }
 
     @DELETE
     @Path("{id}")
     public void deleteColaborador(@PathParam("id") Long id) {
+        entityManager.getTransaction().begin();
         entityManager.remove(getColaborador(id));
+        entityManager.getTransaction().commit();
     }
 
  

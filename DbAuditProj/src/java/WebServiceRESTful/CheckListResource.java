@@ -87,6 +87,7 @@ public class CheckListResource
     @POST
     public CheckList saveCheckList(CheckList checklist)
     {
+        entityManager.getTransaction().begin();
         if (checklist.getId() == null)
           {
               CheckList checklistToSave = new CheckList();            
@@ -111,6 +112,7 @@ public class CheckListResource
               checklistToUpdate.setStatusChklist(checklist.getStatusChklist());                        
               checklist = entityManager.merge(checklistToUpdate);
           }
+        entityManager.getTransaction().commit();
         return checklist;
     }
 
@@ -118,7 +120,11 @@ public class CheckListResource
     @Path("{id}")
     public void deleteCheckList(@PathParam("id") Long id)
     {
-        entityManager.remove(getCheckList(id));
+         entityManager.getTransaction().begin(); 
+        ////Startando a transação
+        entityManager.remove(getCheckList(id));         
+        entityManager.getTransaction().commit();
+        ////Tentando gravar a transaçã
     }   
       
 }

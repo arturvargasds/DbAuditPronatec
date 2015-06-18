@@ -88,6 +88,7 @@ public class AuditoriaResource
     @POST
     public Auditoria saveAuditoria(Auditoria auditoria)
     {
+        entityManager.getTransaction().begin();
         if (auditoria.getId() == null)
           {
               Auditoria auditoriaToSave = new Auditoria();            
@@ -120,14 +121,19 @@ public class AuditoriaResource
               auditoriaToUpdate.setStatusNc(auditoria.getStatusNc());                        
               auditoria = entityManager.merge(auditoriaToUpdate);
           }
+         entityManager.getTransaction().commit();
         return auditoria;
     }
 
     @DELETE
     @Path("{id}")
-    public void deleteAuditoria(@PathParam("id") Long id)
+    public void deleteAuditorias(@PathParam("id") Long id) 
     {
-        entityManager.remove(getAuditorias(id));
-    }   
+        entityManager.getTransaction().begin(); 
+        ////Startando a transação
+        entityManager.remove(getAuditorias(id));         
+        entityManager.getTransaction().commit();
+        ////Tentando gravar a transação
+  }  
       
 }

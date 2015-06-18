@@ -81,6 +81,7 @@ public class ClienteResource
 
     @POST
     public Cliente saveClientes(Cliente cliente) {
+        entityManager.getTransaction().begin();
         if (cliente.getId() == null) {
             Cliente clienteToSave = new Cliente();            
             clienteToSave.setIdcep(cliente.getIdcep());
@@ -116,13 +117,16 @@ public class ClienteResource
             clienteToUpdate.setStatusCli(cliente.getStatusCli());
             cliente = entityManager.merge(clienteToUpdate);
         }
+        entityManager.getTransaction().commit();
         return cliente;
     }
 
     @DELETE
     @Path("{id}")
     public void deleteCliente(@PathParam("id") Long id) {
+        entityManager.getTransaction().begin(); 
         entityManager.remove(getClientes(id));
+        entityManager.getTransaction().commit();
     }   
       
 }

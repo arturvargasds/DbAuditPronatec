@@ -80,7 +80,9 @@ public class NaoConformidadesResource {
     }
 
     @POST
-    public NaoConformidades saveNaoConformidades(NaoConformidades naoConformidades) {
+    public NaoConformidades saveNaoConformidades(NaoConformidades naoConformidades)
+    {
+        entityManager.getTransaction().begin();
         if (naoConformidades.getId() == null) {
             NaoConformidades naoConformidadesToSave = new NaoConformidades();            
             naoConformidadesToSave.setIdCola(naoConformidades.getIdCola());
@@ -106,13 +108,19 @@ public class NaoConformidadesResource {
             naoConformidadesToUpdate.setStatusNc(naoConformidades.getStatusNc());
             naoConformidades = entityManager.merge(naoConformidadesToUpdate);
         }
+        entityManager.getTransaction().commit();
         return naoConformidades;
     }
 
     @DELETE
     @Path("{id}")
-    public void deleteCliente(@PathParam("id") Long id) {
-        entityManager.remove(getNaoConformidades(id));
+    public void deleteCliente(@PathParam("id") Long id) {        
+        
+        entityManager.getTransaction().begin(); 
+        ////Startando a transação
+        entityManager.remove(getNaoConformidades(id));         
+        entityManager.getTransaction().commit();
+        ////Tentando gravar a transação
     }
 
     private Integer countNaoConformidades() {

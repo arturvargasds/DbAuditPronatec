@@ -82,6 +82,7 @@ public class BairroResource  {
 
     @POST
     public Bairro saveBairro(Bairro bairro) {
+        entityManager.getTransaction().begin();
         if (bairro.getId() == null) {
             Bairro bairroToSave = new Bairro();
             bairroToSave.setDescricao(bairro.getDescricao());
@@ -101,6 +102,7 @@ public class BairroResource  {
     @DELETE
     @Path("{id}")
     public void deleteBairro(@PathParam("id") Long id) {
+        entityManager.getTransaction().begin(); 
         entityManager.remove(getBairro(id));
         entityManager.getTransaction().commit();
     }
