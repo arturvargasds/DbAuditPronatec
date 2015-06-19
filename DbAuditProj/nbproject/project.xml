@@ -39,6 +39,9 @@
                 <library dirs="200">
                     <file>${file.reference.javax.ejb-api-3.2.jar}</file>
                 </library>
+                <library dirs="200">
+                    <file>${file.reference.hibernate-entitymanager-4.0.1.Final.jar}</file>
+                </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>
