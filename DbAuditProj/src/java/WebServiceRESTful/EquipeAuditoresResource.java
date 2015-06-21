@@ -83,7 +83,9 @@ public class EquipeAuditoresResource
     }
 
     @POST
-    public EquipeAuditores saveEquipeAuditores(EquipeAuditores equipeAuditores) {
+    public EquipeAuditores saveEquipeAuditores(EquipeAuditores equipeAuditores)
+    {
+        entityManager.getTransaction().begin();
         if (equipeAuditores.getId() == null) {
             EquipeAuditores equipeAuditoresToSave = new EquipeAuditores();            
             equipeAuditoresToSave.setIdAuditor(equipeAuditores.getIdAuditor());
@@ -101,12 +103,18 @@ public class EquipeAuditoresResource
             equipeAuditoresToUpdate.setStatusEquipe(equipeAuditores.getStatusEquipe());
             equipeAuditores = entityManager.merge(equipeAuditoresToUpdate);
         }
+        entityManager.getTransaction().commit();
         return equipeAuditores;
     }
 
     @DELETE
     @Path("{id}")
-    public void deleteEquipeAuditores(@PathParam("id") Long id) {
-        entityManager.remove(getEquipeAuditores(id));
+    public void deleteEquipeAuditores(@PathParam("id") Long id) {        
+        
+        entityManager.getTransaction().begin(); 
+        ////Startando a transação
+        entityManager.remove(getEquipeAuditores(id));         
+        entityManager.getTransaction().commit();
+        ////Tentando gravar a transação
     }     
 }
