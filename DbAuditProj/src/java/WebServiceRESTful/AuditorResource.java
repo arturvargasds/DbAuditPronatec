@@ -79,6 +79,7 @@ public class AuditorResource
 
     @POST
     public Auditor saveAuditor(Auditor auditor) {
+        entityManager.getTransaction().begin();
         if (auditor.getId() == null) {
             Auditor auditorToSave = new Auditor();
             auditorToSave.setIdcep(auditor.getIdcep());
@@ -117,6 +118,7 @@ public class AuditorResource
     @DELETE
     @Path("{id}")
     public void deleteAuditor(@PathParam("id") Long id) {
+         entityManager.getTransaction().begin(); 
         entityManager.remove(getAuditores(id));
         entityManager.getTransaction().commit();
     }   
