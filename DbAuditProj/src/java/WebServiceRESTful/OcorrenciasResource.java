@@ -82,7 +82,9 @@ public class OcorrenciasResource
     }
 
     @POST
-    public Ocorrencias saveOcorrencias(Ocorrencias ocorrencia) {
+    public Ocorrencias saveOcorrencias(Ocorrencias ocorrencia)
+    {
+        entityManager.getTransaction().begin();
         if (ocorrencia.getId() == null) {
             Ocorrencias ocorrenciaToSave = new Ocorrencias();
             ocorrenciaToSave.setId(ocorrencia.getId());
@@ -108,13 +110,19 @@ public class OcorrenciasResource
             ocorrenciaToUpdate.setStatusOcorre(ocorrencia.getStatusOcorre());
             ocorrencia = entityManager.merge(ocorrenciaToUpdate);
         }
+         entityManager.getTransaction().commit();
         return ocorrencia;
     }
 
     @DELETE
     @Path("{id}")
-    public void deleteOcorrencias(@PathParam("id") Long id) {
-        entityManager.remove(getOcorrencias(id));
+    public void deleteOcorrencias(@PathParam("id") Long id) {        
+        
+        entityManager.getTransaction().begin(); 
+        ////Startando a transação
+        entityManager.remove(getOcorrencias(id));         
+        entityManager.getTransaction().commit();
+        ////Tentando gravar a transação
     }   
       
 }
