@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+     <!-- bootstrap.cdd -->
+    <link href="css/2.3.2/bootstrap.css" rel="stylesheet" type="text/css" /> 
+    <link href="css/2.3.2/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+    
+       
+    
+    
+ <style>
+      body {
+        padding-top: 0;
+        padding-bottom: 30px;
+      }
+      .navbar {
+        margin-top: 20px;
+      }    
+.red{
+    color:red;
+    }
+
+    </style>
+    <script src="js/JSJonas/jquery-1.11.1.min.js"></script>
+    <script src="css/cssJonas/bootstrap.min.js"></script>
+
+<body>
+<div class="container">
+<div class="col-md-5">
+    <div class="form-area">  
+       <form role="form">
+        <br style="clear:both">
+                    <h3 style="margin-bottom: 25px; text-align: center;">Cadastro de Clientes</h3>
+    				<div class="form-group">
+                                    <input type="text" class="form-control" id="name" name="nome" placeholder="Nome" required="required">
+				</div>
+				
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="RazaoCli" name="RazaoCli" placeholder="Razão Social" required="required">
+				</div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="FanCLi" name="FanCLi" placeholder="Nome Fantasia" required="required">
+				</div>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" id="fone" name="fone" placeholder="Telefone" required="required">
+				</div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required="required">
+				</div>
+                                <div class="form-group">
+                                    <input type="text" pattern="\d{2}\.\d{3}\.\d{3}/\d{4}\-\d{2}" class="form-control" id="CNPJ" name="CNPJ" placeholder="CNPJ, 00.000.000/0000-00" required="required">
+				</div>
+                                
+                    <div class="form-group">
+                    <div class="form-group">
+                    <textarea class="form-control" type="textarea" id="observacao" placeholder="Observação" maxlength="140" rows="7"></textarea>
+                        <span class="help-block"><p id="characterLeft" class="help-block ">Você chegou ao limite máximo</p></span>                    
+                    </div>
+            
+        <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Enviar</button>
+        <button type="reset" id="reset" name="reset" class="btn btn-primary pull-right">Limpar</button>
+        </form>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){ 
+    $('#characterLeft').text('140 caracteres restantes');
+    $('#observacao').keydown(function () {
+        var max = 140;
+        var len = $(this).val().length;
+        if (len >= max) {
+            $('#characterLeft').text('Você chegou ao limite máximo de caracteres');
+            $('#characterLeft').addClass('red');
+            $('#btnSubmit').addClass('disabled');            
+        } 
+        else {
+            var ch = max - len;
+            $('#characterLeft').text(ch + ' caracteres restantes');
+            $('#btnSubmit').removeClass('disabled');
+            $('#characterLeft').removeClass('red');            
+        }
+    });    
+});
+
+</script>
+</body>
+</html>
