@@ -11,7 +11,7 @@ app.config(['$routeProvider', function ($routeProvider) {$routeProvider
     // Paginas
     .when("/contato", {templateUrl: "views/contato.html", controller: "PageCtrl"})
     .when("/cadastrocli", {templateUrl: "views/cadastrocli.html", controller: "PageCtrl"})
-    .when("/cadastro", {template:"", controller: "PageCtrl"})
+    .when("/cadastro", {templateUrl:"0", controller: "PageCtrl"})
     .when("/sobre", {templateUrl: "views/sobre.html", controller: "PageCtrl"})
     .when("/calendario", {templateUrl: "calendario/index.html", controller: "PageCtrl"})
     
