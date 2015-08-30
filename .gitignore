@@ -13,3 +13,4 @@ hs_err_pid*
 /DbAuditProj/nbproject/private/
 /DbAuditProj/build/
 /DbAuditProj/dist/
+/target/
