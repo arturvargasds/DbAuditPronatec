@@ -1,3 +1,4 @@
+    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,24 +9,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    
-   <link href="../../lib/bower/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+    <title>DbAuditoria</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
     <!-- MetisMenu CSS -->
-     <link href="../../lib/bower/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="../../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
     <!-- DataTables CSS -->
-    <link href="../../lib/bower/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="../../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+
     <!-- DataTables Responsive CSS -->
-    <link href="../../lib/bower/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+    <link href="../../bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+
     <!-- Custom CSS -->
-    <link href="../styles/css/sb-admin-2.css" rel="stylesheet">
-    <link href="../styles/sb-admin-2.css" rel="stylesheet">
+    <link href="../../dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../../styles/sb-admin-2.css" rel="stylesheet">
+
     <!-- Custom Fonts -->
-    <link href="../../lib/bower/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
+    <link href="../../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 
 <body>
-    <%@include file="menu.html" %>
+    <%@include file="../menu.html" %>
     
    
 <div id="page-wrapper">     <br>
@@ -33,7 +49,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <h4>Controle de Clientes</h4>   
+                            <h4>Controle de Ocorrencia</h4>   
                         </div>
                         
                         <div class="panel-body">                           
@@ -52,11 +68,12 @@
                                       <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                         <thead>
                                             <tr>
-                                                <th>Razão Social</th>
-                                                <th>CNPJ</th>
-                                                <th>Inscrição</th>
-                                                <th>Nome Fantasia</th>
-                                                <th>Cep</th>
+                                                <th>Ponto de Controle</th>
+                                                <th>Colaboradores</th>
+                                                <th>Descrição Ocorrencia</th>
+                                                <th>Sugestão<th>
+                                                <th>Status</th>
+                                                <th>Observaçãoth>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -143,103 +160,36 @@
                                </div>                    
                            </div>
  <!--********************************************************************************************** Cadastro-->                               
-    <div class="tab-pane fade" id="settings-pills">  
-      <form id="addForm" method="POST" action="Exemplo.jsp" class="form-group">  
-         <div class=" container-fluid " > <br>
-
-            <div class="row">
-                
-                <!-- ***************************************************************************dados pessoais -->
-                <div class="col-lg-12">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            Dados Pessoais
-                        </div>
-                        <div class="panel-body">
-                           <div class="panel-collapse">
-                            
-                               <div class="col-lg-12">  <label>Razão Social</label> <input class="form-control" placeholder="Razão Social"> <p></div>
-                                      <div class="col-lg-3">   <label>cnpj</label>         <input class="form-control" placeholder="CNPJ"></div>                
-                                      <div class="col-lg-9">   <label>Nome Fantasia</label>   <input required="required" data-placement="left" title="Nome Fantasia:" class="form-control js-tooltip"  placeholder="Nome Fantasia:" pattern="[A-Za-z]++"  type="text" name="descricao"> <br></div>
-                           
-                          </div>
-                        </div>
-                    </div>
-                </div>  
-            </div>
-       <!-- ***************************************************************************endereço -->
-             <div class="row"> <p>
-              <div class="col-md-7">
-                <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Endereço
-                        </div>
-                        <div class="panel-body">
-                           <div class="col-lg-5"><label>Cep</label> <input class="form-control" placeholder="Cep:"> </div>
-                           <div class="col-lg-7"><label>Complemento</label> <input class="form-control" placeholder="Cep:"> <p></div>
-                            <div class="col-lg-5"><label>Cidade</label> <input class="form-control" placeholder="Cep:"> </div>
-                            <div class="col-lg-2"><label>UF</label> <input class="form-control" placeholder="Cep:"> </div>
-                            <div class="col-lg-5"><label>Bairro</label> <input class="form-control" placeholder="Cep:"> <br></div>
-                           
-                         </div>
-                </div>
-              </div>
-                <!-- /.col-lg-4 -->
-                <div class="col-lg-5">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            Responsável pela auditoria na empresa.
-                        </div>
-                        <div class="panel-body">
-                            <div class="col-lg-12">  <label>Contato</label> <input required="required" data-placement="left" title="CONTATO:" class="form-control js-tooltip"  placeholder="CONTATO:"  type="text" name="status"> <p> </div>
-                                    <div class="col-lg-12">  <label>E-mail Contato</label> <input class="form-control" placeholder="EMAIL CONTATO">  <br></div>
-                       </div>
-
-                    </div>
-                </div>
-            
-            </div>
-             
-             <div class="row"> <p>
-              <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                           Observação
-                        </div>
-                        <div class="panel-body"> <p>
-                            <div class="col-lg-12">
-                                <textarea class="form-control" rows="3"></textarea> <br>
-                                    </div>
-                        </div>
-                    </div>
-              </div> 
-         </div>
-                                           
-                             <!--   <div class="col-lg-offset-0">  
-                                      <div class="col-lg-12">  <label>Razão Social</label> <input class="form-control" placeholder="Razão Social"></div>
-                                      <div class="col-lg-3">   <label>cnpj</label>         <input class="form-control" placeholder="CNPJ"></div>                
-                                      <div class="col-lg-9">   <label>Nome Fantasia</label>   <input required="required" data-placement="left" title="Nome Fantasia:" class="form-control js-tooltip"  placeholder="Nome Fantasia:" pattern="[A-Za-z]++"  type="text" name="descricao"> </div>
-                                </div><br><br>
-                                        
-                                <div class="col-lg-offset-0 ">
-                                     <div class="col-lg-3"><label>Cep</label> <input class="form-control" placeholder="Cep:"> </div>
-                                </div>
+                            <div class="tab-pane fade" id="settings-pills">  
+                                 <form id="addForm" method="POST" action="Exemplo.jsp" class="form-group">  
+                                     <div class=" container-fluid " > <br>
+                                        <div class="row">
+                                                       
+                                       <!--     <div class="col-lg-offset-0">  
+                                                <div class="col-lg-3">  <input  disabled=""  placeholder="Codigo Automatico:"  name="id" ></div>                
+                                            </div>  <br><br>
+                                       -->     
+                                            <div class="col-lg-offset-0">
+                                            <div class="col-lg-12">  <label>Controle</label> <input class="form-control" placeholder="Controle"></div>
+                                            <div class="col-lg-3">   <label>Colaboradores</label>         <input class="form-control" placeholder="Colaboradores"></div>                
+                                            <div class="col-lg-9">   <label>Descrição</label>   <input required="required" data-placement="left" title="Descrição" class="form-control js-tooltip"  placeholder="Nome Fantasia:" pattern="[A-Za-z]++"  type="text" name="descricao"> </div>
+                                            </div>  <br><br>
                                             
-                                <div class="col-lg-offset-0">
-                                    <div class="col-lg-3">  <label>Fone</label><input required="required"  data-placement="left" title="FONE:" class="form-control js-tooltip"  placeholder="FONE:"  type="text" name="uf"> </div>
-                                    <div class="col-lg-9">  <label>E-mail</label><input class="form-control" placeholder="EMAIL"> </div>
-                                    <div class="col-lg-3">  <label>Contato</label> <input required="required" data-placement="left" title="CONTATO:" class="form-control js-tooltip"  placeholder="CONTATO:"  type="text" name="status"> </div>
-                                    <div class="col-lg-9">  <label>E-mail Contato</label> <input class="form-control" placeholder="EMAIL CONTATO">  </div>
-                                </div><br><br>
+                                            <div class="col-lg-offset-0">
+                                            <div class="col-lg-12">  <label>Sugestão</label> <input class="form-control" placeholder="Data-Hora Formação"> </div>
+                                            <div class="col-lg-3">  <label>Status</label><input required="required"  data-placement="left" title="Status" class="form-control js-tooltip"  placeholder="FONE:"  type="text" name="uf"> </div>
+                                            <div class="col-lg-3">  <label>Observação</label><input required="required"  data-placement="left" title="Observação" class="form-control js-tooltip"  placeholder="FONE:"  type="text" name="uf"> </div>
+                                            
+                                     </div>  <br><br>
                                                          
-                                <div class="col-lg-offset-0" >
-                                    <div class="col-lg-12">
-                                      <label>Observação</label>  <textarea class="form-control" rows="3"></textarea>
-                                    </div>
-                                </div> 
-                           
-                         </div>                                   
-                            -->           
+                                            <div class="col-lg-offset-0" >
+                                                <div class="col-lg-12">
+                                                            <label>Observação</label>  <textarea class="form-control" rows="3"></textarea>
+                                                </div>
+                                            </div> 
+                                        </div> 
+                                     </div>                                   
+                                    
                                                    
                                   <div  class="col-lg-offset-0 modal-footer">
                                       <div class="col-lg-7">  <!--class="modal-footer"-->
@@ -248,8 +198,6 @@
                                           <a onclick=""></a>
                                     </div>
                                   </div>
-                          
-
                                    </form>    
                                </div>
   <!--****************************************************************************************************-->  
@@ -261,25 +209,21 @@
     </div> <!-- /#wrapper -->
     
  <!--****************************************************************************************************-->
-   <script src="../../lib/bower/jquery/dist/jquery.min.js"></script>
-     
-     <!--  Javascripts criado -->
-     <script src="../../lib2/ angularJS/menu_controle.js"></script> 
-     <script src="../scripts/menu_controle.js"></script> 
-     
-     
-     <!-- Bootstrap Core JavaScript -->
-     <script src="../../lib/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- jQuery -->
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
 
-     <!-- Metis Menu Plugin JavaScript -->
-     <script src="../../lib/bower/metisMenu/dist/metisMenu.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-     <!-- DataTables JavaScript -->
-     <script src="../../lib/bower/datatables/media/js/jquery.dataTables.min.js"></script>
-     <script src="../../lib/bower/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../../bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
-     <!-- Custom Theme JavaScript -->
-     <script src="../scripts/js/sb-admin-2.js"></script>
+    <!-- DataTables JavaScript -->
+    <script src="../../bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="../../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../../dist/js/sb-admin-2.js"></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>

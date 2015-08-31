@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    
-   <link href="../../lib/bower/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+       <link href="../../lib/bower/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
      <link href="../../lib/bower/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
     <!-- DataTables CSS -->
@@ -33,7 +33,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <h4>Controle de Clientes</h4>   
+                            <h4>Controle de Auditorias</h4>   
                         </div>
                         
                         <div class="panel-body">                           
@@ -52,11 +52,14 @@
                                       <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                         <thead>
                                             <tr>
-                                                <th>Razão Social</th>
-                                                <th>CNPJ</th>
-                                                <th>Inscrição</th>
-                                                <th>Nome Fantasia</th>
-                                                <th>Cep</th>
+                                                <th>Código</th>
+                                                <th>Cliente</th>
+                                                <th>Certificadora</th>
+                                                <th>Descrição</th>
+                                                <th>Data do Cadastro</th>
+                                                <th>Data/Hora Inicial</th>
+                                                <th>Data/Hora Final</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -143,103 +146,37 @@
                                </div>                    
                            </div>
  <!--********************************************************************************************** Cadastro-->                               
-    <div class="tab-pane fade" id="settings-pills">  
-      <form id="addForm" method="POST" action="Exemplo.jsp" class="form-group">  
-         <div class=" container-fluid " > <br>
-
-            <div class="row">
-                
-                <!-- ***************************************************************************dados pessoais -->
-                <div class="col-lg-12">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            Dados Pessoais
-                        </div>
-                        <div class="panel-body">
-                           <div class="panel-collapse">
-                            
-                               <div class="col-lg-12">  <label>Razão Social</label> <input class="form-control" placeholder="Razão Social"> <p></div>
-                                      <div class="col-lg-3">   <label>cnpj</label>         <input class="form-control" placeholder="CNPJ"></div>                
-                                      <div class="col-lg-9">   <label>Nome Fantasia</label>   <input required="required" data-placement="left" title="Nome Fantasia:" class="form-control js-tooltip"  placeholder="Nome Fantasia:" pattern="[A-Za-z]++"  type="text" name="descricao"> <br></div>
-                           
-                          </div>
-                        </div>
-                    </div>
-                </div>  
-            </div>
-       <!-- ***************************************************************************endereço -->
-             <div class="row"> <p>
-              <div class="col-md-7">
-                <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Endereço
-                        </div>
-                        <div class="panel-body">
-                           <div class="col-lg-5"><label>Cep</label> <input class="form-control" placeholder="Cep:"> </div>
-                           <div class="col-lg-7"><label>Complemento</label> <input class="form-control" placeholder="Cep:"> <p></div>
-                            <div class="col-lg-5"><label>Cidade</label> <input class="form-control" placeholder="Cep:"> </div>
-                            <div class="col-lg-2"><label>UF</label> <input class="form-control" placeholder="Cep:"> </div>
-                            <div class="col-lg-5"><label>Bairro</label> <input class="form-control" placeholder="Cep:"> <br></div>
-                           
-                         </div>
-                </div>
-              </div>
-                <!-- /.col-lg-4 -->
-                <div class="col-lg-5">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            Responsável pela auditoria na empresa.
-                        </div>
-                        <div class="panel-body">
-                            <div class="col-lg-12">  <label>Contato</label> <input required="required" data-placement="left" title="CONTATO:" class="form-control js-tooltip"  placeholder="CONTATO:"  type="text" name="status"> <p> </div>
-                                    <div class="col-lg-12">  <label>E-mail Contato</label> <input class="form-control" placeholder="EMAIL CONTATO">  <br></div>
-                       </div>
-
-                    </div>
-                </div>
-            
-            </div>
-             
-             <div class="row"> <p>
-              <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                           Observação
-                        </div>
-                        <div class="panel-body"> <p>
-                            <div class="col-lg-12">
-                                <textarea class="form-control" rows="3"></textarea> <br>
-                                    </div>
-                        </div>
-                    </div>
-              </div> 
-         </div>
-                                           
-                             <!--   <div class="col-lg-offset-0">  
-                                      <div class="col-lg-12">  <label>Razão Social</label> <input class="form-control" placeholder="Razão Social"></div>
-                                      <div class="col-lg-3">   <label>cnpj</label>         <input class="form-control" placeholder="CNPJ"></div>                
-                                      <div class="col-lg-9">   <label>Nome Fantasia</label>   <input required="required" data-placement="left" title="Nome Fantasia:" class="form-control js-tooltip"  placeholder="Nome Fantasia:" pattern="[A-Za-z]++"  type="text" name="descricao"> </div>
-                                </div><br><br>
-                                        
-                                <div class="col-lg-offset-0 ">
-                                     <div class="col-lg-3"><label>Cep</label> <input class="form-control" placeholder="Cep:"> </div>
-                                </div>
+                            <div class="tab-pane fade" id="settings-pills">  
+                                 <form id="addForm" method="POST" action="Exemplo.jsp" class="form-group">  
+                                     <div class=" container-fluid " > <br>
+                                        <div class="row">
+                                                       
+                                       <!--     <div class="col-lg-offset-0">  
+                                                <div class="col-lg-3">  <input  disabled=""  placeholder="Codigo Automatico:"  name="id" ></div>                
+                                            </div>  <br><br>
+                                       -->     
+                                            <div class="col-lg-offset-0">
+                                            <div class="col-lg-3">  <label>Cód.Certificadora</label> <input class="form-control" placeholder="Cód.Certificadora"></div>
+                                            <div class="col-lg-9">   <label>Obj. Auditoria</label>         <input class="form-control" placeholder="Obj Auditoria"></div>
+                                            <div class="col-lg-3">   <label>Código do Cliente</label>   <input required="required" data-placement="left" title="Nome Fantasia:" class="form-control js-tooltip"  placeholder="Código do Cliente" pattern="[A-Za-z]++"  type="text" name="descricao"> </div>
+                                            </div>  <br><br>
                                             
-                                <div class="col-lg-offset-0">
-                                    <div class="col-lg-3">  <label>Fone</label><input required="required"  data-placement="left" title="FONE:" class="form-control js-tooltip"  placeholder="FONE:"  type="text" name="uf"> </div>
-                                    <div class="col-lg-9">  <label>E-mail</label><input class="form-control" placeholder="EMAIL"> </div>
-                                    <div class="col-lg-3">  <label>Contato</label> <input required="required" data-placement="left" title="CONTATO:" class="form-control js-tooltip"  placeholder="CONTATO:"  type="text" name="status"> </div>
-                                    <div class="col-lg-9">  <label>E-mail Contato</label> <input class="form-control" placeholder="EMAIL CONTATO">  </div>
-                                </div><br><br>
+                                            <div class="col-lg-offset-0">
+                                            <div class="col-lg-9">   <label>Desc. da Auditoria</label>         <input class="form-control" placeholder="Desc. Auditoria"></div>
+                                            <div class="col-lg-3">  <label>Data do Cadastro</label><input required="required"  data-placement="left" title="FONE:" class="form-control js-tooltip"  placeholder="Data do Cadastro"  type="text" name="uf"> </div>
+                                            <div class="col-lg-3">  <label>Data Inicial</label><input class="form-control" placeholder="Data Inicial"> </div>
+                                            <div class="col-lg-3">  <label>Data Relizada</label> <input required="required" data-placement="left" title="CONTATO:" class="form-control js-tooltip"  placeholder="Data Realizada"  type="text" name="status"> </div>
+                                            <div class="col-lg-3">  <label>Status</label> <input class="form-control" placeholder="Status">  </div>
+                                            </div>  <br><br>
                                                          
-                                <div class="col-lg-offset-0" >
-                                    <div class="col-lg-12">
-                                      <label>Observação</label>  <textarea class="form-control" rows="3"></textarea>
-                                    </div>
-                                </div> 
-                           
-                         </div>                                   
-                            -->           
+                                            <div class="col-lg-offset-0" >
+                                                <div class="col-lg-12">
+                                                            <label>Observação</label>  <textarea class="form-control" rows="3"></textarea>
+                                                </div>
+                                            </div> 
+                                        </div> 
+                                     </div>                                   
+                                    
                                                    
                                   <div  class="col-lg-offset-0 modal-footer">
                                       <div class="col-lg-7">  <!--class="modal-footer"-->
@@ -248,8 +185,6 @@
                                           <a onclick=""></a>
                                     </div>
                                   </div>
-                          
-
                                    </form>    
                                </div>
   <!--****************************************************************************************************-->  
@@ -261,7 +196,7 @@
     </div> <!-- /#wrapper -->
     
  <!--****************************************************************************************************-->
-   <script src="../../lib/bower/jquery/dist/jquery.min.js"></script>
+     <script src="../../lib/bower/jquery/dist/jquery.min.js"></script>
      
      <!--  Javascripts criado -->
      <script src="../../lib2/ angularJS/menu_controle.js"></script> 
@@ -280,7 +215,6 @@
 
      <!-- Custom Theme JavaScript -->
      <script src="../scripts/js/sb-admin-2.js"></script>
-
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
     $(document).ready(function() {
