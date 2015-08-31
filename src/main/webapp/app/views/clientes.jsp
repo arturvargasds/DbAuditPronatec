@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 
@@ -147,8 +147,7 @@
       <form id="addForm" method="POST" action="Exemplo.jsp" class="form-group">  
          <div class=" container-fluid " > <br>
 
-            <div class="row">
-                
+            <div class="row">      
                 <!-- ***************************************************************************dados pessoais -->
                 <div class="col-lg-12">
                     <div class="panel panel-red">
@@ -158,11 +157,11 @@
                         <div class="panel-body">
                            <div class="panel-collapse">
                             
-                               <div class="col-lg-12">  <label>Razão Social</label> <input class="form-control" placeholder="Razão Social"> <p></div>
-                                      <div class="col-lg-3">   <label>cnpj</label>         <input class="form-control" placeholder="CNPJ"></div>                
-                                      <div class="col-lg-9">   <label>Nome Fantasia</label>   <input required="required" data-placement="left" title="Nome Fantasia:" class="form-control js-tooltip"  placeholder="Nome Fantasia:" pattern="[A-Za-z]++"  type="text" name="descricao"> <br></div>
-                           
-                          </div>
+                              <div class="col-lg-12">  <label>Razão Social</label> <input class="form-control" placeholder="Razão Social"> <p></div>
+                              <div class="col-lg-3">   <label>cnpj</label>         <input class="form-control" placeholder="CNPJ"></div>                
+                              <div class="col-lg-6">   <label>Nome Fantasia</label>   <input required="required" data-placement="left" title="Nome Fantasia:" class="form-control js-tooltip"  placeholder="Nome Fantasia:" pattern="[A-Za-z]++"  type="text" name="fantasia"> <br></div>
+                              <div class="col-lg-3">   <label>Inscrição</label>   <input required="required" data-placement="left" title="Inscrição:" class="form-control js-tooltip"  placeholder="Inscrição:" pattern="[A-Za-z]++"  type="text" name="inscricao"> <br></div>
+                            </div>
                         </div>
                     </div>
                 </div>  
@@ -175,47 +174,55 @@
                             Endereço
                         </div>
                         <div class="panel-body">
-                           <div class="col-lg-5"><label>Cep</label> <input class="form-control" placeholder="Cep:"> </div>
-                           <div class="col-lg-7"><label>Complemento</label> <input class="form-control" placeholder="Cep:"> <p></div>
-                            <div class="col-lg-5"><label>Cidade</label> <input class="form-control" placeholder="Cep:"> </div>
-                            <div class="col-lg-2"><label>UF</label> <input class="form-control" placeholder="Cep:"> </div>
-                            <div class="col-lg-5"><label>Bairro</label> <input class="form-control" placeholder="Cep:"> <br></div>
-                           
-                         </div>
+                            <div class="col-lg-5"><label>Cep</label> <input name="cep" id="cep" class="form-control" placeholder="Cep:"> </div>
+                            <div class="col-lg-7"><label>Complemento</label> <input name="comple" id="comple" class="form-control" placeholder="Complemento:"> <p></div>
+                            <div class="col-lg-5"><label>Cidade</label> <input name="cidade" id="cidade"class="form-control" placeholder="Cidade:"> </div>
+                            <div class="col-lg-2"><label>UF</label> <input name="uf" id="uf"class="form-control" placeholder="Uf:"> </div>
+                            <div class="col-lg-5"><label>Bairro</label> <input name="bairro" id="bairro" class="form-control" placeholder="Bairro:"> <br></div>
+                        </div>
                 </div>
               </div>
-                <!-- /.col-lg-4 -->
+        <!--*************************************************************REsponsavel-->
                 <div class="col-lg-5">
                     <div class="panel panel-red">
                         <div class="panel-heading">
                             Responsável pela auditoria na empresa.
                         </div>
                         <div class="panel-body">
-                            <div class="col-lg-12">  <label>Contato</label> <input required="required" data-placement="left" title="CONTATO:" class="form-control js-tooltip"  placeholder="CONTATO:"  type="text" name="status"> <p> </div>
-                                    <div class="col-lg-12">  <label>E-mail Contato</label> <input class="form-control" placeholder="EMAIL CONTATO">  <br></div>
+                            <div class="col-lg-12">  <label>Nome</label> <input name="nome" id="nome" required="required" data-placement="left" title="Nome:" class="form-control js-tooltip"  placeholder="Nome"  type="text" name="status"> <p> </div>
+                                    <div class="col-lg-12">  <label>E-mail responsável</label> <input name="emailR" id="emailR" class="form-control" placeholder="Email responsável">  <br></div>
                        </div>
-
                     </div>
                 </div>
-            
-            </div>
-             
-             <div class="row"> <p>
-              <div class="col-lg-12">
+        <!--*******************************************************************Contato-->
+                <div class="col-md-12"> <p>
+                <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            Contato
+                        </div>
+                        <div class="panel-body">
+                           <div class="col-lg-6"><label>Fone:</label> <input name="fone" id="fone" class="form-control" placeholder="Fone:"> </div>
+                           <div class="col-lg-6"><label>Celular:</label> <input name="cel" id="cel" class="form-control" placeholder="Celular:"> <p> </div>
+                           <div class="col-lg-12"><label>E-mail:</label> <input name="emailcli" id="emailcli" class="form-control" placeholder="E-mail:"> <p> </div>
+                           <div class="col-lg-12"><label>Site:</label> <input name="site" id="site" class="form-control" placeholder="Site:"> <br></div>
+                         </div>
+                </div>
+              </div>
+        <!--********************************************************************Observação--> 
+              <div class="col-lg-12"><p>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                            Observação
                         </div>
                         <div class="panel-body"> <p>
                             <div class="col-lg-12">
-                                <textarea class="form-control" rows="3"></textarea> <br>
-                                    </div>
+                                <textarea name="obs" id="obs" class="form-control" rows="3"></textarea> <br>
+                            </div>
                         </div>
                     </div>
-              </div> 
-         </div>
-                                           
-                             <!--   <div class="col-lg-offset-0">  
+              </div>                                   
+          </div>                  
+                               <!--   <div class="col-lg-offset-0">  
                                       <div class="col-lg-12">  <label>Razão Social</label> <input class="form-control" placeholder="Razão Social"></div>
                                       <div class="col-lg-3">   <label>cnpj</label>         <input class="form-control" placeholder="CNPJ"></div>                
                                       <div class="col-lg-9">   <label>Nome Fantasia</label>   <input required="required" data-placement="left" title="Nome Fantasia:" class="form-control js-tooltip"  placeholder="Nome Fantasia:" pattern="[A-Za-z]++"  type="text" name="descricao"> </div>
@@ -241,19 +248,19 @@
                          </div>                                   
                             -->           
                                                    
-                                  <div  class="col-lg-offset-0 modal-footer">
-                                      <div class="col-lg-7">  <!--class="modal-footer"-->
-                                          <button class="btn btn-success glyphicon glyphicon-floppy-save " type="submit" name="salvar" value="Salvar" > SALVAR</button>
-                                          <a href="Exemplo.jsp"  class="btn btn-danger glyphicon glyphicon-remove"> CANCELAR</a>
-                                          <a onclick=""></a>
-                                    </div>
-                                  </div>
-                          
+              <div  class="col-lg-offset-0 modal-footer">
+                  <div class="col-lg-7">  <!--class="modal-footer"-->
+                      <button class="btn btn-success glyphicon glyphicon-floppy-save " type="submit" name="salvar" value="Salvar" > SALVAR</button>
+                      <a href="Exemplo.jsp"  class="btn btn-danger glyphicon glyphicon-remove"> CANCELAR</a>
+                      <a onclick=""></a>
+                </div>
+              </div>
 
-                                   </form>    
-                               </div>
+         </div>
+       </form>    
+    </div>
   <!--****************************************************************************************************-->  
-                      </div>                             
+                                                   
                     </div>                
                 </div>               
             </div><!-- /.row -->
