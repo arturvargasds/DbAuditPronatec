@@ -30,5 +30,17 @@ app.config(['$routeProvider', function ($routeProvider) {$routeProvider
         templateUrl: "Bairros.html", 
         controller: "BairroCtrl"})
     
+      .when("/cidade", {
+        templateUrl: "Cidades/cidade.html", 
+        controller: "cidadeCtrl"})
+    
+      .when("/settings-pills", {
+        templateUrl: "cidade.html", 
+        controller: "cidadeCtrl"})
+    
+      .when("/home-pills", {
+        templateUrl: "cidade.html", 
+        controller: "cidadeCtrl"})
+    
    
 }]);
