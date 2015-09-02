@@ -1,0 +1,19 @@
+<br/>
+<div class="container">
+    <div class="well">Cidades</div>
+
+    <table class="table">
+        <thead>
+            <th>Codigo</th>
+            <th>Descricao</th>
+            <th>UF</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="cidade in list">
+                <td>{{cidade.id}}</td>
+                <td>{{cidade.nomeCid}}</td>
+                <td>{{cidade.siglaUf}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

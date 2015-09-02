@@ -25,10 +25,8 @@
     </head>
      
     <body   ng-app="app" ng-init="tab=1">     
-      
-    
-    
-        <div class="container-fluid">     <br>
+
+        <div class="container-fluid" >     <br>
             <div class="row">
               <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -150,7 +148,7 @@
                             <!-- /input-group -->
                         </li>
                         <li> 
-                             <a href="index.jsp"><i class="fa fa-home fa-fw glyphicon-home"></i> Home</a>
+                             <a href="#/"><i class="fa fa-home fa-fw glyphicon-home"></i> Home</a>
                         </li>
   <!--******************************************************************************************************-->                      
                         <li>
@@ -175,7 +173,7 @@
                                     <a href="cidade.jsp">Cidade</a>
                                 </li>
                                 <li>
-                                    <a href="Bairro.jsp">Bairro</a>
+                                    <a href="#bairro">Bairro</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -210,32 +208,19 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>               
-             </div>  
+     </div>  
+   </div>     
           
           
-          
-            <div id="page-wrapper " class="container-fluid"> 
-          
-          <div ng-view>  </div>
-      </div> <!-- /#wrapper -->
+    <div id="page-wrapper " class="container-fluid">
+       
+         <div ng-view>  </div>
+    </div> <!-- /#wrapper -->
     
-      
-      
-      
-      
-
-        
-        
       <!--  AngularJS -->
      <script src="../../lib/bower/angular/1.3.16/angular.min.js"></script>
-     <script src="../../lib/bower/angular/1.3.16/angular-route.min.js"></script>
-      
+     <script src="../../lib/bower/angular/1.3.16/angular-route.min.js"></script>     
      <script src="../../lib/bower/jquery/dist/jquery.min.js"></script>
-     
-     <!--  Javascripts criado -->
-     <script src="scripts/menu_controle.js"></script> 
-     
-     
      <!-- Bootstrap Core JavaScript -->
      <script src="../../lib/bower/bootstrap/dist/js/bootstrap.min.js"></script>
 
@@ -248,6 +233,9 @@
 
      <!-- Custom Theme JavaScript -->
      <script src="../scripts/js/sb-admin-2.js"></script>
+     
+     <!--  Javascripts criado -->
+     <script src="../scripts/menu_controle.js"></script> 
 
      <!-- Page-Level Demo Scripts - Tables - Use for reference -->   
     <script>
