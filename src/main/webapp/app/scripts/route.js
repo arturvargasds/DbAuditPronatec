@@ -29,6 +29,16 @@ app.config(['$routeProvider', function ($routeProvider) {$routeProvider
       .when("/home-pills", {
         templateUrl: "Bairros.html", 
         controller: "BairroCtrl"})
+
+      .when("/Auditoria", {
+        templateUrl: "auditoria/auditoria.html", 
+        controller: "AuditoriaCtrl"})
+
+       .when("/ConsultaAuditoria", {
+        templateUrl: "auditoria/consultaauditoria.html", 
+        controller: "ConsultaAuditoriaCtrl"})
+
+           
     
    
 }]);
