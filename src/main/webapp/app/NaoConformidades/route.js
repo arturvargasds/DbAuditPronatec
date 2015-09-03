@@ -6,8 +6,8 @@ app.config(['$routeProvider', function ($routeProvider) {$routeProvider
          controller: "HomeCtrl"})
     // Paginas
     
-    .when("/cidade", {
-        templateUrl: "naoConformidade/naoConformidade.html", 
+    .when("/naoConformidade", {
+        templateUrl: "naoConformidades/naoConformidade.html", 
         controller: "naoConformidadeCtrl"})
     
       .when("/settings-pills", {

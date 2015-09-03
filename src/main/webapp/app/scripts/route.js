@@ -38,8 +38,6 @@ app.config(['$routeProvider', function ($routeProvider) {$routeProvider
         templateUrl: "auditoria/consultaauditoria.html", 
         controller: "ConsultaAuditoriaCtrl"})
 
-           
-    
       .when("/cidade", {
         templateUrl: "Cidades/cidade.html", 
         controller: "cidadeCtrl"})
@@ -63,6 +61,30 @@ app.config(['$routeProvider', function ($routeProvider) {$routeProvider
       .when("/home-pills", {
         templateUrl: "auditor.html", 
         controller: "auditorCtrl"})
+    
+    .when("/equipeAuditor", {
+        templateUrl: "equipeAuditores/equipeAuditor.html", 
+        controller: "equipeAuditorCtrl"})
+    
+      .when("/settings-pills", {
+        templateUrl: "equipeAuditor.html", 
+        controller: "equipeAuditorCtrl"})
+    
+      .when("/home-pills", {
+        templateUrl: "equipeAuditor.html", 
+        controller: "equipeAuditorCtrl"})
+    
+    .when("/naoConformidade", {
+        templateUrl: "naoConformidades/naoConformidade.html", 
+        controller: "naoConformidadeCtrl"})
+    
+      .when("/settings-pills", {
+        templateUrl: "naoConformidade.html", 
+        controller: "naoConformidadeCtrl"})
+    
+      .when("/home-pills", {
+        templateUrl: "naoConformidade.html", 
+        controller: "naoConformidadeCtrl"})
     
    
 }]);
