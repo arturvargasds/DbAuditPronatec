@@ -40,5 +40,29 @@ app.config(['$routeProvider', function ($routeProvider) {$routeProvider
 
            
     
+      .when("/cidade", {
+        templateUrl: "Cidades/cidade.html", 
+        controller: "cidadeCtrl"})
+    
+      .when("/settings-pills", {
+        templateUrl: "cidade.html", 
+        controller: "cidadeCtrl"})
+    
+      .when("/home-pills", {
+        templateUrl: "cidade.html", 
+        controller: "cidadeCtrl"})
+    
+        .when("/auditor", {
+        templateUrl: "Auditores/auditor.html", 
+        controller: "auditorCtrl"})
+    
+      .when("/settings-pills", {
+        templateUrl: "auditor.html", 
+        controller: "auditorCtrl"})
+    
+      .when("/home-pills", {
+        templateUrl: "auditor.html", 
+        controller: "auditorCtrl"})
+    
    
 }]);
