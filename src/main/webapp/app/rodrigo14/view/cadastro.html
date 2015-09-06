@@ -1,23 +1,20 @@
 <div class="jumbotron">
      <h2> Cadastro Cidades </h2>
 	<form name="cidForm">
-		<input class="form-control" type="text" ng-model="cidade.nomeCid" name="nome" placeholder="Nome" ng-
-required="true" ng-minlength="10"/>
-                <input class="form-control" type="text" disabled="" ng-model="cidade.uf.siglaUf" name="sigla" placeholder="UF" 
-ng-required="true" />
-		<input class="form-control" type="text" ng-model="cidade.statusCid" name="status" placeholder="Status" ui-
-date/>
-                <select class="form-control" ng-model="cidade.uf" ng-options="uf.siglaUf  + '            ( ' + (uf.estado ) + ' ) ' for uf in ufs | orderBy:'siglaUf'">
+		<input class="form-control" type="text" ng-model="cidade.nomeCid" name="nome" placeholder="Nome" 
+                ng-required="true" ng-minlength="10"/>
+                
+                <input class="form-control" type="text" disabled="" ng-model="cidade.uf.siglaUf" name="sigla" 
+                placeholder="UF" ng-required="true" />
+                
+		<input class="form-control" type="text" ng-model="cidade.statusCid" name="status" placeholder="Status" 
+                    ng-required="true" ng-minlength="1" ng-maxlength="1"/>
+                
+                <select class="form-control" ng-model="cidade.uf" ng-options="uf.siglaUf  + ' ( ' + (uf.estado ) + ' ) ' for uf in ufs | orderBy:'siglaUf'">
 			<option value="">Selecione um estado</option>
 		</select>
-         <!--       <select class="form-control"  >
-			<option value="">Selecione um Estado</option>
-                        <option value="">SC</option>
-                        <option value="">PR</option>
-                        <option value="">RS</option>
-                        
-		</select>  -->
 	</form>
+     
 	<div ng-show="cidForm.nome.$dirty" ng-messages="cidForm.nome.$error">
 		<div ng-message="required" class="alert alert-danger">
 			Por favor, preencha o campo nome!
@@ -26,12 +23,21 @@ date/>
 			O campo nome deve ter no mínimo 10 caracteres.
 		</div>
 	</div>
-	<div ng-show="cidForm.telefone.$error.required && cidForm.telefone.$dirty" class="alert alert-danger">
-		Por favor, preencha o campo UF!
+     
+       	<div ng-show="cidForm.status.$dirty" ng-messages="cidForm.status.$error">
+		<div ng-message="required" class="alert alert-danger">
+			Por favor, preencha o campo status!
+		</div>
+		<div ng-message="minlength" class="alert alert-danger">
+			O campo Status deve ter  1 caracteres.
+		</div>
+                <div ng-message="maxlength" class="alert alert-danger">
+			O campo Status deve ter  1 caracteres.
+	        </div>
 	</div>
-	<div ng-show="cidForm.telefone.$error.pattern" class="alert alert-danger">
-		O campo UF deve ter duas letras.
-	</div>
+     
+
+	
 	<button class="btn btn-primary btn-block" ng-click="adicionarCidade(cidade)" ng-disabled="cidForm.
 $invalid">Adicionar Cidade</button>
 </div>
