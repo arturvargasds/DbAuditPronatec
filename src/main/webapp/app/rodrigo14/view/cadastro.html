@@ -1,21 +1,24 @@
 <div class="jumbotron">
-     <h5> Cadastro Cidades </h5>
-	<form name="contatoForm">
-		<input class="form-control" type="text" ng-model="cidade.nome" name="nome" placeholder="Nome" ng-
+     <h2> Cadastro Cidades </h2>
+	<form name="cidForm">
+		<input class="form-control" type="text" ng-model="cidade.nomeCid" name="nome" placeholder="Nome" ng-
 required="true" ng-minlength="10"/>
-		<input class="form-control" type="text" ng-model="cidade.telefone" name="telefone" placeholder="UF" 
+                <input class="form-control" type="text" disabled="" ng-model="cidade.uf.siglaUf" name="sigla" placeholder="UF" 
 ng-required="true" />
-		<input class="form-control" type="text" ng-model="cidade.data" name="data" placeholder="Status" ui-
+		<input class="form-control" type="text" ng-model="cidade.statusCid" name="status" placeholder="Status" ui-
 date/>
-                <select class="form-control"  >
+                <select class="form-control" ng-model="cidade.uf" ng-options="uf.siglaUf  + '            ( ' + (uf.estado ) + ' ) ' for uf in ufs | orderBy:'siglaUf'">
+			<option value="">Selecione um estado</option>
+		</select>
+         <!--       <select class="form-control"  >
 			<option value="">Selecione um Estado</option>
                         <option value="">SC</option>
                         <option value="">PR</option>
                         <option value="">RS</option>
                         
-		</select>
+		</select>  -->
 	</form>
-	<div ng-show="contatoForm.nome.$dirty" ng-messages="contatoForm.nome.$error">
+	<div ng-show="cidForm.nome.$dirty" ng-messages="cidForm.nome.$error">
 		<div ng-message="required" class="alert alert-danger">
 			Por favor, preencha o campo nome!
 		</div>
@@ -23,12 +26,12 @@ date/>
 			O campo nome deve ter no mínimo 10 caracteres.
 		</div>
 	</div>
-	<div ng-show="contatoForm.telefone.$error.required && contatoForm.telefone.$dirty" class="alert alert-danger">
+	<div ng-show="cidForm.telefone.$error.required && cidForm.telefone.$dirty" class="alert alert-danger">
 		Por favor, preencha o campo UF!
 	</div>
-	<div ng-show="contatoForm.telefone.$error.pattern" class="alert alert-danger">
+	<div ng-show="cidForm.telefone.$error.pattern" class="alert alert-danger">
 		O campo UF deve ter duas letras.
 	</div>
-	<button class="btn btn-primary btn-block" ng-click="adicionarContato(cidade)" ng-disabled="contatoForm.
-$invalid">Adicionar Contato</button>
+	<button class="btn btn-primary btn-block" ng-click="adicionarCidade(cidade)" ng-disabled="cidForm.
+$invalid">Adicionar Cidade</button>
 </div>

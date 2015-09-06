@@ -1,25 +1,33 @@
-angular.module("listaTelefonica").config(function ($routeProvider) {
+/* global angular */
+
+angular.module("app").config(function ($routeProvider) {
 	$routeProvider.when("/cidades", {
 		templateUrl: "view/cidades.html",
 		controller: "CidadesCtrl",
 		resolve: {
-			cidades: function (contatosAPI) {
-				return contatosAPI.getContatos();
+			cidades: function (cidadesAPI) {
+				return cidadesAPI.getCidades();
+			},
+			ufs: function (ufsAPI) {
+				return ufsAPI.getUfs();
 			}
-			
 		}
 	});
 	$routeProvider.when("/CadCidades", {
 		templateUrl: "view/cadastro.html",
-		controller: "cadCidadeCtrl"
-		
-	});
-	$routeProvider.when("/detalhesContato/:id", {
-		templateUrl: "view/detalhesContato.html",
-		controller: "detalhesContatoCtrl",
+		controller: "cadCidadeCtrl",
 		resolve: {
-			cidade: function (contatosAPI, $route) {
-				return contatosAPI.getContato($route.current.params.id);
+			ufs: function (ufsAPI) {
+				return ufsAPI.getUfs();
+			}
+		}
+	});
+	$routeProvider.when("/EditarCid/:id", {
+		templateUrl: "view/EditarCidade.html",
+		controller: "EditarCidCtrl",
+		resolve: {
+			cidade: function (cidadesAPI, $route) {
+				return cidadesAPI.getCidade($route.current.params.id);
 			}
 		}
 	});
