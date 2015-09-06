@@ -1,0 +1,30 @@
+
+<ul>
+  <li><a href="#cadasCid">Cadastro</a></li>
+</ul>
+
+<div class="container">
+    <div class="well ">Cidades</div>
+        
+<p>Pesquisar: <input type="text" ng-model="filtro" /></p>
+
+    <table class="table">
+        <thead>
+            <th>Codigo</th>
+            <th>Descricao</th>
+            <th>UF</th>
+            <th>Remover</th>
+        </thead>
+        <tbody>
+            <tr  ng-repeat="cidade in  list | orderBy:'name' | filter:filtro">
+                
+                <td>{{cidade.nomeCid}}</td>
+                <td>{{cidade.siglaUf}}</td>
+                <td>{{cidade.statusCid}}</td>
+                <td> <a ng-click="deleteCidade($index)">[REMOVER]</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+<div> <p>Data: {{ today | date}}</p> </div>
+</div>
