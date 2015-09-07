@@ -1,0 +1,21 @@
+<br/>
+<div class="container">
+    <div class="well">Cidades</div>
+
+    <table class="table">
+        <thead>
+            <th>Codigo</th>
+            <th>Descricao</th>
+            <th>UF</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="cidade in states">
+                
+                <td>{{cidade.nomeCid}}</td>
+                <td>{{cidade.siglaUf}}</td>
+                <td>{{states.statusCid}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Estados (json): {{states.statusCid| json }}</p>''
+</div>

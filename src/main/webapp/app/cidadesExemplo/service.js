@@ -1,4 +1,6 @@
 
+/* global serviceApp */
+
 serviceApp.service('cidadeService', function($http, $rootScope) {
   
   // público
@@ -24,7 +26,7 @@ serviceApp.service('cidadeService', function($http, $rootScope) {
   };  
 
   this.getCidade = function(callback) {
-    $http.get('http://localhost:8080/DbAuditPronatec-3.2/app/cidadesExemplo/cidade.json').success(callback);
+    $http.get('http://localhost:8080/DbAuditPronatec-3.2/api/cidades').success(callback);
   };
 
 });
@@ -35,7 +37,9 @@ serviceApp.run ( function($rootScope, cidadeService) {
   
   // carrega os estados
   cidadeService.getCidade(function(data){
-    $rootScope.list = data;
+    $rootScope.list = data.list;
+    
+    
   });
   
 });

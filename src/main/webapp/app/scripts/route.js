@@ -5,6 +5,15 @@ app.config(['$routeProvider', function ($routeProvider) {$routeProvider
         templateUrl: "views/home.html", 
          controller: "HomeCtrl"})
     // Paginas
+    .when("/cidades", {
+		templateUrl: "cidade.html",
+		controller: "CidadesCtrl",
+		resolve: {
+			cidades: function (cidadesAPI) {
+				return cidadesAPI.getCidades();
+			}
+		}
+	})
   
     .when("/cliente", {
         templateUrl: "views/Cadastro/Clientes.html", 

@@ -1,0 +1,44 @@
+<div class="jumbotron">
+     <h2> Cadastro Cidades </h2>
+	<form name="cidForm">
+		<input class="form-control" type="text" ng-model="cidade.nomeCid" name="nome" placeholder="Nome" 
+                ng-required="true" ng-minlength="3"/>
+                
+                <input class="form-control" type="text" disabled="" ng-model="cidade.uf.siglaUf" name="sigla" 
+                placeholder="UF" ng-required="true" />
+                
+		<input class="form-control" type="text" ng-model="cidade.statusCid" name="status" placeholder="Status" 
+                    ng-required="true" ng-minlength="1" ng-maxlength="1"/>
+                
+                <select class="form-control" ng-model="cidade.uf" ng-options="uf.siglaUf  + ' ( ' + (uf.estado ) + ' ) ' for uf in ufs | orderBy:'siglaUf'">
+			<option value="">Selecione um estado</option>
+		</select>
+	</form>
+     
+	<div ng-show="cidForm.nome.$dirty" ng-messages="cidForm.nome.$error">
+		<div ng-message="required" class="alert alert-danger">
+			Por favor, preencha o campo nome!
+		</div>
+		<div ng-message="minlength" class="alert alert-danger">
+			O campo nome deve ter no mínimo 3 caracteres.
+		</div>
+	</div>
+     
+       	<div ng-show="cidForm.status.$dirty" ng-messages="cidForm.status.$error">
+		<div ng-message="required" class="alert alert-danger">
+			Por favor, preencha o campo status!
+		</div>
+		<div ng-message="minlength" class="alert alert-danger">
+			O campo Status deve ter  1 caracteres.
+		</div>
+                <div ng-message="maxlength" class="alert alert-danger">
+			O campo Status deve ter  1 caracteres.
+	        </div>
+	</div>
+     
+     
+	
+<!--	<button class="btn btn-primary btn-block" ng-click="adicionarCidade(cidade)" ng-disabled="cidForm.$invalid">Adicionar Cidade</button> -->
+        <a class="btn btn-primary glyphicon glyphicon-floppy-save" ng-click="adicionarCidade(cidade)" ng-disabled="cidForm.$invalid"> ADICIONAR CIDADE</a>
+        <a href="#/cidades"  class="btn btn-danger glyphicon glyphicon-remove"  > CANCELAR</a>
+</div>
