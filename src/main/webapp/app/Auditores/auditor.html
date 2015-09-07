@@ -23,7 +23,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Codigo</th>
-                                                <th>ID-CEP</th>
+                                                <th>CEP</th>
                                                 <th>Nome Auditor</th>
                                                 <th>CPF</th>
                                                 <th>Telefone</th>
@@ -35,83 +35,21 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="odd gradeX">
-                                                <td>Light Serviços de Eletricidade S/A </td>
-                                                <td>73737373476AS</td>
-                                                <td>90044022</td>
-                                                <td class="center">Light</td>
-                                                <td class="center">99003-122</td>
-                                            </tr>
-                                            <tr class="even gradeC">
-                                                <td>Bisfera Serviços  L/A</td>
-                                                <td>98355777734SD</td>
-                                                <td>67347748</td>
-                                                <td class="center">Bisfera</td>
-                                                <td class="center">99912-000</td>
-                                            </tr>
-                                            <tr class="odd gradeA">
-                                                <td>Trident Equipamento</td>
-                                                <td>03355777734AA</td>
-                                                <td>55543212</td>
-                                                <td class="center">Trindent</td>
-                                                <td class="center">84444-111</td>
-                                            </tr>
-                                            <tr class="even gradeA">
-                                                <td>Grta Construção</td>
-                                                <td>55435571234WW</td>
-                                                <td>54772722</td>
-                                                <td class="center">Grta</td>
-                                                <td class="center">33224-999</td>
-                                            </tr>
-                                            <tr class="odd gradeA">
-                                                <td>Pixeleco empreendimento</td>
-                                                <td>84485222222JJ</td>
-                                                <td>23436777</td>
-                                                <td class="center">Pixeleco</td>
-                                                <td class="center">09982-888</td>
-                                            </tr>
-                                            <tr class="even gradeA">
-                                                <td>MERT L/D </td>
-                                                <td>88838384848AO</td>
-                                                <td>23437772</td>
-                                                <td class="center">MERT</td>
-                                                <td class="center">76582-341</td>
-                                            </tr>
-                                            <tr class="gradeA">
-                                                <td>Gecko</td>
-                                                <td>36474782947HA</td>
-                                                <td>84754849</td>
-                                                <td class="center">Gecko</td>
-                                                <td class="center">98333-988</td>
-                                            </tr>
-                                            <tr class="gradeA">
-                                                <td>Gecko</td>
-                                                <td>84777772391HN</td>
-                                                <td>23453333</td>
-                                                <td class="center">Gecko</td>
-                                                <td class="center">874444-998</td>
-                                            </tr>
-                                            <tr class="gradeA">
-                                                <td>Gecko</td>
-                                                <td>64545737748HN</td>
-                                                <td>84664748</td>
-                                                <td class="center">Gecko</td>
-                                                <td class="center">87884-984</td>
-                                            </tr>
-                                            <tr class="gradeA">
-                                                <td>Gecko</td>
-                                                <td>8464644448KL</td>
-                                                <td>86544848</td>
-                                                <td class="center">Gecko</td>
-                                                <td class="center">342222-233</td>
-                                            </tr>
-                                            <tr class="gradeA">
-                                                <td>Gecko</td>
-                                                <td>7464664748NM</td>
-                                                <td>84626477</td>
-                                                <td class="center">Gecko</td>
-                                                <td class="center">999890-978</td>
-                                            </tr>                                   
+                                            <tr ng-repeat="auditor in list">
+                                                <td>{{auditor.id}}</td>
+                                                <td>{{auditor.cepAudit}}</td>
+                                                <td>{{auditor.nomeAudit}}</td>
+                                                <td>{{auditor.cpfAudit}}</td>
+                                                <td>{{auditor.fone1Audit}}</td>
+                                                <td>{{auditor.fone2Audit}}</td>
+                                                <td>{{auditor.emailAudit}}</td>
+                                                <td>{{auditor.compleEndAudit}}</td>
+                                                <td>{{auditor.tipoAudit}}</td>
+                                                <td>{{auditor.obsAudit}}</td>
+                                                <td>{{auditor.statusAuditores}}</td>
+                                                <td>{{auditor.senhAudit}}</td>
+                                                <td>{{auditor.usuAudit}}</td>
+                                            </tr>                                                                         
                                         </tbody>
                                       </table>
                                   </div>
