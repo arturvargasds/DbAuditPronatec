@@ -6,6 +6,18 @@ angular.module("app").config(function ($routeProvider) {
                 controller: "HomeCtrl"
 		
 	});
+           $routeProvider.when("/bairros", {
+            templateUrl: "bairros/listBairro.html",
+            controller: "BairrosCtrl",
+            resolve: {
+                    bairros: function (bairrosAPI) {
+                            return bairrosAPI.getBairros();
+                    }       
+            }
+        });
+        
+        
+        
         $routeProvider.when("/cidades", {
             templateUrl: "cidades/listCidade.html",
             controller: "CidadesCtrl",
@@ -15,6 +27,7 @@ angular.module("app").config(function ($routeProvider) {
                     }       
             }
         });
+     
    
 	$routeProvider.when("/CadCidades", {
 		templateUrl: "cidades/cadastro.html",
