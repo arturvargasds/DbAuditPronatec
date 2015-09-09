@@ -5,19 +5,8 @@ angular.module("app").config(function ($routeProvider) {
                 templateUrl: "home.html", 
                 controller: "HomeCtrl"
 		
-	});
-           $routeProvider.when("/bairros", {
-            templateUrl: "bairros/listBairro.html",
-            controller: "BairrosCtrl",
-            resolve: {
-                    bairros: function (bairrosAPI) {
-                            return bairrosAPI.getBairros();
-                    }       
-            }
-        });
-        
-        
-        
+	}); 
+       //***********************************************************cidades
         $routeProvider.when("/cidades", {
             templateUrl: "cidades/listCidade.html",
             controller: "CidadesCtrl",
@@ -27,8 +16,6 @@ angular.module("app").config(function ($routeProvider) {
                     }       
             }
         });
-     
-   
 	$routeProvider.when("/CadCidades", {
 		templateUrl: "cidades/cadastro.html",
 		controller: "cadCidadeCtrl"
@@ -43,5 +30,32 @@ angular.module("app").config(function ($routeProvider) {
 			}
 		}
 	});
-	$routeProvider.otherwise({redirectTo: "/cidades"});
+        
+        //*****************************************************************Bairros
+                   $routeProvider.when("/bairros", {
+            templateUrl: "bairros/listBairro.html",
+            controller: "BairrosCtrl",
+            resolve: {
+                    bairros: function (bairrosAPI) {
+                            return bairrosAPI.getBairros();
+                    }       
+            }
+        });
+        	$routeProvider.when("/CadBairros", {
+		templateUrl: "bairros/cadasBairro.html",
+		controller: "cadBairroCtrl"
+	});
+        
+	$routeProvider.when("/EditarBai/:id", {
+		templateUrl: "bairros/editarBairro.html",
+		controller: "EditarBaiCtrl",
+		resolve: {
+			bairro: function (bairrosAPI, $route) {
+				return bairrosAPI.getBairro($route.current.params.id);
+			}
+		}
+	});
+        
+        //********************************************final
+	$routeProvider.otherwise({redirectTo: "/"});
 });

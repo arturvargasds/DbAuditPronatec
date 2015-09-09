@@ -6,7 +6,7 @@
            <h4>Lista de Bairros</h4>   
        </div>  <br>
        <div class="container-fluid">
-	<input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por cidade.."/>
+	<input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por bairro.."/>
 	<table ng-show="bairros.length > 0" class="table table-striped">
 		<tr>
 			<th></th>
@@ -23,11 +23,11 @@
 		</tr>
 	</table>
 	<hr/>
-	<a class="btn btn-primary btn-block" href="#/CadCidades">Nova Cidade</a>
-	<button class="btn btn-danger btn-block" ng-click="apagarCidades(bairros)" ng-if="isCidadeSelecionado(bairros)">Apagar Cidades</button>
+	<a class="btn btn-primary btn-block" href="#/CadBairros">Nova Bairro</a>
+	<button class="btn btn-danger btn-block" ng-click="apagarBairros(bairros)" ng-if="isBairroSelecionado(bairros)">Apagar Bairros</button>
        </div><br><br>       
       </div><!-- /.row --><br>
-                                    <div ng-include="'view/footer.html'"></div>
+                                    
    </div><!-- /#page-wrapper -->
   </div> <!-- /#wrapper -->
 </div>

@@ -5,21 +5,21 @@ angular.module("app").controller("BairrosCtrl", function ($scope, bairros) {
 	$scope.bairros = bairros.data.list;
 	
 
-	$scope.adicionarCidade= function (bairro) {
+	$scope.adicionarBairro= function (bairro) {
 		
-		bairrosAPI.saveCidade(bairro).success(function (data) {
+		bairrosAPI.saveBairro(bairro).success(function (data) {
 			delete $scope.bairro;
-			$scope.cidForm.$setPristine();
-			carregarCidades();
+			$scope.baiForm.$setPristine();
+			carregarBairros();
 		});
 	};
-	$scope.apagarCidades = function (cidades) {
-		$scope.cidades =  cidades.filter(function (bairro) {
+	$scope.apagarBairros = function (bairros) {
+		$scope.bairros =  bairros.filter(function (bairro) {
 			if (!bairro.selecionado) return bairro;
 		});
 	};
-	$scope.isCidadeSelecionado = function (cidades) {
-		return cidades.some(function (bairro) {
+	$scope.isBairroSelecionado = function (bairros) {
+		return bairros.some(function (bairro) {
 			return bairro.selecionado;
 		});
 	};

@@ -5,17 +5,17 @@ angular.module("app").factory("bairrosAPI", function ($http, config) {
 		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/bairros");
 	};
 
-	var _getCidade = function (id) {
-		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/cidades/" + id);
+	var _getBairro = function (id) {
+		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/bairros/" + id);
 	};
 
-	var _saveCidade= function (bairro) {
-		return $http.post(config.baseUrl + "DbAuditPronatec-3.2/api/cidades", bairro);
+	var _saveBairro = function (bairro) {
+		return $http.post(config.baseUrl + "DbAuditPronatec-3.2/api/bairros", bairro);
 	};
 
 	return {
 		getBairros: _getBairros,
-		getCidade: _getCidade,
-		saveCidade: _saveCidade
+		getBairro: _getBairro,
+		saveBairro: _saveBairro
 	};
 });
