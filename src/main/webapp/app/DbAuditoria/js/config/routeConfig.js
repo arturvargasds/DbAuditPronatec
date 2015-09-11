@@ -57,5 +57,34 @@ angular.module("app").config(function ($routeProvider) {
 	});
         
         //********************************************final
+        
+        
+        //*****************************************************************Nao Conformidades
+                   $routeProvider.when("/naoConformidades", {
+            templateUrl: "naoConformidades/listNaoConformidades.html",
+            controller: "naoConformidadesCtrl",
+            resolve: {
+                    NC: function (NCAPI) {
+                            return NCAPI.getNaoConformidades();
+                    }       
+            }
+        });
+        	$routeProvider.when("/CadNaoConformidades", {
+		templateUrl: "naoConformidades/cadNaoConformidades.html",
+		controller: "cadNaoConformidadesCtrl"
+	});
+        
+	$routeProvider.when("/EditarNC/:id", {
+		templateUrl: "naoConformidades/editarNaoConformidades.html",
+		controller: "editarNaoConformidadesCtrl",
+		resolve: {
+			NC: function (NCAPI, $route) {
+				return NCAPI.getNaoConformidade($route.current.params.id);
+			}
+		}
+	});
+        
+        //********************************************final
+        
 	$routeProvider.otherwise({redirectTo: "/"});
 });
