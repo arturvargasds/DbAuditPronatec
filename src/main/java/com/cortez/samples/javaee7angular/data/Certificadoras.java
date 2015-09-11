@@ -1,6 +1,7 @@
 
 package com.cortez.samples.javaee7angular.data;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +11,7 @@ import javax.persistence.SequenceGenerator;
 
 
 @Entity
-public class Certificadoras 
+public class Certificadoras implements Serializable 
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDCERT")

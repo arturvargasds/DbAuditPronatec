@@ -1,5 +1,6 @@
 
 package com.cortez.samples.javaee7angular.data;
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,11 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Ceps 
+public class Ceps implements Serializable 
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDCEP")
-    @SequenceGenerator(name = "IDCEP", sequenceName = "SEQ_CEPS")
+    @SequenceGenerator(name = "IDCEP", sequenceName = "seq_ceps")
     @Column(name = "idcep")
     private Long id;     
     

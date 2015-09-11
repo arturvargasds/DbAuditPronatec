@@ -1,7 +1,7 @@
 
 package com.cortez.samples.javaee7angular.data;
 
-import java.util.Objects;
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,17 +9,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
-@Entity
-public class Clientes 
-{    
+
+
+    
+    
+    
+    @Entity
+    public class  Clientes implements Serializable  {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDCLI")
-    @SequenceGenerator(name = "IDCLI", sequenceName = "seq_clientes", allocationSize = 1)
+    @SequenceGenerator(name = "IDCLI", sequenceName = "SEQ_CLIENTES", allocationSize = 1)
     @Column(name = "idcli")
     private Long id;
+ 
     
-    @Column(name = "CEP", length =8 )
-    private String cep;  
+    @Column(name = "IDCEP" )
+    private int  idcep;  
 
     @Column(name = "RAZAOCLI", length =60 )
     private String razaoCli ;  
@@ -68,14 +73,14 @@ public class Clientes
     public void setId(final Long id) {
         this.id = id;
     }
-
-    public String getCep() {
-        return cep;
+      public int getIdCep() {
+        return idcep;
     }
 
-    public void setCep(final String cep) {
-        this.cep = cep;
+    public void setIdCep(final int idcep) {
+        this.idcep = idcep;
     }
+    
 
     public String getRazaoCli() {
         return razaoCli;

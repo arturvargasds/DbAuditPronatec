@@ -21,20 +21,20 @@ public class OcorrenciaResource
    private EntityManager entityManager ;
 
     public OcorrenciaResource() {
-        entityManager = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+        entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
     }
   
   
 
     private Integer countOcorrencias() {
-        Query query = entityManager.createQuery("SELECT COUNT(OCORRE.id) FROM Ocorrencias OCORRE");
+        Query query = entityManager.createQuery("SELECT COUNT(oco.id) FROM Ocorrencias oco");
         return ((Long) query.getSingleResult()).intValue();
     }
 
     @SuppressWarnings("unchecked")
     private List<Ocorrencias> findOcorrencias(int startPosition, int maxResults, String sortFields, String sortDirections) {
         Query query =
-                entityManager.createQuery("SELECT OCORRE.ID FROM OCORRENCIAS OCORRE ORDER BY OCORRE." + sortFields + " " + sortDirections);
+                entityManager.createQuery("SELECT oco.id FROM Ocorrencias oco ORDER BY oco." + sortFields + " " + sortDirections);
         query.setFirstResult(startPosition);
         query.setMaxResults(maxResults);
         return query.getResultList();

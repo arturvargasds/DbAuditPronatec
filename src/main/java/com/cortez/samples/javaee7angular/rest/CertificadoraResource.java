@@ -21,7 +21,7 @@ public class CertificadoraResource
       private EntityManager entityManager ;
 
     public CertificadoraResource() {
-        entityManager = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+        entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
     }
     
 
@@ -33,7 +33,7 @@ public class CertificadoraResource
     @SuppressWarnings("unchecked")
     private List<Certificadoras> findCertificadoras(int startPosition, int maxResults, String sortFields, String sortDirections) {
         Query query =
-                entityManager.createQuery("SELECT cert.ID FROM Certificadoras CERT ORDER BY CERT." + sortFields + " " + sortDirections);
+                entityManager.createQuery("SELECT cert.id FROM Certificadoras cert ORDER BY cert." + sortFields + " " + sortDirections);
         query.setFirstResult(startPosition);
         query.setMaxResults(maxResults);
         return query.getResultList();

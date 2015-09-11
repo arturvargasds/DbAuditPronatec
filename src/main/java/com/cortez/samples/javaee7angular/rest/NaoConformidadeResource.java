@@ -19,22 +19,22 @@ import javax.ws.rs.core.MediaType;
 public class NaoConformidadeResource 
 {
  
-    private EntityManager entityManager ;
+    private final EntityManager entityManager ;
 
     public NaoConformidadeResource() {
-        entityManager = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+        entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
     }
      
 
-    private Integer countNaoConformidadesResource() {
-        Query query = entityManager.createQuery("SELECT COUNT(NC.id) FROM NaoConformidades NC");
+    private Integer countNaoConformidades() {
+        Query query = entityManager.createQuery("SELECT COUNT(nc.id) FROM NaoConformidades nc");
         return ((Long) query.getSingleResult()).intValue();
     }
 
     @SuppressWarnings("unchecked")
     private List<NaoConformidades> findNaoConformidades(int startPosition, int maxResults, String sortFields, String sortDirections) {
         Query query =
-                entityManager.createQuery("SELECT NC FROM NAOCONFORMIDADES NC ORDER BY NC." + sortFields + " " + sortDirections);
+                entityManager.createQuery("SELECT nc FROM NaoConformidades nc ORDER BY nc." + sortFields + " " + sortDirections);
         query.setFirstResult(startPosition);
         query.setMaxResults(maxResults);
         return query.getResultList();
@@ -111,8 +111,5 @@ public class NaoConformidadeResource
         entityManager.remove(getNaoConformidades(id));
     }
 
-    private Integer countNaoConformidades() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
        
 }

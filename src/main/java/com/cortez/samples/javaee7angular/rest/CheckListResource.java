@@ -18,16 +18,16 @@ import javax.ws.rs.core.MediaType;
 
 public class CheckListResource 
 {
-  private EntityManager entityManager ;
+  private final EntityManager entityManager ;
 
     public CheckListResource() {
-        entityManager = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+        entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
     }
   
 
     private Integer  countCheckList()
     {
-        Query query = entityManager.createQuery("SELECT COUNT(chkl.id) FROM CheckList chkl");
+        Query query = entityManager.createQuery("SELECT COUNT(ck.id) FROM CheckList ck");
         return ((Long) query.getSingleResult()).intValue();
     }
 
@@ -35,7 +35,7 @@ public class CheckListResource
     private List<CheckList> findCheckList(int startPosition, int maxResults, String sortFields, String sortDirections)
     {
         Query query =
-                entityManager.createQuery("SELECT chkl FROM CheckList au ORDER BY chkl." + sortFields + " " + sortDirections);
+                entityManager.createQuery("SELECT ck FROM CheckList ck ORDER BY ck." + sortFields + " " + sortDirections);
         query.setFirstResult(startPosition);
         query.setMaxResults(maxResults);
         return query.getResultList();
@@ -81,7 +81,7 @@ public class CheckListResource
 
     @POST
     public CheckList saveCheckList(CheckList checklist)
-    {
+    {    entityManager.getTransaction().begin();
         if (checklist.getId() == null)
           {
               CheckList checklistToSave = new CheckList();            
@@ -106,14 +106,17 @@ public class CheckListResource
               checklistToUpdate.setStatusChklist(checklist.getStatusChklist());                        
               checklist = entityManager.merge(checklistToUpdate);
           }
+        entityManager.getTransaction().commit();
         return checklist;
     }
 
     @DELETE
     @Path("{id}")
     public void deleteCheckList(@PathParam("id") Long id)
-    {
+    {       
+        entityManager.getTransaction().begin();
         entityManager.remove(getCheckList(id));
+        entityManager.getTransaction().commit();
     }   
         
 }

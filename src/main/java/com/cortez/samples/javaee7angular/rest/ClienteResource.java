@@ -84,7 +84,7 @@ public class ClienteResource
         entityManager.getTransaction().begin();
         if (cliente.getId() == null) {
             Clientes clienteToSave = new Clientes();            
-            clienteToSave.setCep(cliente.getCep());
+            clienteToSave.setIdCep(cliente.getIdCep());
             clienteToSave.setRazaoCli(cliente.getRazaoCli());
             clienteToSave.setFantaCli(cliente.getFantaCli());
             clienteToSave.setCompleEndCli(cliente.getCompleEndCli());
@@ -101,7 +101,7 @@ public class ClienteResource
             entityManager.persist(cliente);
         } else {
             Clientes clienteToUpdate = getClientes(cliente.getId());
-            clienteToUpdate.setCep(cliente.getCep());
+            clienteToUpdate.setIdCep(cliente.getIdCep());
             clienteToUpdate.setRazaoCli(cliente.getRazaoCli());
             clienteToUpdate.setFantaCli(cliente.getFantaCli());
             clienteToUpdate.setCompleEndCli(cliente.getCompleEndCli());

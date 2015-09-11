@@ -22,7 +22,7 @@ public class EquipeAuditorResource
   private EntityManager entityManager ;
 
     public EquipeAuditorResource() {
-        entityManager  = Persistence.createEntityManagerFactory("PathPersist").createEntityManager();
+        entityManager  = Persistence.createEntityManagerFactory("localPU").createEntityManager();
     }
    
    

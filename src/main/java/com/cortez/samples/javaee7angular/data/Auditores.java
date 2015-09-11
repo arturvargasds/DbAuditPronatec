@@ -1,5 +1,6 @@
 
 package com.cortez.samples.javaee7angular.data;
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,11 +10,11 @@ import javax.persistence.SequenceGenerator;
 //créuuuuu
 
 @Entity
-public class Auditores 
+public class Auditores implements Serializable 
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDAUDITOR")
-    @SequenceGenerator(name = "IDAUDITOR", sequenceName = "AUDITORES")
+    @SequenceGenerator(name = "IDAUDITOR", sequenceName = "seq_auditores")
     @Column(name = "IDAUDITOR")
     private Long id;
 

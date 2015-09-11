@@ -1,7 +1,6 @@
 
 package com.cortez.samples.javaee7angular.rest;
 
-import com.cortez.samples.javaee7angular.data.Bairros;
 import com.cortez.samples.javaee7angular.data.Colaboradores;
 import com.cortez.samples.javaee7angular.pagination.PaginatedListWrapper;
 import java.util.List;
@@ -34,14 +33,14 @@ public class ColaboradorResource
     
     
     private Integer countColaboradores() {
-        Query query = entityManager.createQuery("SELECT COUNT(o.id) FROM Colaboradores o");
+        Query query = entityManager.createQuery("SELECT COUNT(o.id) FROM Colaboradores o ");
         return ((Long) query.getSingleResult()).intValue();
     }
 
     @SuppressWarnings("unchecked")
     private List<Colaboradores> findColaboradores(int startPosition, int maxResults, String sortFields, String sortDirections) {
         Query query =
-                entityManager.createQuery("SELECT o FROM COLABORADORES o ORDER BY o." + sortFields + " " + sortDirections);
+                entityManager.createQuery("SELECT o FROM Colaboradores o ORDER BY o." + sortFields + " " + sortDirections);
         query.setFirstResult(startPosition);
         query.setMaxResults(maxResults);
         return query.getResultList();

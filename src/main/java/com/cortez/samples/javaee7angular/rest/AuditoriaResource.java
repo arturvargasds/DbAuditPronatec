@@ -16,18 +16,19 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+
 public class AuditoriaResource 
 {
-   private EntityManager entityManager ;
+   private final EntityManager entityManager ;
 
     public AuditoriaResource() {
-        entityManager = Persistence.createEntityManagerFactory("LocalPU").createEntityManager();
+        entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
     }
 
   
     private Integer countAuditorias()
     {
-        Query query = entityManager.createQuery("Select count(au.id) From Auditorias au");
+        Query query = entityManager.createQuery("SELECT COUNT(aud.id) FROM Auditorias aud");
         return ((Long) query.getSingleResult()).intValue();
     }
 
@@ -35,7 +36,7 @@ public class AuditoriaResource
     private List<Auditorias> findAuditorias(int startPosition, int maxResults, String sortFields, String sortDirections)
     {
         Query query =
-                entityManager.createQuery("SELECT au FROM Auditorias au ORDER BY au." + sortFields + " " + sortDirections);
+                entityManager.createQuery("SELECT aud FROM Auditorias aud ORDER BY aud." + sortFields + " " + sortDirections);
         query.setFirstResult(startPosition);
         query.setMaxResults(maxResults);
         return query.getResultList();
@@ -93,12 +94,12 @@ public class AuditoriaResource
               auditoriaToSave.setDtHrRealiaudit(auditoria.getDtHrRealiaudit());            
               auditoriaToSave.setDtAtualiza(auditoria.getDtAtualiza());            
               auditoriaToSave.setObsaudit(auditoria.getObsaudit());                        
-              auditoriaToSave.setCertificadora(auditoria.getCertificadora());
-              auditoriaToSave.setCliente(auditoria.getCliente());
-              auditoriaToSave.setStatusNc(auditoria.getStatusNc());
+              auditoriaToSave.setIdCert(auditoria.getIdCert());
+              auditoriaToSave.setIdCli(auditoria.getIdCli());
+              auditoriaToSave.setStatusaudit(auditoria.getStatusaudit());
               entityManager.persist(auditoria);
           } 
-        else
+        else  
           {
               Auditorias auditoriaToUpdate = getAuditorias(auditoria.getId());
               auditoriaToUpdate.setId(auditoria.getId());                       
@@ -109,9 +110,9 @@ public class AuditoriaResource
               auditoriaToUpdate.setDtHrRealiaudit(auditoria.getDtHrRealiaudit());            
               auditoriaToUpdate.setDtAtualiza(auditoria.getDtAtualiza());            
               auditoriaToUpdate.setObsaudit(auditoria.getObsaudit());                        
-              auditoriaToUpdate.setCertificadora(auditoria.getCertificadora());
-              auditoriaToUpdate.setCliente(auditoria.getCliente());
-              auditoriaToUpdate.setStatusNc(auditoria.getStatusNc());                        
+              auditoriaToUpdate.setIdCert(auditoria.getIdCert());
+              auditoriaToUpdate.setIdCli(auditoria.getIdCli());
+              auditoriaToUpdate.setStatusaudit(auditoria.getStatusaudit());                        
               auditoria = entityManager.merge(auditoriaToUpdate);
           }
         return auditoria;

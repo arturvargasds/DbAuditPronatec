@@ -14,7 +14,7 @@ public class Ocorrencias
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDOCORRE")
-    @SequenceGenerator(name = "IDOCORRE", sequenceName = "OCORRENCIAS")
+    @SequenceGenerator(name = "IDOCORRE", sequenceName = "seq_ocorrencias")
     @Column(name = "IDOCORRE")
     private Long id;
     

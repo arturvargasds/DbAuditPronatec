@@ -23,7 +23,7 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 public class AuditorResource {
 
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     public AuditorResource() {
         entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();

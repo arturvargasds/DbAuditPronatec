@@ -1,27 +1,29 @@
 
 package com.cortez.samples.javaee7angular.data;
 
+import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
-
-public class Auditorias 
+@Entity
+public class Auditorias implements Serializable 
 {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDAUDIT")
-    @SequenceGenerator(name = "IDAUDIT", sequenceName = "AUDITORIAS")
+    @SequenceGenerator(name = "IDAUDIT", sequenceName = "seq_auditorias")
     @Column(name = "idaudit")
     private Long id;   
     
     @Column(name = "IDCERT" )
-    private Certificadoras certificadora ;    
+    private int idCert ;    
     
     @Column(name = "IDCLI" )
-    private Clientes cliente ;  
+    private int idCli ;  
     
     @Column(name = "DESCRIAUDIT", length =254 )
     private String descriAudit;  
@@ -44,8 +46,8 @@ public class Auditorias
     @Column(name = "OBSAUDIT", length =100 )
     private String obsaudit;  
     
-    @Column(name = "STATUSNC", length =1 )
-    private String statusNc;   
+    @Column(name = "STATUSaudit", length =1 )
+    private String statusaudit;   
 
     public Long getId() 
     {
@@ -57,20 +59,20 @@ public class Auditorias
         this.id = id;
     }
 
-    public Certificadoras getCertificadora() {
-        return certificadora;
+    public int getIdCert() {
+        return idCert;
     }
 
-    public void setCertificadora(Certificadoras certificadora) {
-        this.certificadora = certificadora;
+    public void setIdCert(final int idCert) {
+        this.idCert = idCert;
     }
 
-    public Clientes getCliente() {
-        return cliente;
+    public int getIdCli() {
+        return idCli;
     }
 
-    public void setCliente(Clientes cliente) {
-        this.cliente = cliente;
+    public void setIdCli(final int idCli) {
+        this.idCli = idCli;
     }
 
     public String getDescriAudit() 
@@ -143,14 +145,14 @@ public class Auditorias
         this.obsaudit = obsaudit;
     }
 
-    public String getStatusNc() 
+    public String getStatusaudit() 
     {
-        return statusNc;
+        return statusaudit;
     }
 
-    public void setStatusNc(final String statusNc) 
+    public void setStatusaudit(final String statusaudit) 
     {
-        this.statusNc = statusNc;
+        this.statusaudit = statusaudit;
     }
     
     
