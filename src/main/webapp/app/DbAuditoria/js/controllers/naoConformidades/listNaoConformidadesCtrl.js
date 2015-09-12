@@ -5,22 +5,22 @@ angular.module("app").controller("naoConformidadesCtrl", function ($scope, NC) {
 	$scope.NC = NC.data.list;
 	
 
-	$scope.adicionarNaoConformidades= function (NC) {
+	$scope.adicionarNaoConformidades= function (nc) {
 		
-		NCAPI.saveNaoConformidades(NC).success(function (data) {
-			delete $scope.NC;
+		NCAPI.saveNaoConformidades(nc).success(function (data) {
+			delete $scope.nc;
 			$scope.NCForm.$setPristine();
 			carregarNaoConformidades();
 		});
 	};
 	$scope.apagarNaoConformidades = function (NC) {
 		$scope.NC =  NC.filter(function (NC) {
-			if (!NC.selecionado) return NC;
+			if (!nc.selecionado) return nc;
 		});
 	};
 	$scope.isNaoConformidadesSelecionado = function (NC) {
-		return NC.some(function (NC) {
-			return NC.selecionado;
+		return NC.some(function (nc) {
+			return nc.selecionado;
 		});
 	};
 	$scope.ordenarPor = function (campo) {

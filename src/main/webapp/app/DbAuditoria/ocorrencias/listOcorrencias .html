@@ -3,31 +3,31 @@
    <div class="col-lg-12">
      <div class="panel panel-info">
        <div class="panel-heading">
-           <h4>Lista de Cidades</h4>   
+           <h4>Lista de ocorrencias</h4>   
        </div>  <br>
        <div class="container-fluid">
-           <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por cidade.."/> <br>
-	<table ng-show="cidades.length > 0" class="table table-striped">
+	<input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por ocorrencia.."/>
+	<table ng-show="ocorrencias.length > 0" class="table table-striped">
 		<tr>
 			<th></th>
                 <!--	<th>Codigo</th>    -->
-			<th><a href="" ng-click="ordenarPor('nome')">Cidade</a></th>
+			<th><a href="" ng-click="ordenarPor('nome')">ocorrencia</a></th>
                         <th>Uf</th>
 			<th>Status</th>
 			
 		</tr>
-		<tr ng-class="{'selecionado negrito': cidade.selecionado}" ng-repeat="cidade in cidades | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-			<td><input type="checkbox" ng-model="cidade.selecionado"/></td>
-	         <!--   <td>{{cidade.idCid}}</td> -->
-			<td>{{cidade.nomeCid | name}}</td>
-			<td>{{cidade.siglaUf}}</td>
-			<td>{{cidade.statusCid}}</td>
+		<tr ng-class="{'selecionado negrito': ocorrencia.selecionado}" ng-repeat="ocorrencia in ocorrencias | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+			<td><input type="checkbox" ng-model="ocorrencia.selecionado"/></td>
+	         <!--   <td>{{ocorrencia.idCid}}</td> -->
+			<td>{{ocorrencia.descriOcorre | name}}</td>
+			<td>{{ocorrencia.sugesOcorre}}</td>
+			<td>{{ocorrencia.statusOcorre}}</td>
 			
 		</tr>
 	</table>
 	<hr/>
-	<a class="btn btn-primary btn-block" href="#/CadCidades">Nova Cidade</a>
-	<button class="btn btn-danger btn-block" ng-click="apagarCidades(cidades)" ng-if="isCidadeSelecionado(cidades)">Apagar Cidades</button>
+	<a class="btn btn-primary btn-block" href="#/CadCidades">Nova ocorrencia</a>
+	<button class="btn btn-danger btn-block" ng-click="apagarCidades(ocorrencias)" ng-if="isCidadeSelecionado(ocorrencias)">Apagar ocorrencias</button>
        </div><br><br>       
       </div><!-- /.row --><br>
                                     <div ng-include="'footer.html'"></div>
@@ -45,11 +45,11 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="odd gradeX" ng-class="{'selecionado negrito': cidade.selecionado}" ng-repeat="cidade in cidades | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-			<td><input type="checkbox" ng-model="cidade.selecionado"/></td>
-                                      	<td>{{cidade.nomeCid | name}}</td>
-			                <td>{{cidade.siglaUf}}</td>
-			                <td>{{cidade.statusCid}}</td>
+                                            <tr class="odd gradeX" ng-class="{'selecionado negrito': ocorrencia.selecionado}" ng-repeat="ocorrencia in ocorrencias| filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+			<td><input type="checkbox" ng-model="ocorrencia.selecionado"/></td>
+                                      	<td>{{ocorrencia.descriOcorre | name}}</td>
+			                <td>{{ocorrencia.sugesOcorre}}</td>
+			                <td>{{ocorrencia.statusOcorre}}</td>
                                             </tr>
                                     
                                         </tbody>

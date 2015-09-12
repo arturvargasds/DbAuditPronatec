@@ -2,23 +2,21 @@ package com.cortez.samples.javaee7angular.rest;
 
 import com.cortez.samples.javaee7angular.data.Certificadoras;
 import com.cortez.samples.javaee7angular.pagination.PaginatedListWrapper;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.DefaultValue;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
 
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import java.util.List;
+import javax.persistence.Persistence;
+
+@Stateless
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class CertificadoraResource 
 {
-      private EntityManager entityManager ;
+      private final EntityManager entityManager ;
 
     public CertificadoraResource() {
         entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
@@ -33,7 +31,7 @@ public class CertificadoraResource
     @SuppressWarnings("unchecked")
     private List<Certificadoras> findCertificadoras(int startPosition, int maxResults, String sortFields, String sortDirections) {
         Query query =
-                entityManager.createQuery("SELECT cert.id FROM Certificadoras cert ORDER BY cert." + sortFields + " " + sortDirections);
+                entityManager.createQuery("SELECT cert FROM Certificadoras cert ORDER BY cert." + sortFields + " " + sortDirections);
         query.setFirstResult(startPosition);
         query.setMaxResults(maxResults);
         return query.getResultList();
@@ -79,7 +77,7 @@ public class CertificadoraResource
         if (certificadora.getId() == null) {
             Certificadoras certificadoraToSave = new Certificadoras();            
             certificadoraToSave.setId(certificadora.getId());
-            certificadoraToSave.setCep(certificadora.getCep());
+            certificadoraToSave.setIdCep(certificadora.getIdCep());
             certificadoraToSave.setFantaCert(certificadora.getFantaCert());
             certificadoraToSave.setCompleEndCert(certificadora.getCompleEndCert());
             certificadoraToSave.setFone1Cert(certificadora.getFone1Cert());
@@ -95,7 +93,7 @@ public class CertificadoraResource
             entityManager.persist(certificadora);
         } else {
             Certificadoras certificadoraToUpdate = getCertificadoras(certificadora.getId());
-            certificadoraToUpdate.setCep(certificadora.getCep());
+            certificadoraToUpdate.setIdCep(certificadora.getIdCep());
             certificadoraToUpdate.setFantaCert(certificadora.getFantaCert());
             certificadoraToUpdate.setCompleEndCert(certificadora.getCompleEndCert());
             certificadoraToUpdate.setFone1Cert(certificadora.getFone1Cert());

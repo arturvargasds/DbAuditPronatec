@@ -15,7 +15,7 @@ angular.module("app").factory("NCAPI", function ($http, config) {
 
 	return {
 		getNaoConformidades: _getNaoConformidades,
-		getNaoConformidade: _getNaoConformidades,
+		getNaoConformidade: _getNaoConformidade,
 		saveNaoConformidades: _saveNaoConformidades
 	};
 });

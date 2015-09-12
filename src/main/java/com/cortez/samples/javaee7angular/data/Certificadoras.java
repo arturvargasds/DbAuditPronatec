@@ -8,19 +8,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 @Entity
+@XmlRootElement
 public class Certificadoras implements Serializable 
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDCERT")
     @SequenceGenerator(name = "IDCERT", sequenceName = "CERTIFICADORAS")
-    @Column(name = "IDCERT")
+    @Column(name = "idcert")
     private Long id;
     
-    @Column(name = "CEP", length =8 )
-    private String cep;    
+        @Column(name = "IDCEP" )
+    private int  idcep;   
     
     @Column(name = "RAZAOCERT", length =60 )
     private String razaoCert;      
@@ -66,12 +68,12 @@ public class Certificadoras implements Serializable
         this.id = id;
     }
 
-    public String getCep() {
-        return cep;
+         public int getIdCep() {
+        return idcep;
     }
 
-    public void setCep(final String cep) {
-        this.cep = cep;
+    public void setIdCep(final int idcep) {
+        this.idcep = idcep;
     }
 
     public String getRazaoCert() {
@@ -169,5 +171,13 @@ public class Certificadoras implements Serializable
     public void setStatusCert(final String StatusCert) {
         this.StatusCert = StatusCert;
     }
-   
+     @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

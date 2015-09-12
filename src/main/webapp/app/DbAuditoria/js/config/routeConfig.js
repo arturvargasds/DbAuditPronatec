@@ -56,8 +56,6 @@ angular.module("app").config(function ($routeProvider) {
 		}
 	});
         
-        //********************************************final
-        
         
         //*****************************************************************Nao Conformidades
                    $routeProvider.when("/naoConformidades", {
@@ -84,7 +82,73 @@ angular.module("app").config(function ($routeProvider) {
 		}
 	});
         
-        //********************************************final
+        //*****************************************************************Auditores
+    $routeProvider.when("/auditores", {
+    templateUrl: "auditores/listAuditores.html",
+    controller: "AuditoresCtrl",
+    resolve: {
+             auditores: function (auditoresAPI){
+             return auditoresAPI.getAuditores();
+             }       
+             }
+    });
+    
+    
+    $routeProvider.when("/cadAuditores", {
+	templateUrl: "auditores/cadAuditores.html",
+	controller: "cadAuditoresCtrl"
+	});
+    
+        
+	$routeProvider.when("/editAuditores/:id", {
+	templateUrl: "auditores/editAuditores.html",
+	controller: "editAuditoresCtrl",
+	resolve: {
+			 auditores: function (auditoresAPI, $route) {
+			 return auditoresAPI.getAuditores($route.current.params.id);
+			 }
+		     }
+	});
+        
+        //**********************************************************Certificadoras
+        $routeProvider.when("/certificadoras", {
+            templateUrl: "certificadoras/listCertificadoras.html",
+            controller: "CertificadorasCtrl",
+            resolve: {
+                    certificadoras: function (certificadorasAPI) {
+                            return certificadorasAPI.getCertificadoras();
+                    }       
+            }
+        });
+        
+        $routeProvider.when("/CadCertificadoras", {
+		templateUrl: "certificadoras/cadasCertificadora.html",
+		controller: "cadCertificadoraCtrl"
+	});
+        
+	$routeProvider.when("/editarCertificadorasCtrl/:id", {
+		templateUrl: "certificadora/editarCerticadora.html",
+		controller: "editarCertificadorasCtrl",
+		resolve: {
+			certificadora: function (certificadorasAPI, $route) {
+				return certificadorasAPI.getCertificadora($route.current.params.id);
+			}
+		}
+	});
+        
+        //***********************************************************cidades
+        $routeProvider.when("/ocorrencias", {
+            templateUrl: "ocorrencias/listOcorrencias.html",
+            controller: "OcorrenciasCtrl",
+            resolve: {
+                    ocorrencias: function (ocorrenciasAPI) {
+                            return ocorrenciasAPI.getOcorrencias();
+                    }       
+            }
+        });
+        
+//********************************************final 
+        
         
 	$routeProvider.otherwise({redirectTo: "/"});
 });

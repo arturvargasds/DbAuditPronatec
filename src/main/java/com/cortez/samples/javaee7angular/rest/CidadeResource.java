@@ -16,7 +16,7 @@ import javax.persistence.Persistence;
 @Produces(MediaType.APPLICATION_JSON)
 public class CidadeResource {
 
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     public CidadeResource() {
         entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();

@@ -2,23 +2,20 @@ package com.cortez.samples.javaee7angular.rest;
 
 import com.cortez.samples.javaee7angular.data.Ocorrencias;
 import com.cortez.samples.javaee7angular.pagination.PaginatedListWrapper;
-import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.DefaultValue;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
+import javax.persistence.Persistence;
 
+@Stateless
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class OcorrenciaResource 
 {
-   private EntityManager entityManager ;
+   private final EntityManager entityManager ;
 
     public OcorrenciaResource() {
         entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
@@ -27,14 +24,14 @@ public class OcorrenciaResource
   
 
     private Integer countOcorrencias() {
-        Query query = entityManager.createQuery("SELECT COUNT(oco.id) FROM Ocorrencias oco");
+        Query query = entityManager.createQuery("SELECT COUNT(ocor.id) FROM Ocorrencias ocor");
         return ((Long) query.getSingleResult()).intValue();
     }
 
     @SuppressWarnings("unchecked")
     private List<Ocorrencias> findOcorrencias(int startPosition, int maxResults, String sortFields, String sortDirections) {
         Query query =
-                entityManager.createQuery("SELECT oco.id FROM Ocorrencias oco ORDER BY oco." + sortFields + " " + sortDirections);
+                entityManager.createQuery("SELECT ocor FROM Ocorrencias ocor ORDER BY ocor." + sortFields + " " + sortDirections);
         query.setFirstResult(startPosition);
         query.setMaxResults(maxResults);
         return query.getResultList();

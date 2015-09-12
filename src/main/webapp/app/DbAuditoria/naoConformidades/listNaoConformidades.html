@@ -11,21 +11,26 @@
 		<tr>
 			<th></th>
                 <!--	<th>Codigo</th>    -->
-			<th><a href="" ng-click="ordenarPor('descrinc')">Descrição da NC</a></th>                    
+			<th><a href="" ng-click="ordenarPor('descrinc')">Id Colaborador</a></th>                    
+			<th>Id Ponto de Controle</th>
+                        <th>Dt/Hr do Cadastro</th>
+                        <th>Data Prevista para Resolver</th>
+                        <th>Descrição</th>
+                        <th>Sugestão</th>
 			<th>Status</th>
-			
+                        <th>Observação</th>
 		</tr>
-		<tr ng-class="{'Selecionado negrito': NC.selecionado}" ng-repeat="NC in NC | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-			<td><input type="checkbox" ng-model="NC.selecionado"/></td>
+		<tr ng-class="{'Selecionado negrito': nc.selecionado}" ng-repeat="nc in NC | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+			<td><input type="checkbox" ng-model="nc.selecionado"/></td>
 	         <!--   <td>{{cidade.idCid}}</td> -->
-			<td>{{NC.idcola}}</td>
-			<td>{{NC.idpontoctrl}}</td>
-                        <td>{{NC.dthrcadnc}}</td>
-                        <td>{{NC.dtprevresolnc}}</td>
-                        <td>{{NC.descrinc | name}}</td>
-                        <td>{{NC.sugestaonc}}</td>
-                        <td>{{NC.statusnc}}</td>
-                        <td>{{NC.obsnc}}</td>
+			<td>{{nc.idcola}}</td>
+			<td>{{nc.idpontoctrl}}</td>
+                        <td>{{nc.dthrcadnc}}</td>
+                        <td>{{nc.dtprevresolnc}}</td>
+                        <td>{{nc.descrinc}}</td>
+                        <td>{{nc.sugestaonc}}</td>
+                        <td>{{nc.statusnc}}</td>
+                        <td>{{nc.obsnc}}</td>
 		</tr>
 	</table>
 	<hr/>
