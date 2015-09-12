@@ -1,0 +1,1 @@
+ angular.module("app", ["ngMessages", "serialGenerator", "ui", "ngRoute"]);

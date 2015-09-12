@@ -1,12 +1,10 @@
-/* global angular */
-
-angular.module("app").controller("cadAuditoresCtrl", function ($scope, bairrosAPI, $location) {
+angular.module("app").controller("cadAuditoresCtrl", function ($scope, auditoresAPI, $location) {
 	
 
-	$scope.adicionarAuditores = function (auditores) {
+	$scope.adicionarAuditor = function (auditor) {
 	
-		bairrosAPI.saveAuditores(auditores).success(function (data) {
-			delete $scope.auditores;
+		auditoresAPI.saveAuditor(auditor).success(function (data) {
+			delete $scope.auditor;
 			$scope.auditoresForm.$setPristine();
 			$location.path("/auditores");
 		});

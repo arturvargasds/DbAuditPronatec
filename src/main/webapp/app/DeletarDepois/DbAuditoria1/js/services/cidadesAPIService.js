@@ -6,7 +6,7 @@ angular.module("app").factory("cidadesAPI", function ($http, config) {
 	};
 
 	var _getCidade = function (id) {
-		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/cidades" + id);
+		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/cidades/" + id);
 	};
 
 	var _saveCidade= function (cidade) {

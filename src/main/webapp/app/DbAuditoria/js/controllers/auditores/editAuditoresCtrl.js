@@ -1,4 +1,4 @@
-angular.module("app").controller("editAuditoresCtrl", function ($scope, $routeParams, auditores) {
+angular.module("app").controller("editAuditoresCtrl", function ($scope, $routeParams, auditor) {
 
-	$scope.auditores = auditores.data.list;
+	$scope.auditor = auditor.data.list;
 });

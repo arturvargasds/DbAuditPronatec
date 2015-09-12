@@ -5,27 +5,24 @@ angular.module("app").controller("AuditoresCtrl", function ($scope, auditores) {
 	$scope.auditores = auditores.data.list;
 	
 
-	$scope.adicionarAuditor= function (auditor) {
+	$scope.adicionarAuditores= function (auditores) {
 		
-		auditoresAPI.saveAuditor(auditor).success(function (data) {
-			delete $scope.auditor;
+		auditoresAPI.saveAuditores(auditores).success(function (data) {
+			delete $scope.auditores;
 			$scope.auditoresForm.$setPristine();
 			carregarAuditores();
 		});
 	};
-    
 	$scope.apagarAuditores = function (auditores) {
-		$scope.auditores =  auditores.filter(function (auditor) {
-			if (!auditor.selecionado) return auditor;
+		$scope.auditores =  auditores.filter(function (auditores) {
+			if (!auditores.selecionado) return auditores;
 		});
 	};
-    
-	$scope.isAuditorSelecionado = function (auditores) {
-		return auditores.some(function (auditor) {
-			return auditor.selecionado;
+	$scope.isAuditoreSelecionado = function (auditores) {
+		return auditores.some(function (auditores) {
+			return auditores.selecionado;
 		});
 	};
-    
 	$scope.ordenarPor = function (campo) {
 		$scope.criterioDeOrdenacao = campo;
 		$scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
