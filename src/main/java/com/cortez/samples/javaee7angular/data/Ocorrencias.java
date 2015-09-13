@@ -18,7 +18,7 @@ public class Ocorrencias implements Serializable
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDOCORRE")
-    @SequenceGenerator(name = "IDOCORRE", sequenceName = "SEQ_OCORRENCIAS" ,allocationSize = 1)
+    @SequenceGenerator(name = "IDOCORRE", sequenceName = "seq_ocorrencias" ,allocationSize = 1)
     @Column(name = "idocorre")
     private Long id;
     

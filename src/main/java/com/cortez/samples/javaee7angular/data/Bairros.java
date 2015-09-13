@@ -15,7 +15,7 @@ public class Bairros implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDBAI")
-    @SequenceGenerator(name = "IDBAI", sequenceName = "SEQ_BAIRROS", allocationSize = 1)
+    @SequenceGenerator(name = "IDBAI", sequenceName = "seq_bairros", allocationSize = 1)
     @Column(name = "idbai")
     private Long id;
 

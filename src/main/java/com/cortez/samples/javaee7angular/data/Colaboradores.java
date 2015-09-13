@@ -13,7 +13,7 @@ public class Colaboradores
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDCOLA")
-    @SequenceGenerator(name = "IDCOLA", sequenceName = "COLABORADORES")
+    @SequenceGenerator(name = "IDCOLA", sequenceName = "seq_colaboradores")
     @Column(name = "IDCOLA")
     private Long id;
     

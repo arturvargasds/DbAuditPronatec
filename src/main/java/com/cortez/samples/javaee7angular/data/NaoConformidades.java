@@ -7,13 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import java.sql.Timestamp;
 
 @Entity
 public class NaoConformidades 
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDNC")
-    @SequenceGenerator(name = "IDNC", sequenceName = "NAOCONFIRMIDADES")
+    @SequenceGenerator(name = "IDNC", sequenceName = "seq_naoconformidades")
     @Column(name = "IDNC")
     private Long id;
     
@@ -24,13 +25,13 @@ public class NaoConformidades
     private int idPontoCtrl;      
     
     @Column(name = "DTHRCADNC", length =19 )
-    private String dtHrCadNc;  
+    private Timestamp dtHrCadNc;  
     
     @Column(name = "DTPREVRESOLNC", length =19 )
-    private String dtPrevResolNc;  
+    private Timestamp dtPrevResolNc;  
     
     @Column(name = "DTATUALIZA", length =19 )
-    private String dtAtualiza; 
+    private Timestamp dtAtualiza; 
     
     @Column(name = "DESCRINC", length =254 )
     private String DescriNc; 
@@ -68,27 +69,27 @@ public class NaoConformidades
         this.idPontoCtrl = idPontoCtrl;
     }
 
-    public String getDtHrCadNc() {
+    public Timestamp getDtHrCadNc() {
         return dtHrCadNc;
     }
 
-    public void setDtHrCadNc(final String dtHrCadNc) {
+    public void setDtHrCadNc(final Timestamp dtHrCadNc) {
         this.dtHrCadNc = dtHrCadNc;
     }
 
-    public String getDtPrevResolNc() {
+    public Timestamp getDtPrevResolNc() {
         return dtPrevResolNc;
     }
 
-    public void setDtPrevResolNc(final String dtPrevResolNc) {
+    public void setDtPrevResolNc(final Timestamp dtPrevResolNc) {
         this.dtPrevResolNc = dtPrevResolNc;
     }
 
-    public String getDtAtualiza() {
+    public Timestamp getDtAtualiza() {
         return dtAtualiza;
     }
 
-    public void setDtAtualiza(final String dtAtualiza) {
+    public void setDtAtualiza(final Timestamp dtAtualiza) {
         this.dtAtualiza = dtAtualiza;
     }
 

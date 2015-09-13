@@ -8,13 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import java.sql.Timestamp;
 
 @Entity
 public class CheckList implements Serializable 
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDPONTOCTRL")
-    @SequenceGenerator(name = "IDPONTOCTRL", sequenceName = "CHECKLIST")
+    @SequenceGenerator(name = "IDPONTOCTRL", sequenceName = "seq_checklist")
     @Column(name = "IDPONTOCTRL")
     private Long id;
     
@@ -34,10 +35,10 @@ public class CheckList implements Serializable
     private String descriChklist;        
     
     @Column(name = "DTHRREALICHKLIST", length =19 )
-    private String dtHrRealiChklist;        
+    private Timestamp dtHrRealiChklist;        
     
     @Column(name = "DTATUALIZA", length =19 )
-    private String dtAtualiza;     
+    private Timestamp dtAtualiza;     
     
     @Column(name = "OBSCHKLIST", length =254 )
     private String obsChklist;        
@@ -93,19 +94,19 @@ public class CheckList implements Serializable
         this.descriChklist = descriChklist;
     }
 
-    public String getDtHrRealiChklist() {
+    public Timestamp getDtHrRealiChklist() {
         return dtHrRealiChklist;
     }
 
-    public void setDtHrRealiChklist(final String dtHrRealiChklist) {
+    public void setDtHrRealiChklist(final Timestamp dtHrRealiChklist) {
         this.dtHrRealiChklist = dtHrRealiChklist;
     }
 
-    public String getDtAtualiza() {
+    public Timestamp getDtAtualiza() {
         return dtAtualiza;
     }
 
-    public void setDtAtualiza(final String dtAtualiza) {
+    public void setDtAtualiza(final Timestamp dtAtualiza) {
         this.dtAtualiza = dtAtualiza;
     }
 

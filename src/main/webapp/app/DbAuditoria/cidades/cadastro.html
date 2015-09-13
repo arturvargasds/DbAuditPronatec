@@ -1,59 +1,63 @@
 <div id="page-wrapper">     <br>
   <div class="row">
-   <div class="col-lg-12">
-     <div class="panel panel-info">
-       <div class="panel-heading">
-           <h4> Cadastro Cidades </h4>   
-       </div>  <br>
-       <div class="container-fluid" style="alignment-adjust:central;">
-            <!--  < style="background-color: #dff0d8;">  -->
-         
-	<form name="cidForm">
-		<input class="form-control" type="text" ng-model="cidade.nomeCid" name="nome" placeholder="Nome" 
-                ng-required="true" ng-minlength="3"/>
-                
-                <input class="form-control" type="text" disabled="" ng-model="cidade.siglaUf" name="sigla" 
-                placeholder="UF" ng-required="true" />
-                
-		<input class="form-control" type="text" ng-model="cidade.statusCid" name="status" placeholder="Status" 
-                    ng-required="true" ng-minlength="1" ng-maxlength="1"/>
-                
-                <select name="sigla"  class="form-control" ng-model="cidade.siglaUf ">
-			<option value="">Selecione um estado</option>
-                        <option value="SC">Santa Catarina</option>
-                         <option value="PR">Paraná</option>
-		</select>
-	</form>
-     
-	<div ng-show="cidForm.nome.$dirty" ng-messages="cidForm.nome.$error">
-		<div ng-message="required" class="alert alert-danger">
-			Por favor, preencha o campo nome!
-		</div>
-		<div ng-message="minlength" class="alert alert-danger">
-			O campo nome deve ter no mínimo 3 caracteres.
-		</div>
-	</div>
-     
-       	<div ng-show="cidForm.status.$dirty" ng-messages="cidForm.status.$error">
-		<div ng-message="required" class="alert alert-danger">
-			Por favor, preencha o campo status!
-		</div>
-		<div ng-message="minlength" class="alert alert-danger">
-			O campo Status deve ter  1 caracteres.
-		</div>
-                <div ng-message="maxlength" class="alert alert-danger">
-			O campo Status deve ter  1 caracteres.
-	        </div>
-	</div><br>
-     
-        <div style="padding-left:280px;"   >
-              <a class="btn btn-primary glyphicon glyphicon-floppy-save" ng-click="adicionarCidade(cidade)" ng-disabled="cidForm.$invalid"> ADICIONAR CIDADE</a>
-              <a href="#/cidades"  class="btn btn-danger glyphicon glyphicon-remove"  > CANCELAR</a>
-         </div> 
+    <div class="col-lg-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h4> Cadastro Cidades </h4>   
+        </div>  <br>
+        <div class="container-fluid" style="alignment-adjust:central;">
+        <!--  < style="background-color: #dff0d8;">  -->
+
+        <!--formulario-->
+          <form name="cidForm">
+            <input class="form-control" type="text" ng-model="cidade.nomeCid" name="nome" placeholder="Nome" 
+            ng-required="true" ng-minlength="3"/>
+
+            <input class="form-control" type="text" disabled="" ng-model="cidade.siglaUf" name="sigla" 
+            placeholder="UF" ng-required="true" />
+
+            <input class="form-control" type="text" ng-model="cidade.statusCid" name="status" placeholder="Status" 
+            ng-required="true" ng-minlength="1" ng-maxlength="1"/>
+
+            <select name="sigla"  class="form-control" ng-model="cidade.siglaUf ">
+              <option value="">Selecione um estado</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="PR">Paraná</option>
+            </select>
+          </form>
+
+          <!--autent campos-->
+          <div ng-show="cidForm.nome.$dirty" ng-messages="cidForm.nome.$error">
+            <div ng-message="required" class="alert alert-danger">
+              Por favor, preencha o campo nome!
+            </div>
+            <div ng-message="minlength" class="alert alert-danger">
+              O campo nome deve ter no mínimo 3 caracteres.
+            </div>
+          </div>
+
+          <div ng-show="cidForm.status.$dirty" ng-messages="cidForm.status.$error">
+            <div ng-message="required" class="alert alert-danger">
+              Por favor, preencha o campo status!
+            </div>
+            <div ng-message="minlength" class="alert alert-danger">
+              O campo Status deve ter  1 caracteres.
+            </div>
+            <div ng-message="maxlength" class="alert alert-danger">
+              O campo Status deve ter  1 caracteres.
+            </div>
+          </div><br>
+
+          <!--botoes-->
+          <div style="padding-left:280px;"   >
+            <a class="btn btn-primary glyphicon glyphicon-floppy-save" ng-click="adicionarCidade(cidade)" ng-disabled="cidForm.$invalid"> ADICIONAR CIDADE</a>
+            <a href="#/cidades"  class="btn btn-danger glyphicon glyphicon-remove"  > CANCELAR</a>
+          </div>
+           
         </div> <br><br>
-       </div> <br>
-                              <div ng-include="'footer.html'"></div>
+      </div> <br>
+    <div ng-include="'footer.html'"></div>
     </div><!-- /.row -->
-    <p>Formaçao do Objeto(json): {{cidade| json }}</p>''
-   </div><!-- /#page-wrapper -->
-  </div> <!-- /#wrapper -->
+  <p>Formaçao do Objeto(json): {{cidade| json }}</p>''
+  </div><!-- /#page-wrapper -->
+</div> <!-- /#wrapper -->

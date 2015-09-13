@@ -8,13 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import java.sql.Timestamp;
 
 @Entity
 public class EquipeAuditores implements Serializable 
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDEQUIPE")
-    @SequenceGenerator(name = "IDEQUIPE", sequenceName = "EQUIPEAUDITORES")
+    @SequenceGenerator(name = "IDEQUIPE", sequenceName = "seq_equipeauditores")
     @Column(name = "IDEQUIPE")
     private Long id;
     
@@ -28,7 +29,7 @@ public class EquipeAuditores implements Serializable
     private String tipoAuditor ;       
     
     @Column(name = "DTHRINCEQUIPE", length = 19 )
-    private String dtHrIncEquipe ;  
+    private Timestamp dtHrIncEquipe ;  
         
     @Column(name = "STATUSEQUIPE", length = 1 )
     private String statusEquipe ;     
@@ -65,11 +66,11 @@ public class EquipeAuditores implements Serializable
         this.tipoAuditor = tipoAuditor;
     }
 
-    public String getDtHrIncEquipe() {
+    public Timestamp getDtHrIncEquipe() {
         return dtHrIncEquipe;
     }
 
-    public void setDtHrIncEquipe(final String dtHrIncEquipe) {
+    public void setDtHrIncEquipe(final Timestamp dtHrIncEquipe) {
         this.dtHrIncEquipe = dtHrIncEquipe;
     }
 
