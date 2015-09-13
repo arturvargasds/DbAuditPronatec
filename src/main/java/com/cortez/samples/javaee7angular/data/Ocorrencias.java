@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.sql.Timestamp;
 
 @Entity
 @XmlRootElement
@@ -17,7 +18,7 @@ public class Ocorrencias implements Serializable
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDOCORRE")
-    @SequenceGenerator(name = "IDOCORRE", sequenceName = "seq_ocorrencias")
+    @SequenceGenerator(name = "IDOCORRE", sequenceName = "SEQ_OCORRENCIAS" ,allocationSize = 1)
     @Column(name = "idocorre")
     private Long id;
     
@@ -28,10 +29,10 @@ public class Ocorrencias implements Serializable
     private int idCola ;     
     
     @Column(name = "DTHROCORRE", length =19 )
-    private String dtHrOcorre; 
+    private Timestamp dtHrOcorre; 
     
     @Column(name = "DTATUALIZA", length =19 )
-    private String dtAtualiza;     
+    private Timestamp dtAtualiza;     
     
     @Column(name = "DESCRIOCORRE", length =254 )
     private String descriOcorre;     
@@ -69,19 +70,19 @@ public class Ocorrencias implements Serializable
         this.idCola = idCola;
     }
 
-    public String getDtHrOcorre() {
+    public Timestamp getDtHrOcorre() {
         return dtHrOcorre;
     }
 
-    public void setDtHrOcorre(final String dtHrOcorre) {
+    public void setDtHrOcorre(final Timestamp dtHrOcorre) {
         this.dtHrOcorre = dtHrOcorre;
     }
 
-    public String getDtAtualiza() {
+    public Timestamp getDtAtualiza() {
         return dtAtualiza;
     }
 
-    public void setDtAtualiza(final String dtAtualiza) {
+    public void setDtAtualiza(final Timestamp dtAtualiza) {
         this.dtAtualiza = dtAtualiza;
     }
 

@@ -14,13 +14,13 @@ public class Auditores implements Serializable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDAUDITOR")
-    @SequenceGenerator(name = "IDAUDITOR", sequenceName = "seq_auditores")
+    @SequenceGenerator(name = "IDAUDITOR", sequenceName = "seq_auditores", allocationSize = 1)
     @Column(name = "IDAUDITOR")
     private Long id;
 
  
-    @Column(name = "IDCEP", length = 8)
-    private String cepAudit;    
+    @Column(name = "IDCEP")
+    private int idcep;    
     
     @Column(name = "NOMEAUDIT", length = 60)
     private String nomeAudit;
@@ -73,12 +73,12 @@ public class Auditores implements Serializable
         this.id = id;
     }
     
-        public String getCepAudit() {
-        return cepAudit;
+        public int getIdcep() {
+        return idcep;
     }
 
-    public void setCepAudit(final String cepAudit) {
-        this.cepAudit = cepAudit;
+    public void setIdcep(final int idcep) {
+        this.idcep = idcep;
     }
     
 

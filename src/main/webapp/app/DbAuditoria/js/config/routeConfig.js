@@ -97,7 +97,9 @@ angular.module("app").config(function ($routeProvider) {
     $routeProvider.when("/cadAuditores", {
         templateUrl: "auditores/cadAuditores.html",
         controller : "cadAuditoresCtrl"
-	});
+    });
+         
+   
     
         
 	$routeProvider.when("/editAuditores/:id", {
@@ -136,16 +138,71 @@ angular.module("app").config(function ($routeProvider) {
         }
     });
         
-//***********************************************************cidades
+//***********************************************************ocorrencias
      $routeProvider.when("/ocorrencias", {
-         templateUrl: "ocorrencias/listOcorrencias.html",
-         controller : "OcorrenciasCtrl",
+         templateUrl: "ocorrencias/listOcorrencia.html",
+         controller : "ocorrenciasCtrl",
          resolve    : {
              ocorrencias: function (ocorrenciasAPI) {
              return ocorrenciasAPI.getOcorrencias();
              }       
          }
      });
+     
+     $routeProvider.when("/cadOcorrencias", {
+        templateUrl: "ocorrencias/cadOcorrencias.html",
+	controller : "cadOcorrenciasCtrl"
+     });
+     
+     //*********************************************Clientes
+        $routeProvider.when("/clientes", {
+            templateUrl: "Clientes/listCliente.html",
+            controller: "ClientesCtrl",
+            resolve: {
+                    clientes: function (clientesAPI) {
+                            return clientesAPI.getClientes();
+                    }       
+            }
+        });
+        
+        $routeProvider.when("/CadClientes", {
+		templateUrl: "Clientes/cadasCliente.html",
+		controller: "cadClienteCtrl"
+	});
+        
+	$routeProvider.when("/editarClientesCtrl/:id", {
+		templateUrl: "Clientes/editarCliente.html",
+		controller: "editarClienteCtrl",
+		resolve: {
+			certificadora: function (clientesAPI, $route) {
+				return clientesAPI.getCliente($route.current.params.id);
+			}
+		}
+	});
+            //***********************************************************ceps
+        $routeProvider.when("/ceps", {
+            templateUrl: "ceps/listCep.html",
+            controller: "CepsCtrl",
+            resolve: {
+                    cidades: function (cepsAPI) {
+                            return cepsAPI.getCeps();
+                    }       
+            }
+        });
+	$routeProvider.when("/CadCeps", {
+		templateUrl: "ceps/cadastro.html",
+		controller: "cadasCepsCtrl"
+	});
+        
+	$routeProvider.when("/EditarCep/:id", {
+		templateUrl: "ceps/editarCeps.html",
+		controller: "editarCepCtrl",
+		resolve: {
+			cep: function (cepsAPI, $route) {
+				return cepsAPI.getCep($route.current.params.id);
+			}
+		}
+	});
         
 //********************************************final        
         

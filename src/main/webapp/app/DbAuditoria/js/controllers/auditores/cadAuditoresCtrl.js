@@ -1,3 +1,5 @@
+/* global angular */
+
 angular.module("app").controller("cadAuditoresCtrl", function ($scope, auditoresAPI, $location) {
 	
 
@@ -5,7 +7,7 @@ angular.module("app").controller("cadAuditoresCtrl", function ($scope, auditores
 	
 		auditoresAPI.saveAuditor(auditor).success(function (data) {
 			delete $scope.auditor;
-			$scope.auditoresForm.$setPristine();
+			$scope.auditorForm.$setPristine();
 			$location.path("/auditores");
 		});
 	};

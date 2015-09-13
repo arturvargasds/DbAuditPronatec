@@ -73,7 +73,8 @@ public class OcorrenciaResource
     }
 
     @POST
-    public Ocorrencias saveOcorrencias(Ocorrencias ocorrencia) {
+    public Ocorrencias saveOcorrencia(Ocorrencias ocorrencia) {
+         entityManager.getTransaction().begin();
         if (ocorrencia.getId() == null) {
             Ocorrencias ocorrenciaToSave = new Ocorrencias();
             ocorrenciaToSave.setId(ocorrencia.getId());
@@ -99,6 +100,7 @@ public class OcorrenciaResource
             ocorrenciaToUpdate.setStatusOcorre(ocorrencia.getStatusOcorre());
             ocorrencia = entityManager.merge(ocorrenciaToUpdate);
         }
+        entityManager.getTransaction().commit();
         return ocorrencia;
     }
 

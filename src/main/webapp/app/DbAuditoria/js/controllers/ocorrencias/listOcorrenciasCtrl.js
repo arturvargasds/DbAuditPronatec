@@ -1,24 +1,24 @@
-/* global angular, ocorrenciasAPI */
+/* global angular, ocorrencias, ocorrenciasAPI  */
 
-angular.module("app").controller("OcorrenciasCtrl", function ($scope, ocorrencias) {
+angular.module("app").controller("ocorrenciasCtrl", function ($scope, ocorrencias) {
 	$scope.app = "DbAuditoria";
 	$scope.ocorrencias = ocorrencias.data.list;
 	
 
-	$scope.adicionarCidade= function (ocorrencia) {
+	$scope.adicionarOcorrencia= function (ocorrencia) {
 		
-		ocorrenciasAPI.saveCidade(ocorrencia).success(function (data) {
+		ocorrenciasAPI.saveOcorrencia(ocorrencia).success(function (data) {
 			delete $scope.ocorrencia;
-			$scope.cidForm.$setPristine();
-			carregarCidades();
+			$scope.ocorrenciasForm.$setPristine();
+			carregarOcorrencias();
 		});
 	};
-	$scope.apagarCidades = function (ocorrencias) {
+	$scope.apagarOcorrencias= function (ocorrencias) {
 		$scope.ocorrencias =  ocorrencias.filter(function (ocorrencia) {
 			if (!ocorrencia.selecionado) return ocorrencia;
 		});
 	};
-	$scope.isCidadeSelecionado = function (ocorrencias) {
+	$scope.isOcorrenciaSelecionado = function (ocorrencias) {
 		return ocorrencias.some(function (ocorrencia) {
 			return ocorrencia.selecionado;
 		});

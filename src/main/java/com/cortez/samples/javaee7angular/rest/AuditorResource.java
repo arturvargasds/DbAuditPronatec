@@ -77,9 +77,10 @@ public class AuditorResource {
 
     @POST
     public Auditores saveAuditor(Auditores auditor) {
+        entityManager.getTransaction().begin();
         if (auditor.getId() == null) {
             Auditores auditorToSave = new Auditores();
-            auditorToSave.setCepAudit(auditor.getCepAudit());
+            auditorToSave.setIdcep(auditor.getIdcep());
             auditorToSave.setNomeAudit(auditor.getNomeAudit());
             auditorToSave.setCpfAudit(auditor.getCpfAudit());
             auditorToSave.setFone1Audit(auditor.getFone1Audit());
@@ -94,7 +95,7 @@ public class AuditorResource {
             entityManager.persist(auditor);
         } else {
             Auditores auditorToUpdate = getAuditores(auditor.getId());
-            auditorToUpdate.setCepAudit(auditor.getCepAudit());
+            auditorToUpdate.setIdcep(auditor.getIdcep());
             auditorToUpdate.setNomeAudit(auditor.getNomeAudit());
             auditorToUpdate.setCpfAudit(auditor.getCpfAudit());
             auditorToUpdate.setFone1Audit(auditor.getFone1Audit());
@@ -108,13 +109,16 @@ public class AuditorResource {
             auditorToUpdate.setStatusAuditores(auditor.getStatusAuditores());
             auditor = entityManager.merge(auditorToUpdate);
         }
+           entityManager.getTransaction().commit();
         return auditor;
     }
 
     @DELETE
     @Path("{id}")
     public void deleteAuditor(@PathParam("id") Long id) {
+        entityManager.getTransaction().begin();
         entityManager.remove(getAuditores(id));
+        entityManager.getTransaction().commit();
     }
 
 }
