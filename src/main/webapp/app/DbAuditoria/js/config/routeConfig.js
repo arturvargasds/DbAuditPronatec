@@ -204,6 +204,37 @@ angular.module("app").config(function ($routeProvider) {
 		}
 	});
         
+        
+            //********************************************Equipe Auditores
+        $routeProvider.when("/EquipeAuditores", {
+        templateUrl: "EquipeAuditores/listEquipeAuditores.html",
+        controller : "EquipeAuditoresCtrl",
+        resolve    : {
+            EquipeAuditores: function (EquipeAuditoresAPI){
+            return EquipeAuditoresAPI.getEquipeAuditores();
+            }       
+        }
+    });    
+    
+    $routeProvider.when("/cadEquipeAuditores", {
+        templateUrl: "EquipeAuditores/cadEquipeAuditores.html",
+        controller : "cadEquipeAuditoresCtrl"
+    });
+         
+   
+    
+        
+	$routeProvider.when("/editEquipeAuditores/:id", {
+        templateUrl: "EquipeAuditores/editEquipeAuditores.html",
+        controller : "editEquipeAuditoresCtrl",
+        resolve    : {
+            EquipeAuditores: function (EquipeAuditoresAPI, $route) {
+            return EquipeAuditoresAPI.getEquipeAuditores($route.current.params.id);
+            }
+        }
+	});
+
+        
 //********************************************final        
         
 	$routeProvider.otherwise({redirectTo: "/"});
