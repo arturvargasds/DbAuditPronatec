@@ -49,10 +49,13 @@
 
 					<!--autent. campos-->
 					<div ng-show="auditorForm.cepAudit.$dirty" ng-messages="auditorForm.cepAudit.$error">
-						<div ng-message="required" class="alert alert-danger">
-							Por favor, preencha o campo cep!
-						</div>
-					</div>
+			            <div ng-message="required" class="alert alert-danger">
+			              	Por favor, preencha o campo nome!
+			            </div>
+			            <div ng-message="minlength" class="alert alert-danger">
+			              	O campo nome deve ter no mínimo 3 caracteres.
+			            </div>
+		          	</div>
 
 					<div ng-show="auditorForm.nomeAudit.$dirty" ng-messages="auditorForm.nomeAudit.$error">
 						<div ng-message="required" class="alert alert-danger">

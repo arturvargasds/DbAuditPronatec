@@ -10,7 +10,8 @@
 
             <table ng-show="cidades.length > 0" class="table table-striped">
               <tr>              
-                <th><a href="" ng-click="ordenarPor('nome')">Cidade</a></th>
+                <th></th>
+                <th><a href="" ng-click="ordenarPor('nomeCid')">Cidade</a></th>
                 <th>Uf</th>
                 <th>Status</th>
               </tr>
@@ -21,7 +22,6 @@
                 <td>{{cidade.statusCid}}</td>
               </tr>
             </table>
-
             <hr/>
 
             <!--botoes-->
@@ -56,6 +56,7 @@
           </div>                    
         </div>
       </div>
+
     </div><!-- /#page-wrapper -->
   </div> <!-- /#wrapper -->
 </div>
