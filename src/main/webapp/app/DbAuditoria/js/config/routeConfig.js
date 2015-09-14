@@ -233,6 +233,36 @@ angular.module("app").config(function ($routeProvider) {
             }
         }
 	});
+        
+         //********************************************Equipe Auditorias
+        $routeProvider.when("/auditorias", {
+        templateUrl: "auditorias/listAuditorias.html",
+        controller : "auditoriasCtrl",
+        resolve    : {
+            auditorias: function (auditoriasAPI){
+            return auditoriasAPI.getauditorias();
+            }       
+        }
+    });    
+    
+    $routeProvider.when("/cadAuditorias", {
+        templateUrl: "auditorias/cadAuditorias.html",
+        controller : "cadAuditoriasCtrl"
+    });
+         
+   
+    
+        
+	$routeProvider.when("/editAuditorias/:id", {
+        templateUrl: "auditorias/editAuditorias.html",
+        controller : "editAuditoriasCtrl",
+        resolve    : {
+            auditorias: function (AuditoriasAPI, $route) {
+            return AuditoriasAPI.getAuditorias($route.current.params.id);
+            }
+        }
+	});
+
 
         
 //********************************************final        
