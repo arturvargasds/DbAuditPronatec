@@ -1,58 +1,60 @@
-<div id="page-wrapper">     <br>
+<div id="page-wrapper"><br>
   <div class="row">
     <div class="col-lg-12">
       <div class="panel panel-info">
-           <div class="panel-heading">
-                <h4>Lista de Auditores</h4>   
-            </div><br>
-         <div class="container-fluid">
-                    <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por auditor(a).."/>
-           <div class="tab-content">
+        <div class="panel-heading">
+          <h4>Lista de Auditores</h4>   
+        </div><br>
+        <div class="container-fluid">
+          <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por auditor(a).."/>
+          <div class="tab-content">
             <div class="tab-pane fade in active" id="home-pills">
-             <div class="panel-body">
-              <div class="dataTable_wrapper">
-                 <table ng-show="auditores.length > 0" class="table table-striped table-bordered table-hover" id="dataTables-example">		
-                        <tr>
-                            <th></th>
-                            <th><a href="" ng-click="ordenarPor('nome')">Auditor</a></th>                    
-                            <th><a href="" ng-click="ordenarPor('nome')">Tipo Auditor</a></th>
-                            <th>Cpf</th>
-                            <th>Fone</th>
-                            <th>Cel</th>
-                            <th>E-mail</th>
-                            <th>Complemt.</th>
-                            <th>Cep</th>                           
-                        <!--    <th>Senha</th> -->
-                            <th>Usuario</th>
-                            <th>Obs.</th>
-                            <th>Status</th>
-                        </tr>
-                        <tr ng-class="{'selecionado negrito': auditor.selecionado}" ng-repeat="auditor in auditores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                            <td><input type="checkbox" ng-model="auditor.selecionado"/></td>
-                            <td>{{auditor.nomeAudit | uppercase }}</td>
-                            <td>{{auditor.tipoAudit | uppercase}}</td>
-                            <td>{{auditor.cpfAudit | uppercase}}</td>
-                            <td>{{auditor.fone1Audit}}</td>
-                            <td>{{auditor.fone2Audit}}</td>
-                            <td>{{auditor.emailAudit}}</td>
-                            <td>{{auditor.compleEndAudit | uppercase}}</td> 
-                            <td>{{auditor.idcep}}</td>
-                            <td>{{auditor.usuAudit}}</td>
-                            <td>{{auditor.obsAudit}}</td>
-                            <td>{{auditor.statusAuditores | uppercase}}</td>
-                        </tr>
-                    </table>
-                    <hr/>
-                    
-                    <a class="btn btn-primary btn-block" href="#/cadAuditores">Novo(a) Auditor(a)</a>
-                    <button class="btn btn-danger btn-block" ng-click="apagarAuditores(auditores)" ng-if="isAuditorSelecionado(auditores)">Apagar Auditores</button>
-            </div><br>       
-           </div><br> 
-          </div>
-         </div>                    
+              <div class="panel-body">
+                <div class="dataTable_wrapper">
+
+                  <!--tabela-->
+                  <table ng-show="auditores.length > 0" class="table table-striped table-hover" id="dataTables-example">		
+                    <tr>
+                      <th></th>
+                      <th><a href="" ng-click="ordenarPor('nomeAudit')">Auditor</a></th>                    
+                      <th><a href="" ng-click="ordenarPor('tipoAudit')">Tipo Auditor</a></th>
+                      <th>Cpf</th>
+                      <th>Fone</th>
+                      <th>Cel</th>
+                      <th>E-mail</th>
+                      <th>Complemt.</th>
+                      <th>Cep</th>   
+                      <th>Usuario</th>
+                      <th>Obs.</th>
+                      <th><a href="" ng-click="ordenarPor('statusAuditores')">Status</a>Status</th>
+                    </tr>
+                    <tr ng-class="{'selecionado negrito': auditor.selecionado}" ng-repeat="auditor in auditores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                      <td><input type="checkbox" ng-model="auditor.selecionado"/></td>
+                      <td>{{auditor.nomeAudit | uppercase }}</td>
+                      <td>{{auditor.tipoAudit | uppercase}}</td>
+                      <td>{{auditor.cpfAudit | uppercase}}</td>
+                      <td>{{auditor.fone1Audit}}</td>
+                      <td>{{auditor.fone2Audit}}</td>
+                      <td>{{auditor.emailAudit}}</td>
+                      <td>{{auditor.compleEndAudit | uppercase}}</td> 
+                      <td>{{auditor.idcep}}</td>
+                      <td>{{auditor.usuAudit}}</td>
+                      <td>{{auditor.obsAudit}}</td>
+                      <td>{{auditor.statusAuditores | uppercase}}</td>
+                    </tr>
+                  </table>
+                  <hr/>
+                              
+                  <!-- botoes -->
+                  <a class="btn btn-primary btn-block" href="#/cadAuditores">Novo(a) Auditor(a)</a>
+                  <button class="btn btn-danger btn-block" ng-click="apagarAuditores(auditores)" ng-if="isAuditorSelecionado(auditores)">Apagar Auditores</button>
+                </div><br>       
+              </div><br> 
+            </div>
+          </div>                    
         </div>
-       </div>
-                           <div ng-include="'footer.html'"></div>
-   </div><!-- /#page-wrapper -->
+      </div>
+      <div ng-include="'footer.html'"></div>
+    </div><!-- /#page-wrapper -->
   </div> <!-- /#wrapper -->
 </div>

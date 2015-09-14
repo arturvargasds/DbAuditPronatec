@@ -1,4 +1,4 @@
-/* global angular, auditoresAPI */
+/* global angular,  EquipeAuditoresAPI */
 
 angular.module("app").controller("EquipeAuditoresCtrl", function ($scope, EquipeAuditores) {
 	$scope.app = "DbAuditoria";

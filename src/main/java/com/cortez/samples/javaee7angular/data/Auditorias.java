@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import java.sql.Timestamp;
 
 @Entity
 public class Auditorias implements Serializable 
@@ -32,16 +33,16 @@ public class Auditorias implements Serializable
     private String descriObjAudit;  
      
     @Column(name = "DTHRCADAUDIT", length =19 )
-    private String dtHrCadAudit ;  
+    private Timestamp dtHrCadAudit ;  
     
     @Column(name = "DTHRINIAUDIT", length =19 )
-    private String dtHrIniAudit;  
+    private Timestamp dtHrIniAudit;  
     
     @Column(name = "DTHRREALIAUDIT", length =19 )
-    private String dtHrRealiaudit;  
+    private Timestamp dtHrRealiaudit;  
     
     @Column(name = "DTATUALIZA", length =19 )
-    private String dtAtualiza;  
+    private Timestamp dtAtualiza;  
 
     @Column(name = "OBSAUDIT", length =100 )
     private String obsaudit;  
@@ -95,42 +96,42 @@ public class Auditorias implements Serializable
         this.descriObjAudit = descriObjAudit;
     }
 
-    public String getDtHrCadAudit() 
+    public Timestamp getDtHrCadAudit() 
     {
         return dtHrCadAudit;
     }
 
-    public void setDtHrCadAudit(final String dtHrCadAudit) 
+    public void setDtHrCadAudit(final Timestamp dtHrCadAudit) 
     {
         this.dtHrCadAudit = dtHrCadAudit;
     }
 
-    public String getDtHrIniAudit() 
+    public Timestamp getDtHrIniAudit() 
     {
         return dtHrIniAudit;
     }
 
-    public void setDtHrIniAudit(final String dtHrIniAudit) 
+    public void setDtHrIniAudit(final Timestamp dtHrIniAudit) 
     {
         this.dtHrIniAudit = dtHrIniAudit;
     }
 
-    public String getDtHrRealiaudit() 
+    public Timestamp getDtHrRealiaudit() 
     {
         return dtHrRealiaudit;
     }
 
-    public void setDtHrRealiaudit(final String dtHrRealiaudit) 
+    public void setDtHrRealiaudit(final Timestamp dtHrRealiaudit) 
     {
         this.dtHrRealiaudit = dtHrRealiaudit;
     }
 
-    public String getDtAtualiza() 
+    public Timestamp getDtAtualiza() 
     {
         return dtAtualiza;
     }
 
-    public void setDtAtualiza(final String dtAtualiza) 
+    public void setDtAtualiza(final Timestamp dtAtualiza) 
     {
         this.dtAtualiza = dtAtualiza;
     }
