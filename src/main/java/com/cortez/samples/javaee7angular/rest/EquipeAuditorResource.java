@@ -19,7 +19,7 @@ import javax.ws.rs.core.MediaType;
 
 public class EquipeAuditorResource 
 {
-  private EntityManager entityManager ;
+  private final EntityManager entityManager ;
 
     public EquipeAuditorResource() {
         entityManager  = Persistence.createEntityManagerFactory("localPU").createEntityManager();
