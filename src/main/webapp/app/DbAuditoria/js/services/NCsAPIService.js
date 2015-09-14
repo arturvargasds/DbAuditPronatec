@@ -1,6 +1,7 @@
 /* global angular */
 
 angular.module("app").factory("NCsAPI", function ($http, config) {
+	
 	var _getNCs = function () {
 		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/naoconformidades");
 	};

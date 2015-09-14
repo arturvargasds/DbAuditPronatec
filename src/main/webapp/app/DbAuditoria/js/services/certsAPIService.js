@@ -1,6 +1,7 @@
 /* global angular */
 
 angular.module("app").factory("certsAPI", function ($http, config) {
+	
 	var _getCerts = function () {
 		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/certificadoras");
 	};

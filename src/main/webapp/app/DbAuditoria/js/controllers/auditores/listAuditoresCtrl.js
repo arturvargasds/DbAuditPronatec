@@ -5,8 +5,7 @@ angular.module("app").controller("AuditoresCtrl", function ($scope, auditores) {
 	$scope.auditores = auditores.data.list;
 	
 
-	$scope.adicionarAuditor= function (auditor) {
-		
+	$scope.adicionarAuditor= function (auditor) {		
 		auditoresAPI.saveAuditor(auditor).success(function (data) {
 			delete $scope.auditor;
 			$scope.auditoresForm.$setPristine();

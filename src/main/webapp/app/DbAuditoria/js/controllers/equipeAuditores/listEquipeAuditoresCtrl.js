@@ -1,12 +1,11 @@
 /* global angular,  EquipeAuditoresAPI */
 
-angular.module("app").controller("EquipeAuditoresCtrl", function ($scope, EquipeAuditores) {
+angular.module("app").controller("listEquipeAuditoresCtrl", function ($scope, EquipeAuditores) {
 	$scope.app = "DbAuditoria";
 	$scope.EquipeAuditores = EquipeAuditores.data.list;
 	
 
-	$scope.adicionarEquipeAuditor= function (EquipeAuditor) {
-		
+	$scope.adicionarEquipeAuditor= function (EquipeAuditor) {		
 		EquipeAuditoresAPI.saveEquipeAuditor(EquipeAuditor).success(function (data) {
 			delete $scope.EquipeAuditor;
 			$scope.EquipeAuditoresForm.$setPristine();

@@ -1,6 +1,7 @@
 /* global angular */
 
 angular.module("app").factory("auditoresAPI", function ($http, config) {
+	
 	var _getAuditores = function () {
 		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/auditores");
 	};

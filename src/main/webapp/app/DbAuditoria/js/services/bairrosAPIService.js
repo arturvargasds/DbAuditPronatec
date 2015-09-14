@@ -1,6 +1,7 @@
 /* global angular */
 
 angular.module("app").factory("bairrosAPI", function ($http, config) {
+
 	var _getBairros = function () {
 		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/bairros");
 	};
@@ -15,7 +16,7 @@ angular.module("app").factory("bairrosAPI", function ($http, config) {
 
 	return {
 		getBairros: _getBairros,
-		getBairro: _getBairro,
+		getBairro : _getBairro,
 		saveBairro: _saveBairro
 	};
 });
