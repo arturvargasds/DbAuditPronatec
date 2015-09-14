@@ -263,7 +263,31 @@ angular.module("app").config(function ($routeProvider) {
         }
 	});
 
+//***********************************************************Checklist
+    $routeProvider.when("/checklists", {
+        templateUrl: "checklists/listChecklist.html",
+        controller : "checklistsCtrl",
+        resolve    : {
+            chekclists: function (checklistsAPI) {
+                return checklistsAPI.getChecklists();
+            }       
+        }
+    });
 
+    $routeProvider.when("/cadChecklists", {
+        templateUrl: "checklists/cadChecklist.html",
+        controller : "cadChecklistsCtrl"
+    });
+
+    $routeProvider.when("/editChecklists/:id", {
+        templateUrl: "checklists/editChecklist.html",
+        controller : "editChecklistsCtrl",
+        resolve    : {
+            cidade: function (chekclistsAPI, $route) {
+                return chekclistsAPI.getChekclist($route.current.params.id);
+            }
+        }
+    });
         
 //********************************************final        
         
