@@ -166,7 +166,7 @@ angular.module("app").config(function ($routeProvider) {
         });
         
         $routeProvider.when("/CadClientes", {
-		templateUrl: "Clientes/cadasCliente.html",
+		templateUrl: "Clientes/cadCliente.html",
 		controller: "cadClienteCtrl"
 	});
         
