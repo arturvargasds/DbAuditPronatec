@@ -206,7 +206,7 @@ angular.module("app").config(function ($routeProvider) {
         
         
             //********************************************Equipe Auditores
-        $routeProvider.when("/EquipeAuditores", {
+        $routeProvider.when("/equipeAuditores", {
         templateUrl: "EquipeAuditores/listEquipeAuditores.html",
         controller : "EquipeAuditoresCtrl",
         resolve    : {
