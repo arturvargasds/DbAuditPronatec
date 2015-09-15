@@ -11,7 +11,7 @@
 					<!--formulario-->
 					<form name="NCForm">
 						<input class="form-control" type="text" ng-model="NC.idcola" name="idcola" placeholder="ID do Colaborador" 
-						ng-required="true" ng-minlength="3"/>
+						ng-required="true" ng-minlength="1"/>
 
 						<input class="form-control" type="text" ng-model="NC.idpontoctrl" name="idpontoctrl" placeholder="ID do Ponto de Controle" 
 						ng-required="true" ng-minlength="1" ng-maxlength="1"/>
@@ -23,16 +23,16 @@
 						ng-required="true" ng-minlength="1" ng-maxlength="1"/>
 
 						<input class="form-control" type="text" ng-model="NC.descrinc" name="descrinc" placeholder="Descrição" 
-						ng-required="true" ng-minlength="1" ng-maxlength="1"/>
+						ng-required="true" ng-minlength="1" ng-maxlength="252"/>
 
 						<input class="form-control" type="text" ng-model="NC.sugestaonc" name="sugestaonc" placeholder="Sugestão" 
-						ng-required="true" ng-minlength="1" ng-maxlength="1"/>
+						ng-required="true" ng-minlength="1" ng-maxlength="252"/>
 
 						<input class="form-control" type="text" ng-model="NC.statusnc" name="statusnc" placeholder="Status" 
 						ng-required="true" ng-minlength="1" ng-maxlength="1"/>
 
 						<input class="form-control" type="text" ng-model="NC.obsnc" name="obsnc" placeholder="Observação" 
-						ng-required="true" ng-minlength="1" ng-maxlength="1"/>
+						ng-required="true" ng-minlength="1" ng-maxlength="252"/>
 					</form>
 
 					<div ng-show="NCForm.idcola.$dirty" ng-messages="NCForm.idcola.$error">

@@ -26,14 +26,14 @@
                                             </tr>
                                         <tr ng-class="{'Selecionado negrito': NC.selecionado}" ng-repeat="nc in NCs | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                             <td><input type="checkbox" ng-model="NC.selecionado"/></td>                
-                                            <td>{{NC.idCola}}</td>
-                                            <td>{{NC.idPontoCtrl}}</td>
-                                            <td>{{NC.dtHrCadNc | date:'dd/MM/yyyy HH:mm'}}</td>
-                                            <td>{{NC.dtPrevResolNc | date:'dd/MM/yyyy'}}</td>
-                                            <td>{{NC.descriNc | uppercase}}</td>
-                                            <td>{{NC.sugestaoNc}}</td>
-                                            <td>{{NC.statusNc}}</td>
-                                            <td>{{NC.obsNc}}</td>
+                                            <td>{{nc.idCola}}</td>
+                                            <td>{{nc.idPontoCtrl}}</td>
+                                            <td>{{nc.dtHrCadNc | date:'dd/MM/yyyy HH:mm'}}</td>
+                                            <td>{{nc.dtPrevResolNc | date:'dd/MM/yyyy'}}</td>
+                                            <td>{{nc.descriNc | uppercase}}</td>
+                                            <td>{{nc.sugestaoNc}}</td>
+                                            <td>{{nc.statusNc}}</td>
+                                            <td>{{nc.obsNc}}</td>
                                         </tr>
                                     </table>
                                     <hr/>
