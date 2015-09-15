@@ -15,33 +15,34 @@
                 <th><a href="" ng-click="ordenarPor('FANTACLI')">Clientes</a></th>                    
                 <th>CEP</th>
                 <th>Razão Social</th>
-                <th>Conplemento Cliente</th>
-                <th>Telefone</th>
-                <th>Celular</th>
+                <th>Conplemento</th>
+                <th>Tel.</th>
+                <th>Cel.</th>
                 <th>E-mail</th>
                 <th>Site</th>
-                <th>Contato Responsavel</th>
-                <th>E-mail Responsavel</th>
+                <th>Contato Resp.</th>
+                <th>E-mail Resp.</th>
                 <th>CNPJ</th>
-                <th>Numero da Inscrição</th>
-                <th>Observação</th>
+                <th>NºInscrição</th>
+                <th>OBS</th>
                 <th>Status</th> 
               </tr>
               <tr ng-class="{'selecionado negrito': cliente.selecionado}" ng-repeat="cliente in clientes | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                 <td><input type="checkbox" ng-model="cliente.selecionado"/></td>	    
-                <td>{{cliente.fantaCli | name}}</td>			
+                <td>{{cliente.fantaCli | name}}</td>
+                <td>{{cliente.idcep}}</td>
                 <td>{{cliente.razaoCli}}</td>
-                <td>{{cliente.COMPLEENDCLI}}</td>
-                <td>{{cliente.FONE1CLI}}</td>
-                <td>{{cliente.FONE2CLI}}</td>
-                <td>{{cliente.EMAILCLI}}</td>
-                <td>{{cliente.SITECLI}}</td>
-                <td>{{cliente.CONTATOCLI}}</td>
-                <td>{{cliente.EMAILCONTATO}}</td>
-                <td>{{cliente.CNPJCLI}}</td>
-                <td>{{cliente.INSCRICLI}}</td>
-                <td>{{cliente.OBSCLI}}</td>
-                <td>{{cliente.STATUSCLI}}</td>
+                <td>{{cliente.compleEndCli}}</td>
+                <td>{{cliente.fone1Cli}}</td>
+                <td>{{cliente.fone2Cli}}</td>
+                <td>{{cliente.emailCli}}</td>
+                <td>{{cliente.siteCli}}</td>
+                <td>{{cliente.contatoCli}}</td>
+                <td>{{cliente.emailContato}}</td>
+                <td>{{cliente.cnpjCli}}</td>
+                <td>{{cliente.inscriCli}}</td>
+                <td>{{cliente.obsCli}}</td>
+                <td>{{cliente.statusCli}}</td>
               </tr>
             </table>
           <hr/>
