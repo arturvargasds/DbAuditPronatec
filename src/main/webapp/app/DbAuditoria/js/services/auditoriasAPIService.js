@@ -1,6 +1,6 @@
 /* global angular */
 
-angular.module("app").factory("auditoriaAPI", function ($http, config) {
+angular.module("app").factory("auditoriasAPI", function ($http, config) {
 	var _getAuditorias = function () {
 		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/auditorias");
 	};
@@ -14,7 +14,7 @@ angular.module("app").factory("auditoriaAPI", function ($http, config) {
 	};
 
 	return {
-		getAuditorias: _getAuditorias,
+		getAuditorias : _getAuditorias,
 		getAuditoria  : _getAuditoria,
 		saveAuditoria : _saveAuditoria
 	};

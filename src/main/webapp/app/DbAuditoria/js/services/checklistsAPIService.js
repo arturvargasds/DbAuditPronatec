@@ -1,21 +1,21 @@
 /* global angular */
 
-angular.module("app").factory("bairrosAPI", function ($http, config) {
-	var _getBairros = function () {
-		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/bairros");
+angular.module("app").factory("checklistsAPI", function ($http, config) {
+	var _getChecklists = function () {
+		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/checklists");
 	};
 
-	var _getBairro = function (id) {
-		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/bairros/" + id);
+	var _getChecklist = function (id) {
+		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/checklists/" + id);
 	};
 
-	var _saveBairro = function (bairro) {
-		return $http.post(config.baseUrl + "DbAuditPronatec-3.2/api/bairros", bairro);
+	var _saveChecklist = function (bairro) {
+		return $http.post(config.baseUrl + "DbAuditPronatec-3.2/api/checklists", checklist);
 	};
 
 	return {
-		getBairros: _getBairros,
-		getBairro: _getBairro,
-		saveBairro: _saveBairro
+		getChecklists: _getChecklists,
+		getChecklist : _getChecklist,
+		saveChecklist: _saveChecklist
 	};
 });
