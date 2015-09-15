@@ -8,8 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import java.sql.Timestamp;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
+@XmlRootElement
 public class NaoConformidades 
 {
     @Id
@@ -123,6 +125,16 @@ public class NaoConformidades
 
     public void setStatusNc(final String statusNc) {
         this.statusNc = statusNc;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
     
     
