@@ -1,10 +1,10 @@
 angular.module("app").controller("cadNCsCtrl", function ($scope, NCsAPI, $location) {
 	
 
-	$scope.adicionarNC = function (NC) {
+	$scope.adicionarNC = function (nc) {
 	
-		NCsAPI.saveNC(NC).success(function (data) {
-			delete $scope.NC;
+		NCsAPI.saveNC(nc).success(function (data) {
+			delete $scope.nc;
 			$scope.NCForm.$setPristine();
 			$location.path("/naoConformidades");
 		});

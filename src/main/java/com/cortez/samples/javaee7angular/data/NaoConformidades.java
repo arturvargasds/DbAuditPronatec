@@ -1,6 +1,7 @@
 
 package com.cortez.samples.javaee7angular.data;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,11 +13,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
-public class NaoConformidades 
+public class NaoConformidades implements Serializable 
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDNC")
-    @SequenceGenerator(name = "IDNC", sequenceName = "seq_naoconformidades")
+    @SequenceGenerator(name = "IDNC", sequenceName = "seq_naoconformidades",allocationSize = 1)
     @Column(name = "IDNC")
     private Long id;
     

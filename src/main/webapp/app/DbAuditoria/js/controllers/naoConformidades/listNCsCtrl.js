@@ -3,24 +3,24 @@ angular.module("app").controller("listNCsCtrl", function ($scope, NCs) {
 	$scope.NCs = NCs.data.list;
 	
 
-	$scope.adicionarNC= function (NC) {
+	$scope.adicionarNC= function (nc) {
         
-		NCsAPI.saveNC(NC).success(function (data) {
-			delete $scope.NC;
+		NCsAPI.saveNC(nc).success(function (data) {
+			delete $scope.nc;
 			$scope.NCForm.$setPristine();
 			carregarNCs();
 		});
 	};
     
 	$scope.apagarNCs = function (NCs) {
-		$scope.NCs =  NCs.filter(function (NC) {
-			if (!NC.selecionado) return NC;
+		$scope.NCs =  NCs.filter(function (nc) {
+			if (!nc.selecionado) return nc;
 		});
 	};
     
 	$scope.isNCSelecionado = function (NCs) {
-		return NCs.some(function (NC) {
-			return NC.selecionado;
+		return NCs.some(function (nc) {
+			return nc.selecionado;
 		});
 	};
     

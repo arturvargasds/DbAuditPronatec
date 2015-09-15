@@ -1,4 +1,4 @@
-angular.module("app").controller("editCertsCtrl", function ($scope, $routeParams, cert) {
+angular.module("app").controller("editCertsCtrl", function ($scope, $routeParams, certificadora) {
 
-	$scope.cert = cert.data.list;
+	$scope.certificadora = certificadora.data.list;
 });

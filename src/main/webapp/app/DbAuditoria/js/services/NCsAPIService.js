@@ -10,8 +10,8 @@ angular.module("app").factory("NCsAPI", function ($http, config) {
 		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/naoconformidades" + id);
 	};
 
-	var _saveNC = function (NC) {
-		return $http.post(config.baseUrl + "DbAuditPronatec-3.2/api/naoconformidades", NC);
+	var _saveNC = function (nc) {
+		return $http.post(config.baseUrl + "DbAuditPronatec-3.2/api/naoconformidades", nc);
 	};
 
 	return {

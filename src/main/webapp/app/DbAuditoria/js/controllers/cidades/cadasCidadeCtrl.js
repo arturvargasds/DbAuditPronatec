@@ -1,3 +1,5 @@
+/* global angular */
+
 angular.module("app").controller("cadCidadeCtrl", function ($scope, cidadesAPI, $location) {
 	
 

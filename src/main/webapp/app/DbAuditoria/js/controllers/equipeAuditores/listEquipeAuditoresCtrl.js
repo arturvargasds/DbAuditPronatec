@@ -1,27 +1,28 @@
-/* global angular,  EquipeAuditoresAPI */
+/* global angular, equipeauditores, equipeauditoresAPI */
 
-angular.module("app").controller("listEquipeAuditoresCtrl", function ($scope, EquipeAuditores) {
+angular.module("app").controller("listEquipeAuditoresCtrl", function ($scope, equipeauditores) {
 	$scope.app = "DbAuditoria";
-	$scope.EquipeAuditores = EquipeAuditores.data.list;
+	$scope.equipeauditores = equipeauditores.data.list;
 	
 
-	$scope.adicionarEquipeAuditor= function (EquipeAuditor) {		
-		EquipeAuditoresAPI.saveEquipeAuditor(EquipeAuditor).success(function (data) {
-			delete $scope.EquipeAuditor;
+	$scope.adicionarEquipeAuditor= function (equipeauditore) {
+		
+		equipeauditoresAPI.saveEquipeAuditor(equipeauditore).success(function (data) {
+			delete $scope.equipeauditore;
 			$scope.EquipeAuditoresForm.$setPristine();
-			carregarEquipeAuditores();
+			carregarEquipeauditores();
 		});
 	};
     
-	$scope.apagarEquipeAuditores = function (EquipeAuditores) {
-		$scope.EquipeAuditores =  EquipeAuditores.filter(function (EquipeAuditor) {
-			if (!EquipeAuditor.selecionado) return EquipeAuditor;
+	$scope.apagarEquipeAuditores = function (equipeauditores) {
+		$scope.equipeauditores =  equipeauditores.filter(function (equipeauditore) {
+			if (!equipeauditore.selecionado) return equipeauditore;
 		});
 	};
     
-	$scope.isEquipeAuditorSelecionado = function (EquipeAuditores) {
-		return EquipeAuditores.some(function (EquipeAuditor) {
-			return EquipeAuditor.selecionado;
+	$scope.isEquipeAuditorSelecionado = function (equipeauditores) {
+		return equipeauditores.some(function (equipeauditores) {
+			return equipeauditore.selecionado;
 		});
 	};
     
