@@ -8,13 +8,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
+@XmlRootElement
 public class Colaboradores implements Serializable 
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDCOLA")
-    @SequenceGenerator(name = "IDCOLA", sequenceName = "seq_colaboradores")
+    @SequenceGenerator(name = "IDCOLA", sequenceName = "seq_colaboradores", allocationSize = 1)
     @Column(name = "IDCOLA")
     private Long id;
     

@@ -13,7 +13,7 @@
                                 <div class="dataTable_wrapper">
                                     
                                     <!--tabela-->
-                                    <table ng-show="certs.length > 0" class="table table-striped table-hover" id="dataTables-example">
+                                    <table ng-show="certificadoras.length > 0" class="table table-striped table-hover" id="dataTables-example">
                                         <tr>
                                             <th></th>	                                          
                                             <th><a href="" ng-click="ordenarPor('nome')">Nome Fantasia</a></th>                   
@@ -30,28 +30,28 @@
                                             <th>Obs.</th>
                                             <th>Status</th> 
                                         </tr>
-                                        <tr ng-class="{'selecionado negrito': cert.selecionado}" ng-repeat="cert in certs | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                            <td><input type="checkbox" ng-model="certs.selecionado"/></td>	        
-                                            <td>{{cert.fantaCert | name}}</td>
-                                            <td>{{cert.idCep}}</td>
-                                            <td>{{cert.razaoCert}}</td>	
-                                            <td>{{cert.compleEndCert}}</td>	
-                                            <td>{{cert.fone1Cert}}</td>	
-                                            <td>{{cert.fone2Cert}}</td>	
-                                            <td>{{cert.emailCert}}</td>	
-                                            <td>{{cert.siteCert}}</td>	
-                                            <td>{{cert.contatoCert}}</td>	
-                                            <td>{{cert.cnpjCert}}</td>	
-                                            <td>{{cert.inscriCert}}</td>	
-                                            <td>{{cert.obsCert}}</td>
-                                            <td>{{cert.statusCert}}</td>                       
+                                        <tr ng-class="{'selecionado negrito': certificadora.selecionado}" ng-repeat="certificadora in certificadoras | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                            <td><input type="checkbox" ng-model="certificadoras.selecionado"/></td>	        
+                                            <td>{{certificadora.fantaCert | name}}</td>
+                                            <td>{{certificadora.idcep}}</td>
+                                            <td>{{certificadora.razaoCert}}</td>	
+                                            <td>{{certificadora.compleEndCert}}</td>	
+                                            <td>{{certificadora.fone1Cert}}</td>	
+                                            <td>{{certificadora.fone2Cert}}</td>	
+                                            <td>{{certificadora.emailCert}}</td>	
+                                            <td>{{certificadora.siteCert}}</td>	
+                                            <td>{{certificadora.contatoCert}}</td>	
+                                            <td>{{certificadora.cnpjCert}}</td>	
+                                            <td>{{certificadora.inscriCert}}</td>	
+                                            <td>{{certificadora.obsCert}}</td>
+                                            <td>{{certificadora.statusCert}}</td>                       
                                         </tr>
                                     </table>
                                     <hr/>
                                     
                                     <!--botoes-->
                                     <a class="btn btn-primary btn-block" href="#/cadCerts">Nova Certificadora</a>
-                                    <button class="btn btn-danger btn-block" ng-click="apagarCerts(certs)" ng-if="isCertSelecionado(certs)">Apagar Certificadoras</button>
+                                    <button class="btn btn-danger btn-block" ng-click="apagarCerts(certificadoras)" ng-if="isCertSelecionado(certificadoras)">Apagar Certificadoras</button>
                                     
                                 </div><br>      
                             </div><br>

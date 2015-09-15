@@ -4,9 +4,11 @@ package com.cortez.samples.javaee7angular.rest;
 import com.cortez.samples.javaee7angular.data.EquipeAuditores;
 import com.cortez.samples.javaee7angular.pagination.PaginatedListWrapper;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
@@ -17,6 +19,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+@Stateless
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class EquipeAuditorResource 
 {
   private final EntityManager entityManager ;
@@ -78,6 +83,7 @@ public class EquipeAuditorResource
 
     @POST
     public EquipeAuditores saveEquipeAuditores(EquipeAuditores equipeAuditores) {
+           entityManager.getTransaction().begin();
         if (equipeAuditores.getId() == null) {
             EquipeAuditores equipeAuditoresToSave = new EquipeAuditores();            
             equipeAuditoresToSave.setIdAuditor(equipeAuditores.getIdAuditor());
@@ -95,13 +101,16 @@ public class EquipeAuditorResource
             equipeAuditoresToUpdate.setStatusEquipe(equipeAuditores.getStatusEquipe());
             equipeAuditores = entityManager.merge(equipeAuditoresToUpdate);
         }
+        entityManager.getTransaction().commit();
         return equipeAuditores;
     }
 
     @DELETE
     @Path("{id}")
     public void deleteEquipeAuditores(@PathParam("id") Long id) {
+         entityManager.getTransaction().begin();
         entityManager.remove(getEquipeAuditores(id));
+        entityManager.getTransaction().commit();
     }      
     
 }

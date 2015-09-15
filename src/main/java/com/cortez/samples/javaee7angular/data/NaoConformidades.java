@@ -1,6 +1,7 @@
 
 package com.cortez.samples.javaee7angular.data;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,13 +9,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import java.sql.Timestamp;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-public class NaoConformidades 
+@XmlRootElement
+public class NaoConformidades implements Serializable 
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDNC")
-    @SequenceGenerator(name = "IDNC", sequenceName = "seq_naoconformidades")
+    @SequenceGenerator(name = "IDNC", sequenceName = "seq_naoconformidades",allocationSize = 1)
     @Column(name = "IDNC")
     private Long id;
     
@@ -123,6 +126,16 @@ public class NaoConformidades
 
     public void setStatusNc(final String statusNc) {
         this.statusNc = statusNc;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
     
     

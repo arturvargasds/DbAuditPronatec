@@ -4,6 +4,16 @@ angular.module("app").config(function ($routeProvider) {
         templateUrl: "home.html", 
         controller : "HomeCtrl"		
 	}); 
+        
+   $routeProvider.when("/exemplo", {
+    templateUrl: "exemploCliente/clientes.html", 
+    controller : "exemploCtrl"		
+    });
+    
+    $routeProvider.when("/settings-pills", {
+    templateUrl: "exemploCliente/clientes.html", 
+    controller : "cadexemploCtrl"		
+    });
     
 //***********************************************************cidades
     $routeProvider.when("/cidades", {
@@ -77,7 +87,7 @@ angular.module("app").config(function ($routeProvider) {
         templateUrl: "naoConformidades/editNCs.html",
         controller : "editNCsCtrl",
         resolve    :{
-            NC: function (NCsAPI, $route) {
+            nc: function (NCsAPI, $route) {
             return NCsAPI.getNC($route.current.params.id);
             }
         }
@@ -117,8 +127,8 @@ angular.module("app").config(function ($routeProvider) {
         templateUrl: "certificadoras/listCerts.html",
         controller : "listCertsCtrl",
         resolve    : {
-            certs: function (certsAPI) {
-            return certsAPI.getCerts();
+            certificadoras: function (certsAPI) {
+            return certsAPI.getCertificadoras();
             }       
         }
     });
@@ -132,8 +142,8 @@ angular.module("app").config(function ($routeProvider) {
         templateUrl: "certificadoras/editCerts.html",
         controller : "editCertsCtrl",
         resolve    : {
-            cert: function (certsAPI, $route) {
-            return certsAPI.getCert($route.current.params.id);
+            certificadora: function (certsAPI, $route) {
+            return certsAPI.getCertificadora($route.current.params.id);
             }
         }
     });
@@ -141,7 +151,7 @@ angular.module("app").config(function ($routeProvider) {
 //***********************************************************ocorrencias
      $routeProvider.when("/ocorrencias", {
          templateUrl: "ocorrencias/listOcorrencia.html",
-         controller : "ocorrenciasCtrl",
+         controller : "listOcorrenciasCtrl",
          resolve    : {
              ocorrencias: function (ocorrenciasAPI) {
              return ocorrenciasAPI.getOcorrencias();
@@ -207,34 +217,31 @@ angular.module("app").config(function ($routeProvider) {
         
             //********************************************Equipe Auditores
         $routeProvider.when("/equipeAuditores", {
-        templateUrl: "EquipeAuditores/listEquipeAuditores.html",
-        controller : "EquipeAuditoresCtrl",
+        templateUrl: "equipeAuditores/listEquipeAuditores.html",
+        controller : "listEquipeAuditoresCtrl",
         resolve    : {
-            EquipeAuditores: function (EquipeAuditoresAPI){
-            return EquipeAuditoresAPI.getEquipeAuditores();
+            equipeauditores: function (equipeauditoresAPI){
+            return equipeauditoresAPI.getEquipeauditores();
             }       
         }
     });    
     
     $routeProvider.when("/cadEquipeAuditores", {
-        templateUrl: "EquipeAuditores/cadEquipeAuditores.html",
+        templateUrl: "equipeAuditores/cadEquipeAuditores.html",
         controller : "cadEquipeAuditoresCtrl"
     });
-         
-   
-    
-        
-	$routeProvider.when("/editEquipeAuditores/:id", {
-        templateUrl: "EquipeAuditores/editEquipeAuditores.html",
-        controller : "editEquipeAuditoresCtrl",
-        resolve    : {
-            EquipeAuditores: function (EquipeAuditoresAPI, $route) {
-            return EquipeAuditoresAPI.getEquipeAuditores($route.current.params.id);
-            }
+ 
+    $routeProvider.when("/editEquipeAuditores/:id", {
+    templateUrl: "equipeAuditores/editEquipeAuditores.html",
+    controller : "editEquipeAuditoresCtrl",
+    resolve    : {
+       equipeauditores: function (equipeauditoresAPI, $route) {
+        return equipeauditoresAPI.getEquipeauditoress($route.current.params.id);
         }
-	});
+    }
+    });
         
-         //********************************************Equipe Auditorias
+         //********************************************Auditorias
         $routeProvider.when("/auditorias", {
         templateUrl: "auditorias/listAuditorias.html",
         controller : "auditoriasCtrl",
@@ -287,6 +294,32 @@ angular.module("app").config(function ($routeProvider) {
                 return chekclistsAPI.getChekclist($route.current.params.id);
             }
         }
+    });
+            
+//*****************************************************************Colaboradores
+    $routeProvider.when("/colaboradores", {
+        templateUrl: "colaboradores/listColaboradores.html",
+        controller : "listColaboradoresCtrl",
+        resolve    : {
+            colaboradores: function (colaboradoresAPI){
+            return colaboradoresAPI.getColaboradores();
+            }       
+        }
+    });    
+    
+    $routeProvider.when("/cadColaboradores", {
+        templateUrl: "colaboradores/cadColaboradores.html",
+        controller : "cadColaboradoresCtrl"
+    });
+ 
+    $routeProvider.when("/editColaboradores/:id", {
+    templateUrl: "colaboradores/editColaboradores.html",
+    controller : "editColaboradoresCtrl",
+    resolve    : {
+        colaboradore: function (colaboradoresAPI, $route) {
+        return colaboradoresAPI.getColaboradores($route.current.params.id);
+        }
+    }
     });
         
 //********************************************final        

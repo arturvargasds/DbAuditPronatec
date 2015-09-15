@@ -17,7 +17,7 @@ public class Certificadoras implements Serializable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDCERT")
-    @SequenceGenerator(name = "IDCERT", sequenceName = "seq_certificadoras")
+    @SequenceGenerator(name = "IDCERT", sequenceName = "seq_certificadoras",allocationSize = 1)
     @Column(name = "idcert")
     private Long id;
     

@@ -1,27 +1,27 @@
 /* global angular, certsAPI*/
 
-angular.module("app").controller("listCertsCtrl", function ($scope, certs) {
+angular.module("app").controller("listCertsCtrl", function ($scope, certificadoras) {
 	$scope.app = "DbAuditoria";
-	$scope.certs = certs.data.list;
+	$scope.certificadoras = certificadoras.data.list;
 
 
-	$scope.adicionarCerts= function (cert) {
-		certsAPI.saveCert(cert).success(function (data) {
-			delete $scope.cert;
+	$scope.adicionarCertificadora= function (certificadora) {
+		certsAPI.saveCertificadoras(certificadora).success(function (data) {
+			delete $scope.certificadora;
 			$scope.certForm.$setPristine();
-			carregarCerts();
+			carregarCertificadoras();
 		});
 	};
 
-	$scope.apagarCerts = function (certs) {
-		$scope.certs =  certs.filter(function (cert) {
-			if (!cert.selecionado) return cert;
+	$scope.apagarCerts = function (certificadoras) {
+		$scope.certificadoras =  certificadoras.filter(function (certificadora) {
+			if (!certificadora.selecionado) return certificadora;
 		});
 	};
 
-	$scope.isCertSelecionado = function (certs) {
-		return certs.some(function (cert) {
-			return cert.selecionado;
+	$scope.isCertSelecionado = function (certificadoras) {
+		return certificadoras.some(function (certificadora) {
+			return certificadora.selecionado;
 		});
 	};
 

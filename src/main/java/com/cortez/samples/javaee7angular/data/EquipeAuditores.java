@@ -9,13 +9,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import java.sql.Timestamp;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
+@XmlRootElement
 public class EquipeAuditores implements Serializable 
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDEQUIPE")
-    @SequenceGenerator(name = "IDEQUIPE", sequenceName = "seq_equipeauditores")
+    @SequenceGenerator(name = "IDEQUIPE", sequenceName = "seq_equipeauditores",allocationSize = 1)
     @Column(name = "IDEQUIPE")
     private Long id;
     

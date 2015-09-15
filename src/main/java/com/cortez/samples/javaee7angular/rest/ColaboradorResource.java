@@ -24,7 +24,7 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 public class ColaboradorResource 
 {
-    private EntityManager entityManager ;
+    private final EntityManager entityManager ;
 
     public ColaboradorResource() {
         entityManager = Persistence.createEntityManagerFactory("localPU").createEntityManager();
@@ -83,6 +83,7 @@ public class ColaboradorResource
 
     @POST
     public Colaboradores saveColaborador(Colaboradores colaborador) {
+        entityManager.getTransaction().begin();
         if (colaborador.getId() == null) {
             Colaboradores colaboradorToSave = new Colaboradores();
             colaboradorToSave.setNomeCola(colaborador.getNomeCola());
@@ -102,6 +103,7 @@ public class ColaboradorResource
             colaboradorToUpdate.setStatusCola(colaborador.getStatusCola());
             colaborador = entityManager.merge(colaboradorToUpdate);
         }
+          entityManager.getTransaction().commit();
 
         return colaborador;
     }
@@ -109,7 +111,9 @@ public class ColaboradorResource
     @DELETE
     @Path("{id}")
     public void deleteColaborador(@PathParam("id") Long id) {
+        entityManager.getTransaction().begin();
         entityManager.remove(getColaboradores(id));
+          entityManager.getTransaction().commit();
     }  
     
     

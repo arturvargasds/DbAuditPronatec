@@ -6,7 +6,7 @@
                     <h4>Lista de Não Conformidades</h4>   
                 </div><br>
                 <div class="container-fluid">
-                    <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por Descrição da NC.."/>
+                    <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por Descrição da nc.."/>
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="home-pills">
                             <div class="panel-body">
@@ -24,16 +24,16 @@
                                             <th>Status</th>
                                             <th>Observação</th>
                                             </tr>
-                                        <tr ng-class="{'Selecionado negrito': NC.selecionado}" ng-repeat="nc in NCs | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                            <td><input type="checkbox" ng-model="NC.selecionado"/></td>                
-                                            <td>{{NC.idcola}}</td>
-                                            <td>{{NC.idpontoctrl}}</td>
-                                            <td>{{NC.dthrcadnc}}</td>
-                                            <td>{{NC.dtprevresolnc}}</td>
-                                            <td>{{NC.descrinc}}</td>
-                                            <td>{{NC.sugestaonc}}</td>
-                                            <td>{{NC.statusnc}}</td>
-                                            <td>{{NC.obsnc}}</td>
+                                        <tr ng-class="{'Selecionado negrito': nc.selecionado}" ng-repeat="nc in NCs | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                            <td><input type="checkbox" ng-model="nc.selecionado"/></td>                
+                                            <td>{{nc.idCola}}</td>
+                                            <td>{{nc.idPontoCtrl}}</td>
+                                            <td>{{nc.dtHrCadNc | date:'dd/MM/yyyy HH:mm'}}</td>
+                                            <td>{{nc.dtPrevResolNc | date:'dd/MM/yyyy'}}</td>
+                                            <td>{{nc.descriNc | uppercase}}</td>
+                                            <td>{{nc.sugestaoNc}}</td>
+                                            <td>{{nc.statusNc}}</td>
+                                            <td>{{nc.obsNc}}</td>
                                         </tr>
                                     </table>
                                     <hr/>

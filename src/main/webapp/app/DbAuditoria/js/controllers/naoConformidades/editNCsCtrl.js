@@ -1,4 +1,4 @@
-angular.module("app").controller("editNCsCtrl", function ($scope, $routeParams, NC) {
+angular.module("app").controller("editNCsCtrl", function ($scope, $routeParams, nc) {
 
-	$scope.NC = NC.data.list;
+	$scope.nc = nc.data.list;
 });

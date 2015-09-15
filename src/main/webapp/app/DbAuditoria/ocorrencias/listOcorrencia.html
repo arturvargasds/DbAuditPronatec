@@ -16,7 +16,7 @@
 		   <tr>
 			<th></th>
                 <!--	<th>Codigo</th>    -->
-			<th><a href="" ng-click="ordenarPor('nome')">ocorrencia</a></th>
+			<th><a href="" ng-click="ordenarPor('descriOcorre')">ocorrencia</a></th>
                         <th>CheckList</th>
 			<th>Colaboradores</th>
                         <th>DtHr Ocorrecia</th>			
@@ -31,7 +31,7 @@
 			<td>{{ocorrencia.descriOcorre  |  name}}</td>
 			<td>{{ocorrencia.idPontoCtrl }}</td>
 			<td>{{ocorrencia.idCola  }}</td>
-                        <td>{{ocorrencia.dtHrOcorre  |  date:'dd/MM/yyyy'}}</td>			
+                        <td>{{ocorrencia.dtHrOcorre  |  date:'yyyy/MM/dd HH:mm:ss'}}</td>			
                         <td>{{ocorrencia.sugesOcorre }}</td>
                         <td>{{ocorrencia.obsOcorre }}</td>
 			<td>{{ocorrencia.statusOcorre }}</td>
