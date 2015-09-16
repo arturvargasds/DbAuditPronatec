@@ -6,7 +6,7 @@ angular.module("app").controller("cadNCsCtrl", function ($scope, NCsAPI, $locati
 		NCsAPI.saveNC(nc).success(function (data) {
 			delete $scope.nc;
 			$scope.NCForm.$setPristine();
-			$location.path("/naoConformidades");
+			$location.path("/NCs");
 		});
 	};
 });

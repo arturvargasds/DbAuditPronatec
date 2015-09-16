@@ -1,21 +1,21 @@
 /* global angular */
 
-angular.module("app").factory("equipeauditoresAPI", function ($http, config) {
+angular.module("app").factory("equipeAuditoresAPI", function ($http, config) {
 	var _getEquipeauditores = function () {
 		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/equipeauditores");
 	};
 
-	var _getEquipeAuditor = function (id) {
+	var getEquipeauditor = function (id) {
 		return $http.get(config.baseUrl + "DbAuditPronatec-3.2/api/equipeauditores/" + id);
 	};
 
-	var _saveEquipeAuditor= function (EquipeAuditor) {
-		return $http.post(config.baseUrl + "DbAuditPronatec-3.2/api/equipeauditores", EquipeAuditor);
+	var _saveEquipeAuditor= function (equipeauditor) {
+		return $http.post(config.baseUrl + "DbAuditPronatec-3.2/api/equipeauditores", equipeauditor);
 	};
 
 	return {
 		getEquipeauditores: _getEquipeauditores,
-		getEquipeAuditor  : _getEquipeAuditor,
+		getEquipeauditor  : getEquipeauditor,
 		saveEquipeAuditor : _saveEquipeAuditor
 	};
 });

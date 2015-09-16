@@ -22,13 +22,13 @@
                         <th>Data e Hora formação Equipe</th>
                         <th>Status</th>
                       </tr>
-                      <tr ng-class="{'selecionado negrito': equipeauditore.selecionado}" ng-repeat="equipeauditore in equipeauditores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                        <td><input type="checkbox" ng-model="equipeauditore.selecionado"/></td>
-                        <td>{{equipeauditore.idAuditor }}</td>
-                        <td>{{equipeauditore.idaudit }}</td>
-                        <td>{{equipeauditore.tipoAuditor | uppercase}}</td>
-                        <td>{{equipeauditore.dtHrIncEquipe}}</td>
-                        <td>{{equipeauditore.statusEquipe}}</td>
+                      <tr ng-class="{'selecionado negrito': equipeauditor.selecionado}" ng-repeat="equipeauditor in equipeauditores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                        <td><input type="checkbox" ng-model="equipeauditor.selecionado"/></td>
+                        <td>{{equipeauditor.idAuditor }}</td>
+                        <td>{{equipeauditor.idaudit }}</td>
+                        <td>{{equipeauditor.tipoAuditor | uppercase}}</td>
+                        <td>{{equipeauditor.dtHrIncEquipe}}</td>
+                        <td>{{equipeauditor.statusEquipe}}</td>
                       </tr>
                       </table>
                       <hr/>

@@ -11,9 +11,9 @@
                     <!--fomulario-->
                     <form name="baiForm">                        
                         <input class="form-control" type="text" ng-model="bairro.descricao" name="nome" placeholder="Nome" ng-required="true" ng-minlength="3"/>
-
-                        <input class="form-control" type="text" ng-model="bairro.statusBai" name="status" placeholder="Status" ng-required="true" ng-minlength="1" ng-maxlength="1"/>
-                    </form>                    
+                        <input class="form-control" hidden="status" type="hidden"  ng-model="bairro.statusBai = 'A'" name="status">
+                  <!--  <input class="form-control" type="text" ng-model="bairro.statusBai" name="status" placeholder="Status" value="A" ng-required="true" ng-minlength="1" ng-maxlength="1"/>-->
+                 </form>                    
 
                     <!--autent.campos-->
                     <div ng-show="baiForm.nome.$dirty" ng-messages="baiForm.nome.$error">
@@ -24,7 +24,7 @@
                             O campo nome deve ter no mínimo 3 caracteres.
                         </div>
                     </div>
-                    <div ng-show="baiForm.status.$dirty" ng-messages="baiForm.status.$error">
+                <!--    <div ng-show="baiForm.status.$dirty" ng-messages="baiForm.status.$error">
                         <div ng-message="required" class="alert alert-danger">
                             Por favor, preencha o campo status!
                         </div>
@@ -34,7 +34,7 @@
                         <div ng-message="maxlength" class="alert alert-danger">
                             O campo Status deve ter  1 caracteres.
                         </div>
-                    </div><br>
+                    </div><br>   -->
 
                     <!--botoes-->
                     <div style="padding-left:280px;"   >
