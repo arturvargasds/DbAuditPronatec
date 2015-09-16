@@ -3,9 +3,11 @@ package com.cortez.samples.javaee7angular.rest;
 import com.cortez.samples.javaee7angular.data.Auditorias;
 import com.cortez.samples.javaee7angular.pagination.PaginatedListWrapper;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
@@ -16,7 +18,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-
+@Stateless
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class AuditoriaResource 
 {
    private final EntityManager entityManager ;
@@ -85,6 +89,7 @@ public class AuditoriaResource
     {
         if (auditoria.getId() == null)
           {
+                entityManager.getTransaction().begin();
               Auditorias auditoriaToSave = new Auditorias();            
               auditoriaToSave.setId(auditoria.getId());                       
               auditoriaToSave.setDescriAudit(auditoria.getDescriAudit());                         
@@ -115,6 +120,7 @@ public class AuditoriaResource
               auditoriaToUpdate.setStatusaudit(auditoria.getStatusaudit());                        
               auditoria = entityManager.merge(auditoriaToUpdate);
           }
+        entityManager.getTransaction().commit();
         return auditoria;
     }
 
@@ -122,6 +128,8 @@ public class AuditoriaResource
     @Path("{id}")
     public void deleteAuditoria(@PathParam("id") Long id)
     {
+          entityManager.getTransaction().begin();
         entityManager.remove(getAuditorias(id));
+        entityManager.getTransaction().commit();
     }    
 }

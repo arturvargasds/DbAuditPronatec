@@ -244,10 +244,10 @@ angular.module("app").config(function ($routeProvider) {
          //********************************************Auditorias
         $routeProvider.when("/auditorias", {
         templateUrl: "auditorias/listAuditorias.html",
-        controller : "auditoriasCtrl",
+        controller : "listAuditoriasCtrl",
         resolve    : {
             auditorias: function (auditoriasAPI){
-            return auditoriasAPI.getauditorias();
+            return auditoriasAPI.getAuditorias();
             }       
         }
     });    
@@ -256,19 +256,16 @@ angular.module("app").config(function ($routeProvider) {
         templateUrl: "auditorias/cadAuditorias.html",
         controller : "cadAuditoriasCtrl"
     });
-         
-   
-    
-        
-	$routeProvider.when("/editAuditorias/:id", {
-        templateUrl: "auditorias/editAuditorias.html",
-        controller : "editAuditoriasCtrl",
-        resolve    : {
-            auditorias: function (AuditoriasAPI, $route) {
-            return AuditoriasAPI.getAuditorias($route.current.params.id);
-            }
+ 
+    $routeProvider.when("/editAuditorias/:id", {
+    templateUrl: "auditorias/editAuditorias.html",
+    controller : "editAuditoriasCtrl",
+    resolve    : {
+        auditorias: function (auditoriasAPI, $route) {
+        return auditoriasAPI.getAuditorias($route.current.params.id);
         }
-	});
+    }
+    });
 
 //***********************************************************Checklist
     $routeProvider.when("/checklists", {

@@ -11,7 +11,7 @@
                     <!--fomulario-->
                     <form name="baiForm">                        
                         <input class="form-control" type="text" ng-model="bairro.descricao" name="nome" placeholder="Nome" ng-required="true" ng-minlength="3"/>
-                        <input class="form-control" hidden="status" type="hidden"  ng-model="bairro.statusBai = 'A'" name="status">
+                        <input class="form-control" hidden="status" type="hidden"  ng-model="bairro.statusBai " name="status">
                   <!--  <input class="form-control" type="text" ng-model="bairro.statusBai" name="status" placeholder="Status" value="A" ng-required="true" ng-minlength="1" ng-maxlength="1"/>-->
                  </form>                    
 
@@ -38,7 +38,7 @@
 
                     <!--botoes-->
                     <div style="padding-left:280px;"   >
-                        <a class="btn btn-primary glyphicon glyphicon-floppy-save" ng-click="adicionarBairro(bairro)" ng-disabled="baiForm.$invalid"> ADICIONAR BAIRRO</a>
+                        <a class="btn btn-primary glyphicon glyphicon-floppy-save" ng-click="(bairro.statusBai = 'A');adicionarBairro(bairro)" ng-disabled="baiForm.$invalid"> ADICIONAR BAIRRO</a>
                         <a href="#/bairros" class="btn btn-danger glyphicon glyphicon-remove"  > CANCELAR</a>
                     </div> 
                 </div> <br><br>
