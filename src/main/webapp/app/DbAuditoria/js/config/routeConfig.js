@@ -166,7 +166,7 @@ angular.module("app").config(function ($routeProvider) {
      
      //*********************************************Clientes
         $routeProvider.when("/clientes", {
-            templateUrl: "Clientes/listCliente.html",
+            templateUrl: "clientes/listCliente.html",
             controller: "ClientesCtrl",
             resolve: {
                     clientes: function (clientesAPI) {

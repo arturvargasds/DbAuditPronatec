@@ -15,8 +15,8 @@ angular.module("app").factory("clientesAPI", function ($http, config) {
 	};
 
 	return {
-		getClientes: _getClientes,
-		getCliente : _getCliente,
-		saveCliente: _saveCliente
+		getClientes : _getClientes,
+		getCliente  : _getCliente,
+		saveCliente : _saveCliente
 	};
 });
