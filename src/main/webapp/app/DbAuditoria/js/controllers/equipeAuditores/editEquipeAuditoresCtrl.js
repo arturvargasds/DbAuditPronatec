@@ -1,4 +1,6 @@
-angular.module("app").controller("editEqAuditsCtrl", function ($scope, $routeParams, EquipeAuditor) {
+/* global angular */
 
-	$scope.EquipeAuditor = EquipeAuditor.data.list;
+angular.module("app").controller("editEqAuditsCtrl", function ($scope, $routeParams, equipeauditor) {
+
+	$scope.equipeauditor = equipeauditor.data.list;
 });

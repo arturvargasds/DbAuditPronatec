@@ -1,13 +1,13 @@
-/* global angular */
+/* global angular, equipeAuditoresAPI */
 
-angular.module("app").controller("cadEqAuditsCtrl", function ($scope, EquipeAuditoresAPI, $location) {
+angular.module("app").controller("cadEqAuditsCtrl", function ($scope, equipeAuditoresAPI, $location) {
 	
 
-	$scope.adicionarEquipeAuditor = function (EquipeAuditor) {	
-		EquipeAuditoresAPI.saveEquipeAuditor(EquipeAuditor).success(function (data) {
-			delete $scope.EquipeAuditor;
-			$scope.EquipeAuditorForm.$setPristine();
-			$location.path("/EquipeAuditores");
+	$scope.adicionarEquipeAuditor = function (equipeauditor) {	
+		equipeAuditoresAPI.saveEquipeAuditor(equipeauditor).success(function (data) {
+			delete $scope.equipeauditor;
+			$scope.EquipeAuditoresForm.$setPristine();
+			$location.path("/equipeAuditores");
 		});
 	};
 });

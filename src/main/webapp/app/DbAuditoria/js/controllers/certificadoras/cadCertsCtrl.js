@@ -6,7 +6,7 @@ angular.module("app").controller("cadCertsCtrl", function ($scope, certsAPI, $lo
 		certsAPI.saveCertificadoras(certificadora).success(function (data) {
 			delete $scope.certificadora;
 			$scope.certForm.$setPristine();
-			$location.path("/certificadoras");
+			$location.path("/certs");
 		});
 	};
 });

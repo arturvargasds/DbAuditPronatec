@@ -4,10 +4,11 @@ angular.module("app").controller("cadAuditoriasCtrl", function ($scope, auditori
 	
 
 	$scope.adicionarAuditoria = function (auditoria) {
+                
 	
-		auditoriasAPI.saveAuditoria(auditoria).success(function (data) {
+		auditoriasAPI.saveAuditoria(auditoria).success(function (data) {                       
 			delete $scope.auditoria;
-			$scope.auditoriaForm.$setPristine();
+			$scope.auditoriasForm.$setPristine();
 			$location.path("/auditorias");
 		});
 	};

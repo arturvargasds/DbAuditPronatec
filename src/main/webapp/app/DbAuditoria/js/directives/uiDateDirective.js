@@ -26,7 +26,7 @@ angular.module("app").directive("uiDate", function ($filter) {
 			});
 
 			ctrl.$formatters.push(function (value) {
-				return $filter("date")(value, "dd/MM/yyyy");
+				return $filter("date")(value, "yyyy-MM-dd HH:mm:ss");
 			});
 		}
 	};

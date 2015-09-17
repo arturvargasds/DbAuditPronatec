@@ -9,14 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import java.sql.Timestamp;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
+@XmlRootElement
 public class Auditorias implements Serializable 
 {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDAUDIT")
-    @SequenceGenerator(name = "IDAUDIT", sequenceName = "seq_auditorias")
+    @SequenceGenerator(name = "IDAUDIT", sequenceName = "seq_auditorias",allocationSize = 1)
     @Column(name = "idaudit")
     private Long id;   
     
@@ -32,7 +34,7 @@ public class Auditorias implements Serializable
     @Column(name = "DESCRIOBJAUDIT", length =254 )
     private String descriObjAudit;  
      
-    @Column(name = "DTHRCADAUDIT", length =19 )
+    @Column(name = "DTHRCADAUDIT" )
     private Timestamp dtHrCadAudit ;  
     
     @Column(name = "DTHRINIAUDIT", length =19 )

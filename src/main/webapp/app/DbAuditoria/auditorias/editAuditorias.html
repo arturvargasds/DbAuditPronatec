@@ -1,37 +1,38 @@
 <div class="jumbotron">
 	<table class="table">
 		<tr>
-			<td>{{auditorias.IDCERT}}</td>
+			<td>{{auditoria.IDCERT}}</td>
 		</tr>
 		<tr>
-			<td>{{auditorias.IDCLI}}</td>
+			<td>{{auditoria.IDCLI}}</td>
 		</tr>
 		<tr>
-			<td>{{auditorias.DESCRIAUDIT}}</td>
+			<td>{{auditoria.DESCRIAUDIT}}</td>
 		</tr>
                 <tr>
-			<td>{{auditorias.DESCRIOBJAUDIT}}</td>
+			<td>{{auditoria.DESCRIOBJAUDIT}}</td>
 		</tr>
 		<tr>
-			<td>{{auditorias.DTHRCADAUDIT}}</td>
+			<td>{{auditoria.DTHRCADAUDIT}}</td>
 		</tr>
 		<tr>
-			<td>{{auditorias.DTHRINIAUDIT}}</td>
+			<td>{{auditoria.DTHRINIAUDIT}}</td>
 		</tr>
                 <tr>
-			<td>{{auditorias.DTHRREALIAUDIT}}</td>
+			<td>{{auditoria.DTHRREALIAUDIT}}</td>
 		</tr>
 		<tr>
-			<td>{{auditorias.DTATUALIZA}}</td>
+			<td>{{auditoria.DTATUALIZA}}</td>
 		</tr>
 		<tr>
-			<td>{{auditorias.OBSAUDIT}}</td>
+			<td>{{auditoria.OBSAUDIT}}</td>
 		</tr>
                 <tr>
-			<td>{{auditorias.STATUSaudit}}</td>
+			<td>{{auditoria.STATUSaudit}}</td>
 		</tr>
 		
 	</table>
-	<a href="#auditorias">Voltar</a>
+	<a href="#/auditorias">Voltar</a>
+           <a class="btn btn-primary glyphicon glyphicon-floppy-save" ng-click="(auditoria.statusaudit ='D')"> status</a>
 </div>
  <div ng-include="'footer.html'"></div>
