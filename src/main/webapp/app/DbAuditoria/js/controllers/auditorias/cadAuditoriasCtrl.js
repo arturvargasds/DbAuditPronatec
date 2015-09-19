@@ -11,5 +11,5 @@ angular.module("app").controller("cadAuditoriasCtrl", function ($scope, auditori
 			$scope.auditoriasForm.$setPristine();
 			$location.path("/auditorias");
 		});
-	};
+	};    
 });

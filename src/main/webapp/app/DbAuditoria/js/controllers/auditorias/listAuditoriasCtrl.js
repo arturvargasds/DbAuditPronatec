@@ -3,8 +3,8 @@
 angular.module("app").controller("listAuditoriasCtrl", function ($scope, auditorias) {
 	$scope.app = "DbAuditoria";
 	$scope.auditorias = auditorias.data.list;
-	
-
+        
+ 
 	$scope.adicionarAuditoria= function (auditoria) {		
 		auditoriasAPI.saveAuditoria(auditoria).success(function (data) {
                     $scope.auditoria.statusaudit ="A";

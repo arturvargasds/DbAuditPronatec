@@ -1,1 +1,3 @@
- angular.module("app", ["ngMessages", "serialGenerator", "ui", "ngRoute"]);
+ /* global angular */
+
+angular.module("app", ["ngMessages", "serialGenerator", "ui", "ngRoute" ]);

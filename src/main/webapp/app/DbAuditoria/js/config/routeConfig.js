@@ -1,3 +1,5 @@
+/* global angular */
+
 angular.module("app").config(function ($routeProvider) {
     
     $routeProvider.when("/", {
@@ -13,11 +15,11 @@ angular.module("app").config(function ($routeProvider) {
     $routeProvider.when("/settings-pills", {
     templateUrl: "exemploCliente/clientes.html", 
     controller : "cadexemploCtrl"		
-    });
+    }); 
     
 //***********************************************************cidades
     $routeProvider.when("/cidades", {
-        templateUrl: "cidades/listCidade.html",
+        templateUrl: "cidades/listCidades.html",
         controller : "CidadesCtrl",
         resolve    : {
             cidades: function (cidadesAPI){
@@ -27,18 +29,30 @@ angular.module("app").config(function ($routeProvider) {
     });
     
 	$routeProvider.when("/CadCidades", {
-		templateUrl: "cidades/cadastro.html",
+		templateUrl: "cidades/cadCidade.html",
 		controller : "cadCidadeCtrl"
 	});
         
-	$routeProvider.when("/EditarCid/:id", {
+	$routeProvider.when("/editarCidade/:id", {
 		templateUrl: "cidades/editarCidade.html",
-		controller : "EditarCidCtrl",
+		controller : "editarCidCtrl",
 		resolve    : {
 			cidade: function (cidadesAPI, $route) {
 			return cidadesAPI.getCidade($route.current.params.id);
 			}
 		}
+    });
+    	$routeProvider.when("/deleteCidade/:id", {
+		templateUrl: "cidades/listCidades.html",
+		controller : "CidadesCtrl",
+		resolve    : {
+			cidade: function (cidadesAPI, $route) {
+			return cidadesAPI.deleteCidade($route.current.params.id);
+			},
+                         cidades: function (cidadesAPI){
+                         return cidadesAPI.getCidades();
+                        } 
+		    }
     });
         
 //*****************************************************************Bairros
@@ -166,7 +180,7 @@ angular.module("app").config(function ($routeProvider) {
      
      //*********************************************Clientes
         $routeProvider.when("/clientes", {
-            templateUrl: "clientes/listCliente.html",
+            templateUrl: "Clientes/listCliente.html",
             controller: "ClientesCtrl",
             resolve: {
                     clientes: function (clientesAPI) {

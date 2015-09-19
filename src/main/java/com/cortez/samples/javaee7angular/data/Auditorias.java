@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-import java.sql.Timestamp;
+ 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -34,17 +34,18 @@ public class Auditorias implements Serializable
     @Column(name = "DESCRIOBJAUDIT", length =254 )
     private String descriObjAudit;  
      
+    
     @Column(name = "DTHRCADAUDIT" )
-    private Timestamp dtHrCadAudit ;  
+    private String dtHrCadAudit ;  
     
-    @Column(name = "DTHRINIAUDIT", length =19 )
-    private Timestamp dtHrIniAudit;  
+    @Column(name = "DTHRINIAUDIT" )
+    private String dtHrIniAudit;  
     
-    @Column(name = "DTHRREALIAUDIT", length =19 )
-    private Timestamp dtHrRealiaudit;  
+    @Column(name = "DTHRREALIAUDIT")
+    private String dtHrRealiaudit;  
     
     @Column(name = "DTATUALIZA", length =19 )
-    private Timestamp dtAtualiza;  
+    private String dtAtualiza;  
 
     @Column(name = "OBSAUDIT", length =100 )
     private String obsaudit;  
@@ -98,42 +99,42 @@ public class Auditorias implements Serializable
         this.descriObjAudit = descriObjAudit;
     }
 
-    public Timestamp getDtHrCadAudit() 
+    public String getDtHrCadAudit() 
     {
         return dtHrCadAudit;
     }
 
-    public void setDtHrCadAudit(final Timestamp dtHrCadAudit) 
+    public void setDtHrCadAudit(final String dtHrCadAudit) 
     {
         this.dtHrCadAudit = dtHrCadAudit;
-    }
+    }  
 
-    public Timestamp getDtHrIniAudit() 
+    public String getDtHrIniAudit() 
     {
         return dtHrIniAudit;
     }
 
-    public void setDtHrIniAudit(final Timestamp dtHrIniAudit) 
+    public void setDtHrIniAudit(final String dtHrIniAudit) 
     {
         this.dtHrIniAudit = dtHrIniAudit;
     }
 
-    public Timestamp getDtHrRealiaudit() 
+    public String getDtHrRealiaudit() 
     {
         return dtHrRealiaudit;
     }
 
-    public void setDtHrRealiaudit(final Timestamp dtHrRealiaudit) 
+    public void setDtHrRealiaudit(final String dtHrRealiaudit) 
     {
         this.dtHrRealiaudit = dtHrRealiaudit;
     }
 
-    public Timestamp getDtAtualiza() 
+    public String getDtAtualiza() 
     {
         return dtAtualiza;
     }
 
-    public void setDtAtualiza(final Timestamp dtAtualiza) 
+    public void setDtAtualiza(final String dtAtualiza) 
     {
         this.dtAtualiza = dtAtualiza;
     }

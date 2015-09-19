@@ -1,9 +1,3 @@
-/* global cadAuditoriasCtrl_L3 */
-
-/* global cadAuditoriasCtrl_L3 */
-
-/* global auditoria */
-
 <div id="page-wrapper">     <br>
   <div class="row">
    <div class="col-lg-12">
@@ -27,7 +21,7 @@
             <input class="form-control" iu-date type="text" ng-model="auditoria.descriObjAudit" name="obj"  placeholder="Objetivo Auditoria" 
                         ng-required="true" ng-minlength="1" ng-maxlength="10"/>
 
-            <input class="form-control" type="text" ng-model="auditoria.dtHrCadAudit" name="dthrcad"  placeholder="Data / Hora cadastro Auditoria" 
+            <input class="form-control" type="text" ng-model="auditoria.dtHrCadAudit" name="dthrcad" ng-pattern="/^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/" placeholder="Data / Hora cadastro Auditoria" 
                       ng-required="true" /> 
          
 
@@ -78,10 +72,14 @@
 		
 	    </div>
                
-	    <div ng-show="auditoriasForm.DTHRCADAUDIT.$dirty" ng-messages="auditoriasForm.DTHRCADAUDIT.$error">
+	    <div ng-show="auditoriasForm.dthrcad.$dirty" ng-messages="auditoriasForm.dthrcad.$error">
 		<div ng-message="required" class="alert alert-danger">
 			Por favor, preencha o campo Data / Hora Cadastro da Auditoria!
 		</div>
+                <div ng-show="auditoriasForm.dthrcad.$error.pattern" class="alert alert-danger">
+		O campo telefone deve ter o formato dd/mm/aaaa
+                </div>
+	   </div>
 		
 	    </div>
   
@@ -131,6 +129,6 @@
     </div>
                <p>Formaçao do Objeto(json): {{auditoria | json }}</p>''                        
   </div>        
-</div>
+
    
    

@@ -11,7 +11,7 @@ angular.module("app").controller("CidadesCtrl", function ($scope, cidades) {
 			delete $scope.cidade;
 			$scope.cidForm.$setPristine();
 			carregarCidades();
-		});
+		});                
 	};
 	$scope.apagarCidades = function (cidades) {
 		$scope.cidades =  cidades.filter(function (cidade) {
