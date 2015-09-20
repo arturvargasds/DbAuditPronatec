@@ -1,0 +1,59 @@
+<div id="page-wrapper">     <br>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h4>Lista de Clientes</h4>   
+        </div>  <br>
+        <div class="container-fluid">
+          <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por Cliente.."/>
+
+            <!--tabela-->
+            <table ng-show="clientes.length > 0" class="table table-striped">
+              <tr>
+                <th></th>
+                <th><a href="" ng-click="ordenarPor('FANTACLI')">Clientes</a></th>                    
+                <th>CEP</th>
+                <th>Razão Social</th>
+                <th>Conplemento</th>
+                <th>Tel.</th>
+                <th>Cel.</th>
+                <th>E-mail</th>
+                <th>Site</th>
+                <th>Contato Resp.</th>
+                <th>E-mail Resp.</th>
+                <th>CNPJ</th>
+                <th>NºInscrição</th>
+                <th>OBS</th>
+                <th>Status</th> 
+              </tr>
+              <tr ng-class="{'selecionado negrito': cliente.selecionado}" ng-repeat="cliente in clientes | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                <td><input type="checkbox" ng-model="cliente.selecionado"/></td>	    
+                <td>{{cliente.fantaCli | name}}</td>
+                <td>{{cliente.idcep}}</td>
+                <td>{{cliente.razaoCli}}</td>
+                <td>{{cliente.compleEndCli}}</td>
+                <td>{{cliente.fone1Cli}}</td>
+                <td>{{cliente.fone2Cli}}</td>
+                <td>{{cliente.emailCli}}</td>
+                <td>{{cliente.siteCli}}</td>
+                <td>{{cliente.contatoCli}}</td>
+                <td>{{cliente.emailContato}}</td>
+                <td>{{cliente.cnpjCli}}</td>
+                <td>{{cliente.inscriCli}}</td>
+                <td>{{cliente.obsCli}}</td>
+                <td>{{cliente.statusCli}}</td>
+              </tr>
+            </table>
+          <hr/>
+<!--TESTEEEE-->
+          <!--botoes-->
+          <a class="btn btn-primary btn-block" href="#/CadClientes">Novo Cliente</a>
+          <button class="btn btn-danger btn-block" ng-click="apagarClientes(clientes)" ng-if="isClienteSelecionado(clientes)">Apagar Clientes</button>
+
+        </div><br><br>       
+      </div><!-- /.row --><br>
+      <div ng-include="'footer.html'"></div>       
+    </div><!-- /#page-wrapper -->
+  </div> <!-- /#wrapper -->
+</div>

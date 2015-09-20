@@ -1,0 +1,10 @@
+controllers X
+
+views
+
+servicos X
+
+
+index(caminho) X
+
+config rota X
