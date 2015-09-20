@@ -143,13 +143,13 @@
                            Data do cadastro
                         </div>
                     <div class="panel-body" style="text-align: center;"> <p>
-                        <div class="col-lg-12"> <input class="form-control" placeholder="dd/mm/aaaa" type="text" ng-model="auditoria.dtHrCadAudit" name="dthrcad" ng-required="true" ng-minlength="5"/></div>
+                        <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="auditoria.dtHrCadAudit" name="dthrcad" ng-required="true" ng-minlength="19"/></div>
                           <div ng-show="auditoriasForm.dthrcad.$dirty" ng-messages="auditoriasForm.dthrcad.$error">
 		            <div ng-message="required" class="alert alert-danger">
 			          Por favor, preencha o campo Data / Hora Cadastro da Auditoria!
 		            </div>
                             <div ng-message="minlength" class="alert alert-danger">
-                                  O campo Descrição deve ter nnumeros.
+                                O formato DD/MM/AAAA HH:MM:SS.
                              </div>
 	                  </div>
                         <!--  <div ng-show="auditoriasForm.dthrcad.$error.pattern" class="alert alert-danger">
@@ -170,13 +170,13 @@
                            Data inicial da Auditoria
                         </div>
                     <div class="panel-body" style="text-align: center;"> <p>
-                          <div class="col-lg-12"> <input class="form-control" placeholder="dd/mm/aaaa" type="text" ng-model="auditoria.dtHrIniAudit" name="dthrinic" ng-required="true" ng-minlength="5"/></div>
+                          <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="auditoria.dtHrIniAudit" name="dthrinic" ng-required="true" ng-minlength="19"/></div>
                           <div ng-show="auditoriasForm.dthrinic.$dirty" ng-messages="auditoriasForm.dthrinic.$error">
 		            <div ng-message="required" class="alert alert-danger">
 			          Por favor, preencha o campo Data / Hora Cadastro da Auditoria!
 		            </div>
                             <div ng-message="minlength" class="alert alert-danger">
-                                  O campo Descrição deve ter nnumeros.
+                                 O formato DD/MM/AAAA HH:MM:SS.
                              </div>
 	                  </div>                        
                                <a class="btn btn-outline btn-danger  btn-sm glyphicon glyphicon-calendar "   name="salvar"  > </a>
@@ -193,13 +193,13 @@
                            Data da realização 
                         </div>
                     <div class="panel-body" style="text-align: center;"> <p>
-                          <div class="col-lg-12"> <input class="form-control" placeholder="dd/mm/aaaa" type="text" ng-model="auditoria.dtHrRealiaudit" name="dthrrealiz" ng-required="true" ng-minlength="5"/></div>
+                          <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="auditoria.dtHrRealiaudit" name="dthrrealiz" ng-required="true" ng-minlength="19"/></div>
                           <div ng-show="auditoriasForm.dthrrealiz.$dirty" ng-messages="auditoriasForm.dthrrealiz.$error">
 		            <div ng-message="required" class="alert alert-danger">
 			          Por favor, preencha o campo Data / Hora Cadastro da Auditoria!
 		            </div>
                             <div ng-message="minlength" class="alert alert-danger">
-                                  O campo Descrição deve ter nnumeros.
+                                  O formato DD/MM/AAAA HH:MM:SS.
                              </div>
 	                  </div>     
                                <a class="btn btn-outline btn-danger  btn-sm glyphicon glyphicon-calendar "   name="salvar"  > </a>
@@ -214,13 +214,13 @@
                            Data de atualização
                         </div>
                     <div class="panel-body" style="text-align: center;"> <p>
-                          <div class="col-lg-12"> <input class="form-control" placeholder="dd/mm/aaaa" type="text" ng-model="auditoria.dtAtualiza" name="dthrinic" ng-required="true"ng-minlength="5"/></div>
+                          <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="auditoria.dtAtualiza" name="dtHratualiz" ng-required="true"ng-minlength="19"/></div>
                           <div ng-show="auditoriasForm.dtHratualiz.$dirty" ng-messages="auditoriasForm.dtHratualiz.$error">
 		            <div ng-message="required" class="alert alert-danger">
 			          Por favor, preencha o campo Data / Hora Cadastro da Auditoria!
 		            </div>
                             <div ng-message="minlength" class="alert alert-danger">
-                                  O campo Descrição deve ter nnumeros.
+                                  O formato DD/MM/AAAA HH:MM:SS.
                              </div>
 	                  </div>                           
                         <a class="btn btn-outline btn-danger  btn-sm glyphicon glyphicon-calendar "   name="salvar"  > </a> 
@@ -245,11 +245,12 @@
                     </div>
               </div>                                   
          </div>            
-       </form>  <br>
+       </form>  
+            <hr>
               <!--botoes--> 
            <div style="padding-left:280px;"   >
-              <a class="btn btn-primary glyphicon glyphicon-floppy-save"    ng-click="(auditoria.statusaudit ='A');adicionarAuditoria(auditoria)" ng-disabled="auditoriasForm.$invalid" > SALVAR</a>
-              <a href="#/auditorias"  class="btn btn-danger glyphicon glyphicon-remove"> CANCELAR</a>   
+              <a class="btn btn-outline  btn-lg  btn-primary glyphicon glyphicon-floppy-save"    ng-click="(auditoria.statusaudit ='A');adicionarAuditoria(auditoria)" ng-disabled="auditoriasForm.$invalid" > SALVAR</a>
+              <a href="#/auditorias"  class="btn btn-lg btn-outline btn-danger glyphicon glyphicon-remove"> CANCELAR</a>   
          </div> 
         </div> <br>
        
