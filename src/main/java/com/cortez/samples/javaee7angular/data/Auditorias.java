@@ -44,7 +44,7 @@ public class Auditorias implements Serializable
     @Column(name = "DTHRREALIAUDIT")
     private String dtHrRealiaudit;  
     
-    @Column(name = "DTATUALIZA", length =19 )
+    @Column(name = "DTATUALIZA" )
     private String dtAtualiza;  
 
     @Column(name = "OBSAUDIT", length =100 )

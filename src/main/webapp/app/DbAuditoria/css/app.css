@@ -41,3 +41,13 @@ hr {
 .ribbon:hover {
 	height: 41px;
 }
+.btnCadas
+{ 
+    color:#FFFF66;
+  
+    background-color: #FFFF88;
+    font-family: verdana;
+    content: "*";
+    
+    color: #000000;
+}
