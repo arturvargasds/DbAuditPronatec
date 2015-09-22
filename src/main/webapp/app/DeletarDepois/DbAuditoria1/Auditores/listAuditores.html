@@ -1,0 +1,34 @@
+<div id="page-wrapper">     <br>
+  <div class="row">
+   <div class="col-lg-12">
+     <div class="panel panel-info">
+       <div class="panel-heading">
+           <h4>Lista de Auditores</h4>   
+       </div>  <br>
+       <div class="container-fluid">
+	<input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por auditor(a).."/>
+	<table ng-show="auditores.length > 0" class="table table-striped">
+		<tr>
+			<th></th>
+                <!--	<th>Codigo</th>    -->
+			<th><a href="" ng-click="ordenarPor('nome')">Auditor</a></th>                    
+			<th>Status</th>
+			
+		</tr>
+		<tr ng-class="{'selecionado negrito': auditores.selecionado}" ng-repeat="auditores in auditores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+			<td><input type="checkbox" ng-model="auditores.selecionado"/></td>
+	         <!--   <td>{{auditores.idCid}}</td> -->
+			<td>{{auditores.nomeAudit | name}}</td>
+			<td>{{auditores.tipoAudit}}</td>
+            <td>{{auditores.statusAuditores}}</td>
+		</tr>
+	</table>
+	<hr/>
+	<a class="btn btn-primary btn-block" href="#/cadAuditores">Novo(a) Auditor(a)</a>
+	<button class="btn btn-danger btn-block" ng-click="apagarAuditores(auditores)" ng-if="isAuditoresSelecionado(auditores)">Apagar Auditores</button>
+       </div><br><br>       
+      </div><!-- /.row --><br>
+                              <div ng-include="'footer.html'"></div>       
+   </div><!-- /#page-wrapper -->
+  </div> <!-- /#wrapper -->
+</div>

@@ -1,0 +1,86 @@
+<div id="page-wrapper">     <br>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-info">
+           <div class="panel-heading">
+                <h4>Lista de Auditorias</h4>   
+            </div><br>
+         <div class="container-fluid">
+             <div> <a class="btn btn-outline btn-success btn-block glyphicon glyphicon-pencil " href="#/cadAuditorias"> Nova Auditoria</a> </div><br>
+                    <input class="form-control fa fa-search" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por Auditoria.."/>
+           <div class="tab-content">
+            <div class="tab-pane fade in active" >
+           <div class="panel-body">
+              <div class="table-responsive">
+                 <table ng-show="auditorias.length > 0" class="table table-striped table-bordered table-responsive table-hover" id="dataTables-example">		
+                        <tr>                       
+                            <th><a href="" ng-click="ordenarPor('descriAudit')">Descrição</a></th> 
+                            <th><a href="" ng-click="ordenarPor('idCert')">Certificadora</a></th> 
+                            <th><a href="" ng-click="ordenarPor('idCli')">Cliente</a></th>                          
+                            <th>Objetivo</th>
+                            <th title="Data e Hora do cadastro da Auditoria">Cadastro da Audioria</th>
+                      <!--  <th>Inicial </th>   
+                            <th>realização </th>                           
+                            <th>Obs.</th>   -->
+                            <th><a href="" ng-click="ordenarPor('statusaudit')">Status</a></th>  
+                            <th>Editar</th>
+                            <th>Excluir</th>
+                        </tr>
+                        <tr ng-class="{'selecionado negrito': auditoria.selecionado}" ng-repeat="auditoria in auditorias | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">            
+                            <td>{{auditoria.descriAudit | uppercase}}</td>
+                            <td>{{auditoria.idCert | uppercase }}</td>
+                            <td>{{auditoria.idCli | uppercase}}</td>                            
+                            <td>{{auditoria.descriObjAudit}}</td>
+                            <td>{{auditoria.dtHrCadAudit | date:'dd/MM/yyyy HH:mm:ss' }}</td>
+                    <!--    <td>{{auditoria.dtHrIniAudit| date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                            <td>{{auditoria.dtHrRealiaudit | date:'dd/MM/yyyy HH:mm:ss'}}</td>                            
+                            <td>{{auditoria.obsaudit}}</td>  -->
+                            <td>{{auditoria.statusaudit}}</td>  
+                             <td><a href="#/editAuditorias/{{auditoria.id}}"><i  class="btn btn-outline btn-warning btn-sm glyphicon glyphicon-edit "></i></a></td>
+                            <td><a href="#/deleteAuditoria/{{auditoria.id}}"><i  class="btn btn-outline btn-danger  btn-sm glyphicon glyphicon-remove "></i></a></td>
+                        </tr>
+                    </table>
+                    <hr/>
+                    
+                    <!--botoes
+                    <a class="btn btn-outline btn-success btn-block glyphicon glyphicon-pencil " href="#/cadAuditorias"> Nova Auditoria</a>
+                    <button class="btn btn-danger btn-block" ng-click="apagarAuditorias(auditorias)" ng-if="isAuditorSelecionado(auditorias)">Apagar Auditorias</button>
+                    -->
+                    </div><br>       
+           </div> 
+          </div>
+         </div>                    
+        </div>
+       </div>
+                           <div ng-include="'footer.html'"></div>
+   </div><!-- /#page-wrapper -->
+  </div> <!-- /#wrapper -->
+   
+  
+  <!--
+  <br><br><br><br>
+  
+   
+   <pagination direction-links="true" boundary-links="true"
+                total-items="audioria.totalResults" items-per-page="auditoria.pageSize"
+                ng-model="auditoria.currentPage"  >
+    </pagination>
+  
+  <div id="dataTables-example_paginate" 
+       class="dataTables_paginate paging_simple_numbers">
+      <ul class="pagination">
+          <li id="dataTables-example_previous" tabindex="0" aria-controls="dataTables-example" class="paginate_button previous disabled">
+              <a href="#">Previous</a></li>
+          <li tabindex="0" aria-controls="dataTables-example" class="paginate_button active">
+              <a href="#">1</a></li>
+          <li tabindex="0" aria-controls="dataTables-example" class="paginate_button "><a href="#">2</a></li>
+          <li tabindex="0" aria-controls="dataTables-example" class="paginate_button "><a href="#">3</a></li>
+          <li tabindex="0" aria-controls="dataTables-example" class="paginate_button "><a href="#">4</a></li>
+          <li tabindex="0" aria-controls="dataTables-example" class="paginate_button "><a href="#">5</a></li>
+          <li tabindex="0" aria-controls="dataTables-example" class="paginate_button "><a href="#">6</a></li>
+          <li id="dataTables-example_next" tabindex="0" aria-controls="dataTables-example" class="paginate_button next"><a href="#">Next</a></li>
+      </ul></div>
+  
+   -->
+   
+</div>
