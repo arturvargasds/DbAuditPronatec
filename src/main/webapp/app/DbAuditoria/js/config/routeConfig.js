@@ -214,7 +214,7 @@ angular.module("app").config(function ($routeProvider) {
      
      //*********************************************Clientes
         $routeProvider.when("/clientes", {
-            templateUrl: "Clientes/listCliente.html",
+            templateUrl: "clientes/listClientes.html",
             controller: "ClientesCtrl",
             resolve: {
                     clientes: function (clientesAPI) {
@@ -223,20 +223,33 @@ angular.module("app").config(function ($routeProvider) {
             }
         });
         
-        $routeProvider.when("/CadClientes", {
-		templateUrl: "Clientes/cadCliente.html",
-		controller: "cadClienteCtrl"
+        $routeProvider.when("/cadClientes", {
+		templateUrl: "clientes/cadCliente.html",
+		controller: "cadClientesCtrl"
 	});
         
-	$routeProvider.when("/editarClientesCtrl/:id", {
-		templateUrl: "Clientes/editarCliente.html",
-		controller: "editarClienteCtrl",
+	$routeProvider.when("/editClientes/:id", {
+		templateUrl: "clientes/editCliente.html",
+		controller: "editClientesCtrl",
 		resolve: {
-			certificadora: function (clientesAPI, $route) {
+			cliente: function (clientesAPI, $route) {
 				return clientesAPI.getCliente($route.current.params.id);
 			}
 		}
 	});
+        
+        $routeProvider.when("/deleteCliente/:id", {
+        templateUrl: "clientes/listClientes.html",
+        controller : "ClientesCtrl",
+        resolve    : {
+            cliente: function (clientesAPI, $route) {
+                return clientesAPI.deleteCliente($route.current.params.id);
+            },
+            clientes: function (clientesAPI){
+                return clientesAPI.getClientes();
+            } 
+        }
+    });
             //***********************************************************ceps
         $routeProvider.when("/ceps", {
             templateUrl: "ceps/listCep.html",
@@ -261,8 +274,7 @@ angular.module("app").config(function ($routeProvider) {
 			}
 		}
 	});
-        
-        
+ 
             //********************************************Equipe Auditores
     $routeProvider.when("/equipeAuditores", {
     templateUrl: "equipeAuditores/listEquipeAuditores.html",

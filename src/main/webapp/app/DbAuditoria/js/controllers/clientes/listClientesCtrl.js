@@ -1,6 +1,5 @@
-/* global angular, clientes ,clientesAPI */
 
-angular.module("app").controller("listClientesCtrl", function ($scope, clientes) {
+angular.module("app").controller("ClientesCtrl", function ($scope, clientes) {
 	$scope.app = "DbAuditoria";
 	$scope.clientes = clientes.data.list;
 
