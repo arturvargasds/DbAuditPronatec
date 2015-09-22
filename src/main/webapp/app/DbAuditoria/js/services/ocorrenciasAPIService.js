@@ -14,10 +14,24 @@ angular.module("app").factory("ocorrenciasAPI", function ($http, config) {
 		return $http.post(config.baseUrl + "DbAuditPronatec-3.2/api/ocorrencias", ocorrencia);
 	};
 
+	var _getDelete = function (id) {
+		return $http.delete(config.baseUrl + "DbAuditPronatec-3.2/api/ocorrencias/" + id);         
+	};
+
+	var _deleteOcorrencia = function (id) {
+		return $http.delete(config.baseUrl + "DbAuditPronatec-3.2/api/ocorrencias/" + id);
+	};
+
 	return {
-		getOcorrencias: _getOcorrencias,
-		getOcorrencia : _getOcorrencia,
-		saveOcorrencia: _saveOcorrencia
+
+		getOcorrencias   : _getOcorrencias,//get
+		getOcorrencia    : _getOcorrencia,
+
+		saveOcorrencia   : _saveOcorrencia,//post
+
+		getDelete 	  	 : _getDelete,
+		deleteOcorrencia : _deleteOcorrencia//delete
+
 	};
         
        //  this.getToday = function(){

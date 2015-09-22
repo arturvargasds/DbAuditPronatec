@@ -14,9 +14,23 @@ angular.module("app").factory("auditoresAPI", function ($http, config) {
 		return $http.post(config.baseUrl + "DbAuditPronatec-3.2/api/auditores", auditor);
 	};
 
+	var _getDelete = function (id) {
+		return $http.delete(config.baseUrl + "DbAuditPronatec-3.2/api/auditores/" + id);         
+	};
+
+	var _deleteAuditor = function (id) {
+		return $http.delete(config.baseUrl + "DbAuditPronatec-3.2/api/auditores/" + id);
+	};
+
 	return {
-		getAuditores: _getAuditores,
-		getAuditor  : _getAuditor,
-		saveAuditor : _saveAuditor
+		
+		getAuditores  : _getAuditores,//get
+		getAuditor    : _getAuditor,
+
+		saveAuditor   : _saveAuditor,//post
+
+		getDelete 	  : _getDelete,
+		deleteAuditor : _deleteAuditor//delete
+
 	};
 });

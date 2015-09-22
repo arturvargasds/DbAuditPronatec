@@ -11,7 +11,7 @@
           <!--formulario-->
           <form name="ocorrenciaForm">
             <input class="form-control" type="text" ng-model="ocorrencia.descriOcorre" name="descriOcorre" placeholder="Descrição" 
-                  ng-required="true" ng-minlength="3"/>
+                  ng-required="true" ng-minlength="250"/>
 
             <input class="form-control" type="text" disabled="" ng-model="ocorrencia.idPontoCtrl" name="idPontoCtrl" 
                   placeholder="CheckList" ng-required="true" />
@@ -19,10 +19,11 @@
             <input class="form-control" type="text" ng-model="ocorrencia.statusOcorre" name="statusOcorre" placeholder="Status" 
                   ng-required="true" ng-minlength="1" ng-maxlength="1"/>
 
-            <input class="form-control"  type="text" ng-model="ocorrencia.dtHrOcorre" name="dtHrOcorre"ng-pattern="/^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/" ng-required="false" ng-minlength="2" ng-maxlength="19" placeholder="dtHrOcorre"/> <!--  ui-date -->
+            <input class="form-control"  type="date" ng-model="ocorrencia.dtHrOcorre | date:'dd/MM/yyyy' " name="dtHrOcorre" placeholder="dtHrOcorre" 
+                   ng-required="true" ng-minlength="2" ng-maxlength="19"/> <!--  ui-date -->
 
-            <input class="form-control"  type="text" ng-model="ocorrencia.dtAtualiza" name="dtAtualiza" ng-pattern="/^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/" 
-                  ng-required="false" ng-minlength="2" ng-maxlength="18" placeholder="dtAtualiza"/>
+            <input class="form-control"  ui-date type="text" ng-model="ocorrencia.dtAtualiza" name="dtAtualiza" placeholder="dtAtualiza" 
+                  ng-required="true" ng-minlength="2" ng-maxlength="18" ng-patern="/^\d{2}/\d{2}/\d{4} \d{2}:\d{2}$/"/>
 
             <select name="idPontoCtrl"  class="form-control" ng-model="ocorrencia.idPontoCtrl ">
             <option value="">Selecione o CheckList</option>
@@ -33,13 +34,8 @@
             <input class="form-control" type="text" ng-model="ocorrencia.sugesOcorre" name="sugesOcorre" placeholder="sugestão" 
             ng-required="true" ng-minlength="250"/>
 
-            <div class="controls controls-row">
-              <input class="span1" type="text"  ng-model="ocorrencia.idCola" name="idCola" 
-              placeholder="Codigo Colab." ng-required="true" ng-maxlength="4"/>
-
-              <input class="span12" type="text"  ng-model="colaborador.nomeCola" name="idCola" 
-              placeholder="Nome Colab." ng-required="true" ng-maxlength="4"/>
-            </span>
+            <input class="form-control" type="text"  ng-model="ocorrencia.idCola" name="idCola" 
+            placeholder="Codigo Colab." ng-required="true" />
 
             <input class="form-control" type="text" ng-model="ocorrencia.obsOcorre" name="obsOcorre" placeholder="Obs.." 
             ng-required="true" ng-minlength="2" ng-maxlength="90"/>
@@ -65,21 +61,12 @@
             <div ng-message="maxlength" class="alert alert-danger">
               O campo Status deve ter  1 caracteres.
             </div>
-          </div>
-
-          <div ng-show="ocorrenciaForm.dtHrOcorre.$dirty" ng-messages="ocorrenciaForm.dtHrOcorre.$error">
-            <div ng-message="required" class="alert alert-danger">
-              Por favor, preencha o campo Data / Hora Cadastro da Ocorrencias!
-            </div>
-            <div ng-show="ocorrenciaForm.dtHrOcorre.$error.pattern" class="alert alert-danger">
-              O campo dtHrOcorre deve ter o formato dd/mm/aaaa
-            </div>
           </div><br>
 
           <!--botoes-->
           <div style="padding-left:280px;"   >
-            <a class="btn btn-primary glyphicon glyphicon-floppy-save" ng-click="adicionarOcorrencia(ocorrencia)" ng-disabled="ocorrenciaForm.$invalid"> ADICIONAR</a>
-            <a href="#/ocorrencias" class="btn btn-danger glyphicon glyphicon-remove"> CANCELAR</a>
+            <a class="btn btn-primary glyphicon glyphicon-floppy-save" ng-click="adicionarOcorrencia(ocorrencia)" ng-disabled="ocorrenciaForm.$invalid"> ADICIONAR CIDADE</a>
+            <a href="#/ocorrencias"  class="btn btn-danger glyphicon glyphicon-remove"> CANCELAR</a>
           </div> 
         </div> <br>
       </div> <br>

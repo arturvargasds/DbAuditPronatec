@@ -10,50 +10,50 @@
 
 					<!--formulario-->
 					<form name="auditorForm">
-						<input class="form-control" type="number" ng-model="auditor.idcep  " name="cepAudit" placeholder="id CEP" 
-								ng-required="true" />                
+						<input class="form-control" type="number" ng-model="auditor.idcep" name="cepAudit" placeholder="id CEP" 
+								ng-required="true" ng-minlength="1"/>                
 
-						<input class="form-control" type="text" ng-model="auditor.nomeAudit " name="nomeAudit" placeholder="Nome Auditor(a)" 
-								ng-required="true" ng-minlength="1" ng-maxlength="100"/> 
+						<input class="form-control" type="text" ng-model="auditor.nomeAudit" name="nomeAudit" placeholder="Nome Auditor(a)" 
+								ng-required="true" ng-minlength="3" ng-maxlength="60"/> 
 
-						<input class="form-control" type="number" ng-model="auditor.cpfAudit " name="cpfAudit" placeholder="CPF" 
-								ng-required="true" ng-minlength="1" ng-maxlength="14"/>
+						<input class="form-control" type="text" ng-model="auditor.cpfAudit" name="cpfAudit" ng-pattern="/^\d{2,3}.\d{3}.\d{3}-\d{2}$/"placeholder="CPF" 
+								ng-required="true" ng-minlength="13" ng-maxlength="14"/>
 
 						<input class="form-control" type="text" ng-model="auditor.fone1Audit" name="fone1Audit" ng-pattern="/^\d{4,5}-\d{4}$/" placeholder="Fone" 
-								ng-required="true" ng-minlength="1" ng-maxlength="10"/>
+								ng-required="true" ng-minlength="8" ng-maxlength="9"/>
 
 						<input class="form-control" type="text" ng-model="auditor.fone2Audit" name="fone2Audit" ng-pattern="/^\d{4,5}-\d{4}$/" placeholder="Fone 2" 
-								ng-required="false" ng-minlength="1" ng-maxlength="10"/>
+								ng-required="false" ng-minlength="8" ng-maxlength="9"/>
 
 						<input class="form-control" type="email" ng-model="auditor.emailAudit" name="emailAudit" placeholder="EMAIL" 
-								ng-required="true" ng-minlength="1" ng-maxlength="50"/>
+								ng-required="true" ng-minlength="3" ng-maxlength="100"/>
 
 						<input class="form-control" type="text" ng-model="auditor.compleEndAudit" name="compleEndAudit" placeholder="Complemento" 
-								ng-required="false" ng-minlength="1" ng-maxlength="50"/>
+								ng-required="false" ng-minlength="3" ng-maxlength="50"/>
 
 						<input class="form-control" type="text" ng-model="auditor.tipoAudit" name="tipoAudit" placeholder="Tipo Auditor" 
-								ng-required="true" ng-minlength="1" ng-maxlength="50"/>
+								ng-required="true" ng-minlength="1" ng-maxlength="1"/>
 
 						<input class="form-control" type="text" ng-model="auditor.obsAudit" name="obsAudit" placeholder="OBS" 
-								ng-required="true" ng-minlength="1" ng-maxlength="100"/>
+								ng-required="true" ng-minlength="3" ng-maxlength="100"/>
 
-						<input class="form-control" type="text" ng-model="auditor.statusAuditores " name="statusAuditores" placeholder="Status" 
+						<input class="form-control" type="text" ng-model="auditor.statusAuditores" name="statusAuditores" placeholder="Status" 
 								ng-required="true" ng-minlength="1" ng-maxlength="1"/>
 
 						<input class="form-control" type="password" ng-model="auditor.senhAudit" name="senhAudit" placeholder="Senha" 
-								ng-required="true" ng-minlength="1" ng-maxlength="50"/>
+								ng-required="true" ng-minlength="6" ng-maxlength="8"/>
 
 						<input class="form-control" type="text" ng-model="auditor.usuAudit" name="usuAudit" placeholder="Usuario" 
-								ng-required="true" ng-minlength="1" ng-maxlength="50"/>
+								ng-required="true" ng-minlength="3" ng-maxlength="10"/>
 					</form>
 
 					<!--autent. campos-->
 					<div ng-show="auditorForm.cepAudit.$dirty" ng-messages="auditorForm.cepAudit.$error">
 			            <div ng-message="required" class="alert alert-danger">
-			              	Por favor, preencha o campo nome!
+			              	Por favor, preencha o campo CEP!
 			            </div>
 			            <div ng-message="minlength" class="alert alert-danger">
-			              	O campo nome deve ter no mínimo 3 caracteres.
+			              	O campo CEP deve ter no mínimo 1 caracteres.
 			            </div>
 		          	</div>
 
@@ -71,7 +71,7 @@
 							Por favor, preencha o campo CPF!
 						</div>
 						<div ng-message="minlength" class="alert alert-danger">
-							O campo nome deve ter no mínimo 3 caracteres.
+							O campo CPF deve ter o formato DDD.DDD.DDD-DD.
 						</div>
 					</div>
 
@@ -93,10 +93,10 @@
 
 					<div ng-show="auditorForm.emailAudit.$dirty" ng-messages="auditorForm.emailAudit.$error">
 						<div ng-message="required" class="alert alert-danger">
-							Por favor, preencha o campo nome!
+							Por favor, preencha o campo email!
 						</div>
 						<div ng-message="minlength" class="alert alert-danger">
-							O campo nome deve ter no mínimo 3 caracteres.
+							O campo email deve ter no mínimo 3 caracteres.
 						</div>
 					</div>
 
@@ -105,7 +105,7 @@
 							Por favor, preencha o campo tipo auditor!
 						</div>
 						<div ng-message="minlength" class="alert alert-danger">
-							O campo nome deve ter no mínimo 3 caracteres.
+							O campo tipo auditor deve ter no mínimo 3 caracteres.
 						</div>
 					</div>
 
@@ -114,7 +114,7 @@
 							Por favor, preencha o campo obs!
 						</div>
 						<div ng-message="minlength" class="alert alert-danger">
-							O campo nome deve ter no mínimo 3 caracteres.
+							O campo obs deve ter no mínimo 3 caracteres.
 						</div>
 					</div>
 
@@ -123,7 +123,7 @@
 							Por favor, preencha o campo status!
 						</div>
 						<div ng-message="minlength" class="alert alert-danger">
-							O campo nome deve ter no mínimo 3 caracteres.
+							O campo status deve ter 1 caracter.
 						</div>
 					</div>
 
@@ -132,7 +132,7 @@
 							Por favor, preencha o campo senha!
 						</div>
 						<div ng-message="minlength" class="alert alert-danger">
-							O campo nome deve ter no mínimo 3 caracteres.
+							O campo senha deve ter no mínimo 6 caracteres.
 						</div>
 					</div>
 
@@ -141,23 +141,23 @@
 							Por favor, preencha o campo usuario!
 						</div>
 						<div ng-message="minlength" class="alert alert-danger">
-							O campo Status deve ter  1 caracteres.
+							O campo usuario deve ter no mínimo 3 caracteres.
 						</div>
 						<div ng-message="maxlength" class="alert alert-danger">
-							O campo Status deve ter  100 caracteres.
+							O campo usuario deve ter  100 caracteres.
 						</div>			
 					</div><br>
 
 					<!--botoes-->
 					<div style="padding-left:280px;"   >
 						<a class="btn btn-primary glyphicon glyphicon-floppy-save" ng-click="adicionarAuditor(auditor)" ng-disabled="auditorForm.$invalid"> ADICIONAR AUDITORES</a>
-						<a href="#auditores"  class="btn btn-danger glyphicon glyphicon-remove"> CANCELAR</a>
+						<a href="#/auditores"  class="btn btn-danger glyphicon glyphicon-remove"> CANCELAR</a>
 					</div> 
 					
 		        </div><br><br>
 	       	</div><br>
             <div ng-include="'footer.html'"></div>
     	</div><!-- /.row -->
-    	<p>Formaçao do Objeto(json): {{cidade| json }}</p>''
+    	<p>Formaçao do Objeto(json): {{auditor| json }}</p>''
     </div><!-- /#page-wrapper -->
 </div> <!-- /#wrapper -->

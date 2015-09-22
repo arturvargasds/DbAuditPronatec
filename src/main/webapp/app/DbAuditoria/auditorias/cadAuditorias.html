@@ -32,15 +32,9 @@
 	                     </div>
                              
                              <div class="col-lg-12">
-                                 <select  class="form-control" ng-model="auditoria.idCert ">
-                                  <option value="">lista de Certificadoras</option>
-                                  <option value="1">Contabil (codigo = 1)</option>
-                                  <option value="2">ParMecanica (codigo = 2)</option>
-                                   <option value="1">Cuntabel (codigo = 1)</option>
-                                  <option value="2">PerMecanica (codigo = 2)</option>
-                                   <option value="1">Cantabil (codigo = 1)</option>
-                                  <option value="2">PirMecanica (codigo = 2)</option>
-                                  </select>
+                                 <select class="form-control" ng-model="certificadora" ng-options="certificadora.fantaCert + ' ( ' + (certificadora.id) + ' )' for certificadora in certificadoras | orderBy:'id'">
+		        	    <option value="">Lista de Certificadora</option>
+		                 </select>
                              </div>
                              <hr>
                             <div >
@@ -67,14 +61,12 @@
 	                     </div>
                             
                              <div class="col-lg-12">
-                                 <select  class="form-control" ng-model="auditoria.idCli ">
+                                 <select class="form-control" ng-model="cliente" ng-options="cliente.fantaCli + ' ( ' + (cliente.id) + ' )' for cliente in clientes | orderBy:'id'">		        	
                                   <option value="">lista de Clientes</option>
-                                  <option value="1">Contabil (codigo = 1)</option>
-                                  <option value="2">ParMecanica (codigo = 2)</option>
                                   </select>
-                             </div>
+                             </div>   
                             <div >
-                               <a class="btn btn-outline btn-success  btn-sm glyphicon glyphicon-pencil "   name="salvar" href="#/clientes" > Novo Clientes</a>
+                               <a class="btn btn-outline btn-success  btn-sm glyphicon glyphicon-pencil "   name="salvar" href="#/CadClientes" > Novo Clientes</a>
                             </div>
                        </div>
                     </div>
@@ -297,4 +289,16 @@
   </div>    
  
    
+   <script>
+  
    
+  angular.module("app").controller("datahoraCtrl", function ($scope, $element, $http, $filter) {
+  
+ 
+  function General()
+  {
+   $scope.datahora  = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
+  }
+  
+ </script>
+ 

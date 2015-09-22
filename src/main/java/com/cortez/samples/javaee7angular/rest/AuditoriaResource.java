@@ -87,9 +87,9 @@ public class AuditoriaResource
     @POST
     public Auditorias saveAuditoria(Auditorias auditoria)
     {
+         entityManager.getTransaction().begin();
         if (auditoria.getId() == null)
-          {
-                entityManager.getTransaction().begin();
+          {             
               Auditorias auditoriaToSave = new Auditorias();            
               auditoriaToSave.setId(auditoria.getId());                       
               auditoriaToSave.setDescriAudit(auditoria.getDescriAudit());                         

@@ -29,10 +29,10 @@ public class Ocorrencias implements Serializable
     private int idCola ;     
     
     @Column(name = "DTHROCORRE", length =19 )
-    private Timestamp dtHrOcorre; 
+    private String dtHrOcorre; 
     
     @Column(name = "DTATUALIZA", length =19 )
-    private Timestamp dtAtualiza;     
+    private String dtAtualiza;     
     
     @Column(name = "DESCRIOCORRE", length =254 )
     private String descriOcorre;     
@@ -70,19 +70,19 @@ public class Ocorrencias implements Serializable
         this.idCola = idCola;
     }
 
-    public Timestamp getDtHrOcorre() {
+    public String getDtHrOcorre() {
         return dtHrOcorre;
     }
 
-    public void setDtHrOcorre(final Timestamp dtHrOcorre) {
+    public void setDtHrOcorre(final String dtHrOcorre) {
         this.dtHrOcorre = dtHrOcorre;
     }
 
-    public Timestamp getDtAtualiza() {
+    public String getDtAtualiza() {
         return dtAtualiza;
     }
 
-    public void setDtAtualiza(final Timestamp dtAtualiza) {
+    public void setDtAtualiza(final String dtAtualiza) {
         this.dtAtualiza = dtAtualiza;
     }
 

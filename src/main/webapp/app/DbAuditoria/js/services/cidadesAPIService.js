@@ -17,7 +17,8 @@ angular.module("app").factory("cidadesAPI", function ($http, config) {
 	var _saveCidade= function (cidade) {
 		return $http.post(config.baseUrl + "DbAuditPronatec-3.2/api/cidades", cidade);
 	};
-        	var _deleteCidade = function (id) {
+        
+        var _deleteCidade = function (id) {
 		return $http.delete(config.baseUrl + "DbAuditPronatec-3.2/api/cidades/" + id);
 	};
 

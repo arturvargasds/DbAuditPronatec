@@ -7,12 +7,13 @@ angular.module("app").controller("listAuditoriasCtrl", function ($scope, auditor
  
 	$scope.adicionarAuditoria= function (auditoria) {		
 		auditoriasAPI.saveAuditoria(auditoria).success(function (data) {
-                    $scope.auditoria.statusaudit ="A";
+                     
 			delete $scope.auditoria;
 			$scope.auditoriasForm.$setPristine();
 			carregarAuditorias();
 		});
 	};
+        
     
 	$scope.apagarAuditorias = function (auditorias) {
 		$scope.auditorias =  auditorias.filter(function (auditoria) {

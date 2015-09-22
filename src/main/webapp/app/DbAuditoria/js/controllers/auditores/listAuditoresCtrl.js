@@ -2,13 +2,12 @@
 
 angular.module("app").controller("AuditoresCtrl", function ($scope, auditores) {
 	$scope.app = "DbAuditoria";
-	$scope.auditores = auditores.data.list;
-	
+	$scope.auditores = auditores.data.list;	
 
 	$scope.adicionarAuditor= function (auditor) {		
 		auditoresAPI.saveAuditor(auditor).success(function (data) {
 			delete $scope.auditor;
-			$scope.auditoresForm.$setPristine();
+			$scope.auditorForm.$setPristine();
 			carregarAuditores();
 		});
 	};

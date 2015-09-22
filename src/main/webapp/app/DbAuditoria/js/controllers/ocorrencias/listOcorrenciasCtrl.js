@@ -8,7 +8,7 @@ angular.module("app").controller("listOcorrenciasCtrl", function ($scope, ocorre
 	$scope.adicionarOcorrencia= function (ocorrencia) {		
 		ocorrenciasAPI.saveOcorrencia(ocorrencia).success(function (data) {
 			delete $scope.ocorrencia;
-			$scope.ocorrenciasForm.$setPristine();
+			$scope.ocorrenciaForm.$setPristine();
 			carregarOcorrencias();
 		});
 	};

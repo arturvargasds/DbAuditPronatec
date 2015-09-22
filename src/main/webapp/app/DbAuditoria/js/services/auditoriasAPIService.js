@@ -12,10 +12,21 @@ angular.module("app").factory("auditoriasAPI", function ($http, config) {
 	var _saveAuditoria = function (auditoria) {
 		return $http.post(config.baseUrl + "DbAuditPronatec-3.2/api/auditorias", auditoria);
 	};
+        
+        var _getDelete = function (id) {
+		return $http.delete(config.baseUrl + "DbAuditPronatec-3.2/api/auditorias/" + id);         
+	};
+        
+         var _deleteAuditoria = function (id) {
+		return $http.delete(config.baseUrl + "DbAuditPronatec-3.2/api/auditorias/" + id);
+	};
 
 	return {
 		getAuditorias : _getAuditorias,
 		getAuditoria  : _getAuditoria,
-		saveAuditoria : _saveAuditoria
+                getDelete : _getDelete,
+                
+                saveAuditoria : _saveAuditoria,
+                deleteAuditoria: _deleteAuditoria
 	};
 });
