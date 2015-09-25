@@ -9,7 +9,7 @@
        <div class="panel-heading">
            <h4> Cadastro Auditorias </h4>   
        </div>  <br>
-       <div class="container-fluid" style="alignment-adjust:central;">
+       <div class="container-fluid" style="text-align: center;" >
             <!--  < style="background-color: #dff0d8;">  -->
          
 	<form name="auditoriasForm"  id="formAu">
@@ -229,7 +229,7 @@
                            Observação
                         </div>
                         <div class="panel-body"> <p>
-                            <div class="col-lg-12">
+                            <div class="col-lg-12"> 
                                 <textarea  ng-model="auditoria.statusaudit" name="status" class="form-control" rows="3" ></textarea> <br>
                                  <input class="form-control" type="hidden"   ng-model="auditoria.statusaudit" name="status" placeholder="Status" />      
                             </div>
@@ -240,7 +240,7 @@
        </form>  
             <hr>
               <!--botoes--> 
-           <div style="padding-left:280px;"   >
+           <div >
               <a class="btn btn-outline  btn-lg  btn-primary glyphicon glyphicon-floppy-save"    ng-click="(auditoria.statusaudit ='A');adicionarAuditoria(auditoria)" ng-disabled="auditoriasForm.$invalid" > SALVAR</a>
               <a href="#/auditorias"  class="btn btn-lg btn-outline btn-danger glyphicon glyphicon-remove"> CANCELAR</a>   
          </div> 

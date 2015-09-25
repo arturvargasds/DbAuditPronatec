@@ -58,29 +58,43 @@ angular.module("app").config(function ($routeProvider) {
         
 //*****************************************************************Bairros
     $routeProvider.when("/bairros", {
-        templateUrl: "bairros/listBairro.html",
-        controller : "BairrosCtrl",
+        templateUrl: "bairros/listBairros.html",
+        controller : "listBairrosCtrl",
         resolve    : {
             bairros: function (bairrosAPI) {
-            return bairrosAPI.getBairros();
+                return bairrosAPI.getBairros();
             }       
         }
     });
     
-    $routeProvider.when("/CadBairros", {
-        templateUrl: "bairros/cadasBairro.html",
-        controller : "cadBairroCtrl"
-    });
+    $routeProvider.when("/cadBairros", {
+		templateUrl: "bairros/cadBairros.html",
+		controller : "cadBairrosCtrl"
+	});
         
-    $routeProvider.when("/EditarBai/:id", {
-        templateUrl: "bairros/editarBairro.html",
-        controller : "EditarBaiCtrl",
-        resolve    : {
+	$routeProvider.when("/editBairros/:id", {
+		templateUrl: "bairros/cadBairros.html",
+		controller : "editBairrosCtrl",
+		resolve    : {
             bairro : function (bairrosAPI, $route) {
-            return bairrosAPI.getBairro($route.current.params.id);
-            }
-	}
-    });        
+                return bairrosAPI.getBairro($route.current.params.id);
+			}
+		}
+	}); 
+
+    $routeProvider.when("/deleteBairro/:id", {
+        templateUrl: "bairros/listBairros.html",
+        controller : "listBairrosCtrl",
+        resolve    : {
+            bairro: function (bairrosAPI, $route) {
+                return bairrosAPI.deleteBairro($route.current.params.id);
+            },
+            bairros: function (bairrosAPI){
+                return bairrosAPI.getBairros();
+            } 
+        }
+    });       
+        
         
 //*****************************************************************Nao Conformidades
     $routeProvider.when("/NCs", {
@@ -108,6 +122,15 @@ angular.module("app").config(function ($routeProvider) {
         }
 	});
         
+        $routeProvider.when("/deleteNC/:id", {
+        templateUrl: "naoConformidades/listNCs.html",
+        controller : "listNCsCtrl",
+        resolve    : {
+            nc: function (NCsAPI, $route) {
+                return NCsAPI.deleteNC($route.current.params.id);
+            } 
+        }
+    });
 //*****************************************************************Auditores
     $routeProvider.when("/auditores", {
         templateUrl: "auditores/listAuditores.html",
@@ -152,8 +175,8 @@ angular.module("app").config(function ($routeProvider) {
         templateUrl: "certificadoras/listCerts.html",
         controller : "listCertsCtrl",
         resolve    : {
-            certificadoras: function (certsAPI) {
-            return certsAPI.getCertificadoras();
+            certificadoras: function (certificadorasAPI) {
+                return certificadorasAPI.getCertificadoras();
             }       
         }
     });
@@ -163,16 +186,28 @@ angular.module("app").config(function ($routeProvider) {
         controller : "cadCertsCtrl"
     });
 
-    $routeProvider.when("/editCertCtrl/:id", {
-        templateUrl: "certificadoras/editCerts.html",
+    $routeProvider.when("/editCerts/:id", {
+        templateUrl: "certificadoras/cadCerts.html",
         controller : "editCertsCtrl",
         resolve    : {
-            certificadora: function (certsAPI, $route) {
-            return certsAPI.getCertificadora($route.current.params.id);
-            }
+            certificadora: function (certificadorasAPI, $route) {
+                return certificadorasAPI.getCertificadora($route.current.params.id);            
+            }          
         }
     });
-        
+
+    $routeProvider.when("/deleteCert/:id", {
+        templateUrl: "certificadoras/listCerts.html",
+        controller : "listCertsCtrl",
+        resolve    : {
+            certificadora: function (certificadorasAPI, $route) {
+                return certificadorasAPI.deleteCertificadora($route.current.params.id);
+            },
+            certificadoras: function (certificadorasAPI){
+                return certificadorasAPI.getCertificadoras();
+            } 
+        }
+    });
 //***********************************************************ocorrencias
     $routeProvider.when("/ocorrencias", {
         templateUrl: "ocorrencias/listOcorrencias.html",
@@ -186,7 +221,12 @@ angular.module("app").config(function ($routeProvider) {
      
     $routeProvider.when("/cadOcorrencias", {
        templateUrl: "ocorrencias/cadOcorrencias.html",
-       controller : "cadOcorrenciasCtrl"
+       controller : "cadOcorrenciasCtrl",
+       resolve    : {
+            colaboradores: function (colaboradoresAPI){
+            return colaboradoresAPI.getColaboradores();
+            }
+        }
      });
 
     $routeProvider.when("/editOcorrencias/:id", {
@@ -195,6 +235,9 @@ angular.module("app").config(function ($routeProvider) {
         resolve    : {
             ocorrencia: function (ocorrenciasAPI, $route) {
                 return ocorrenciasAPI.getOcorrencia($route.current.params.id);
+            },
+            colaboradores: function (colaboradoresAPI){
+            return colaboradoresAPI.getColaboradores();
             }
         }
     });
@@ -250,56 +293,84 @@ angular.module("app").config(function ($routeProvider) {
             } 
         }
     });
-            //***********************************************************ceps
+       //***********************************************************ceps
         $routeProvider.when("/ceps", {
-            templateUrl: "ceps/listCep.html",
-            controller: "CepsCtrl",
-            resolve: {
-                   ceps: function (cepsAPI) {
-                            return cepsAPI.getCeps();
-                    }       
-            }
-        });
-	$routeProvider.when("/CadCeps", {
-		templateUrl: "ceps/cadastro.html",
-		controller: "cadasCepsCtrl"
+        templateUrl: "ceps/listCeps.html",
+        controller : "listCepsCtrl",
+        resolve    : {
+            ceps: function (cepsAPI) {
+                return cepsAPI.getCeps();
+            }       
+        }
+    });
+
+        $routeProvider.when("/cadCeps", {
+		templateUrl: "ceps/cadCeps.html",
+		controller : "cadCepsCtrl"
 	});
         
-	$routeProvider.when("/EditarCep/:id", {
-		templateUrl: "ceps/editarCeps.html",
-		controller: "editarCepCtrl",
-		resolve: {
+	$routeProvider.when("/editCeps/:id", {
+		templateUrl: "ceps/editCeps.html",
+		controller : "editCepsCtrl",
+		resolve    : {
 			cep: function (cepsAPI, $route) {
 				return cepsAPI.getCep($route.current.params.id);
 			}
 		}
-	});
+	}); 
+
+        $routeProvider.when("/deleteCep/:id", {
+        templateUrl: "ceps/listCeps.html",
+        controller : "listCepsCtrl",
+        resolve    : {
+            cep: function (cepsAPI, $route) {
+                return cepsAPI.deleteCep($route.current.params.id);
+            },
+            ceps: function (cepsAPI){
+                return cepsAPI.getCeps();
+            } 
+        }
+    });
  
-            //********************************************Equipe Auditores
-    $routeProvider.when("/equipeAuditores", {
-    templateUrl: "equipeAuditores/listEquipeAuditores.html",
-    controller : "listEAuditsCtrl",
-    resolve    : {
-        equipeauditores: function (equipeAuditoresAPI){
-        return equipeAuditoresAPI.getEquipeauditores();
-        }       
+   //********************************************Equipe Auditores
+    $routeProvider.when("/eqAudits", {
+        templateUrl: "equipeAuditores/listEqAudits.html",
+        controller : "listEqAuditsCtrl",
+        resolve    : {
+            eqAudits: function (eqAuditsAPI){
+                return eqAuditsAPI.getEqAudits();
+            }       
         }
     });    
     
-    $routeProvider.when("/cadEquipeAuditores", {
-        templateUrl: "equipeAuditores/cadEquipeAuditores.html",
+    $routeProvider.when("/cadEqAudits", {
+        templateUrl: "equipeAuditores/cadEqAudits.html",
         controller : "cadEqAuditsCtrl"   
     });
  
-    $routeProvider.when("/editEquipeAuditores/:id", {
-        templateUrl: "equipeAuditores/editEquipeAuditores.html",
+    $routeProvider.when("/editEqAudits/:id", {
+        templateUrl: "equipeAuditores/cadEqAudits.html",
         controller : "editEqAuditsCtrl",
         resolve    : {
-             equipeauditores: function (equipeAuditoresAPI, $route) {
-             return equipeAuditoresAPI.getEquipeauditores($route.current.params.id);
+            eqAudit: function (eqAuditsAPI, $route) {
+                return eqAuditsAPI.getEqAudit($route.current.params.id);
             }
         }
     });
+
+    $routeProvider.when("/deleteEqAudit/:id", {
+        templateUrl: "equipeAuditores/listEqAudits.html",
+        controller : "listEqAuditsCtrl",
+        resolve    : {
+            eqAudit: function (eqAuditsAPI, $route) {
+                return eqAuditsAPI.deleteEqAudit($route.current.params.id);
+            },
+            eqAudits: function (eqAuditsAPI){
+                return eqAuditsAPI.getEqAudits();
+            } 
+        }
+    });
+        
         
          //********************************************Auditorias
     $routeProvider.when("/auditorias", {
@@ -347,38 +418,47 @@ angular.module("app").config(function ($routeProvider) {
         resolve    : {
             auditoria: function (auditoriasAPI, $route) {
             return auditoriasAPI.deleteAuditoria($route.current.params.id);
-            },
-            auditorias: function (auditoriasAPI){
-            return auditoriasAPI.getAuditorias();
             } 
         }
     });
 
+
 //***********************************************************Checklist
     $routeProvider.when("/checklists", {
-        templateUrl: "checklists/listChecklist.html",
-        controller : "checklistsCtrl",
+        templateUrl: "checklists/listChecklists.html",
+        controller : "listChecklistsCtrl",
         resolve    : {
-            chekclists: function (checklistsAPI) {
+            checklists: function (checklistsAPI) {
                 return checklistsAPI.getChecklists();
             }       
         }
     });
 
     $routeProvider.when("/cadChecklists", {
-        templateUrl: "checklists/cadChecklist.html",
+        templateUrl: "checklists/cadChecklists.html",
         controller : "cadChecklistsCtrl"
     });
 
     $routeProvider.when("/editChecklists/:id", {
-        templateUrl: "checklists/editChecklist.html",
+        templateUrl: "checklists/editChecklists.html",
         controller : "editChecklistsCtrl",
         resolve    : {
-            cidade: function (chekclistsAPI, $route) {
-                return chekclistsAPI.getChekclist($route.current.params.id);
+            checklist: function (checklistsAPI, $route) {
+                return checklistsAPI.getChecklist($route.current.params.id);
             }
         }
     });
+
+    $routeProvider.when("/deleteChecklist/:id", {
+        templateUrl: "checklists/listChecklists.html",
+        controller : "checklistsCtrl",
+        resolve    : {
+            checklist: function (checklistsAPI, $route) {
+                return checklistsAPI.deleteChecklist($route.current.params.id);
+            }
+        }
+    });
+       
             
 //*****************************************************************Colaboradores
     $routeProvider.when("/colaboradores", {
@@ -386,7 +466,7 @@ angular.module("app").config(function ($routeProvider) {
         controller : "listColaboradoresCtrl",
         resolve    : {
             colaboradores: function (colaboradoresAPI){
-            return colaboradoresAPI.getColaboradores();
+                return colaboradoresAPI.getColaboradores();
             }       
         }
     });    
@@ -397,14 +477,28 @@ angular.module("app").config(function ($routeProvider) {
     });
  
     $routeProvider.when("/editColaboradores/:id", {
-    templateUrl: "colaboradores/editColaboradores.html",
-    controller : "editColaboradoresCtrl",
-    resolve    : {
-        colaboradore: function (colaboradoresAPI, $route) {
-        return colaboradoresAPI.getColaboradores($route.current.params.id);
+        templateUrl: "colaboradores/cadColaboradores.html",
+        controller : "editColaboradoresCtrl",
+        resolve    : {
+            colaborador: function (colaboradoresAPI, $route) {
+                return colaboradoresAPI.getColaborador($route.current.params.id);
+            }
         }
-    }
     });
+
+    $routeProvider.when("/deleteColaborador/:id", {
+        templateUrl: "colaboradores/listColaboradores.html",
+        controller : "listColaboradoresCtrl",
+        resolve    : {
+            colaborador: function (colaboradoresAPI, $route) {
+                return colaboradoresAPI.deleteColaborador($route.current.params.id);
+            },
+            colaboradores: function (colaboradoresAPI){
+                return colaboradoresAPI.getColaboradores();
+            } 
+        }
+    });
+        
         
 //********************************************final        
         

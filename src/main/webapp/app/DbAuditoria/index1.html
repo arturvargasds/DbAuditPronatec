@@ -47,18 +47,20 @@ and open the template in the editor.
         <script src="js/controllers/auditorias/editAuditoriasCtrl.js"></script>
 
         <script src="js/controllers/bairros/listBairrosCtrl.js"></script>
-        <script src="js/controllers/bairros/cadasBairroCtrl.js"></script>
+        <script src="js/controllers/bairros/cadBairrosCtrl.js"></script>
+        <script src="js/controllers/bairros/editBairrosCtrl.js"></script>
 
         <script src="js/controllers/ceps/listCepsCtrl.js"></script>
         <script src="js/controllers/ceps/cadCepsCtrl.js"></script>
+        <script src="js/controllers/ceps/editCepsCtrl.js"></script>
 
         <script src="js/controllers/certificadoras/listCertsCtrl.js"></script>
         <script src="js/controllers/certificadoras/cadCertsCtrl.js"></script>
         <script src="js/controllers/certificadoras/editCertsCtrl.js"></script>
 
-        <script src="js/controllers/checklist/listChecklistsCtrl.js"></script>      
-        <script src="js/controllers/checklist/cadChecklistsCtrl.js"></script>
-        <script src="js/controllers/checklist/editChecklistsCtrl.js"></script>
+        <script src="js/controllers/checklists/listChecklistsCtrl.js"></script>      
+        <script src="js/controllers/checklists/cadChecklistsCtrl.js"></script>
+        <script src="js/controllers/checklists/editChecklistsCtrl.js"></script>
 
         <script src="js/controllers/cidades/listCidadesCtrl.js"></script>      
         <script src="js/controllers/cidades/cadCidadeCtrl.js"></script>
@@ -72,9 +74,9 @@ and open the template in the editor.
         <script src="js/controllers/colaboradores/cadColaboradoresCtrl.js"></script>
         <script src="js/controllers/colaboradores/editColaboradoresCtrl.js"></script>
 
-        <script src="js/controllers/equipeAuditores/listEquipeAuditoresCtrl.js"></script>
-        <script src="js/controllers/equipeAuditores/cadEquipeAuditoresCtrl.js"></script>
-        <script src="js/controllers/equipeAuditores/editEquipeAuditoresCtrl.js"></script>
+        <script src="js/controllers/equipeAuditores/listEqAuditsCtrl.js"></script>
+        <script src="js/controllers/equipeAuditores/cadEqAuditsCtrl.js"></script>
+        <script src="js/controllers/equipeAuditores/editEqAuditsCtrl.js"></script>
 
         <script src="js/controllers/naoConformidades/listNCsCtrl.js"></script>
         <script src="js/controllers/naoConformidades/cadNCsCtrl.js"></script>
@@ -82,7 +84,7 @@ and open the template in the editor.
 
         <script src="js/controllers/ocorrencias/listOcorrenciasCtrl.js"></script>      
         <script src="js/controllers/ocorrencias/cadOcorrenciasCtrl.js"></script>
-        <script src="js/controllers/ocorrencias/editOcorrenciasCtrl.js"></script>  -->  
+        <script src="js/controllers/ocorrencias/editOcorrenciasCtrl.js"></script>  
 
 
         <!--services-->
@@ -90,12 +92,12 @@ and open the template in the editor.
         <script src="js/services/auditoriasAPIService.js"></script>
         <script src="js/services/bairrosAPIService.js"></script>
         <script src="js/services/cepsAPIService.js"></script>
-        <script src="js/services/certsAPIService.js"></script>
+        <script src="js/services/certificadorasAPIService.js"></script>
         <script src="js/services/checklistsAPIService.js"></script>
         <script src="js/services/cidadesAPIService.js"></script>
         <script src="js/services/clientesAPIService.js"></script>
         <script src="js/services/colaboradoresAPIService.js"></script>
-        <script src="js/services/equipeAuditoresAPIService.js"></script>
+        <script src="js/services/eqAuditsAPIService.js"></script>
         <script src="js/services/NCsAPIService.js"></script>
         <script src="js/services/ocorrenciasAPIService.js"></script> 
 
@@ -105,7 +107,8 @@ and open the template in the editor.
         <script src="js/filters/ellipsisFilter.js"></script>       
         <script src="js/directives/uiAlertDirective.js"></script>
         <script src="js/directives/uiDateDirective.js"></script>
-
+  
+        <title>  DbAuditoria</title>
     </head>
 
 
@@ -245,56 +248,53 @@ and open the template in the editor.
 <!--******************************************************************************************************-->  
 
                             <li>
-                                <a href="#"><i class="fa fa-edit fa-fw"></i>Cadastro<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-edit fa-edit"></i> Cadastro<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="#auditores">Auditores</a>
+                                        <a href="#auditores">Auditores <i class=" glyphicon glyphicon-pencil "> </i></a>
                                     </li>                             
                                     <li>    
-                                        <a href="#bairros">Bairros</a>
+                                        <a href="#bairros">Bairros <i class="glyphicon glyphicon-pencil "> </i></a>
                                     </li>
                                     <li>
-                                        <a href="#ceps">CEP</a>
+                                        <a href="#ceps">CEP  <i class="glyphicon glyphicon-pencil "> </i></a>
                                     </li>
                                     <li>
-                                        <a href="#certs">Certificadoras</a>
+                                        <a href="#certs"> Certificadoras <i class=" glyphicon glyphicon-pencil "></i></a>
                                     </li> 
                                     <li>
-                                        <a href="#cidades">Cidades</a>
+                                        <a  href="#cidades"> Cidades <i class="glyphicon glyphicon-pencil "></i></a>
                                     </li>
                                     <li>
-                                        <a href="#clientes">Clientes</a>
+                                        <a  href="#clientes"> Clientes<i class="glyphicon glyphicon-pencil "></i></a>
                                     </li>
                                     <li>
-                                        <a href="#colaboradores">Colaboradores</a>
+                                        <a  href="#colaboradores"> Colaboradores <i class="glyphicon glyphicon-pencil "></i></a>
                                     </li>
-                                    <li>
-                                        <a href="#equipeAuditores">Equipe Auditor</a>
-                                    </li>  
+                                      
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
 
                             <!--******************************************************************************************************--> 
                             <li>
-                                <a href="#"><i class="fa fa-files-o fa-fw"></i> Auditoria<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-fw fa-gears" ></i> Auditoria<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="#auditorias">Auditorias</a>
+                                        <a  href="#auditorias">Auditorias <i class="fa fa-edit fa-fw"> </i> </a>
                                     </li>
                                     <li>
-                                        <a href="#ocorrencias">Ocorrencias</a>
+                                        <a  href="#ocorrencias">Ocorrencias <i class="fa fa-edit fa-fw"> </i></a>
                                     </li>
                                     <li>
-                                        <a href="#checklists">Checklist</a>
+                                        <a href="#checklists">Checklist  <i class="fa fa-edit fa-fw"> </i></a>
                                     </li>
                                     <li>
-                                        <a href="#NCs">Nao conformidades</a>
-                                    </li> 
-                                    
-                                    <li>
-                                        <a href="#/ConsultaAuditoria">Consultar Auditoria</a>
+                                        <a href="#NCs">Nao conformidades <i class="fa fa-edit fa-fw"> </i></a>
                                     </li>
+                                    <li>
+                                        <a href="#eqAudits"> Equipe Auditor  <i class="fa fa-edit fa-fw"> </i></a>
+                                    </li>                                   
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
@@ -303,7 +303,7 @@ and open the template in the editor.
                                 <a href="#"><i class="fa fa-files-o fa-fw"></i> Relatorios<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="blank.html">Auditoria</a>
+                                        <a class="fa fa-files-o" href="#home" > Auditoria</a>
                                     </li> 
                                     <li>
                                         <a href="#exemplo">ExemploClientes</a>
@@ -337,6 +337,10 @@ and open the template in the editor.
 
         <!-- Custom Theme JavaScript -->
         <script src="../scripts/js/sb-admin-2.js"></script>
+         <script src="js/directives/tooltip.js"></script>
+          
+         <script src="js/directives/popover.js"></script>
+      
         <br><br>
         <div ng-view>  </div>
 
@@ -358,6 +362,16 @@ and open the template in the editor.
         ga('create', 'UA-XXXXX-X');
         ga('send', 'pageview');
         </script>
+        
+        <script>
+            $(function () {
+              $('.js-popover').popover();
+              $('.js-tooltip').tooltip();
+              $('#tall-toggle').click(function () {
+                $('#tall').toggle();
+              });
+            });
+            </script>
 
     </body>
 

@@ -1,0 +1,14 @@
+/* global angular */
+
+angular.module("app").controller("editEqAuditsCtrl", function ($scope, $routeParams, eqAudit, eqAuditsAPI, $location) {
+
+	$scope.eqAudit = eqAudit.data;
+
+	$scope.adicionarEqAudit = function (eqAudit) {	
+		eqAuditsAPI.saveEqAudit(eqAudit).success(function (data) {
+			delete $scope.eqAudit;
+			$scope.EquipeAuditoresForm.$setPristine();
+			$location.path("/eqAudits");
+		});
+	};
+});

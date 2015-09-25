@@ -1,8 +1,9 @@
 /* global angular */
 
-angular.module("app").controller("cadOcorrenciasCtrl", function ($scope, ocorrenciasAPI, $location) {
-	
-
+angular.module("app").controller("cadOcorrenciasCtrl", function ($scope, ocorrenciasAPI, colaboradores, $location ) {
+	 
+  
+        $scope.colaboradores = colaboradores.data.list;
 	$scope.adicionarOcorrencia = function (ocorrencia) {
 	
 		ocorrenciasAPI.saveOcorrencia(ocorrencia).success(function (data) {

@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-import java.sql.Timestamp;
+ 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -31,7 +31,7 @@ public class EquipeAuditores implements Serializable
     private String tipoAuditor ;       
     
     @Column(name = "DTHRINCEQUIPE", length = 19 )
-    private Timestamp dtHrIncEquipe ;  
+    private String dtHrIncEquipe ;  
         
     @Column(name = "STATUSEQUIPE", length = 1 )
     private String statusEquipe ;     
@@ -68,11 +68,11 @@ public class EquipeAuditores implements Serializable
         this.tipoAuditor = tipoAuditor;
     }
 
-    public Timestamp getDtHrIncEquipe() {
+    public String getDtHrIncEquipe() {
         return dtHrIncEquipe;
     }
 
-    public void setDtHrIncEquipe(final Timestamp dtHrIncEquipe) {
+    public void setDtHrIncEquipe(final String dtHrIncEquipe) {
         this.dtHrIncEquipe = dtHrIncEquipe;
     }
 

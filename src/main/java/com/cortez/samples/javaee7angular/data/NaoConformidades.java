@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-import java.sql.Timestamp;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -28,13 +27,13 @@ public class NaoConformidades implements Serializable
     private int idPontoCtrl;      
     
     @Column(name = "DTHRCADNC", length =19 )
-    private Timestamp dtHrCadNc;  
+    private String dtHrCadNc;  
     
     @Column(name = "DTPREVRESOLNC", length =19 )
-    private Timestamp dtPrevResolNc;  
+    private String dtPrevResolNc;  
     
     @Column(name = "DTATUALIZA", length =19 )
-    private Timestamp dtAtualiza; 
+    private String dtAtualiza; 
     
     @Column(name = "DESCRINC", length =254 )
     private String DescriNc; 
@@ -72,27 +71,27 @@ public class NaoConformidades implements Serializable
         this.idPontoCtrl = idPontoCtrl;
     }
 
-    public Timestamp getDtHrCadNc() {
+    public String getDtHrCadNc() {
         return dtHrCadNc;
     }
 
-    public void setDtHrCadNc(final Timestamp dtHrCadNc) {
+    public void setDtHrCadNc(final String dtHrCadNc) {
         this.dtHrCadNc = dtHrCadNc;
     }
 
-    public Timestamp getDtPrevResolNc() {
+    public String getDtPrevResolNc() {
         return dtPrevResolNc;
     }
 
-    public void setDtPrevResolNc(final Timestamp dtPrevResolNc) {
+    public void setDtPrevResolNc(final String dtPrevResolNc) {
         this.dtPrevResolNc = dtPrevResolNc;
     }
 
-    public Timestamp getDtAtualiza() {
+    public String getDtAtualiza() {
         return dtAtualiza;
     }
 
-    public void setDtAtualiza(final Timestamp dtAtualiza) {
+    public void setDtAtualiza(final String dtAtualiza) {
         this.dtAtualiza = dtAtualiza;
     }
 

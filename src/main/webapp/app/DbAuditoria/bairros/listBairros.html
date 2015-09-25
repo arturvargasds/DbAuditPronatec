@@ -1,0 +1,33 @@
+<div id="page-wrapper">     <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4>Lista de Bairros</h4>   
+                </div>  <br>
+                <div class="container-fluid">
+                <a class="btn btn-outline btn-success glyphicon glyphicon-plus" href="#/cadBairros"> Novo</a><hr>    
+                <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por bairro.."/>
+
+                <!--tabela -->                   
+                    <table ng-show="bairros.length > 0" class="table table-striped">
+                    <tr>
+                        <th><a href="" ng-click="ordenarPor('descricao')">Bairro</a></th>                    
+                        <th>Status</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
+                    </tr>
+                    <tr ng-class="{'selecionado negrito': bairro.selecionado}" ng-repeat="bairro in bairros | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                        <td>{{bairro.descricao | name}}</td>
+                        <td>{{bairro.statusBai}}</td>
+                        <td><a href="#/editBairros/{{bairro.id}}"class="btn btn-outline btn-warning btn-sm glyphicon glyphicon-edit"></a></td>
+                        <td><a href="#/deleteBairro/{{bairro.id}}"class="btn btn-outline btn-danger  btn-sm glyphicon glyphicon-remove"></a></td>	
+                    </tr>
+                    </table>            
+
+                </div><br><br>       
+            </div><!-- /.row --><br>
+            <div ng-include="'footer.html'"></div>       
+        </div><!-- /#page-wrapper -->
+    </div> <!-- /#wrapper -->
+</div>

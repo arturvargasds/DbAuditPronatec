@@ -1,6 +1,6 @@
 /* global angular, auditorias, auditoriasAPI */
 
-angular.module("app").controller("listAuditoriasCtrl", function ($scope, auditorias) {
+angular.module("app").controller("listAuditoriasCtrl", function ($scope, auditorias,$location,auditoriasAPI) {
 	$scope.app = "DbAuditoria";
 	$scope.auditorias = auditorias.data.list;
         
@@ -32,5 +32,10 @@ angular.module("app").controller("listAuditoriasCtrl", function ($scope, auditor
 		$scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
 	};
 	
-	
+	$scope.deleteAuditoria = function (auditorias) {
+		auditoriasAPI.getAuditorias(auditorias).success(function (data) {                       
+			
+			$location.path("/auditorias");
+		});
+	};    
 });

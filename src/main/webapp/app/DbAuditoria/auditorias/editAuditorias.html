@@ -9,7 +9,7 @@
        <div class="panel-heading">
            <h4> Editar Auditorias </h4>   
        </div>  <br>
-       <div class="container-fluid" style="alignment-adjust:central;">
+       <div class="container-fluid" style="text-align: center;">
             <!--  < style="background-color: #dff0d8;">  -->
          
 	<form name="auditoriasForm"  id="formAu">
@@ -33,7 +33,7 @@
                              
                              <div class="col-lg-12">
                                  <select class="form-control" ng-model="certificadora" ng-options="certificadora.fantaCert + ' ( ' + (certificadora.id) + ' )' for certificadora in certificadoras | orderBy:'id'">
-		        	    <option value="">Selecione uma Certificadora</option>
+		        	    <option value="">lista de Certificadoras</option>
 		                 </select>
                              </div>
                              <hr>
@@ -243,7 +243,7 @@
                         </div>
                     <div class="panel-body" style="text-align: center;"> <p>
                         <div >  
-                            <div class="col-lg-5">   <input class="form-control" type="text" ng-disabled="true"  ng-model="auditoria.statusaudit" name="status" placeholder="Status" />  </div>     
+                            <div class="col-lg-7">   <input class="form-control" type="text" ng-disabled="true"  ng-model="auditoria.statusaudit" name="status" placeholder="Status" />  </div>     
                             
                             <a class="btn btn-outline btn-success btn-sm glyphicon glyphicon-edit"    ng-click="auditoria.statusaudit ='A'" title="Ativar o Status"></a>
                                <a class="btn btn-outline btn-danger btn-sm glyphicon glyphicon-edit"    ng-click="auditoria.statusaudit ='D'" title="Desativar o Status"></a>
@@ -256,7 +256,7 @@
        </form>  
             <hr>
               <!--botoes--> 
-           <div style="padding-left:280px;"   >
+           <div >
               <a class="btn btn-outline  btn-lg  btn-primary glyphicon glyphicon-floppy-save"    ng-click="adicionarAuditoria(auditoria)" ng-disabled="auditoriasForm.$invalid" > SALVAR</a>
               <a href="#/auditorias"  class="btn btn-lg btn-outline btn-danger glyphicon glyphicon-remove"> CANCELAR</a>   
            </div> 

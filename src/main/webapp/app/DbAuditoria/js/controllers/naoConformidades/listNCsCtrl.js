@@ -1,10 +1,9 @@
-angular.module("app").controller("listNCsCtrl", function ($scope, NCs) {
-	$scope.app = "DbAuditoria";
-	$scope.NCs = NCs.data.list;
-	
+angular.module("app").controller("listNCsCtrl", function ($scope, NCs,NCsAPI,$location) {
 
-	$scope.adicionarNC= function (nc) {
-        
+	$scope.app = "DbAuditoria";
+	$scope.NCs = NCs.data.list;	
+
+	$scope.adicionarNC= function (nc) {        
 		NCsAPI.saveNC(nc).success(function (data) {
 			delete $scope.nc;
 			$scope.NCForm.$setPristine();
@@ -28,6 +27,11 @@ angular.module("app").controller("listNCsCtrl", function ($scope, NCs) {
 		$scope.criterioDeOrdenacao = campo;
 		$scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
 	};
-	
+        $scope.deleteNC = function (NCs) {
+		NCsAPI.getNCs (NCs).success(function (data) {
+			 
+			$location.path("/NCs");
+		});
+	};
 	
 });

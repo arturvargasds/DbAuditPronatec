@@ -1,46 +1,41 @@
 <div id="page-wrapper"><br>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h4>Lista de Não Conformidades</h4>   
-                </div><br>
-                <div class="container-fluid">
-                    <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por Descrição da nc.."/>
-                    <div class="tab-content">
-                        <div class="tab-pane fade in active" id="home-pills">
-                            <div class="panel-body">
-                                <div class="dataTable_wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+               <h4>Lista de Não Conformidades</h4>   
+         </div><br>
+         <div class="container-fluid"> 
+               <div> <a class="btn btn-outline btn-success glyphicon glyphicon-plus" href="#/cadNCs"> Novo(a)</a> </div><br>
+               <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por Descrição da nc.."/>
+               <div class="tab-content">
+                 <div class="tab-pane fade in active">
+                   <div class="panel-body">
+                     <div class="table-responsive" style="text-align: center;">
 
-                                    <!--tabela-->
-                                    <table ng-show="NCs.length > 0" class="table table-striped">
-                                        <tr>			
-                                            <th><a href="" ng-click="ordenarPor('nome')">Id Colaborador</a></th>                  
-                                            <th>Id Ponto de Controle</th>
-                                            <th>Dt/Hr do Cadastro</th>
-                                            <th>Data Prevista para Resolver</th>
-                                            <th>Descrição</th>
-                                            <th>Sugestão</th>
-                                            <th>Status</th>
-                                            <th>Observação</th>
-                                            </tr>
-                                        <tr ng-class="{'Selecionado negrito': nc.selecionado}" ng-repeat="nc in NCs | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                            <td><input type="checkbox" ng-model="nc.selecionado"/></td>                
-                                            <td>{{nc.idCola}}</td>
-                                            <td>{{nc.idPontoCtrl}}</td>
-                                            <td>{{nc.dtHrCadNc | date:'dd/MM/yyyy HH:mm'}}</td>
-                                            <td>{{nc.dtPrevResolNc | date:'dd/MM/yyyy'}}</td>
-                                            <td>{{nc.descriNc | uppercase}}</td>
-                                            <td>{{nc.sugestaoNc}}</td>
-                                            <td>{{nc.statusNc}}</td>
-                                            <td>{{nc.obsNc}}</td>
-                                        </tr>
-                                    </table>
-                                    <hr/>
-
-                                    <!--botoes-->
-                                    <a class="btn btn-primary btn-block" href="#/cadNCs">Nova Não Conformidade</a>
-                                    <button class="btn btn-danger btn-block" ng-click="apagarNCs(NCs)" ng-if="isNCSelecionado(NCs)">Apagar Não Conformidade</button>
+                            <!--tabela-->
+                            <table ng-show="NCs.length > 0" style="text-align: center;" class="table table-striped table-bordered table-responsive table-hover">
+                                <tr>
+                                    <td><b><a href="" ng-click="ordenarPor('descriNc')"><b>Descrição</b><i class="fa fa-sort"></i></a></td>
+                                    <td><b>Colaborador</b></td>
+                                    <td><b>CheckPoints</b></td>
+                                    <td><b>Dt/Hr do Cadastro</b></td>  
+                                    <td><b>Sugestão</b></td>
+                                    <td><a href="" ng-click="ordenarPor('statusNc')"><b>Status </b> <i class="fa fa-sort"></i></a></td>                        
+                                    <td><b>Editar</b></td>
+                                    <td><b>Excluir</b></td>
+                                    </tr>
+                                <tr ng-class="{'Selecionado negrito': nc.selecionado}" ng-repeat="nc in NCs | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                    <td>{{nc.descriNc | uppercase}}</td>
+                                    <td>{{nc.idCola}}</td>
+                                    <td>{{nc.idPontoCtrl}}</td>
+                                    <td>{{nc.dtHrCadNc | date:'dd/MM/yyyy HH:mm'}}</td>  
+                                    <td>{{nc.sugestaoNc}}</td>
+                                    <td>{{nc.statusNc}}</td> 
+                                    <td><a href="#/editNCs/{{nc.id}}" class="btn btn-outline btn-warning btn-xs glyphicon glyphicon-edit"></a></td>
+                                    <td><a href="#/deleteNC/{{nc.id}}" ng-click="deleteNC (NCs)" class="btn btn-outline btn-danger  btn-xs glyphicon glyphicon-remove"></a></td>
+                                </tr>
+                            </table>
 
                                 </div><br>       
                             </div><br> 

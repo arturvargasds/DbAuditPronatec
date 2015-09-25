@@ -1,10 +1,9 @@
-/* global angular, ocorrencias, ocorrenciasAPI  */
+/* global angular,   ocorrencias, ocorrenciasAPI */
 
 angular.module("app").controller("listOcorrenciasCtrl", function ($scope, ocorrencias) {
 	$scope.app = "DbAuditoria";
 	$scope.ocorrencias = ocorrencias.data.list;
 	
-
 	$scope.adicionarOcorrencia= function (ocorrencia) {		
 		ocorrenciasAPI.saveOcorrencia(ocorrencia).success(function (data) {
 			delete $scope.ocorrencia;

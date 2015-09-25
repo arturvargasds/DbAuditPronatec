@@ -14,13 +14,13 @@
 						ng-required="true" ng-minlength="1"/>
 
 						<input class="form-control" type="text" ng-model="nc.idPontoCtrl" name="idpontoctrl" placeholder="ID do Ponto de Controle" 
-						ng-required="true" ng-minlength="1" ng-maxlength="1"/>
+						ng-required="true" ng-minlength="1"  />
 
 						<input class="form-control" type="text" ng-model="nc.dtHrCadNc" name="dthrcadnc" placeholder="Data/Hora do Cadastro" 
-						ng-required="true" ng-minlength="1" ng-maxlength="1"/>
+						ng-required="true" ng-minlength="19" ng-maxlength="19"/>
 
 						<input class="form-control" type="text" ng-model="nc.dtPrevResolNc" name="dtprevresolnc" placeholder="Data Prevista para Resolver" 
-						ng-required="true" ng-minlength="1" ng-maxlength="1"/>
+						ng-required="true" ng-minlength="19" ng-maxlength="19"/>
 
 						<input class="form-control" type="text" ng-model="nc.descriNc" name="descrinc" placeholder="Descrição" 
 						ng-required="true" ng-minlength="1" ng-maxlength="252"/>
@@ -116,7 +116,7 @@
 					<!--botoes-->
 					<div style="padding-left:280px;"   >
 						<a class="btn btn-primary glyphicon glyphicon-floppy-save" ng-click="adicionarNC(nc)" ng-disabled="NCForm.$invalid"> ADICIONAR NÃO CONFORMIDADE</a>
-						<a href="#/listNCs"  class="btn btn-danger glyphicon glyphicon-remove">CANCELAR</a>
+						<a href="#/NCs"  class="btn btn-danger glyphicon glyphicon-remove">CANCELAR</a>
 					</div> 
 
 				</div> <br><br>
