@@ -1,16 +1,173 @@
 <div id="page-wrapper"><br>
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="panel panel-info">
-				<div class="panel-heading">
-					<h4> Cadastro de Equipe de Auditores </h4>   
-				</div><br>
-				<div class="container-fluid" style="alignment-adjust:central;">
-				<!--  < style="background-color: #dff0d8;">  -->
+ <div class="row">
+  <div class="col-lg-12">
+   <div class="panel panel-info">
+    <div class="panel-heading">
+	<h4> Cadastro de Equipe de Auditores </h4>   
+	</div><br>
+	
+       <div class="container-fluid" style="text-align: center;">
+	<form name="EquipeAuditoresForm">
+            
+        <div class="row"> <p>       
+         <div class="col-lg-12"> <!--** *************** Auditorias-->
+          <div class="panel panel-red">
+           <div class="panel-heading">
+               Auditorias
+            </div> 
+             <div class="panel-body">
+                 <div class="col-lg-4">  <label>Auditoria</label>  <input class="form-control"  type="number" ng-model="checklist.idAudit " name="audit" placeholder="Codigo da Auditoria"  ng-required="true"/> <br></div> 
+               <div ng-show="EquipeAuditoresForm.audit.$dirty" ng-messages="EquipeAuditoresForm.audit.$error">
+                  <div ng-message="required" class="alert alert-danger">
+                        Por favor, preencha o campo Codigo da Auditorias!
+                   </div>                              
+               </div>  
+              <div class="container-fluid">
+                  <div> <input class="form-control fa fa-search" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar.."/></div>
+                    <div class="tab-content">
+                     <div class="tab-pane fade in active" > 
+                      <div class="panel-body">
+                       <div class="table-responsive" style="text-align: center;" >
+                         <table style="text-align: center;" ng-show="auditorias.length > 0" class="table table-xs btn-xs table-striped table-bordered table-responsive table-hover"  >		
+                            <tr>   
+                                <td><a href="" ng-click="ordenarPor('id')"><b>Auditoria</b>  <i class="fa fa-sort"></i></a></td>                        
+                                <td><a href="" ng-click="ordenarPor('descriAudit')"><b>Descrição</b>  <i class="fa fa-sort"></i></a></td> 
+                                <td><a href="" ng-click="ordenarPor('idCert')"><b>Certificadora</b> <i class="fa fa-sort"></i></a ></td> 
+                                <td><a href="" ng-click="ordenarPor('idCli')"><b>Cliente </b> <i class="fa fa-sort"></i></a></td>                          
+                                <td><b>Objetivo</b></td>
+                                <td title="Data e Hora do cadastro da Auditoria"><b>Cadastro da Auditoria</b></td>  
+                                <td><a href="" ng-click="ordenarPor('statusaudit')"><b>Status </b> <i class="fa fa-sort"></i></a></td>     
+                                <td><b>Editar</b></td>
+                                <td><b>Excluir</b></td>
+                            </tr>
+                            <tr ng-class="{'selecionado negrito': auditoria.selecionado}" ng-repeat="auditoria in auditorias | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">                                      
+                              
+                                <td><a href="#/auditoria/{{auditoria.id}}"><b title="Click para Abrir">{{auditoria.id}}</b> </a></td>         
+                                <td><a href="" title="{{auditoria.descriAudit}}" style="color: #4cae4c;"> <i  class="btn btn-info btn-outline   btn-xs  fa fa-external-link  "></i></a></td>
+                                <td>{{auditoria.idCert| uppercase }}</td>
+                                <td>{{auditoria.idCli | uppercase}}</td>                            
+                                <td>{{auditoria.descriObjAudit}}</td>
+                                <td>{{auditoria.dtHrCadAudit | date:'dd/MM/yyyy HH:mm:ss' }}</td>   
+                                <td>{{auditoria.statusaudit}}</td> 
+                                <td><a href="#/editAuditorias/{{auditoria.id}}"><i  class="btn btn-outline btn-warning btn-xs glyphicon glyphicon-edit "></i></a></td>
+                                <td><a href="#/deleteAuditoria/{{auditoria.id}}" ng-click="deleteAuditoria(auditorias)"><i  class="btn btn-outline btn-danger  btn-xs glyphicon glyphicon-remove "></i></a></td>
+                            </tr>                        
+                            </table> 
+                          </div><br>       
+                      </div> 
+                     </div>
+                    </div>                    
+                   </div>       
+                  </div>
+                 </div>
+                </div>
+               </div> <p>
+              
+                   
+           <div class="row"> <p> 
+            <div class="col-lg-8"> <!--** **************Auditores--> 
+             <div class="panel panel-red">
+              <div class="panel-heading">
+                   Auditores
+                  </div>
+                  <div class="panel-body">
+                   <div class="col-lg-6">  <label>Auditor 1</label>  <input class="form-control"  type="number" ng-model="checklist.idCola " name="auditor" placeholder="Codigo Auditor 1"  ng-required="true"/> </div>
+                   <div class="col-lg-6">  <label>Auditor 2</label>  <input class="form-control"  type="number" ng-model="checklist.idCola " name="auditor" placeholder="Codigo Auditor 2"  ng-required="true"/> </div>
 
-						<!--formulario-->
-					<form name="EquipeAuditoresForm">
+                   <div ng-show="EquipeAuditoresForm.auditor.$dirty" ng-messages="EquipeAuditoresForm.auditor.$error">
+                        <div ng-message="required" class="alert alert-danger">
+                               Por favor, preencha o campo Codigo da Auditores!
+                        </div>                              
+                   </div> <br>
+                   <div class="col-lg-12"><br>
+                       <select class="form-control" ng-model="auditor" ng-options="auditor.nomeAudit + ' ( ' + (auditor.id) + ' )' for auditor in auditores | orderBy:'nomeAudit'">		        	
+                          <option value="">lista de Auditores</option>
+                       </select>
+                    </div>   
+                    <div class="col-lg-12">
+                       <a class="btn btn-outline btn-success  btn-sm glyphicon glyphicon-pencil "   name="s" href="#/cadAuditores" > Novo Auditores</a>
+                    </div>
+                   </div><p>
+             </div><p>
+               </div> <p>
+               
+                  <div class="col-md-4"> 
+                    <div class="panel panel-default">
+                            <div class="panel-heading">
+                               Data da realização 
+                            </div>
+                        <div class="panel-body" style="text-align: center;"> <p>
+                              <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="checklist.dtHrRealiChklist" name="dthrrealiz" ng-required="true" ng-minlength="19"/></div>
+                              <div ng-show="checkForm.dthrrealiz.$dirty" ng-messages="checkForm.dthrrealiz.$error">
+                                <div ng-message="required" class="alert alert-danger">
+                                      Por favor, preencha o campo Data / Hora Cadastro da Auditoria!
+                                </div>
+                                <div ng-message="minlength" class="alert alert-danger">
+                                      O formato DD/MM/AAAA HH:MM:SS.
+                                 </div>
+                              </div>     
+                                   <a class="btn btn-outline btn-danger  btn-sm glyphicon glyphicon-calendar " > </a>
+                        </div><p>
+                    </div><p>
+                  </div><p>
+                 </div>
 
+            <div class="row"> <p>       
+               <div class="col-lg-12"> 
+                <div class="panel panel-red">
+                   <div class="panel-heading">
+                       Dados da Auditorias
+                    </div>
+                        
+                        <div class="panel-body">
+                           <div class="panel-collapse">
+                               <input class="form-control" type="hidden" ng-model="auditoria.descriAudit " id="desc" name="descr" placeholder="Descrição Auditoria" 
+                                  ng-required="true" ng-minlength="1" ng-maxlength="400"/>
+          
+                               <div  class="col-lg-12"> <label>Tipo Auditor</label> <input class="form-control" type="text" ng-model="eqAudit.tipoAuditor"   name="TIPOAUDITOR"   placeholder="Tipo Auditor" 
+						ng-required="true" ng-minlength="1" ng-maxlength="7"/> </div>
+        <!--************************************************  Validadção dos campos *****************************************-->
+                               <div ng-show="EquipeAuditoresForm.descr.$dirty" ng-messages="EquipeAuditoresForm.descr.$error">
+		                    <div ng-message="required" class="alert alert-danger">
+			                      Por favor, preencha o campo Descrição !
+		                    </div>
+                                   <div ng-message="minlength" class="alert alert-danger">
+                                              O campo Descrição deve ter no minimo 10 caracteres.
+                                    </div>
+                                    <div ng-message="maxlength" class="alert alert-danger">
+                                              O campo Descriçãos deve ter no maximo 500 caracteres.
+                                    </div>
+	                      </div><br>
+                           </div>
+                        </div> 
+                        
+                        <div class="panel-body">
+                           <div class="panel-collapse">
+                               <input class="form-control" iu-date type="hidden" ng-model="auditoria.descriObjAudit" name="obj"  placeholder="Objetivo...." ng-required="true" ng-minlength="1" ng-maxlength="500"/>
+
+                               <div class="col-lg-12"> <label>Objetivo Auditoria</label> <textarea class="form-control" iu-date type="text" ng-model="auditoria.descriObjAudit" name="obj"  placeholder="Objetivo..." ng-required="true" ng-minlength="10" ng-maxlength="400"/></textarea> </div>
+        <!--************************************************  Validadção dos campos *****************************************-->
+                              <div ng-show="EquipeAuditoresForm.obj.$dirty" ng-messages="EquipeAuditoresForm.obj.$error">
+		                    <div ng-message="required" class="alert alert-danger">
+			                      Por favor, preencha o campo Objetivo !
+		                    </div>
+                                   <div ng-message="minlength" class="alert alert-danger">
+                                              O campo Objetivo deve ter no minimo 10 caracteres.
+                                    </div>
+                                    <div ng-message="maxlength" class="alert alert-danger">
+                                              O campo Objetivo deve ter no maximo 500 caracteres.
+                                    </div>
+	                       </div>
+                          
+                           </div>
+                        </div><br>
+                </div>
+              </div>  
+            </div>  <p>  
+            
+            
+            
+            
 						<input class="form-control" type="number" ng-model="eqAudit.idAuditor"     name="IDAUDITOR"     placeholder="Codigo Auditor" 
 						ng-required="true" />                
 
@@ -18,7 +175,7 @@
 						ng-required="true" ng-minlength="1" ng-maxlength="100"/> 
 
 						<input class="form-control" type="text" ng-model="eqAudit.tipoAuditor"   name="TIPOAUDITOR"   placeholder="Tipo Auditor" 
-						ng-required="true" ng-minlength="1" ng-maxlength="1"/>
+						ng-required="true" ng-minlength="1" ng-maxlength="7"/>
 
 						<input class="form-control" type="text"   ng-model="eqAudit.dtHrIncEquipe" name="DTHRINCEQUIPE" placeholder="Data e Hora de Incerção da Equipe" 
 						ng-required="true" ng-minlength="17" ng-maxlength="19"/>
@@ -59,7 +216,7 @@
 					</div><br>
 
 					<!--botoes-->
-					<div style="padding-left:280px;">
+					<div>
 						<a class="btn btn-primary glyphicon glyphicon-floppy-save" ng-click="adicionarEqAudit(eqAudit)" ng-disabled="EquipeAuditoresForm.$invalid"> ADICIONAR</a>
 						<a href="#/eqAudits"  class="btn btn-danger glyphicon glyphicon-remove"> CANCELAR</a>
 					</div> 

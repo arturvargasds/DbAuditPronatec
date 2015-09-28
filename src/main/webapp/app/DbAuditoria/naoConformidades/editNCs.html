@@ -1,128 +1,230 @@
-<div id="page-wrapper"><br>
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="panel panel-info">
-				<div class="panel-heading">
-					<h4>Editar de Não Conformidades</h4>   
-				</div><br>
-				<div class="container-fluid" style="alignment-adjust:central;">
-				<!--  < style="background-color: #dff0d8;">  -->
+<div id="page-wrapper">     <br>
+  <div class="row">
+   <div class="col-lg-12">
+     <div class="panel panel-info">
+       <div class="panel-heading">
+           <h4> Editar Não Conformidade:  <b style="color: red;font-size: 23px;">{{nc.id}}</b> </h4>   
+       </div>  <br>
+       <div class="container-fluid" style="text-align: center;">
+            
+       <form name="NCForm">
+           
+         <div class="row"> <p>       
+         <div class="col-lg-12"> <!--************CheckList-->
+          <div class="panel panel-green">
+           <div class="panel-heading">
+              CheckList
+            </div> 
+             <div class="panel-body">
+              <div class="col-lg-4">  <label>CheckPoint</label> <input class="form-control" type="number" ng-model="nc.idPontoCtrl  " name="chek" placeholder="Codigo CheckPoint"  ng-required="true" /> <br></div>
+               <div ng-show="NCForm.chek.$dirty" ng-messages="NCForm.chek.$error">
+                        <div ng-message="required" class="alert alert-danger">
+                               Por favor, preencha o campo Codigo da  CheckPoint!
+                        </div>
+                 </div>
+                 <div class="container-fluid">
+                       <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar..Digite o codigo da auditoria..!"/>
+                    <div class="tab-content">
+                     <div class="tab-pane fade in active" >
+                      <div class="panel-body">
+                       <div class="table-responsive"  style="text-align: center;" >
 
-					<!--formulario-->
-					<form name="NCForm">
-						<input class="form-control" type="text" ng-model="nc.idCola" name="idcola" placeholder="ID do Colaborador" 
-						ng-required="true" ng-minlength="1"/>
+                          <!--tabela-->          
+                          <table ng-show="checklists.length > 0" style="text-align: center;" class="table table-xs btn-xs table-striped table-bordered table-responsive table-hover" id="dataTables-example">  
+                            <tr>  
+                              <td><b>Abrir</b></td>
+                              <td><b>CheckPoint</b></td>
+                              <td><b>Auditoria</b></td>
+                              <td><a href="" ng-click="ordenarPor('descriChklist')"><b>Descrição</b><i class="fa fa-sort"></i></a></td>                     
+                              <td><b>Data Realização</b></td>   
+                              <td><a href="" ng-click="ordenarPor('statusChklist')"><b>Status </b> <i class="fa fa-sort"></i></a></td>                                           
+                            </tr>
+                            <tr ng-class="{'selecionado negrito': checklist.selecionado}" ng-repeat="checklist in checklists | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                              <td><a href="#/CheckPoint/{{checklist.id}}"><i  class="btn btn-success btn-outline  btn-xs  fa fa-folder-open " title="Click para abrir CheckPoint"></i></a></td>             
+                              <td>{{checklist.id}}</td>
+                              <td>{{checklist.idAudit}}</td>
+                              <td>{{checklist.descriChklist}}</td> 
+                              <td>{{checklist.dtHrRealiChklist}}</td>                      
+                              <td>{{checklist.statusChklist}}</td>
+                            </tr>
+                          </table> 
+                        </div>   <p>     
+                      </div>
+                    </div>
+                  </div>                    
+                </div> 
+            </div>
+           </div>
+          </div>
+         </div> <p> 
+           
+         
+                <!-- ***************************************************************************dados Auditorias -->            
+             <div class="row"> <p>       
+               <div class="col-lg-12"> 
+                 <div class="panel panel-green">
+                   <div class="panel-heading">
+                       Dados da Não Conformidade
+                    </div>
+                        
+                        <div class="panel-body">
+                           <div class="panel-collapse">
+                               <input class="form-control" type="hidden" ng-model="nc.descriNc" id="desc" name="des" placeholder="Descrição Auditoria" 
+                                  ng-required="true" ng-minlength="1" ng-maxlength="400"/>
+          
+                               <div  class="col-lg-12"> <label>Descrição Não Conformidade</label>  <textarea class="form-control" pattern="[A-Za-z]++"  type="text" ng-model="ocorrencia.descriOcorre " name="des"  placeholder="Descrição....." ng-required="true"   ng-minlength="10" ng-maxlength="500"></textarea> </div>
+        <!--************************************************  Validadção dos campos *****************************************-->
+                               <div ng-show="NCForm.des.$dirty" ng-messages="NCForm.des.$error">
+		                    <div ng-message="required" class="alert alert-danger">
+			                      Por favor, preencha o campo Descrição !
+		                    </div>
+                                   <div ng-message="minlength" class="alert alert-danger">
+                                              O campo Descrição deve ter no minimo 10 caracteres.
+                                    </div>
+                                    <div ng-message="maxlength" class="alert alert-danger">
+                                              O campo Descrição deve ter no maximo 500 caracteres.
+                                    </div>
+	                      </div><br>
+                           </div>
+                        </div> 
+                        
+                        <div class="panel-body">
+                           <div class="panel-collapse">
+                               <input class="form-control" iu-date type="hidden" ng-model="nc.sugestaoNc" name="sug"  placeholder="Sugestão...." ng-required="true" ng-minlength="1" ng-maxlength="500"/>
 
-						<input class="form-control" type="text" ng-model="nc.idPontoCtrl" name="idpontoctrl" placeholder="ID do Ponto de Controle" 
-						ng-required="true" ng-minlength="1"  />
+                               <div class="col-lg-12"> <label>Sugestão sobre a Não Conformidade</label> <textarea class="form-control" iu-date type="text" ng-model="ocorrencia.sugesOcorre" name="sug"  placeholder="Sugestão..." ng-required="true" ng-minlength="10" ng-maxlength="400"/></textarea> </div>
+        <!--************************************************  Validadção dos campos *****************************************-->
+                              <div ng-show="NCForm.sug.$dirty" ng-messages="NCForm.sug.$error">
+		                    <div ng-message="required" class="alert alert-danger">
+			                      Por favor, preencha o campo Sugestão !
+		                    </div>
+                                   <div ng-message="minlength" class="alert alert-danger">
+                                              O campo Sugestão deve ter no minimo 10 caracteres.
+                                    </div>
+                                    <div ng-message="maxlength" class="alert alert-danger">
+                                              O campo Sugestão deve ter no maximo 500 caracteres.
+                                    </div>
+	                       </div><br>
+                          
+                           </div>
+                        </div><br>
+                </div>
+               </div>  
+            </div>  <p>  
+            
+            <div class="row"> <p>   <!--******Colaboradores-->
+             <div class="col-lg-6"> 
+              <div class="panel panel-green">
+                <div class="panel-heading">
+                  Colaboradores
+                </div>
 
-						<input class="form-control" type="text" ng-model="nc.dtHrCadNc" name="dthrcadnc" placeholder="Data/Hora do Cadastro" 
-						ng-required="true" ng-minlength="19" ng-maxlength="19"/>
-
-						<input class="form-control" type="text" ng-model="nc.dtPrevResolNc" name="dtprevresolnc" placeholder="Data Prevista para Resolver" 
-						ng-required="true" ng-minlength="19" ng-maxlength="19"/>
-
-						<input class="form-control" type="text" ng-model="nc.descriNc" name="descrinc" placeholder="Descrição" 
-						ng-required="true" ng-minlength="1" ng-maxlength="252"/>
-
-						<input class="form-control" type="text" ng-model="nc.sugestaoNc" name="sugestaonc" placeholder="Sugestão" 
-						ng-required="true" ng-minlength="1" ng-maxlength="252"/>
-
-						<input class="form-control" type="text" ng-model="nc.statusNc" name="statusnc" placeholder="Status" 
-						ng-required="true" ng-minlength="1" ng-maxlength="1"/>
-
-						<input class="form-control" type="text" ng-model="nc.obsNc" name="obsnc" placeholder="Observação" 
-						ng-required="true" ng-minlength="1" ng-maxlength="252"/>
-					</form>
-
-					<div ng-show="NCForm.idcola.$dirty" ng-messages="NCForm.idcola.$error">
-						<div ng-message="required" class="alert alert-danger">
-							Por favor, preencha o campo ID do Colaborador!
-						</div>
-						<div ng-message="minlength" class="alert alert-danger">
-							O campo ID do Colaborador deve ter no mínimo 1 caracteres.
-						</div>
-					</div>
-
-					<div ng-show="NCForm.idpontoctrl.$dirty" ng-messages="NCForm.idpontoctrl.$error">
-						<div ng-message="required" class="alert alert-danger">
-							Por favor, preencha o campo ID Ponto de Controle!
-						</div>
-						<div ng-message="minlength" class="alert alert-danger">
-							O campo ID Ponto de Controle deve ter no mínimo 1 caracteres.
-						</div>
-					</div>
-
-					<div ng-show="NCForm.dthrcadnc.$dirty" ng-messages="NCForm.dthrcadnc.$error">
-						<div ng-message="required" class="alert alert-danger">
-							Por favor, preencha o campo Data/Hora de Cadastro da nc!
-						</div>
-					</div>  
-
-					<div ng-show="NCForm.dtprevresolnc.$dirty" ng-messages="NCForm.dtprevresolnc.$error">
-						<div ng-message="required" class="alert alert-danger">
-							Por favor, preencha o campo Data para Resolver a nc!
-						</div>
-					</div> 
-
-					<div ng-show="NCForm.descrinc.$dirty" ng-messages="NCForm.descrinc.$error">
-						<div ng-message="required" class="alert alert-danger">
-							Por favor, preencha o campo Descrição da nc!
-						</div>
-						<div ng-message="minlength" class="alert alert-danger">
-							O campo Descrição da nc deve ter no mínimo 10 caracteres.
-						</div>
-						<div ng-message="maxlength" class="alert alert-danger">
-							O campo Descrição da nc deve ter no máximo 253 caracteres.
-						</div>
-					</div>
-
-					<div ng-show="NCForm.sugestaonc.$dirty" ng-messages="NCForm.sugestaonc.$error">
-						<div ng-message="required" class="alert alert-danger">
-							Por favor, preencha o campo Sugestão da nc!
-						</div>
-						<div ng-message="minlength" class="alert alert-danger">
-							O campo Sugestão da nc deve ter no mínimo 10 caracteres.
-						</div>
-						<div ng-message="maxlength" class="alert alert-danger">
-							O campo Sugestão da nc deve ter no máximo 253 caracteres.
-						</div>
-					</div>
-
-					<div ng-show="NCForm.statusnc.$dirty" ng-messages="NCForm.statusnc.$error">
-						<div ng-message="required" class="alert alert-danger">
-							Por favor, preencha o campo Status!
-						</div>
-						<div ng-message="minlength" class="alert alert-danger">
-							O campo Status deve ter  1 caracteres.(A/C)
-						</div>
-						<div ng-message="maxlength" class="alert alert-danger">
-							O campo Status deve ter  1 caracteres.(A/C)
-						</div>
-					</div>
-
-					<div ng-show="NCForm.obsnc.$dirty" ng-messages="NCForm.obsnc.$error">
-						<div ng-message="required" class="alert alert-danger">
-							Por favor, preencha o campo Observação da nc!
-						</div>
-						<div ng-message="minlength" class="alert alert-danger">
-							O campo Observação da nc deve ter no mínimo 10 caracteres.
-						</div>
-						<div ng-message="maxlength" class="alert alert-danger">
-							O campo Observação da nc deve ter no máximo 253 caracteres.
-						</div>
-					</div><br>
-
-					<!--botoes-->
-					<div style="padding-left:280px;"   >
-						<a class="btn btn-primary glyphicon glyphicon-floppy-save" ng-click="adicionarNC(nc)" ng-disabled="NCForm.$invalid"> ADICIONAR NÃO CONFORMIDADE</a>
-						<a href="#/NCs"  class="btn btn-danger glyphicon glyphicon-remove">CANCELAR</a>
-					</div> 
-
-				</div> <br><br>
-			</div> <br>
-			<div ng-include="'footer.html'"></div>
-		</div><!-- /.row -->
-		<p>Formaçao do Objeto(json): {{nc | json }}</p>''
-	</div><!-- /#page-wrapper -->
-</div> <!-- /#wrapper -->
+                <div class="panel-body">
+                 <div class="col-lg-12">  <label>Colaborador</label>  <input class="form-control"  type="number" ng-model="nc.idCola " name="cola" placeholder="Codigo Colaborador"  ng-required="true"/> </div>
+                  <div ng-show="NCForm.cola.$dirty" ng-messages="NCForm.cola.$error">
+                   <div ng-message="required" class="alert alert-danger">
+                               Por favor, preencha o campo Codigo da Colaborador!
+                        </div>                              
+                      </div>
+                      <div class="col-lg-12">
+                         <select class="form-control" ng-model="colaborador" ng-options="colaborador.nomeCola + ' ( ' + (colaborador.id) + ' )' for colaborador in colaboradores | orderBy:'nomeCola'">		        	
+                          <option value="">lista de Colaboradores</option>
+                          </select>
+                      </div>   
+                     <div>  <a class="btn btn-outline btn-success  btn-sm glyphicon glyphicon-pencil "   name="s" href="#/cadOcorrencias" > Novo Colaborador</a></div>
+                   </div><br>
+                  </div>
+                 </div> 
+         
+                     
+              <div class="col-md-3">      <!-- ***********data e hora -->
+                <div class="panel panel-green">
+                        <div class="panel-heading">
+                           Data do Cadastro
+                        </div>
+                    <div class="panel-body" style="text-align: center;"> 
+                        <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="nc.dtHrCadNc" name="dtHrO " ng-required="true" ng-minlength="19"/></div>
+                          <div ng-show="NCForm.dtHrO.$dirty" ng-messages="NCForm.dtHrOcorre.$error">
+		            <div ng-message="required" class="alert alert-danger">
+			          Por favor, preencha o campo Data / Hora Cadastro da Ocorrência!
+		            </div>
+                            <div ng-message="minlength" class="alert alert-danger">
+                                O formato DD/MM/AAAA HH:MM:SS.
+                             </div>
+	                  </div>
+                        <!--  <div ng-show="NCForm.dthrcad.$error.pattern" class="alert alert-danger">
+		                  O campo telefone deve ter o formato dd/mm/aaaa
+                          </div>
+                         -->   
+                               <a class="btn btn-outline btn-danger  btn-sm glyphicon glyphicon-calendar "   name="d"  > </a>
+                    </div><br>
+                </div>
+              </div>
+                
+                <div class="col-md-3">
+                <div class="panel panel-green">
+                        <div class="panel-heading">
+                           Data Prevista para Resolver
+                        </div>
+                    <div class="panel-body" style="text-align: center;"> 
+                        <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="nc.dtPrevResolNc" name="dtHrP " ng-required="true" ng-minlength="19"/></div>
+                          <div ng-show="NCForm.dtHrP.$dirty" ng-messages="NCForm.dtHrP.$error">
+		            <div ng-message="required" class="alert alert-danger">
+			          Por favor, preencha o campo Data / Hora Cadastro da Ocorrência!
+		            </div>
+                            <div ng-message="minlength" class="alert alert-danger">
+                                O formato DD/MM/AAAA HH:MM:SS.
+                             </div>
+	                  </div> 
+                           <a class="btn btn-outline btn-danger  btn-sm glyphicon glyphicon-calendar "   name="d"  > </a>
+                    </div><br>
+                </div>
+              </div>
+                
+          <!-- <div class="col-md-3">
+                <div class="panel panel-red">
+                        <div class="panel-heading">
+                           Status
+                        </div>
+                    <div class="panel-body" style="text-align: center;"> <p>
+                        <div >  
+                            <div class="col-lg-7">   <input class="form-control" type="text" ng-disabled="true"  ng-model="nc.statusNc" name="status" placeholder="Status" />  </div>     
+                            
+                            <a class="btn btn-outline btn-success btn-sm glyphicon glyphicon-edit"    ng-click="nc.statusNc ='A'" title="Ativar o Status"></a>
+                               <a class="btn btn-outline btn-danger btn-sm glyphicon glyphicon-edit"    ng-click="nc.statusNc  ='D'" title="Desativar o Status"></a>
+              
+                   </div></div>
+                </div><p>
+              </div>  -->
+            </div> <p>
+                <!--*********************<div class="row"> <p>***********************************************Observação--> 
+             <div class="row"> <p> 
+              <div class="col-lg-12"> 
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                           Observação
+                        </div>
+                        <div class="panel-body"> <p>
+                            <div class="col-lg-12">
+                                <textarea  ng-model="nc.obsNc" name="obs" class="form-control" rows="2" ></textarea> 
+                            </div>
+                        </div><br>
+                    </div>
+              </div> <p>                                   
+            </div>   <p>   
+                 
+            </form>
+           <hr>
+           <!--botoes-->
+          <div>
+            <a class="btn btn-outline  btn-lg  btn-primary glyphicon glyphicon-floppy-save" ng-click="ocorrencia.statusOcorre ='A';adicionarOcorrencia(ocorrencia)" ng-disabled="NCForm.$invalid"> ADICIONAR</a>
+            <a href="#/ocorrencias" class="btn btn-lg btn-outline btn-danger glyphicon glyphicon-remove"> CANCELAR</a>
+          </div>
+           
+           </div> <br>   	
+	  </div>
+         </div>              
+                   <div ng-include="'footer.html'"></div>            
+    </div>
+               <p>Formaçao do Objeto(json): {{nc | json }}</p>''             
+  </div>

@@ -40,7 +40,7 @@ public class ColaboradorResource
     @SuppressWarnings("unchecked")
     private List<Colaboradores> findColaboradores(int startPosition, int maxResults, String sortFields, String sortDirections) {
         Query query =
-                entityManager.createQuery("SELECT o FROM Colaboradores o ORDER BY o." + sortFields + " " + sortDirections);
+                entityManager.createQuery("SELECT o FROM Colaboradores  o ORDER BY o." + sortFields + " " + sortDirections);
         query.setFirstResult(startPosition);
         query.setMaxResults(maxResults);
         return query.getResultList();

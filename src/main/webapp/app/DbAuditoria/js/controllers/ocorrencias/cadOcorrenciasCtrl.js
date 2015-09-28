@@ -1,8 +1,8 @@
 /* global angular */
 
-angular.module("app").controller("cadOcorrenciasCtrl", function ($scope, ocorrenciasAPI, colaboradores, $location ) {
-	 
-  
+angular.module("app").controller("cadOcorrenciasCtrl", function ($scope, ocorrenciasAPI, colaboradores,checklists, $location ) {
+ 
+        $scope.checklists = checklists.data.list;
         $scope.colaboradores = colaboradores.data.list;
 	$scope.adicionarOcorrencia = function (ocorrencia) {
 	

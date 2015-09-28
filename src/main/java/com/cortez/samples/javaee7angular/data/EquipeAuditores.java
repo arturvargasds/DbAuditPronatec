@@ -22,8 +22,11 @@ public class EquipeAuditores implements Serializable
     private Long id;
     
     @Column(name = "IDAUDITOR" )
-    private int idAuditor;  
+    private int idAuditor;
     
+    @Column(name = "IDAUDITOR2" )
+    private int idAuditor2;
+ 
     @Column(name = "IDAUDIT" )
     private int IDAUDIT;      
     
@@ -82,6 +85,14 @@ public class EquipeAuditores implements Serializable
 
     public void setStatusEquipe(final String statusEquipe) {
         this.statusEquipe = statusEquipe;
+    }
+    
+      public int getIdAuditor2() {
+        return idAuditor2;
+    }
+
+    public void setIdAuditor2(int idAuditor2) {
+        this.idAuditor2 = idAuditor2;
     }
    
 }

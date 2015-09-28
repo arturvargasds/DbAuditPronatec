@@ -1,6 +1,6 @@
-/* global angular, equipeauditores, equipeAuditoresAPI */
+/* global angular */
 
-angular.module("app").controller("listEqAuditsCtrl", function ($scope, eqAudits) {
+angular.module("app").controller("listEqAuditsCtrl", function ($scope, eqAudits,eqAuditsAPI) {
 	$scope.app = "DbAuditoria";
 	$scope.eqAudits = eqAudits.data.list;
 	

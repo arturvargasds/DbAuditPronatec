@@ -9,31 +9,33 @@
                 <div> <a class="btn btn-outline btn-success glyphicon glyphicon-plus" href="#/cadAuditorias"> Novo(a)</a> </div><br>
                 <input class="form-control fa fa-search" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar.."/>
             <div class="tab-content">
-             <div class="tab-pane fade in active" > 
+             <div class="tab-pane fade in active"> 
               <div class="panel-body">
                <div class="table-responsive" style="text-align: center;" >
-                 <table style="text-align: center;" ng-show="auditorias.length > 0" class="table table-striped table-bordered table-responsive table-hover" id="dataTables-example">		
+                 <table style="text-align: center;" ng-show="auditorias.length > 0" class="table table-striped table-bordered table-responsive table-hover"  >		
                     <tr >  
-                        <td> <b>Abrir </b></td> 
+                        <td> <b>Abrir </b></td>
+                        <td><a href="" ng-click="ordenarPor('id')"><b>Auditoria</b>  <i class="fa fa-sort"></i></a></td>                        
                         <td><a href="" ng-click="ordenarPor('descriAudit')"><b>Descrição</b>  <i class="fa fa-sort"></i></a></td> 
                         <td><a href="" ng-click="ordenarPor('idCert')"><b>Certificadora</b> <i class="fa fa-sort"></i></a ></td> 
                         <td><a href="" ng-click="ordenarPor('idCli')"><b>Cliente </b> <i class="fa fa-sort"></i></a></td>                          
-                        <td><b>Objetivo</b></td>
+                    <!--    <td><b>Objetivo</b></td> -->
                         <td title="Data e Hora do cadastro da Auditoria"><b>Cadastro da Auditoria</b></td>
-                        <td><a href="" ng-click="ordenarPor('statusaudit')"><b>Status </b> <i class="fa fa-sort"></i></a></td>   
-                        <td><b>Editar</b></td>
-                        <td><b>Excluir</b></td>
+                        <td><a href="" ng-click="ordenarPor('statusaudit')"><b>Status </b> <i class="fa fa-sort"></i></a></td>   	
+              <!--     <td><b>Editar</b></td>   
+                        <td><b>Excluir</b></td> -->
                     </tr>
-                    <tr ng-class="{'selecionado negrito': auditoria.selecionado}" ng-repeat="auditoria in auditorias | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">            
+                    <tr ng-class="{'selecionado negrito': auditoria.selecionado}" ng-repeat="auditoria in auditorias | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">                                      
                         <td><a href="#/auditoria/{{auditoria.id}}"><i  class="btn btn-success btn-outline  btn-xs  fa fa-folder-open "></i></a></td> 
-                        <td><a href="" title="{{auditoria.descriAudit}}" style="color: #4cae4c;"> <i  class="btn btn-info btn-outline   btn-xs  fa fa-external-link  "></i></a></td>
-                        <td>{{auditoria.idCert | uppercase }}</td>
-                        <td>{{auditoria.idCli | uppercase}}</td>                            
-                        <td>{{auditoria.descriObjAudit}}</td>
+                        <td>{{auditoria.id}}</td> 
+                        <td><a href="" title="{{auditoria.descriAudit | name}}" style="color: #4cae4c;"> <i  class="btn btn-info btn-outline   btn-xs  fa fa-external-link  "></i></a></td>
+                        <td>{{auditoria.idCert  }}</td>
+                        <td>{{auditoria.idCli  }}</td>                            
+                    <!--    <td> {{auditoria.descriObjAudit}} </td> -->
                         <td>{{auditoria.dtHrCadAudit | date:'dd/MM/yyyy HH:mm:ss' }}</td>
-                        <td>{{auditoria.statusaudit}}</td>  
-                         <td><a href="#/editAuditorias/{{auditoria.id}}"><i  class="btn btn-outline btn-warning btn-xs glyphicon glyphicon-edit "></i></a></td>
-                         <td><a href="#/deleteAuditoria/{{auditoria.id}}" ng-click="deleteAuditoria(auditorias)"><i  class="btn btn-outline btn-danger  btn-xs glyphicon glyphicon-remove "></i></a></td>
+                        <td>{{auditoria.statusaudit | name}}</td>  
+                   <!--      <td><a href="#/editAuditorias/{{auditoria.id}}"><i  class="btn btn-outline btn-warning btn-xs glyphicon glyphicon-edit "></i></a></td>  
+                         <td><a href="#/deleteAuditoria/{{auditoria.id}}" ng-click="deleteAuditoria(auditorias)"><i  class="btn btn-outline btn-danger  btn-xs glyphicon glyphicon-remove "></i></a></td>  -->
                     </tr>                        
                     </table>
                    
@@ -63,33 +65,5 @@
        </div>
                            <div ng-include="'footer.html'"></div>
    </div><!-- /#page-wrapper -->
-  </div> <!-- /#wrapper -->
-   
-  
-  <!--
-  <br><br><br><br>
-  
-   
-   <pagination direction-links="true" boundary-links="true"
-                total-items="audioria.totalResults" items-per-page="auditoria.pageSize"
-                ng-model="auditoria.currentPage"  >
-    </pagination>
-  
-  <div id="dataTables-example_paginate" 
-       class="dataTables_paginate paging_simple_numbers">
-      <ul class="pagination">
-          <li id="dataTables-example_previous" tabindex="0" aria-controls="dataTables-example" class="paginate_button previous disabled">
-              <a href="#">Previous</a></li>
-          <li tabindex="0" aria-controls="dataTables-example" class="paginate_button active">
-              <a href="#">1</a></li>
-          <li tabindex="0" aria-controls="dataTables-example" class="paginate_button "><a href="#">2</a></li>
-          <li tabindex="0" aria-controls="dataTables-example" class="paginate_button "><a href="#">3</a></li>
-          <li tabindex="0" aria-controls="dataTables-example" class="paginate_button "><a href="#">4</a></li>
-          <li tabindex="0" aria-controls="dataTables-example" class="paginate_button "><a href="#">5</a></li>
-          <li tabindex="0" aria-controls="dataTables-example" class="paginate_button "><a href="#">6</a></li>
-          <li id="dataTables-example_next" tabindex="0" aria-controls="dataTables-example" class="paginate_button next"><a href="#">Next</a></li>
-      </ul></div>
-  
-   -->
-   
+  </div> <!-- /#wrapper --> 
 </div>

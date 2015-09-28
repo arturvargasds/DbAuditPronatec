@@ -1,7 +1,9 @@
 /* global angular, equipeAuditoresAPI */
 
-angular.module("app").controller("cadEqAuditsCtrl", function ($scope, eqAuditsAPI, $location) {	
-
+angular.module("app").controller("cadEqAuditsCtrl", function ($scope, eqAuditsAPI, $location,auditorias,auditores) {	
+        
+        $scope.auditorias = auditorias.data.list;
+        $scope.auditores = auditores.data.list;	
 	$scope.adicionarEqAudit = function (eqAudit) {	
 		eqAuditsAPI.saveEqAudit(eqAudit).success(function (data) {
 			delete $scope.eqAudit;

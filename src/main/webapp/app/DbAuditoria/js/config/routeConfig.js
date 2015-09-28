@@ -109,7 +109,15 @@ angular.module("app").config(function ($routeProvider) {
     
     $routeProvider.when("/cadNCs", {
         templateUrl: "naoConformidades/cadNCs.html",
-        controller : "cadNCsCtrl"
+        controller : "cadNCsCtrl",
+            resolve    :{  
+            checklists: function (checklistsAPI) {
+                return checklistsAPI.getChecklists();
+            },
+            colaboradores: function (colaboradoresAPI){
+                return colaboradoresAPI.getColaboradores();
+            }
+        } 
 	});
         
 	$routeProvider.when("/editNCs/:id", {
@@ -118,6 +126,12 @@ angular.module("app").config(function ($routeProvider) {
         resolve    :{
             nc: function (NCsAPI, $route) {
             return NCsAPI.getNC($route.current.params.id);
+            },
+            checklists: function (checklistsAPI) {
+                return checklistsAPI.getChecklists();
+            },
+            colaboradores: function (colaboradoresAPI){
+                return colaboradoresAPI.getColaboradores();
             }
         }
 	});
@@ -223,6 +237,9 @@ angular.module("app").config(function ($routeProvider) {
        templateUrl: "ocorrencias/cadOcorrencias.html",
        controller : "cadOcorrenciasCtrl",
        resolve    : {
+            checklists: function (checklistsAPI) {
+                return checklistsAPI.getChecklists();
+            },
             colaboradores: function (colaboradoresAPI){
             return colaboradoresAPI.getColaboradores();
             }
@@ -236,6 +253,9 @@ angular.module("app").config(function ($routeProvider) {
             ocorrencia: function (ocorrenciasAPI, $route) {
                 return ocorrenciasAPI.getOcorrencia($route.current.params.id);
             },
+            checklists: function (checklistsAPI) {
+                return checklistsAPI.getChecklists();
+            },
             colaboradores: function (colaboradoresAPI){
             return colaboradoresAPI.getColaboradores();
             }
@@ -246,7 +266,7 @@ angular.module("app").config(function ($routeProvider) {
         templateUrl: "ocorrencias/listOcorrencias.html",
         controller : "listOcorrenciasCtrl",
         resolve    : {
-            auditor: function (ocorrenciasAPI, $route) {
+            ocorrencia: function (ocorrenciasAPI, $route) {
                 return ocorrenciasAPI.deleteOcorrencia($route.current.params.id);
             },
             ocorrencias: function (ocorrenciasAPI){
@@ -345,8 +365,17 @@ angular.module("app").config(function ($routeProvider) {
     
     $routeProvider.when("/cadEqAudits", {
         templateUrl: "equipeAuditores/cadEqAudits.html",
-        controller : "cadEqAuditsCtrl"   
-    });
+        controller : "cadEqAuditsCtrl",
+         resolve    : {
+            auditorias: function (auditoriasAPI){
+            return auditoriasAPI.getAuditorias();
+            },
+             auditores: function (auditoresAPI){
+                return auditoresAPI.getAuditores();
+            }
+        }
+    }); 
+  
  
     $routeProvider.when("/editEqAudits/:id", {
         templateUrl: "equipeAuditores/cadEqAudits.html",
@@ -387,12 +416,12 @@ angular.module("app").config(function ($routeProvider) {
         templateUrl: "auditorias/cadAuditorias.html",
         controller : "cadAuditoriasCtrl",
         resolve    : {
-            certificadoras: function (certsAPI) {
-            return certsAPI.getCertificadoras();
+            certificadoras: function (certificadorasAPI) {
+            return certificadorasAPI.getCertificadoras();
             },
             clientes: function (clientesAPI) {
-                            return clientesAPI.getClientes();
-                    }
+            return clientesAPI.getClientes();
+           }
         }
     });
  
@@ -403,8 +432,29 @@ angular.module("app").config(function ($routeProvider) {
             auditoria: function (auditoriasAPI, $route) {
             return auditoriasAPI.getAuditoria($route.current.params.id);
             }, 
-            certificadoras: function (certsAPI) {
-            return certsAPI.getCertificadoras();
+            certificadoras: function (certificadorasAPI) {
+                return certificadorasAPI.getCertificadoras();
+            },             
+            clientes: function (clientesAPI) {
+            return clientesAPI.getClientes();
+            }
+        }
+    });
+     $routeProvider.when("/auditoria/:id", {
+        templateUrl: "auditorias/auditoria.jsp",
+        controller : "AuditoriasAndamCtrl",
+        resolve    : {
+            auditoria: function (auditoriasAPI, $route) {
+            return auditoriasAPI.getAuditoria($route.current.params.id);
+            },
+            checklists: function (checklistsAPI) {
+                return checklistsAPI.getChecklists();
+            },
+            eqAudits: function (eqAuditsAPI){
+                return eqAuditsAPI.getEqAudits();
+            },
+            certificadoras: function (certificadorasAPI) {
+                return certificadorasAPI.getCertificadoras();
             },
             clientes: function (clientesAPI) {
             return clientesAPI.getClientes();
@@ -436,7 +486,43 @@ angular.module("app").config(function ($routeProvider) {
 
     $routeProvider.when("/cadChecklists", {
         templateUrl: "checklists/cadChecklists.html",
-        controller : "cadChecklistsCtrl"
+        controller : "cadChecklistsCtrl",
+        resolve    : {
+             auditorias: function (auditoriasAPI){
+            return auditoriasAPI.getAuditorias();
+            },
+            colaboradores: function (colaboradoresAPI){
+                return colaboradoresAPI.getColaboradores();
+            },
+            eqAudits: function (eqAuditsAPI){
+                return eqAuditsAPI.getEqAudits();
+            }       
+        }
+    });
+    
+    $routeProvider.when("/CheckPoint/:id", {
+        templateUrl: "checklists/CheckPoint.jsp",
+        controller : "CheckPointCtrl",
+        resolve    : {
+            checklist: function (checklistsAPI, $route) {
+                return checklistsAPI.getChecklist($route.current.params.id);
+            },
+            auditorias: function (auditoriasAPI){
+            return auditoriasAPI.getAuditorias();
+            },
+            colaboradores: function (colaboradoresAPI){
+                return colaboradoresAPI.getColaboradores();
+            },
+            eqAudits: function (eqAuditsAPI){
+                return eqAuditsAPI.getEqAudits();
+            },
+            ocorrencias: function (ocorrenciasAPI) {
+                return ocorrenciasAPI.getOcorrencias();
+            },
+            NCs: function (NCsAPI) {
+            return NCsAPI.getNCs();
+            } 
+        }
     });
 
     $routeProvider.when("/editChecklists/:id", {

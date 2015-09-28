@@ -6,66 +6,60 @@
        <div class="panel-heading">
            <h4> Cadastro Ocorrencias </h4>   
        </div>  <br>
-       <div class="container-fluid" >
-            
-            <form name="ocorrenciaForm">
-                  
-                  
-     <div class="row"> <p> 
-
-           <!--*************************************************************CheckList-->
-        <div class="col-md-6"> 
-            <div class="panel panel-red">
-                <div class="panel-heading">
-                CheckList
-                </div>
-
-                <div class="panel-body">
-                   <div class="col-lg-12">  <label>CheckPoint</label>    <input class="form-control"    type="number" ng-model="ocorrencia.idPontoCtrl  " name="chek" placeholder="Codigo CheckPoint"  ng-required="true" /> </div>
-
+       <div class="container-fluid" style="text-align: center;" >
+           
+      <form name="ocorrenciaForm">
+      <div class="row"> <p>       
+         <div class="col-lg-12"> <!--************CheckList-->
+          <div class="panel panel-red">
+           <div class="panel-heading">
+              CheckList
+            </div> 
+             <div class="panel-body">
+              <div class="col-lg-4">  <label>CheckPoint</label>    <input class="form-control"    type="number" ng-model="ocorrencia.idPontoCtrl  " name="chek" placeholder="Codigo CheckPoint"  ng-required="true" /> <p> </div>
+              
                      <div ng-show="ocorrenciaForm.chek.$dirty" ng-messages="ocorrenciaForm.chek.$error">
                         <div ng-message="required" class="alert alert-danger">
                                Por favor, preencha o campo Codigo da  CheckPoint!
                         </div>
                      </div>
+                 <div class="container-fluid">
+                       <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar..Digite o codigo da auditoria..!"/>
+                    <div class="tab-content">
+                     <div class="tab-pane fade in active" >
+                      <div class="panel-body">
+                       <div class="table-responsive"  style="text-align: center;" >
 
-                     <div class="col-lg-12">
-                         <select class="form-control" ng-model="checklist" ng-options="checklist.descriChklist + ' ( ' + (checklist.id) + ' )' for checklist in checklists | orderBy:'descriChklist'">
-                            <option value="">Lista de CheckPoint</option>
-                         </select>
-                     </div>                    
-                </div>
-
-            </div>
-        </div>                          
-        <!--*************************************************************Colaboradores-->
-        <div class="col-lg-6"> 
-            <div class="panel panel-red">
-                <div class="panel-heading">
-                  Colaboradores
-                </div>
-
-                <div class="panel-body">
-                    <div class="col-lg-12">  <label>Colaborador</label>  <input class="form-control"  type="number" ng-model="ocorrencia.idCola " name="cola" placeholder="Codigo Colaborador"  ng-required="true"/> </div>
-                     <div ng-show="ocorrenciaForm.cola.$dirty" ng-messages="ocorrenciaForm.cola.$error">
-                        <div ng-message="required" class="alert alert-danger">
-                               Por favor, preencha o campo Codigo da Colaborador!
-                        </div>                              
-                     </div>
-
-                     <div class="col-lg-12">
-                         <select class="form-control" ng-model="colaborador" ng-options="colaborador.nomeCola + ' ( ' + (colaborador.id) + ' )' for colaborador in colaboradores | orderBy:'nomeCola'">		        	
-                          <option value="">lista de Colaboradores</option>
-                          </select>
-                     </div>   
-                    <div >
-                       <a class="btn btn-outline btn-success  btn-sm glyphicon glyphicon-pencil "   name="s" href="#/cadOcorrencias" > Novo Colaborador</a>
+                          <!--tabela-->          
+                          <table ng-show="checklists.length > 0" style="text-align: center;" class="table table-xs btn-xs table-striped table-bordered table-responsive table-hover" id="dataTables-example">  
+                            <tr>  
+                              <td><b>Abrir</b></td>
+                              <td><b>CheckPoint</b></td>
+                              <td><b>Auditoria</b></td>
+                              <td><a href="" ng-click="ordenarPor('descriChklist')"><b>Descrição</b><i class="fa fa-sort"></i></a></td>                     
+                              <td><b>Data Realização</b></td>   
+                              <td><a href="" ng-click="ordenarPor('statusChklist')"><b>Status </b> <i class="fa fa-sort"></i></a></td>                                           
+                            </tr>
+                            <tr ng-class="{'selecionado negrito': checklist.selecionado}" ng-repeat="checklist in checklists | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                              <td><a href="#/CheckPoint/{{checklist.id}}"><i  class="btn btn-success btn-outline  btn-xs  fa fa-folder-open " title="Click para abrir CheckPoint"></i></a></td>             
+                              <td>{{checklist.id}}</td>
+                              <td>{{checklist.idAudit}}</td>
+                              <td>{{checklist.descriChklist}}</td> 
+                              <td>{{checklist.dtHrRealiChklist}}</td>                      
+                              <td>{{checklist.statusChklist}}</td>
+                            </tr>
+                          </table>       
+                        </div>   <p>     
+                      </div>
                     </div>
-               </div>
+                  </div>                    
+                </div> 
             </div>
-          </div> 
-         </div>    <p> 
-                <!-- ***************************************************************************dados Auditorias -->            
+           </div>
+          </div>
+         </div> <p> 
+                        
+               <!-- ***********************************************dados Auditorias -->            
              <div class="row"> <p>       
                <div class="col-lg-12"> 
                  <div class="panel panel-red">
@@ -113,15 +107,39 @@
 	                       </div><br>
                           
                            </div>
-                        </div>
+                        </div><p> 
                 </div>
                </div>  
             </div>  <p>  
             
-            <!-- ***************************************************************************data e hora -->
-            <div class="row"> <p>   
+           
+            <div class="row"> <p>    <!--******Colaboradores-->
+      <div class="col-lg-6"> 
+        <div class="panel panel-red">
+                <div class="panel-heading">
+                  Colaboradores
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-lg-12">  <label>Colaborador</label>  <input class="form-control"  type="number" ng-model="ocorrencia.idCola " name="cola" placeholder="Codigo Colaborador"  ng-required="true"/> </div>
+                     <div ng-show="ocorrenciaForm.cola.$dirty" ng-messages="ocorrenciaForm.cola.$error">
+                        <div ng-message="required" class="alert alert-danger">
+                               Por favor, preencha o campo Codigo da Colaborador!
+                        </div>                              
+                     </div>
+                     <div class="col-lg-12">
+                         <select class="form-control" ng-model="colaborador" ng-options="colaborador.nomeCola + ' ( ' + (colaborador.id) + ' )' for colaborador in colaboradores | orderBy:'nomeCola'">		        	
+                          <option value="">lista de Colaboradores</option>
+                          </select>
+                     </div>   
+                    <div >
+                       <a class="btn btn-outline btn-success  btn-sm glyphicon glyphicon-pencil "   name="s" href="#/cadOcorrencias" > Novo Colaborador</a>
+                    </div>
+               </div><p> 
+            </div> 
+         </div>    <p>   
                      
-              <div class="col-md-3">
+              <div class="col-md-3">     <!-- ***************data e hora -->
                 <div class="panel panel-default">
                         <div class="panel-heading">
                            Data da Ocorrência
@@ -135,29 +153,40 @@
                             <div ng-message="minlength" class="alert alert-danger">
                                 O formato DD/MM/AAAA HH:MM:SS.
                              </div>
-	                  </div>
-                        <!--  <div ng-show="ocorrenciaForm.dthrcad.$error.pattern" class="alert alert-danger">
-		                  O campo telefone deve ter o formato dd/mm/aaaa
-                          </div>
-                         -->   
-                               <a class="btn btn-outline btn-danger  btn-sm glyphicon glyphicon-calendar "   name="d"  > </a>
-                    </div>
+	                  </div>  <a class="btn btn-outline btn-danger  btn-sm glyphicon glyphicon-calendar "   name="d"  > </a>
+                    </div><p> 
                 </div>
               </div>
-            
-                <!--*********************<div class="row"> <p>***********************************************Observação--> 
-             
-              <div class="col-lg-9"> 
+                
+           <!--     <div class="col-md-3">
+                <div class="panel panel-red">
+                        <div class="panel-heading">
+                           Status
+                        </div>
+                    <div class="panel-body" style="text-align: center;"> <p>
+                        <div >  
+                            <div class="col-lg-7">   <input class="form-control" type="text" ng-disabled="true"  ng-model="auditoria.statusaudit" name="status" placeholder="Status" />  </div>     
+                            
+                            <a class="btn btn-outline btn-success btn-sm glyphicon glyphicon-edit"    ng-click="ocorrencia.statusOcorre  ='A'" title="Ativar o Status"></a>
+                               <a class="btn btn-outline btn-danger btn-sm glyphicon glyphicon-edit"    ng-click="ocorrencia.statusOcorre  ='D'" title="Desativar o Status"></a>
+              
+                   </div></div>
+                </div><p>  
+              </div> -->
+            </div> <p>
+                <!--******************************************Observação--> 
+             <div class="row"> <p> 
+              <div class="col-lg-12"> 
                     <div class="panel panel-default">
                         <div class="panel-heading">
                            Observação
                         </div>
-                        <div class="panel-body"> 
+                        <div class="panel-body"> <p>
                             <div class="col-lg-12">
                                 <textarea  ng-model="ocorrencia.obsOcorre" name="obs" class="form-control" rows="2" ></textarea> 
                                  <input class="form-control" type="hidden"   ng-model="ocorrencia.statusOcorre" name="status" placeholder="Status" />      
                             </div>
-                        </div>
+                        </div><p> 
                     </div>
               </div> <p>                                   
             </div>   <p>   
@@ -165,7 +194,7 @@
             </form>
            <hr>
            <!--botoes-->
-          <div style="padding-left:280px;"   >
+          <div >
             <a class="btn btn-outline  btn-lg  btn-primary glyphicon glyphicon-floppy-save" ng-click="ocorrencia.statusOcorre ='A';adicionarOcorrencia(ocorrencia)" ng-disabled="ocorrenciaForm.$invalid"> ADICIONAR</a>
             <a href="#/ocorrencias" class="btn btn-lg btn-outline btn-danger glyphicon glyphicon-remove"> CANCELAR</a>
           </div>

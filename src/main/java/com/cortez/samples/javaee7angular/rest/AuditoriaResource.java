@@ -1,6 +1,7 @@
 
 package com.cortez.samples.javaee7angular.rest;
 import com.cortez.samples.javaee7angular.data.Auditorias;
+import com.cortez.samples.javaee7angular.data.Certificadoras;
 import com.cortez.samples.javaee7angular.pagination.PaginatedListWrapper;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -76,6 +77,19 @@ public class AuditoriaResource
         paginatedListWrapper.setPageSize(10);
         return findAuditorias(paginatedListWrapper);
     }
+    /*
+     @GET
+    @Path("{id}")
+     public Auditorias getAuditorias_cert(@PathParam("id") Long id)
+          //   private List<Auditorias> findAuditorias()
+    {
+        Query query;
+       query = entityManager.createQuery("SELECT aud FROM Auditorias aud ORDER BY aud." );
+        
+             return entityManager.find(Auditorias.class, id);
+
+    }
+    */
 
     @GET
     @Path("{id}")
@@ -83,7 +97,14 @@ public class AuditoriaResource
     {
         return entityManager.find(Auditorias.class, id);
     }
-
+    
+  /*  @GET
+    @Path("{id}")
+    public Certificadoras getCertificadoras(@PathParam("id") Long id) {
+        return entityManager.find(Certificadoras.class, id);
+    }
+    */
+    
     @POST
     public Auditorias saveAuditoria(Auditorias auditoria)
     {

@@ -87,6 +87,7 @@ public class EquipeAuditorResource
         if (equipeAuditores.getId() == null) {
             EquipeAuditores equipeAuditoresToSave = new EquipeAuditores();            
             equipeAuditoresToSave.setIdAuditor(equipeAuditores.getIdAuditor());
+             equipeAuditoresToSave.setIdAuditor2(equipeAuditores.getIdAuditor2());
             equipeAuditoresToSave.setIDAUDIT(equipeAuditores.getIDAUDIT());
             equipeAuditoresToSave.setTipoAuditor(equipeAuditores.getTipoAuditor());
             equipeAuditoresToSave.setDtHrIncEquipe(equipeAuditores.getDtHrIncEquipe());
@@ -95,6 +96,7 @@ public class EquipeAuditorResource
         } else {
             EquipeAuditores equipeAuditoresToUpdate = getEquipeAuditores(equipeAuditores.getId());
             equipeAuditoresToUpdate.setIdAuditor(equipeAuditores.getIdAuditor());
+            equipeAuditoresToUpdate.setIdAuditor2(equipeAuditores.getIdAuditor2());
             equipeAuditoresToUpdate.setIDAUDIT(equipeAuditores.getIDAUDIT());
             equipeAuditoresToUpdate.setTipoAuditor(equipeAuditores.getTipoAuditor());
             equipeAuditoresToUpdate.setDtHrIncEquipe(equipeAuditores.getDtHrIncEquipe());
