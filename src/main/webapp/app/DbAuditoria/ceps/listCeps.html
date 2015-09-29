@@ -29,7 +29,7 @@
                     <tr ng-class="{'selecionado negrito': cep.selecionado}" ng-repeat="cep in ceps | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                       <td>{{cep.id}}</td>
                       <td>{{cep.cep}}</td>
-                      <td>{{cep.idCid}}</td>
+                      <td>{{cep.descriCid }}</td>
                       <td>{{cep.idBai}}</td>
                       <td>{{cep.lograCep | uppercase }}</td>
                       <td>{{cep.obsCep | uppercase }}</td>

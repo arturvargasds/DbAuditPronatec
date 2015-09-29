@@ -6,9 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SecondaryTable;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Ceps")
+@SecondaryTable(name = "Cidades", pkJoinColumns = { @PrimaryKeyJoinColumn(name = "idcid") })
 public class Ceps implements Serializable 
 {
     @Id
@@ -19,6 +24,9 @@ public class Ceps implements Serializable
     
     @Column(name = "CEP",length = 8)
     private String cep;
+    
+    @Column(table = "Cidades", name = "DESCRICID")
+    private String descriCid;
      
     @Column(name = "IDCID")
     private int idCid;
@@ -33,7 +41,9 @@ public class Ceps implements Serializable
     private String obsCep;
        
     @Column(name = "STATUSCEP", length = 1)
-    private String statusCep;  
+    private String statusCep; 
+    
+    
 
     public Long getId() {
         return id;
@@ -89,7 +99,22 @@ public class Ceps implements Serializable
 
     public void setStatusCep(final String statusCep) {
         this.statusCep = statusCep;
-    }   
+    }  
+
+    
+    
+
+    public String getDescriCid() {
+        return descriCid;
+    }
+
+    public void setDescriCid( final String descriCid) {
+        this.descriCid = descriCid;
+    }
+    
+    
+    
+    
     
     @Override
     public boolean equals(Object obj) {
