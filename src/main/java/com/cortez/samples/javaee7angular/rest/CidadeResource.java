@@ -72,21 +72,21 @@ public class CidadeResource {
     public Cidades getCidade(@PathParam("id") Long id) {
         return entityManager.find(Cidades.class, id);
     }
-/*
+
     @POST
     public Cidades saveCidade(Cidades cidade) {
         entityManager.getTransaction().begin();
-        if (cidade.getId() == null) {
+        if (cidade.getIdcid()== null) {
             Cidades cidadeToSave = new Cidades();
-            cidadeToSave.setNomeCid(cidade.getNomeCid());
-            cidadeToSave.setSiglaUf(cidade.getSiglaUf());
-            cidadeToSave.setStatusCid(cidade.getStatusCid());
+            cidadeToSave.setDescricid(cidade.getDescricid());
+            cidadeToSave.setUfcid(cidade.getUfcid());
+            cidadeToSave.setStatuscid(cidade.getStatuscid());
             entityManager.persist(cidade);
         } else {
-            Cidades cidadeToUpdate = getCidade(cidade.getId());
-            cidadeToUpdate.setNomeCid(cidade.getNomeCid());
-            cidadeToUpdate.setSiglaUf(cidade.getSiglaUf());
-            cidadeToUpdate.setStatusCid(cidade.getStatusCid());
+            Cidades cidadeToUpdate = getCidade(cidade.getIdcid());
+            cidadeToUpdate.setDescricid(cidade.getDescricid());
+            cidadeToUpdate.setUfcid(cidade.getUfcid());
+            cidadeToUpdate.setStatuscid(cidade.getStatuscid());
             cidade = entityManager.merge(cidadeToUpdate);
         }
         entityManager.getTransaction().commit();
@@ -96,21 +96,21 @@ public class CidadeResource {
      @POST
     public Cidades statusCidade(Cidades cidade) {
         entityManager.getTransaction().begin();
-        if (cidade.getId() == null) {
+        if (cidade.getIdcid()== null) {
           
             System.exit(0);
         } else {
             
-             if  (cidade.getStatusCid().equals("D"))
+             if  (cidade.getStatuscid().equals("D"))
             {
-                Cidades cidadeToUpdate = getCidade(cidade.getId()); 
-                cidadeToUpdate.setStatusCid("A");
+                Cidades cidadeToUpdate = getCidade(cidade.getIdcid()); 
+                cidadeToUpdate.setStatuscid("A");
                  cidade = entityManager.merge(cidadeToUpdate);
             }
             else
             {
-               Cidades cidadeToUpdate = getCidade(cidade.getId());  
-                 cidadeToUpdate.setStatusCid("D");
+               Cidades cidadeToUpdate = getCidade(cidade.getIdcid());  
+                 cidadeToUpdate.setStatuscid("D");
                 cidade = entityManager.merge(cidadeToUpdate);
             }
            
@@ -118,7 +118,7 @@ public class CidadeResource {
         }
         entityManager.getTransaction().commit();
         return cidade;
-    }  */
+    }
 
     @DELETE
     @Path("{id}")

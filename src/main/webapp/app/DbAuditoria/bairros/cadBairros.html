@@ -10,8 +10,8 @@
 
                 <!--fomulario-->
                 <form name="baiForm">                        
-                    <input class="form-control" type="text" ng-model="bairro.descricao" name="nome" placeholder="Nome" ng-required="true" ng-minlength="3"/>
-                    <input class="form-control" hidden="status" type="hidden"  ng-model="bairro.statusBai " name="status">                  
+                    <input class="form-control" type="text" ng-model="bairro.describai" name="nome" placeholder="Nome" ng-required="true" ng-minlength="3"/>
+                    <input class="form-control" hidden="status" type="hidden"  ng-model="bairro.statusbai " name="status">                  
                 </form>                    
 
                 <!--autent.campos-->
@@ -26,7 +26,7 @@
 
                 <!--botoes-->
                 <div style="padding-left:280px;"   >
-                <a class="btn btn-primary glyphicon glyphicon-floppy-save" ng-click="(bairro.statusBai = 'A');adicionarBairro(bairro)" ng-disabled="baiForm.$invalid"> ADICIONAR BAIRRO</a>
+                <a class="btn btn-primary glyphicon glyphicon-floppy-save" ng-click="(bairro.statusbai = 'A');adicionarBairro(bairro)" ng-disabled="baiForm.$invalid"> ADICIONAR BAIRRO</a>
                 <a href="#/bairros" class="btn btn-danger glyphicon glyphicon-remove"  > CANCELAR</a>
                 </div> 
                 

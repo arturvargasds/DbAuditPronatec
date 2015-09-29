@@ -74,25 +74,24 @@ public class BairroResource {
     public Bairros getBairros(@PathParam("id") Long id) {
         return entityManager.find(Bairros.class, id);
     }
-/*
+
     @POST
     public Bairros saveBairro(Bairros bairro) {
         entityManager.getTransaction().begin();
-        if (bairro.getId() == null) {
+        if (bairro.getIdbai()== null) {
             Bairros bairroToSave = new Bairros();
-            bairroToSave.setDescricao(bairro.getDescricao());
-            bairroToSave.setStatusBai(bairro.getStatusBai());
+            bairroToSave.setDescribai(bairro.getDescribai());
+            bairroToSave.setStatusbai(bairro.getStatusbai());
             entityManager.persist(bairro);
         } else {
-            Bairros bairroToUpdate = getBairros(bairro.getId());
-            bairroToUpdate.setDescricao(bairro.getDescricao());
-            bairroToUpdate.setStatusBai(bairro.getStatusBai());
+            Bairros bairroToUpdate = getBairros(bairro.getIdbai());
+            bairroToUpdate.setDescribai(bairro.getDescribai());
+            bairroToUpdate.setStatusbai(bairro.getStatusbai());
             bairro = entityManager.merge(bairroToUpdate);
         }
         entityManager.getTransaction().commit();
         return bairro;
     }
-    */
 
     @DELETE
     @Path("{id}")

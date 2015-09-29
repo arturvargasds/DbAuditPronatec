@@ -18,10 +18,10 @@
                         <th>Excluir</th>
                     </tr>
                     <tr ng-class="{'selecionado negrito': bairro.selecionado}" ng-repeat="bairro in bairros | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                        <td>{{bairro.descricao | name}}</td>
-                        <td>{{bairro.statusBai}}</td>
-                        <td><a href="#/editBairros/{{bairro.id}}"class="btn btn-outline btn-warning btn-sm glyphicon glyphicon-edit"></a></td>
-                        <td><a href="#/deleteBairro/{{bairro.id}}"class="btn btn-outline btn-danger  btn-sm glyphicon glyphicon-remove"></a></td>	
+                        <td>{{bairro.describai | name}}</td>
+                        <td>{{bairro.statusbai}}</td>
+                        <td><a href="#/editBairros/{{bairro.id}}" class="btn btn-outline btn-warning btn-sm glyphicon glyphicon-edit"></a></td>
+                        <td><a href="#/deleteBairro/{{bairro.id}}" class="btn btn-outline btn-danger  btn-sm glyphicon glyphicon-remove"></a></td>	
                     </tr>
                     </table>            
 

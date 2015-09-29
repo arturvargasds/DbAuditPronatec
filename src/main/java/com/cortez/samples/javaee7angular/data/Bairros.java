@@ -4,10 +4,13 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -31,8 +34,10 @@ public class Bairros implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
+     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idbai")
+    @SequenceGenerator(name = "idbai", sequenceName = "seq_bairros", allocationSize = 1)
     @Column(name = "idbai")
-    private Integer idbai;
+    private Long idbai;
     @Size(max = 60)
     @Column(name = "describai")
     private String describai;
@@ -45,15 +50,23 @@ public class Bairros implements Serializable {
     public Bairros() {
     }
 
-    public Bairros(Integer idbai) {
+    public Bairros(Long idbai, String describai, String statusbai, Collection<Ceps> cepsCollection) {
+        this.idbai = idbai;
+        this.describai = describai;
+        this.statusbai = statusbai;
+        this.cepsCollection = cepsCollection;
+    }
+    
+    
+    public Bairros(Long idbai) {
         this.idbai = idbai;
     }
 
-    public Integer getIdbai() {
+    public Long getIdbai() {
         return idbai;
     }
 
-    public void setIdbai(Integer idbai) {
+    public void setIdbai(Long idbai) {
         this.idbai = idbai;
     }
 

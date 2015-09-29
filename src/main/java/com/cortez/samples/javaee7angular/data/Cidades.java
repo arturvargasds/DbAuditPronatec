@@ -7,10 +7,13 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -35,8 +38,11 @@ public class Cidades implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
+    
+     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idbai")
+    @SequenceGenerator(name = "idbai", sequenceName = "seq_cidades", allocationSize = 1)
     @Column(name = "idcid")
-    private Integer idcid;
+    private Long idcid;
     @Size(max = 60)
     @Column(name = "descricid")
     private String descricid;
@@ -54,7 +60,7 @@ public class Cidades implements Serializable {
     public Cidades() {
     }
 
-    public Cidades(Integer idcid, String descricid, String ufcid, String statuscid, Collection<Ceps> cepsCollection) {
+    public Cidades(Long idcid, String descricid, String ufcid, String statuscid, Collection<Ceps> cepsCollection) {
         this.idcid = idcid;
         this.descricid = descricid;
         this.ufcid = ufcid;
@@ -64,20 +70,20 @@ public class Cidades implements Serializable {
     
     
 
-    public Cidades(Integer idcid) {
+    public Cidades(Long idcid) {
         this.idcid = idcid;
     }
 
-    public Cidades(Integer idcid, String ufcid) {
+    public Cidades(Long idcid, String ufcid) {
         this.idcid = idcid;
         this.ufcid = ufcid;
     }
 
-    public Integer getIdcid() {
+    public Long getIdcid() {
         return idcid;
     }
 
-    public void setIdcid(Integer idcid) {
+    public void setIdcid(Long idcid) {
         this.idcid = idcid;
     }
 
