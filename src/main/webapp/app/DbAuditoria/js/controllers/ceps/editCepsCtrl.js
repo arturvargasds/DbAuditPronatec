@@ -1,6 +1,6 @@
 /* global angular, cepsAPI */
 
-angular.module("app").controller("editCepsCtrl", function ($scope, $routeParams, cep,$location) {
+angular.module("app").controller("editCepsCtrl", function ($scope, $routeParams, cep,$location,cepsAPI) {
 
 	$scope.cep = cep.data;
 

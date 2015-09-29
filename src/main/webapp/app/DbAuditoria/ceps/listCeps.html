@@ -27,13 +27,13 @@
                       <th>Excluir</th>
                     </tr>
                     <tr ng-class="{'selecionado negrito': cep.selecionado}" ng-repeat="cep in ceps | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                      <td>{{cep.id}}</td>
+                      <td>{{cep.idcep}}</td>
                       <td>{{cep.cep}}</td>
-                      <td>{{cep.descriCid }}</td>
-                      <td>{{cep.idBai}}</td>
-                      <td>{{cep.lograCep | uppercase }}</td>
-                      <td>{{cep.obsCep | uppercase }}</td>
-                      <td>{{cep.statusCep | uppercase }}</td> 
+                      <td>{{cep.idcid.descricid }}</td>
+                      <td>{{cep.idbai.descricao}}</td>
+                      <td>{{cep.logracep | uppercase }}</td>
+                      <td>{{cep.obscep | uppercase }}</td>
+                      <td>{{cep.statuscep | uppercase }}</td> 
                       <td><a href="#/editCeps/{{cep.id}}" class="btn btn-outline btn-warning btn-sm glyphicon glyphicon-edit"></a></td>
                       <td><a href="#/deleteCep/{{cep.id}}" class="btn btn-outline btn-danger  btn-sm glyphicon glyphicon-remove"></a></td>
                     </tr>

@@ -78,28 +78,29 @@ public class CepResource {
     @POST
     public Ceps saveCep(Ceps cep) {
         entityManager.getTransaction().begin();
-        if (cep.getId() == null) {
+        if (cep.getIdcep()== null) {
             Ceps cepToSave = new Ceps();
             cepToSave.setCep(cep.getCep());
-            cepToSave.setIdCid(cep.getIdCid());
-            cepToSave.setIdBai(cep.getIdBai());
-            cepToSave.setLograCep(cep.getLograCep());
-            cepToSave.setObsCep(cep.getObsCep());
-            cepToSave.setStatusCep(cep.getStatusCep());
+            cepToSave.setIdcid(cep.getIdcid());
+            cepToSave.setIdbai(cep.getIdbai());
+            cepToSave.setLogracep(cep.getLogracep());
+            cepToSave.setObscep(cep.getObscep());
+            cepToSave.setStatuscep(cep.getStatuscep());
             entityManager.persist(cep);
         } else {
-            Ceps cepToUpdate = getCeps(cep.getId());
+            Ceps cepToUpdate = getCeps(cep.getIdcep());
             cepToUpdate.setCep(cep.getCep());
-            cepToUpdate.setIdCid(cep.getIdCid());
-            cepToUpdate.setIdBai(cep.getIdBai());
-            cepToUpdate.setLograCep(cep.getLograCep());
-            cepToUpdate.setObsCep(cep.getObsCep());
-            cepToUpdate.setStatusCep(cep.getStatusCep());
+            cepToUpdate.setIdcid(cep.getIdcid());
+            cepToUpdate.setIdbai(cep.getIdbai());
+            cepToUpdate.setLogracep(cep.getLogracep());
+            cepToUpdate.setObscep(cep.getObscep());
+            cepToUpdate.setStatuscep(cep.getStatuscep());
             cep = entityManager.merge(cepToUpdate);
         }
         entityManager.getTransaction().commit();
         return cep;
     }
+     
 
     @DELETE
     @Path("{id}")

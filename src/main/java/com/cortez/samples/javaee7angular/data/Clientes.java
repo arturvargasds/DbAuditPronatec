@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 
@@ -15,6 +16,7 @@ import javax.persistence.SequenceGenerator;
     
     
     @Entity
+@XmlRootElement
     public class  Clientes implements Serializable  {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDCLI")

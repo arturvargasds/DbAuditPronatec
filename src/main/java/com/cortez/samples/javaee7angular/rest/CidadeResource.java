@@ -72,7 +72,7 @@ public class CidadeResource {
     public Cidades getCidade(@PathParam("id") Long id) {
         return entityManager.find(Cidades.class, id);
     }
-
+/*
     @POST
     public Cidades saveCidade(Cidades cidade) {
         entityManager.getTransaction().begin();
@@ -118,7 +118,7 @@ public class CidadeResource {
         }
         entityManager.getTransaction().commit();
         return cidade;
-    }
+    }  */
 
     @DELETE
     @Path("{id}")

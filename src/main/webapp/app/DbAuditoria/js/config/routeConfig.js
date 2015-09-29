@@ -330,7 +330,7 @@ angular.module("app").config(function ($routeProvider) {
 	});
         
 	$routeProvider.when("/editCeps/:id", {
-		templateUrl: "ceps/editCeps.html",
+		templateUrl: "ceps/cadCeps.html",
 		controller : "editCepsCtrl",
 		resolve    : {
 			cep: function (cepsAPI, $route) {

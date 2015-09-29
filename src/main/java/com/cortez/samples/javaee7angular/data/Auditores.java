@@ -7,9 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.xml.bind.annotation.XmlRootElement;
 //créuuuuu
 
 @Entity
+@XmlRootElement
 public class Auditores implements Serializable 
 {
     @Id
