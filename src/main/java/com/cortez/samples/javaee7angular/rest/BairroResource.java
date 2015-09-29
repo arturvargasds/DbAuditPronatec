@@ -74,7 +74,7 @@ public class BairroResource {
     public Bairros getBairros(@PathParam("id") Long id) {
         return entityManager.find(Bairros.class, id);
     }
-
+/*
     @POST
     public Bairros saveBairro(Bairros bairro) {
         entityManager.getTransaction().begin();
@@ -92,6 +92,7 @@ public class BairroResource {
         entityManager.getTransaction().commit();
         return bairro;
     }
+    */
 
     @DELETE
     @Path("{id}")
