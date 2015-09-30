@@ -70,10 +70,10 @@
                         
                         <div class="panel-body">
                            <div class="panel-collapse">
-                               <input class="form-control" type="hidden" ng-model="auditoria.descriAudit " id="desc" name="descr" placeholder="Descrição Auditoria" 
+                               <input class="form-control" type="hidden" ng-model="auditoria.descriaudit " id="desc" name="descr" placeholder="Descrição Auditoria" 
                                   ng-required="true" ng-minlength="1" ng-maxlength="400"/>
           
-                               <div  class="col-lg-12"> <label>Descrição Auditoria</label>  <textarea class="form-control" pattern="[A-Za-z]++"  type="text" ng-model="auditoria.descriAudit " name="descr"  placeholder="Descrição....." ng-required="true" required="" ng-minlength="10" ng-maxlength="500"></textarea> </div>
+                               <div  class="col-lg-12"> <label>Descrição Auditoria</label>  <textarea class="form-control" pattern="[A-Za-z]++"  type="text" ng-model="auditoria.descriaudit " name="descr"  placeholder="Descrição....." ng-required="true" required="" ng-minlength="10" ng-maxlength="500"></textarea> </div>
         <!--************************************************  Validadção dos campos *****************************************-->
                                <div ng-show="auditoriasForm.descr.$dirty" ng-messages="auditoriasForm.descr.$error">
 		                    <div ng-message="required" class="alert alert-danger">
@@ -91,9 +91,9 @@
                         
                         <div class="panel-body">
                            <div class="panel-collapse">
-                               <input class="form-control" iu-date type="hidden" ng-model="auditoria.descriObjAudit" name="obj"  placeholder="Objetivo...." ng-required="true" ng-minlength="1" ng-maxlength="500"/>
+                               <input class="form-control" iu-date type="hidden" ng-model="auditoria.descriobjaudit" name="obj"  placeholder="Objetivo...." ng-required="true" ng-minlength="1" ng-maxlength="500"/>
 
-                               <div class="col-lg-12"> <label>Objetivo Auditoria</label> <textarea class="form-control" iu-date type="text" ng-model="auditoria.descriObjAudit" name="obj"  placeholder="Objetivo..." ng-required="true" ng-minlength="10" ng-maxlength="400"/></textarea> </div>
+                               <div class="col-lg-12"> <label>Objetivo Auditoria</label> <textarea class="form-control" iu-date type="text" ng-model="auditoria.descriobjaudit" name="obj"  placeholder="Objetivo..." ng-required="true" ng-minlength="10" ng-maxlength="400"/></textarea> </div>
         <!--************************************************  Validadção dos campos *****************************************-->
                               <div ng-show="auditoriasForm.obj.$dirty" ng-messages="auditoriasForm.obj.$error">
 		                    <div ng-message="required" class="alert alert-danger">
@@ -109,6 +109,27 @@
                           
                            </div>
                         </div><br>
+                        
+                        <div class="panel-body">
+                           <div class="panel-collapse">
+                              
+
+                               <div class="col-lg-12"> <label>Tipo Auditoria</label>  <input class="form-control" iu-date type="text" ng-model="auditoria.tipoaudit" name="tipo"  placeholder="Objetivo...." ng-required="true"  /></div>
+        <!--************************************************  Validadção dos campos *****************************************-->
+                              <div ng-show="auditoriasForm.tipo.$dirty" ng-messages="auditoriasForm.tipo.$error">
+		                    <div ng-message="required" class="alert alert-danger">
+			                      Por favor, preencha o campo tipo !
+		                    </div>
+                                    <select name="tipo"  class="form-control" ng-model="cidade.ufcid ">
+                                      <option value="">Selecione o tipo de auditoria</option>
+                                      <option value="I">Interno</option>
+                                      <option value="E">Externo</option>
+                                    </select>
+	                       </div>
+                          
+                           </div>
+                        </div><br>
+                        
                 </div>
               </div>  
             </div>  <p>
@@ -122,7 +143,7 @@
                            Data do cadastro
                         </div>
                     <div class="panel-body" style="text-align: center;"> <p>
-                        <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="auditoria.dtHrCadAudit" name="dthrcad" ng-required="true" ng-minlength="19"/></div>
+                        <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="auditoria.dthrcadaudit" name="dthrcad" ng-required="true" ng-minlength="19"/></div>
                           <div ng-show="auditoriasForm.dthrcad.$dirty" ng-messages="auditoriasForm.dthrcad.$error">
 		            <div ng-message="required" class="alert alert-danger">
 			          Por favor, preencha o campo Data / Hora Cadastro da Auditoria!
@@ -149,7 +170,7 @@
                            Data inicial da Auditoria
                         </div>
                     <div class="panel-body" style="text-align: center;"> <p>
-                          <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="auditoria.dtHrIniAudit" name="dthrinic" ng-required="true" ng-minlength="19"/></div>
+                          <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="auditoria.dthriniaudit" name="dthrinic" ng-required="true" ng-minlength="19"/></div>
                           <div ng-show="auditoriasForm.dthrinic.$dirty" ng-messages="auditoriasForm.dthrinic.$error">
 		            <div ng-message="required" class="alert alert-danger">
 			          Por favor, preencha o campo Data / Hora Cadastro da Auditoria!
@@ -169,7 +190,7 @@
                            Data da realização 
                         </div>
                     <div class="panel-body" style="text-align: center;"> <p>
-                          <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="auditoria.dtHrRealiaudit" name="dthrrealiz" ng-required="true" ng-minlength="19"/></div>
+                          <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="auditoria.dthrrealiaudit" name="dthrrealiz" ng-required="true" ng-minlength="19"/></div>
                           <div ng-show="auditoriasForm.dthrrealiz.$dirty" ng-messages="auditoriasForm.dthrrealiz.$error">
 		            <div ng-message="required" class="alert alert-danger">
 			          Por favor, preencha o campo Data / Hora Cadastro da Auditoria!

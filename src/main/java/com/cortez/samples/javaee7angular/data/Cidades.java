@@ -39,8 +39,8 @@ public class Cidades implements Serializable {
     @Basic(optional = false)
     @NotNull
     
-     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idbai")
-    @SequenceGenerator(name = "idbai", sequenceName = "seq_cidades", allocationSize = 1)
+     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idcid")
+    @SequenceGenerator(name = "idcid", sequenceName = "seq_cidades", allocationSize = 1)
     @Column(name = "idcid")
     private Long idcid;
     @Size(max = 60)
@@ -54,7 +54,7 @@ public class Cidades implements Serializable {
     @Size(max = 1)
     @Column(name = "statuscid")
     private String statuscid;
-    @OneToMany(mappedBy = "idcid")
+    @OneToMany(mappedBy = "cidades")
     private Collection<Ceps> cepsCollection;
 
     public Cidades() {

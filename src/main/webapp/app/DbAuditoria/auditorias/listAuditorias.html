@@ -16,7 +16,7 @@
                     <tr >  
                         <td> <b>Abrir </b></td>
                         <td><a href="" ng-click="ordenarPor('id')"><b>Auditoria</b>  <i class="fa fa-sort"></i></a></td>                        
-                        <td><a href="" ng-click="ordenarPor('descriAudit')"><b>Descrição</b>  <i class="fa fa-sort"></i></a></td> 
+                        <td><a href="" ng-click="ordenarPor('descriaudit')"><b>Descrição</b>  <i class="fa fa-sort"></i></a></td> 
                         <td><a href="" ng-click="ordenarPor('idCert')"><b>Certificadora</b> <i class="fa fa-sort"></i></a ></td> 
                         <td><a href="" ng-click="ordenarPor('idCli')"><b>Cliente </b> <i class="fa fa-sort"></i></a></td>                          
                     <!--    <td><b>Objetivo</b></td> -->
@@ -26,13 +26,13 @@
                         <td><b>Excluir</b></td> -->
                     </tr>
                     <tr ng-class="{'selecionado negrito': auditoria.selecionado}" ng-repeat="auditoria in auditorias | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">                                      
-                        <td><a href="#/auditoria/{{auditoria.id}}"><i  class="btn btn-success btn-outline  btn-xs  fa fa-folder-open "></i></a></td> 
-                        <td>{{auditoria.id}}</td> 
-                        <td><a href="" title="{{auditoria.descriAudit | name}}" style="color: #4cae4c;"> <i  class="btn btn-info btn-outline   btn-xs  fa fa-external-link  "></i></a></td>
-                        <td>{{auditoria.idCert  }}</td>
-                        <td>{{auditoria.idCli  }}</td>                            
+                        <td><a href="#/auditoria/{{auditoria.idaudit}}"><i  class="btn btn-success btn-outline  btn-xs  fa fa-folder-open "></i></a></td> 
+                        <td>{{auditoria.idaudit}}</td> 
+                        <td><a href="" title="{{auditoria.descriaudit | name}}" style="color: #4cae4c;"> <i  class="btn btn-info btn-outline   btn-xs  fa fa-external-link  "></i></a></td>
+                        <td>{{auditoria.certificadora.fantacert  }}</td>
+                        <td>{{auditoria.idcli.fantaCli  }}</td>                            
                     <!--    <td> {{auditoria.descriObjAudit}} </td> -->
-                        <td>{{auditoria.dtHrCadAudit | date:'dd/MM/yyyy HH:mm:ss' }}</td>
+                        <td>{{auditoria.dthrcadaudit | date:'dd/MM/yyyy HH:mm:ss' }}</td>
                         <td>{{auditoria.statusaudit | name}}</td>  
                    <!--      <td><a href="#/editAuditorias/{{auditoria.id}}"><i  class="btn btn-outline btn-warning btn-xs glyphicon glyphicon-edit "></i></a></td>  
                          <td><a href="#/deleteAuditoria/{{auditoria.id}}" ng-click="deleteAuditoria(auditorias)"><i  class="btn btn-outline btn-danger  btn-xs glyphicon glyphicon-remove "></i></a></td>  -->

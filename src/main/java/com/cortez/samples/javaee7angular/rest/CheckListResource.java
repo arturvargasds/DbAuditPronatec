@@ -87,28 +87,28 @@ public class CheckListResource
     @POST
     public CheckList saveCheckList(CheckList checklist)
     {    entityManager.getTransaction().begin();
-        if (checklist.getId() == null)
+        if (checklist.getIdpontoctrl()== null)
           {
               CheckList checklistToSave = new CheckList();            
-              checklistToSave.setId(checklist.getId());                       
-              checklistToSave.setDocProcesso(checklist.getDocProcesso());                         
-              checklistToSave.setDescriChklist(checklist.getDescriChklist());            
-              checklistToSave.setObsChklist(checklist.getObsChklist());            
-              checklistToSave.setDtHrRealiChklist(checklist.getDtHrRealiChklist());                      
-              checklistToSave.setDtAtualiza(checklist.getDtAtualiza());                                  
-              checklistToSave.setStatusChklist(checklist.getStatusChklist());
+              checklistToSave.setIdpontoctrl(checklist.getIdpontoctrl());                       
+              checklistToSave.setDocprocesso(checklist.getDocprocesso());                         
+              checklistToSave.setDescrichklist(checklist.getDescrichklist());            
+              checklistToSave.setObschklist(checklist.getObschklist());            
+              checklistToSave.setDthrrealichklist(checklist.getDthrrealichklist());                      
+              checklistToSave.setDtatualiza(checklist.getDtatualiza());                                  
+              checklistToSave.setStatuschklist(checklist.getStatuschklist());
               entityManager.persist(checklist);
           } 
         else
           {
-              CheckList checklistToUpdate = getCheckList(checklist.getId());
-              checklistToUpdate.setId(checklist.getId());                       
-              checklistToUpdate.setDocProcesso(checklist.getDocProcesso());                         
-              checklistToUpdate.setDescriChklist(checklist.getDescriChklist());            
-              checklistToUpdate.setObsChklist(checklist.getObsChklist());            
-              checklistToUpdate.setDtHrRealiChklist(checklist.getDtHrRealiChklist());                      
-              checklistToUpdate.setDtAtualiza(checklist.getDtAtualiza());            
-              checklistToUpdate.setStatusChklist(checklist.getStatusChklist());                        
+              CheckList checklistToUpdate = getCheckList(checklist.getIdpontoctrl());
+              checklistToUpdate.setIdpontoctrl(checklist.getIdpontoctrl());                       
+              checklistToUpdate.setDocprocesso(checklist.getDocprocesso());                         
+              checklistToUpdate.setDescrichklist(checklist.getDescrichklist());            
+              checklistToUpdate.setObschklist(checklist.getObschklist());            
+              checklistToUpdate.setDthrrealichklist(checklist.getDthrrealichklist());                      
+              checklistToUpdate.setDtatualiza(checklist.getDtatualiza());            
+              checklistToUpdate.setStatuschklist(checklist.getStatuschklist());                        
               checklist = entityManager.merge(checklistToUpdate);
           }
         entityManager.getTransaction().commit();

@@ -3,7 +3,7 @@
    <div class="col-lg-12">
      <div class="panel panel-info">
        <div class="panel-heading">
-           <h4>  Auditoria <b style="color: red;font-size: 23px;">{{auditoria.id}}</b> em Andamento </h4>   
+           <h4>  Auditoria <b style="color: red;font-size: 23px;">{{auditoria.idaudit}}</b> em Andamento </h4>   
        </div>  <br>
        <div class="container-fluid" style="text-align: center;">
             <!--  < style="background-color: #dff0d8;">  -->
@@ -19,7 +19,8 @@
                         </div>
                         
                         <div class="panel-body">
-                           <div class="col-lg-12">  <label>Certificadora</label>    <input class="form-control"    type="number" ng-model="auditoria.idCert  " name="certi" placeholder="Codigo Certificadora"  ng-required="true" /> </div>
+                           <div class="col-lg-3">  <label>Codigo</label>    <input class="form-control"    type="number" ng-model="auditoria.certificadora.idcert  " name="certi" placeholder="Codigo Certificadora"  ng-required="true" /> </div>
+                           <div class="col-lg-9">  <label>Nome Fantasia</label>    <input class="form-control"    type="text" ng-model="auditoria.certificadora.fantacert " name="certi" placeholder="Codigo Certificadora"  ng-required="true" /> </div>
                           
                              <div ng-show="auditoriasForm.certi.$dirty" ng-messages="auditoriasForm.certi.$error">
 		                <div ng-message="required" class="alert alert-danger">
@@ -27,8 +28,8 @@
 		                </div>
 	                     </div>
                              
-                             <div class="col-lg-12">
-                                 <select class="form-control" ng-model="certificadora" ng-options="certificadora.fantaCert + ' ( ' + (certificadora.id) + ' )' for certificadora in certificadoras | orderBy:'id'">
+                             <div name="certi" class="col-lg-12">
+                                 <select class="form-control" ng-model="auditoria.certificadora" ng-options="certificadora.fantacert + ' ( ' + (certificadora.idcert) + ' )' for certificadora in certificadoras  ">
 		        	    <option value="">Lista de Certificadora</option>
 		                 </select>
                              </div>
@@ -49,7 +50,7 @@
                         </div>
                         
                         <div class="panel-body">
-                            <div class="col-lg-12">  <label>Clientes</label>  <input class="form-control"  type="number" ng-model="auditoria.idCli " name="clie" placeholder="Codigo Cliente"  ng-required="true"/> </div>
+                            <div class="col-lg-12">  <label>Clientes</label>  <input class="form-control"  type="number" ng-model="auditoria.idcli.id " name="clie" placeholder="Codigo Cliente"  ng-required="true"/> </div>
                              <div ng-show="auditoriasForm.clie.$dirty" ng-messages="auditoriasForm.clie.$error">
 		                <div ng-message="required" class="alert alert-danger">
 			               Por favor, preencha o campo Codigo da Cliente!
@@ -57,7 +58,7 @@
 	                     </div>
                             
                              <div class="col-lg-12">
-                                 <select class="form-control" ng-model="cliente" ng-options="cliente.fantaCli + ' ( ' + (cliente.id) + ' )' for cliente in clientes | orderBy:'id'">		        	
+                                 <select class="form-control" ng-model="auditoria.idcli.id" ng-options="cliente.fantaCli + ' ( ' + (cliente.id) + ' )' for cliente in clientes | orderBy:'id'">		        	
                                   <option value="">lista de Clientes</option>
                                   </select>
                              </div>   
@@ -79,10 +80,10 @@
                         
                         <div class="panel-body">
                            <div class="panel-collapse">
-                               <input class="form-control" type="hidden" ng-model="auditoria.descriAudit " id="desc" name="descr" placeholder="Descrição Auditoria" 
+                               <input class="form-control" type="hidden" ng-model="auditoria.descriaudit " id="desc" name="descr" placeholder="Descrição Auditoria" 
                                   ng-required="true" ng-minlength="1" ng-maxlength="400"/>
           
-                               <div  class="col-lg-12"> <label>Descrição Auditoria</label>  <textarea class="form-control" pattern="[A-Za-z]++"  type="text" ng-model="auditoria.descriAudit " name="descr"  placeholder="Descrição....." ng-required="true" required="" ng-minlength="10" ng-maxlength="500"></textarea> </div>
+                               <div  class="col-lg-12"> <label>Descrição Auditoria</label>  <textarea class="form-control" pattern="[A-Za-z]++"  type="text" ng-model="auditoria.descriaudit " name="descr"  placeholder="Descrição....." ng-required="true" required="" ng-minlength="10" ng-maxlength="500"></textarea> </div>
         <!--************************************************  Validadção dos campos *****************************************-->
                                <div ng-show="auditoriasForm.descr.$dirty" ng-messages="auditoriasForm.descr.$error">
 		                    <div ng-message="required" class="alert alert-danger">
@@ -131,7 +132,7 @@
                            Data do cadastro
                         </div>
                     <div class="panel-body" style="text-align: center;"> <p>
-                        <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="auditoria.dtHrCadAudit" name="dthrcad" ng-required="true" ng-minlength="19"/></div>
+                        <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="auditoria.dthrcadaudit" name="dthrcad" ng-required="true" ng-minlength="19"/></div>
                           <div ng-show="auditoriasForm.dthrcad.$dirty" ng-messages="auditoriasForm.dthrcad.$error">
 		            <div ng-message="required" class="alert alert-danger">
 			          Por favor, preencha o campo Data / Hora Cadastro da Auditoria!
@@ -155,7 +156,7 @@
                            Data inicial da Auditoria
                         </div>
                     <div class="panel-body" style="text-align: center;"> <p>
-                          <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="auditoria.dtHrIniAudit" name="dthrinic" ng-required="true" ng-minlength="19"/></div>
+                          <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="auditoria.dthriniaudit" name="dthrinic" ng-required="true" ng-minlength="19"/></div>
                           <div ng-show="auditoriasForm.dthrinic.$dirty" ng-messages="auditoriasForm.dthrinic.$error">
 		            <div ng-message="required" class="alert alert-danger">
 			          Por favor, preencha o campo Data / Hora Cadastro da Auditoria!
@@ -175,7 +176,7 @@
                            Data da realização 
                         </div>
                     <div class="panel-body" style="text-align: center;"> <p>
-                          <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="auditoria.dtHrRealiaudit" name="dthrrealiz" ng-required="true" ng-minlength="19"/></div>
+                          <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="auditoria.dthrrealiaudit" name="dthrrealiz" ng-required="true" ng-minlength="19"/></div>
                           <div ng-show="auditoriasForm.dthrrealiz.$dirty" ng-messages="auditoriasForm.dthrrealiz.$error">
 		            <div ng-message="required" class="alert alert-danger">
 			          Por favor, preencha o campo Data / Hora Cadastro da Auditoria!
@@ -310,7 +311,7 @@
             <hr>
               <!--botoes--> 
            <div>
-              <a class="btn btn-outline  btn-lg  btn-primary glyphicon glyphicon-floppy-save"    ng-click="(auditoria.obsaudit ='A');adicionarAuditoria(auditoria)" ng-disabled="auditoriasForm.$invalid" > SALVAR</a>
+              <a class="btn btn-outline  btn-lg  btn-primary glyphicon glyphicon-floppy-save"    ng-click="(auditoria.statusaudit ='A');adicionarAuditoria(auditoria)" ng-disabled="auditoriasForm.$invalid" > SALVAR</a>
               <a href="#/auditorias"  class="btn btn-lg btn-outline btn-danger glyphicon glyphicon-remove"> CANCELAR</a>   
          </div> 
         </div> <br>

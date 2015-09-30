@@ -70,7 +70,7 @@ public class Ceps implements Serializable {
     private Bairros idbai;
     @JoinColumn(name = "idcid", referencedColumnName = "idcid")
     @ManyToOne
-    private Cidades idcid;
+    private Cidades cidades;
     @OneToMany(mappedBy = "idcep")
     private Collection<Clientes> clientesCollection;
 
@@ -86,7 +86,7 @@ public class Ceps implements Serializable {
         this.certificadorasCollection = certificadorasCollection;
         this.auditoresCollection = auditoresCollection;
         this.idbai = idbai;
-        this.idcid = idcid;
+        this.cidades = idcid;
         this.clientesCollection = clientesCollection;
     }
     
@@ -166,12 +166,12 @@ public class Ceps implements Serializable {
         this.idbai = idbai;
     }
 
-    public Cidades getIdcid() {
-        return idcid;
+    public Cidades getCidades() {
+        return cidades;
     }
 
-    public void setIdcid(Cidades idcid) {
-        this.idcid = idcid;
+    public void setCidades(Cidades cidades) {
+        this.cidades = cidades;
     }
 
     @XmlTransient

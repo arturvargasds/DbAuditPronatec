@@ -22,10 +22,10 @@
                 <tbody>
                   <tr class="odd gradeX" ng-class="{'selecionado negrito': cidade.selecionado}" ng-repeat="cidade in cidades | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                   <td><input type="checkbox" ng-model="cidade.selecionado"/></td> 
-                  <td><a href="#/editarCidade/{{cidade.id}}">{{cidade.nomeCid | name}}</a></td>
-                  <td>{{cidade.siglaUf}}</td>
-                  <td>{{cidade.statusCid}}</td>
-                  <td><a href="#/deleteCidade/{{cidade.id}}"><i>Deletar</i></a></td>
+                  <td><a href="#/editarCidade/{{cidade.idcid}}">{{cidade.descricid | name}}</a></td>
+                  <td>{{cidade.ufcid}}</td>
+                  <td>{{cidade.statuscid}}</td>
+                  <td><a href="#/deleteCidade/{{cidade.idcid}}"><i>Deletar</i></a></td>
                   </tr>
                 </tbody>
               </table>

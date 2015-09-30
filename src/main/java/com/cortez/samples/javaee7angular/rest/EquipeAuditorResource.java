@@ -84,23 +84,23 @@ public class EquipeAuditorResource
     @POST
     public EquipeAuditores saveEquipeAuditores(EquipeAuditores equipeAuditores) {
            entityManager.getTransaction().begin();
-        if (equipeAuditores.getId() == null) {
+        if (equipeAuditores.getIdequipe()== null) {
             EquipeAuditores equipeAuditoresToSave = new EquipeAuditores();            
-            equipeAuditoresToSave.setIdAuditor(equipeAuditores.getIdAuditor());
-             equipeAuditoresToSave.setIdAuditor2(equipeAuditores.getIdAuditor2());
-            equipeAuditoresToSave.setIDAUDIT(equipeAuditores.getIDAUDIT());
-            equipeAuditoresToSave.setTipoAuditor(equipeAuditores.getTipoAuditor());
-            equipeAuditoresToSave.setDtHrIncEquipe(equipeAuditores.getDtHrIncEquipe());
-            equipeAuditoresToSave.setStatusEquipe(equipeAuditores.getStatusEquipe());
+            equipeAuditoresToSave.setIdauditor(equipeAuditores.getIdauditor());
+             equipeAuditoresToSave.setIdauditor2(equipeAuditores.getIdauditor2());
+            equipeAuditoresToSave.setIdaudit(equipeAuditores.getIdaudit());
+            equipeAuditoresToSave.setTipoauditor(equipeAuditores.getTipoauditor());
+            equipeAuditoresToSave.setDthrincequipe(equipeAuditores.getDthrincequipe());
+            equipeAuditoresToSave.setStatusequipe(equipeAuditores.getStatusequipe());
             entityManager.persist(equipeAuditores);
         } else {
-            EquipeAuditores equipeAuditoresToUpdate = getEquipeAuditores(equipeAuditores.getId());
-            equipeAuditoresToUpdate.setIdAuditor(equipeAuditores.getIdAuditor());
-            equipeAuditoresToUpdate.setIdAuditor2(equipeAuditores.getIdAuditor2());
-            equipeAuditoresToUpdate.setIDAUDIT(equipeAuditores.getIDAUDIT());
-            equipeAuditoresToUpdate.setTipoAuditor(equipeAuditores.getTipoAuditor());
-            equipeAuditoresToUpdate.setDtHrIncEquipe(equipeAuditores.getDtHrIncEquipe());
-            equipeAuditoresToUpdate.setStatusEquipe(equipeAuditores.getStatusEquipe());
+            EquipeAuditores equipeAuditoresToUpdate = getEquipeAuditores(equipeAuditores.getIdequipe());
+            equipeAuditoresToUpdate.setIdauditor(equipeAuditores.getIdauditor());
+            equipeAuditoresToUpdate.setIdauditor2(equipeAuditores.getIdauditor2());
+            equipeAuditoresToUpdate.setIdaudit(equipeAuditores.getIdaudit());
+            equipeAuditoresToUpdate.setTipoauditor(equipeAuditores.getTipoauditor());
+            equipeAuditoresToUpdate.setDthrincequipe(equipeAuditores.getDthrincequipe());
+            equipeAuditoresToUpdate.setStatusequipe(equipeAuditores.getStatusequipe());
             equipeAuditores = entityManager.merge(equipeAuditoresToUpdate);
         }
         entityManager.getTransaction().commit();

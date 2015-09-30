@@ -75,29 +75,29 @@ public class OcorrenciaResource
     @POST
     public Ocorrencias saveOcorrencia(Ocorrencias ocorrencia) {
          entityManager.getTransaction().begin();
-        if (ocorrencia.getId() == null) {
+        if (ocorrencia.getIdocorre()== null) {
             Ocorrencias ocorrenciaToSave = new Ocorrencias();
-            ocorrenciaToSave.setId(ocorrencia.getId());
-            ocorrenciaToSave.setDtAtualiza(ocorrencia.getDtAtualiza());
-            ocorrenciaToSave.setDtHrOcorre(ocorrencia.getDtHrOcorre());
-            ocorrenciaToSave.setIdCola(ocorrencia.getIdCola());
-            ocorrenciaToSave.setIdPontoCtrl(ocorrencia.getIdPontoCtrl());
-            ocorrenciaToSave.setDescriOcorre(ocorrencia.getDescriOcorre());
-            ocorrenciaToSave.setSugesOcorre(ocorrencia.getSugesOcorre());
-            ocorrenciaToSave.setObsOcorre(ocorrencia.getObsOcorre());
-            ocorrenciaToSave.setStatusOcorre(ocorrencia.getStatusOcorre());
+            ocorrenciaToSave.setIdocorre(ocorrencia.getIdocorre());
+            ocorrenciaToSave.setDtatualiza(ocorrencia.getDtatualiza());
+            ocorrenciaToSave.setDthrocorre(ocorrencia.getDthrocorre());
+            ocorrenciaToSave.setIdcola(ocorrencia.getIdcola());
+            ocorrenciaToSave.setIdpontoctrl(ocorrencia.getIdpontoctrl());
+            ocorrenciaToSave.setDescriocorre(ocorrencia.getDescriocorre());
+            ocorrenciaToSave.setSugesocorre(ocorrencia.getSugesocorre());
+            ocorrenciaToSave.setObsocorre(ocorrencia.getObsocorre());
+            ocorrenciaToSave.setStatusocorre(ocorrencia.getStatusocorre());
             entityManager.persist(ocorrencia);
         } else {
-            Ocorrencias ocorrenciaToUpdate = getOcorrencias(ocorrencia.getId());
-            ocorrenciaToUpdate.setId(ocorrencia.getId());
-            ocorrenciaToUpdate.setDtAtualiza(ocorrencia.getDtAtualiza());
-            ocorrenciaToUpdate.setDtHrOcorre(ocorrencia.getDtHrOcorre());
-            ocorrenciaToUpdate.setIdCola(ocorrencia.getIdCola());
-            ocorrenciaToUpdate.setIdPontoCtrl(ocorrencia.getIdPontoCtrl());
-            ocorrenciaToUpdate.setDescriOcorre(ocorrencia.getDescriOcorre());
-            ocorrenciaToUpdate.setSugesOcorre(ocorrencia.getSugesOcorre());
-            ocorrenciaToUpdate.setObsOcorre(ocorrencia.getObsOcorre());
-            ocorrenciaToUpdate.setStatusOcorre(ocorrencia.getStatusOcorre());
+            Ocorrencias ocorrenciaToUpdate = getOcorrencias(ocorrencia.getIdocorre());
+            ocorrenciaToUpdate.setIdocorre(ocorrencia.getIdocorre());
+            ocorrenciaToUpdate.setDtatualiza(ocorrencia.getDtatualiza());
+            ocorrenciaToUpdate.setDthrocorre(ocorrencia.getDthrocorre());
+            ocorrenciaToUpdate.setIdcola(ocorrencia.getIdcola());
+            ocorrenciaToUpdate.setIdpontoctrl(ocorrencia.getIdpontoctrl());
+            ocorrenciaToUpdate.setDescriocorre(ocorrencia.getDescriocorre());
+            ocorrenciaToUpdate.setSugesocorre(ocorrencia.getSugesocorre());
+            ocorrenciaToUpdate.setObsocorre(ocorrencia.getObsocorre());
+            ocorrenciaToUpdate.setStatusocorre(ocorrencia.getStatusocorre());
             ocorrencia = entityManager.merge(ocorrenciaToUpdate);
         }
         entityManager.getTransaction().commit();

@@ -81,7 +81,7 @@ public class CepResource {
         if (cep.getIdcep()== null) {
             Ceps cepToSave = new Ceps();
             cepToSave.setCep(cep.getCep());
-            cepToSave.setIdcid(cep.getIdcid());
+            cepToSave.setCidades(cep.getCidades());
             cepToSave.setIdbai(cep.getIdbai());
             cepToSave.setLogracep(cep.getLogracep());
             cepToSave.setObscep(cep.getObscep());
@@ -90,7 +90,7 @@ public class CepResource {
         } else {
             Ceps cepToUpdate = getCeps(cep.getIdcep());
             cepToUpdate.setCep(cep.getCep());
-            cepToUpdate.setIdcid(cep.getIdcid());
+            cepToUpdate.setCidades(cep.getCidades());
             cepToUpdate.setIdbai(cep.getIdbai());
             cepToUpdate.setLogracep(cep.getLogracep());
             cepToUpdate.setObscep(cep.getObscep());

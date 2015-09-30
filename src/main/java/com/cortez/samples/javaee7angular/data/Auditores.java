@@ -1,169 +1,245 @@
 
 package com.cortez.samples.javaee7angular.data;
+ 
+
 import java.io.Serializable;
+import java.util.Collection;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-//créuuuuu
+import javax.xml.bind.annotation.XmlTransient;
 
+/**
+ *
+ * @author pedrinho
+ */
 @Entity
+@Table(name = "auditores")
 @XmlRootElement
-public class Auditores implements Serializable 
-{
+@NamedQueries({
+    @NamedQuery(name = "Auditores.findAll", query = "SELECT a FROM Auditores a"),
+    @NamedQuery(name = "Auditores.findByIdauditor", query = "SELECT a FROM Auditores a WHERE a.idauditor = :idauditor"),
+    @NamedQuery(name = "Auditores.findByNomeaudit", query = "SELECT a FROM Auditores a WHERE a.nomeaudit = :nomeaudit"),
+    @NamedQuery(name = "Auditores.findByCpfaudit", query = "SELECT a FROM Auditores a WHERE a.cpfaudit = :cpfaudit"),
+    @NamedQuery(name = "Auditores.findByFone1audit", query = "SELECT a FROM Auditores a WHERE a.fone1audit = :fone1audit"),
+    @NamedQuery(name = "Auditores.findByFone2audit", query = "SELECT a FROM Auditores a WHERE a.fone2audit = :fone2audit"),
+    @NamedQuery(name = "Auditores.findByEmailaudit", query = "SELECT a FROM Auditores a WHERE a.emailaudit = :emailaudit"),
+    @NamedQuery(name = "Auditores.findByCompleendaudit", query = "SELECT a FROM Auditores a WHERE a.compleendaudit = :compleendaudit"),
+    @NamedQuery(name = "Auditores.findByTipoaudit", query = "SELECT a FROM Auditores a WHERE a.tipoaudit = :tipoaudit"),
+    @NamedQuery(name = "Auditores.findByObsaudit", query = "SELECT a FROM Auditores a WHERE a.obsaudit = :obsaudit"),
+    @NamedQuery(name = "Auditores.findByUsuaudit", query = "SELECT a FROM Auditores a WHERE a.usuaudit = :usuaudit"),
+    @NamedQuery(name = "Auditores.findBySenhaudit", query = "SELECT a FROM Auditores a WHERE a.senhaudit = :senhaudit"),
+    @NamedQuery(name = "Auditores.findByStatusauditores", query = "SELECT a FROM Auditores a WHERE a.statusauditores = :statusauditores")})
+public class Auditores implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDAUDITOR")
-    @SequenceGenerator(name = "IDAUDITOR", sequenceName = "seq_auditores", allocationSize = 1)
-    @Column(name = "IDAUDITOR")
-    private Long id;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "idauditor")
+    private Long idauditor;
+    @Size(max = 254)
+    @Column(name = "nomeaudit")
+    private String nomeaudit;
+    @Size(max = 11)
+    @Column(name = "cpfaudit")
+    private String cpfaudit;
+    @Size(max = 12)
+    @Column(name = "fone1audit")
+    private String fone1audit;
+    @Size(max = 12)
+    @Column(name = "fone2audit")
+    private String fone2audit;
+    @Size(max = 254)
+    @Column(name = "emailaudit")
+    private String emailaudit;
+    @Size(max = 60)
+    @Column(name = "compleendaudit")
+    private String compleendaudit;
+    @Size(max = 1)
+    @Column(name = "tipoaudit")
+    private String tipoaudit;
+    @Size(max = 100)
+    @Column(name = "obsaudit")
+    private String obsaudit;
+    @Size(max = 10)
+    @Column(name = "usuaudit")
+    private String usuaudit;
+    @Size(max = 8)
+    @Column(name = "senhaudit")
+    private String senhaudit;
+    @Size(max = 1)
+    @Column(name = "statusauditores")
+    private String statusauditores;
+    @OneToMany(mappedBy = "idauditor")
+   private Collection<EquipeAuditores> equipeauditoresCollection;
+    @OneToMany(mappedBy = "idauditor2")
+    private Collection<EquipeAuditores> equipeauditoresCollection1; 
+    @JoinColumn(name = "idcep", referencedColumnName = "idcep")
+    @ManyToOne
+    private Ceps idcep;
 
- 
-    @Column(name = "IDCEP")
-    private int idcep;    
-    
-    @Column(name = "NOMEAUDIT", length = 60)
-    private String nomeAudit;
-    
-    
-    @Column(name = "CPFAUDIT", length = 8)
-    private String cpfAudit;
-    
-    @Column(name = "FONE1AUDIT", length = 12)
-    private String fone1Audit;
-        
-    @Column(name = "FONE2AUDIT", length = 12)
-    private String fone2Audit;
-    
-    @Column(name = "EMAILAUDIT", length = 100)
-    private String emailAudit;
-    
-    @Column(name = "COMPLEENDAUDIT", length = 60)
-    private String compleEndAudit;
-    
-    @Column(name = "TIPOAUDIT", length = 1)
-    private String tipoAudit;    
-    
-        
-    @Column(name = "OBSAUDIT", length = 100)
-    private String obsAudit; 
-    
-    @Column(name = "STATUSAUDITORES", length = 1)
-    private String statusAuditores; 
-    
-    @Column(name = "SENHAUDIT", length = 8)
-    private String senhAudit;    
-    
-    @Column(name = "USUAUDIT", length = 10)
-    private String usuAudit;
-
-    public String getTipoAudit() {
-        return tipoAudit;
+    public Auditores() {
     }
 
-    public void setTipoAudit(final String tipoAudit) {
-        this.tipoAudit = tipoAudit;
-    }
-    
-    public Long getId() {
-        return id;
+    public Auditores(Long idauditor) {
+        this.idauditor = idauditor;
     }
 
-    public void setId(final Long id) {
-        this.id = id;
+    public Long getIdauditor() {
+        return idauditor;
     }
-    
-        public int getIdcep() {
+
+    public void setIdauditor(Long idauditor) {
+        this.idauditor = idauditor;
+    }
+
+    public String getNomeaudit() {
+        return nomeaudit;
+    }
+
+    public void setNomeaudit(String nomeaudit) {
+        this.nomeaudit = nomeaudit;
+    }
+
+    public String getCpfaudit() {
+        return cpfaudit;
+    }
+
+    public void setCpfaudit(String cpfaudit) {
+        this.cpfaudit = cpfaudit;
+    }
+
+    public String getFone1audit() {
+        return fone1audit;
+    }
+
+    public void setFone1audit(String fone1audit) {
+        this.fone1audit = fone1audit;
+    }
+
+    public String getFone2audit() {
+        return fone2audit;
+    }
+
+    public void setFone2audit(String fone2audit) {
+        this.fone2audit = fone2audit;
+    }
+
+    public String getEmailaudit() {
+        return emailaudit;
+    }
+
+    public void setEmailaudit(String emailaudit) {
+        this.emailaudit = emailaudit;
+    }
+
+    public String getCompleendaudit() {
+        return compleendaudit;
+    }
+
+    public void setCompleendaudit(String compleendaudit) {
+        this.compleendaudit = compleendaudit;
+    }
+
+    public String getTipoaudit() {
+        return tipoaudit;
+    }
+
+    public void setTipoaudit(String tipoaudit) {
+        this.tipoaudit = tipoaudit;
+    }
+
+    public String getObsaudit() {
+        return obsaudit;
+    }
+
+    public void setObsaudit(String obsaudit) {
+        this.obsaudit = obsaudit;
+    }
+
+    public String getUsuaudit() {
+        return usuaudit;
+    }
+
+    public void setUsuaudit(String usuaudit) {
+        this.usuaudit = usuaudit;
+    }
+
+    public String getSenhaudit() {
+        return senhaudit;
+    }
+
+    public void setSenhaudit(String senhaudit) {
+        this.senhaudit = senhaudit;
+    }
+
+    public String getStatusauditores() {
+        return statusauditores;
+    }
+
+    public void setStatusauditores(String statusauditores) {
+        this.statusauditores = statusauditores;
+    }
+
+    @XmlTransient
+    public Collection<EquipeAuditores> getEquipeauditoresCollection() {
+        return equipeauditoresCollection;
+    }
+
+    public void setEquipeauditoresCollection(Collection<EquipeAuditores> equipeauditoresCollection) {
+        this.equipeauditoresCollection = equipeauditoresCollection;
+    }
+
+    @XmlTransient
+    public Collection<EquipeAuditores> getEquipeauditoresCollection1() {
+        return equipeauditoresCollection1;
+    }
+
+    public void setEquipeauditoresCollection1(Collection<EquipeAuditores> equipeauditoresCollection1) {
+        this.equipeauditoresCollection1 = equipeauditoresCollection1;
+    }   
+
+    public Ceps getIdcep() {
         return idcep;
     }
 
-    public void setIdcep(final int idcep) {
+    public void setIdcep(Ceps idcep) {
         this.idcep = idcep;
     }
-    
 
-    public String getNomeAudit() {
-        return nomeAudit;
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (idauditor != null ? idauditor.hashCode() : 0);
+        return hash;
     }
 
-    public void setNomeAudit(final String nomeAudit) {
-        this.nomeAudit = nomeAudit;
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Auditores)) {
+            return false;
+        }
+        Auditores other = (Auditores) object;
+        if ((this.idauditor == null && other.idauditor != null) || (this.idauditor != null && !this.idauditor.equals(other.idauditor))) {
+            return false;
+        }
+        return true;
     }
 
-    public String getCpfAudit() {
-        return cpfAudit;
+    @Override
+    public String toString() {
+        return "teste.Auditores[ idauditor=" + idauditor + " ]";
     }
-
-    public void setCpfAudit(final String cpfAudit) {
-        this.cpfAudit = cpfAudit;
-    }
-
-    public String getFone1Audit() {
-        return fone1Audit;
-    }
-
-    public void setFone1Audit(final String fone1Audit) {
-        this.fone1Audit = fone1Audit;
-    }
-
-    public String getFone2Audit() {
-        return fone2Audit;
-    }
-
-    public void setFone2Audit(final String fone2Audit) {
-        this.fone2Audit = fone2Audit;
-    }
-
-    public String getEmailAudit() {
-        return emailAudit;
-    }
-
-    public void setEmailAudit(final String emailAudit) {
-        this.emailAudit = emailAudit;
-    }
-
-    public String getCompleEndAudit() {
-        return compleEndAudit;
-    }
-
-    public void setCompleEndAudit(final String compleEndAudit) {
-        this.compleEndAudit = compleEndAudit;
-    }
-
-    public String getObsAudit() {
-        return obsAudit;
-    }
-
-    public void setObsAudit(final String obsAudit) {
-        this.obsAudit = obsAudit;
-    }  
-
-    public String getStatusAuditores() {
-        return statusAuditores;
-    }
-
-    public void setStatusAuditores(final String statusAuditores) {
-        this.statusAuditores = statusAuditores;
-    }
-
-    public String getSenhAudit() {
-        return senhAudit;
-    }
-
-    public void setSenhAudit(final String senhAudit) {
-        this.senhAudit = senhAudit;
-    }
-
-    public String getUsuAudit() {
-        return usuAudit;
-    }
-
-    public void setUsuAudit(final String usuAudit) {
-        this.usuAudit = usuAudit;
-    }
-      
-    
     
 }

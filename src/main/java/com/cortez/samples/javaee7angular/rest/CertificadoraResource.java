@@ -75,38 +75,38 @@ public class CertificadoraResource
     @POST
     public Certificadoras saveCertificadoras(Certificadoras certificadora) {
         entityManager.getTransaction().begin();
-        if (certificadora.getId() == null) {
+        if (certificadora.getIdcert()== null) {
             Certificadoras certificadoraToSave = new Certificadoras();            
-            certificadoraToSave.setId(certificadora.getId());
-            certificadoraToSave.setIdCep(certificadora.getIdCep());
-            certificadoraToSave.setFantaCert(certificadora.getFantaCert());
-            certificadoraToSave.setCompleEndCert(certificadora.getCompleEndCert());
-            certificadoraToSave.setFone1Cert(certificadora.getFone1Cert());
-            certificadoraToSave.setFone2Cert(certificadora.getFone2Cert());
-            certificadoraToSave.setEmailCert(certificadora.getEmailCert());
-            certificadoraToSave.setSiteCert(certificadora.getSiteCert());
-            certificadoraToSave.setContatoCert(certificadora.getContatoCert());
-            certificadoraToSave.setRazaoCert(certificadora.getRazaoCert());
-            certificadoraToSave.setCnpjCert(certificadora.getCnpjCert());
-            certificadoraToSave.setInscriCert(certificadora.getInscriCert());
-            certificadoraToSave.setObsCert(certificadora.getObsCert());
-            certificadoraToSave.setStatusCert(certificadora.getStatusCert());
+            certificadoraToSave.setIdcert(certificadora.getIdcert());
+            certificadoraToSave.setIdcep(certificadora.getIdcep());
+            certificadoraToSave.setFantacert(certificadora.getFantacert());
+            certificadoraToSave.setCompleendcert(certificadora.getCompleendcert());
+            certificadoraToSave.setFone1cert(certificadora.getFone1cert());
+            certificadoraToSave.setFone2cert(certificadora.getFone2cert());
+            certificadoraToSave.setEmailcert(certificadora.getEmailcert());
+            certificadoraToSave.setSitecert(certificadora.getSitecert());
+            certificadoraToSave.setContatocert(certificadora.getContatocert());
+            certificadoraToSave.setRazaocert(certificadora.getRazaocert());
+            certificadoraToSave.setCnpjcert(certificadora.getCnpjcert());
+            certificadoraToSave.setInscricert(certificadora.getInscricert());
+            certificadoraToSave.setObscert(certificadora.getObscert());
+            certificadoraToSave.setStatuscert(certificadora.getStatuscert());
             entityManager.persist(certificadora);
         } else {
-            Certificadoras certificadoraToUpdate = getCertificadoras(certificadora.getId());
-            certificadoraToUpdate.setIdCep(certificadora.getIdCep());
-            certificadoraToUpdate.setFantaCert(certificadora.getFantaCert());
-            certificadoraToUpdate.setCompleEndCert(certificadora.getCompleEndCert());
-            certificadoraToUpdate.setFone1Cert(certificadora.getFone1Cert());
-            certificadoraToUpdate.setFone2Cert(certificadora.getFone2Cert());
-            certificadoraToUpdate.setEmailCert(certificadora.getEmailCert());
-            certificadoraToUpdate.setSiteCert(certificadora.getSiteCert());
-            certificadoraToUpdate.setContatoCert(certificadora.getContatoCert());
-            certificadoraToUpdate.setRazaoCert(certificadora.getRazaoCert());
-            certificadoraToUpdate.setCnpjCert(certificadora.getCnpjCert());
-            certificadoraToUpdate.setInscriCert(certificadora.getInscriCert());
-            certificadoraToUpdate.setObsCert(certificadora.getObsCert());
-            certificadoraToUpdate.setStatusCert(certificadora.getStatusCert());
+            Certificadoras certificadoraToUpdate = getCertificadoras(certificadora.getIdcert());
+            certificadoraToUpdate.setIdcep(certificadora.getIdcep());
+            certificadoraToUpdate.setFantacert(certificadora.getFantacert());
+            certificadoraToUpdate.setCompleendcert(certificadora.getCompleendcert());
+            certificadoraToUpdate.setFone1cert(certificadora.getFone1cert());
+            certificadoraToUpdate.setFone2cert(certificadora.getFone2cert());
+            certificadoraToUpdate.setEmailcert(certificadora.getEmailcert());
+            certificadoraToUpdate.setSitecert(certificadora.getSitecert());
+            certificadoraToUpdate.setContatocert(certificadora.getContatocert());
+            certificadoraToUpdate.setRazaocert(certificadora.getRazaocert());
+            certificadoraToUpdate.setCnpjcert(certificadora.getCnpjcert());
+            certificadoraToUpdate.setInscricert(certificadora.getInscricert());
+            certificadoraToUpdate.setObscert(certificadora.getObscert());
+            certificadoraToUpdate.setStatuscert(certificadora.getStatuscert());
             certificadora = entityManager.merge(certificadoraToUpdate);
         }
          entityManager.getTransaction().commit();

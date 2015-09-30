@@ -109,35 +109,35 @@ public class AuditoriaResource
     public Auditorias saveAuditoria(Auditorias auditoria)
     {
          entityManager.getTransaction().begin();
-        if (auditoria.getId() == null)
+        if (auditoria.getIdaudit()== null)
           {             
               Auditorias auditoriaToSave = new Auditorias();            
-              auditoriaToSave.setId(auditoria.getId());                       
-              auditoriaToSave.setDescriAudit(auditoria.getDescriAudit());                         
-              auditoriaToSave.setDescriObjAudit(auditoria.getDescriObjAudit());            
-              auditoriaToSave.setDtHrCadAudit(auditoria.getDtHrCadAudit());            
-              auditoriaToSave.setDtHrIniAudit(auditoria.getDtHrIniAudit());            
-              auditoriaToSave.setDtHrRealiaudit(auditoria.getDtHrRealiaudit());            
-              auditoriaToSave.setDtAtualiza(auditoria.getDtAtualiza());            
+              auditoriaToSave.setIdaudit(auditoria.getIdaudit());                       
+              auditoriaToSave.setDescriaudit(auditoria.getDescriaudit());                         
+              auditoriaToSave.setDescriobjaudit(auditoria.getDescriobjaudit());            
+              auditoriaToSave.setDthrcadaudit(auditoria.getDthrcadaudit());            
+              auditoriaToSave.setDthriniaudit(auditoria.getDthriniaudit());            
+              auditoriaToSave.setDthrrealiaudit(auditoria.getDthrrealiaudit());            
+              auditoriaToSave.setDtatualiza(auditoria.getDtatualiza());            
               auditoriaToSave.setObsaudit(auditoria.getObsaudit());                        
-              auditoriaToSave.setIdCert(auditoria.getIdCert());
-              auditoriaToSave.setIdCli(auditoria.getIdCli());
+              auditoriaToSave.setCertificadora(auditoria.getCertificadora());
+              auditoriaToSave.setIdcli(auditoria.getIdcli());
               auditoriaToSave.setStatusaudit(auditoria.getStatusaudit());
               entityManager.persist(auditoria);
           } 
         else  
           {
-              Auditorias auditoriaToUpdate = getAuditorias(auditoria.getId());
-              auditoriaToUpdate.setId(auditoria.getId());                       
-              auditoriaToUpdate.setDescriAudit(auditoria.getDescriAudit());                         
-              auditoriaToUpdate.setDescriObjAudit(auditoria.getDescriObjAudit());            
-              auditoriaToUpdate.setDtHrCadAudit(auditoria.getDtHrCadAudit());            
-              auditoriaToUpdate.setDtHrIniAudit(auditoria.getDtHrIniAudit());            
-              auditoriaToUpdate.setDtHrRealiaudit(auditoria.getDtHrRealiaudit());            
-              auditoriaToUpdate.setDtAtualiza(auditoria.getDtAtualiza());            
+              Auditorias auditoriaToUpdate = getAuditorias(auditoria.getIdaudit());
+              auditoriaToUpdate.setIdaudit(auditoria.getIdaudit());                       
+              auditoriaToUpdate.setDescriaudit(auditoria.getDescriaudit());                         
+              auditoriaToUpdate.setDescriobjaudit(auditoria.getDescriobjaudit());            
+              auditoriaToUpdate.setDthrcadaudit(auditoria.getDthrcadaudit());            
+              auditoriaToUpdate.setDthriniaudit(auditoria.getDthriniaudit());            
+              auditoriaToUpdate.setDthrrealiaudit(auditoria.getDthrrealiaudit());            
+              auditoriaToUpdate.setDtatualiza(auditoria.getDtatualiza());            
               auditoriaToUpdate.setObsaudit(auditoria.getObsaudit());                        
-              auditoriaToUpdate.setIdCert(auditoria.getIdCert());
-              auditoriaToUpdate.setIdCli(auditoria.getIdCli());
+              auditoriaToUpdate.setCertificadora(auditoria.getCertificadora());
+              auditoriaToUpdate.setIdcli(auditoria.getIdcli());
               auditoriaToUpdate.setStatusaudit(auditoria.getStatusaudit());                        
               auditoria = entityManager.merge(auditoriaToUpdate);
           }

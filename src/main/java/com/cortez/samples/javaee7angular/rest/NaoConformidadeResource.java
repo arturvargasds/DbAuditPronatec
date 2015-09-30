@@ -84,29 +84,29 @@ public class NaoConformidadeResource
     @POST
     public NaoConformidades saveNaoConformidades(NaoConformidades naoConformidades) {
          entityManager.getTransaction().begin();
-        if (naoConformidades.getId() == null) {
+        if (naoConformidades.getIdnc()== null) {
             NaoConformidades naoConformidadesToSave = new NaoConformidades();            
-            naoConformidadesToSave.setIdCola(naoConformidades.getIdCola());
-            naoConformidadesToSave.setIdPontoCtrl(naoConformidades.getIdPontoCtrl());
-            naoConformidadesToSave.setDtHrCadNc(naoConformidades.getDtHrCadNc());
-            naoConformidadesToSave.setDtPrevResolNc(naoConformidades.getDtPrevResolNc());
-            naoConformidadesToSave.setDtAtualiza(naoConformidades.getDtAtualiza());
-            naoConformidadesToSave.setDescriNc(naoConformidades.getDescriNc());
-            naoConformidadesToSave.setSugestaoNc(naoConformidades.getSugestaoNc());
-            naoConformidadesToSave.setObsNc(naoConformidades.getObsNc());
-            naoConformidadesToSave.setStatusNc(naoConformidades.getStatusNc());
+            naoConformidadesToSave.setIdcola(naoConformidades.getIdcola());
+            naoConformidadesToSave.setIdpontoctrl(naoConformidades.getIdpontoctrl());
+            naoConformidadesToSave.setDthrcadnc(naoConformidades.getDthrcadnc());
+            naoConformidadesToSave.setDtprevresolnc(naoConformidades.getDtprevresolnc());
+            naoConformidadesToSave.setDtatualiza(naoConformidades.getDtatualiza());
+            naoConformidadesToSave.setDescrinc(naoConformidades.getDescrinc());
+            naoConformidadesToSave.setSugestaonc(naoConformidades.getSugestaonc());
+            naoConformidadesToSave.setObsnc(naoConformidades.getObsnc());
+            naoConformidadesToSave.setStatusnc(naoConformidades.getStatusnc());
             entityManager.persist(naoConformidades);
         } else {
-            NaoConformidades naoConformidadesToUpdate = getNaoConformidades(naoConformidades.getId());
-            naoConformidadesToUpdate.setIdCola(naoConformidades.getIdCola());
-            naoConformidadesToUpdate.setIdPontoCtrl(naoConformidades.getIdPontoCtrl());
-            naoConformidadesToUpdate.setDtHrCadNc(naoConformidades.getDtHrCadNc());
-            naoConformidadesToUpdate.setDtPrevResolNc(naoConformidades.getDtPrevResolNc());
-            naoConformidadesToUpdate.setDtAtualiza(naoConformidades.getDtAtualiza());
-            naoConformidadesToUpdate.setDescriNc(naoConformidades.getDescriNc());
-            naoConformidadesToUpdate.setSugestaoNc(naoConformidades.getSugestaoNc());
-            naoConformidadesToUpdate.setObsNc(naoConformidades.getObsNc());
-            naoConformidadesToUpdate.setStatusNc(naoConformidades.getStatusNc());
+            NaoConformidades naoConformidadesToUpdate = getNaoConformidades(naoConformidades.getIdnc());
+            naoConformidadesToUpdate.setIdcola(naoConformidades.getIdcola());
+            naoConformidadesToUpdate.setIdpontoctrl(naoConformidades.getIdpontoctrl());
+            naoConformidadesToUpdate.setDthrcadnc(naoConformidades.getDthrcadnc());
+            naoConformidadesToUpdate.setDtprevresolnc(naoConformidades.getDtprevresolnc());
+            naoConformidadesToUpdate.setDtatualiza(naoConformidades.getDtatualiza());
+            naoConformidadesToUpdate.setDescrinc(naoConformidades.getDescrinc());
+            naoConformidadesToUpdate.setSugestaonc(naoConformidades.getSugestaonc());
+            naoConformidadesToUpdate.setObsnc(naoConformidades.getObsnc());
+            naoConformidadesToUpdate.setStatusnc(naoConformidades.getStatusnc());
             naoConformidades = entityManager.merge(naoConformidadesToUpdate);
         }
          entityManager.getTransaction().commit();

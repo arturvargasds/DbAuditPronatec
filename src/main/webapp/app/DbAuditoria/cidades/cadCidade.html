@@ -10,16 +10,16 @@
 
           <!--formulario-->
           <form name="cidForm">
-            <input class="form-control" type="text" ng-model="cidade.nomeCid" name="nome" placeholder="Nome" 
+            <input class="form-control" type="text" ng-model="cidade.descricid" name="nome" placeholder="Nome" 
             ng-required="true" ng-minlength="3"/>
 
-            <input class="form-control" type="text" disabled="" ng-model="cidade.siglaUf" name="sigla" 
+            <input class="form-control" type="text" disabled="" ng-model="cidade.ufcid" name="sigla" 
             placeholder="UF" ng-required="true" />
 
-            <input class="form-control" type="text" ng-model="cidade.statusCid" name="status" placeholder="Status" 
+            <input class="form-control" type="text" ng-model="cidade.statuscid" name="status" placeholder="Status" 
             ng-required="true" ng-minlength="1" ng-maxlength="1"/>
 
-            <select name="sigla"  class="form-control" ng-model="cidade.siglaUf ">
+            <select name="sigla"  class="form-control" ng-model="cidade.ufcid ">
               <option value="">Selecione um estado</option>
               <option value="SC">Santa Catarina</option>
               <option value="PR">Paraná</option>

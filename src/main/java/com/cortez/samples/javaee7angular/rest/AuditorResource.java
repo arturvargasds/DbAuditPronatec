@@ -78,35 +78,35 @@ public class AuditorResource {
     @POST
     public Auditores saveAuditor(Auditores auditor) {
         entityManager.getTransaction().begin();
-        if (auditor.getId() == null) {
+        if (auditor.getIdauditor()== null) {
             Auditores auditorToSave = new Auditores();
             auditorToSave.setIdcep(auditor.getIdcep());
-            auditorToSave.setNomeAudit(auditor.getNomeAudit());
-            auditorToSave.setCpfAudit(auditor.getCpfAudit());
-            auditorToSave.setFone1Audit(auditor.getFone1Audit());
-            auditorToSave.setFone2Audit(auditor.getFone2Audit());
-            auditorToSave.setEmailAudit(auditor.getEmailAudit());
-            auditorToSave.setCompleEndAudit(auditor.getCompleEndAudit());
-            auditorToSave.setTipoAudit(auditor.getTipoAudit());
-            auditorToSave.setObsAudit(auditor.getObsAudit());
-            auditorToSave.setUsuAudit(auditor.getUsuAudit());
-            auditorToSave.setSenhAudit(auditor.getSenhAudit());
-            auditorToSave.setStatusAuditores(auditor.getStatusAuditores());
+            auditorToSave.setNomeaudit(auditor.getNomeaudit());
+            auditorToSave.setCpfaudit(auditor.getCpfaudit());
+            auditorToSave.setFone1audit(auditor.getFone1audit());
+            auditorToSave.setFone2audit(auditor.getFone2audit());
+            auditorToSave.setEmailaudit(auditor.getEmailaudit());
+            auditorToSave.setCompleendaudit(auditor.getCompleendaudit());
+            auditorToSave.setTipoaudit(auditor.getTipoaudit());
+            auditorToSave.setObsaudit(auditor.getObsaudit());
+            auditorToSave.setUsuaudit(auditor.getUsuaudit());
+            auditorToSave.setSenhaudit(auditor.getSenhaudit());
+            auditorToSave.setStatusauditores(auditor.getStatusauditores());
             entityManager.persist(auditor);
         } else {
-            Auditores auditorToUpdate = getAuditores(auditor.getId());
+            Auditores auditorToUpdate = getAuditores(auditor.getIdauditor());
             auditorToUpdate.setIdcep(auditor.getIdcep());
-            auditorToUpdate.setNomeAudit(auditor.getNomeAudit());
-            auditorToUpdate.setCpfAudit(auditor.getCpfAudit());
-            auditorToUpdate.setFone1Audit(auditor.getFone1Audit());
-            auditorToUpdate.setFone2Audit(auditor.getFone2Audit());
-            auditorToUpdate.setEmailAudit(auditor.getEmailAudit());
-            auditorToUpdate.setCompleEndAudit(auditor.getCompleEndAudit());
-            auditorToUpdate.setTipoAudit(auditor.getTipoAudit());
-            auditorToUpdate.setObsAudit(auditor.getObsAudit());
-            auditorToUpdate.setUsuAudit(auditor.getUsuAudit());
-            auditorToUpdate.setSenhAudit(auditor.getSenhAudit());
-            auditorToUpdate.setStatusAuditores(auditor.getStatusAuditores());
+            auditorToUpdate.setNomeaudit(auditor.getNomeaudit());
+            auditorToUpdate.setCpfaudit(auditor.getCpfaudit());
+            auditorToUpdate.setFone1audit(auditor.getFone1audit());
+            auditorToUpdate.setFone2audit(auditor.getFone2audit());
+            auditorToUpdate.setEmailaudit(auditor.getEmailaudit());
+            auditorToUpdate.setCompleendaudit(auditor.getCompleendaudit());
+            auditorToUpdate.setTipoaudit(auditor.getTipoaudit());
+            auditorToUpdate.setObsaudit(auditor.getObsaudit());
+            auditorToUpdate.setUsuaudit(auditor.getUsuaudit());
+            auditorToUpdate.setSenhaudit(auditor.getSenhaudit());
+            auditorToUpdate.setStatusauditores(auditor.getStatusauditores());
             auditor = entityManager.merge(auditorToUpdate);
         }
            entityManager.getTransaction().commit();

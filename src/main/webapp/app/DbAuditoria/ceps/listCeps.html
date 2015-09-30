@@ -29,8 +29,8 @@
                     <tr ng-class="{'selecionado negrito': cep.selecionado}" ng-repeat="cep in ceps | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                       <td>{{cep.idcep}}</td>
                       <td>{{cep.cep}}</td>
-                      <td>{{cep.idcid.descricid }}</td>
-                      <td>{{cep.idbai.descricao}}</td>
+                      <td>{{cep.cidades.descricid }}</td>
+                      <td>{{cep.idbai.describai}}</td>
                       <td>{{cep.logracep | uppercase }}</td>
                       <td>{{cep.obscep | uppercase }}</td>
                       <td>{{cep.statuscep | uppercase }}</td> 
