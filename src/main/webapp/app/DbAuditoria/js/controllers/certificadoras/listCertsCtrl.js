@@ -1,6 +1,6 @@
 /* global angular, certsAPI*/
 
-angular.module("app").controller("listCertsCtrl", function ($scope, certificadoras) {
+angular.module("app").controller("listCertsCtrl", function ($scope, certificadoras,certificadorasAPI) {
 	$scope.app = "DbAuditoria";
 	$scope.certificadoras = certificadoras.data.list;
 		

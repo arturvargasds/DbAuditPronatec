@@ -3,7 +3,7 @@
   <div class="col-lg-12">
    <div class="panel panel-info">
     <div class="panel-heading">
-	<h4> Cadastro de Equipe de Auditores </h4>   
+	<h4> Editar Equipe de Auditores </h4>   
 	</div><br>
 	
        <div class="container-fluid" style="text-align: center;">
@@ -11,7 +11,7 @@
             
         <div class="row"> <p>       
          <div class="col-lg-12"> <!--** *************** Auditorias-->
-          <div class="panel panel-red">
+          <div class="panel panel-warning">
            <div class="panel-heading">
                Auditorias
             </div> 
@@ -62,7 +62,7 @@
                    
            <div class="row"> <p> 
             <div class="col-lg-6"> <!--** **************Auditores 1--> 
-             <div class="panel panel-red">
+             <div class="panel panel-warning">
               <div class="panel-heading">
                    Auditores
                   </div>
@@ -88,7 +88,7 @@
                </div> <p>
                 
                    <div class="col-lg-6"> <!--** **************Auditores 2--> 
-             <div class="panel panel-red">
+             <div class="panel panel-warning">
               <div class="panel-heading">
                    Auditores
                   </div>
@@ -121,7 +121,7 @@
 
             <div class="row"> <p>       
                <div class="col-lg-6"> 
-                <div class="panel panel-red">
+                <div class="panel panel-warning">
                    <div class="panel-heading">
                        Tipo da Equipe
                     </div>
@@ -161,6 +161,9 @@
                                 <div ng-message="minlength" class="alert alert-danger">
                                       O formato DD/MM/AAAA HH:MM:SS.
                                  </div>
+                                   <div ng-message="maxlength" class="alert alert-danger">
+                                 O formato DD/MM/AAAA HH:MM:SS.
+                               </div>
                               </div>     
                                    <a class="btn btn-outline btn-danger  btn-sm glyphicon glyphicon-calendar " > </a>
                         </div><p>

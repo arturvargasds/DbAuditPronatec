@@ -383,6 +383,12 @@ angular.module("app").config(function ($routeProvider) {
         resolve    : {
             eqAudit: function (eqAuditsAPI, $route) {
                 return eqAuditsAPI.getEqAudit($route.current.params.id);
+            },
+            auditorias: function (auditoriasAPI){
+            return auditoriasAPI.getAuditorias();
+            },
+             auditores: function (auditoresAPI){
+                return auditoresAPI.getAuditores();
             }
         }
     });
@@ -541,6 +547,9 @@ angular.module("app").config(function ($routeProvider) {
         resolve    : {
             checklist: function (checklistsAPI, $route) {
                 return checklistsAPI.deleteChecklist($route.current.params.id);
+            },
+            checklists: function (checklistsAPI) {
+                return checklistsAPI.getChecklists();
             }
         }
     });

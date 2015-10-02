@@ -217,13 +217,13 @@ public class Auditorias implements Serializable {
         this.checklistCollection = checklistCollection;
     }
 
-   /* public Certificadoras getIdcert() {
+    /* public Certificadoras getIdcert() {
         return idcert;
     }
 
     public void setIdcert(Certificadoras idcert) {
         this.idcert = idcert;
-    }  */
+    }  */                   
 
     public Clientes getIdcli() {
         return idcli;

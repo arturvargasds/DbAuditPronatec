@@ -84,23 +84,23 @@ public class ColaboradorResource
     @POST
     public Colaboradores saveColaborador(Colaboradores colaborador) {
         entityManager.getTransaction().begin();
-        if (colaborador.getId() == null) {
+        if (colaborador.getIdcola()== null) {
             Colaboradores colaboradorToSave = new Colaboradores();
-            colaboradorToSave.setNomeCola(colaborador.getNomeCola());
-            colaboradorToSave.setFone1Cola(colaborador.getFone1Cola());
-            colaboradorToSave.setFone2Cola(colaborador.getFone2Cola());
-            colaboradorToSave.setEmailCola(colaborador.getEmailCola());
-            colaboradorToSave.setObsCola(colaborador.getObsCola());
-            colaboradorToSave.setStatusCola(colaborador.getStatusCola());
+            colaboradorToSave.setNomecola(colaborador.getNomecola());
+            colaboradorToSave.setFone1cola(colaborador.getFone1cola());
+            colaboradorToSave.setFone2cola(colaborador.getFone2cola());
+            colaboradorToSave.setEmailcola(colaborador.getEmailcola());
+            colaboradorToSave.setObscola(colaborador.getObscola());
+            colaboradorToSave.setStatuscola(colaborador.getStatuscola());
             entityManager.persist(colaborador);
         } else {
-            Colaboradores colaboradorToUpdate = getColaboradores(colaborador.getId());
-            colaboradorToUpdate.setNomeCola(colaborador.getNomeCola());
-            colaboradorToUpdate.setFone1Cola(colaborador.getFone1Cola());
-            colaboradorToUpdate.setFone2Cola(colaborador.getFone2Cola());
-            colaboradorToUpdate.setEmailCola(colaborador.getEmailCola());
-            colaboradorToUpdate.setObsCola(colaborador.getObsCola());
-            colaboradorToUpdate.setStatusCola(colaborador.getStatusCola());
+            Colaboradores colaboradorToUpdate = getColaboradores(colaborador.getIdcola());
+            colaboradorToUpdate.setNomecola(colaborador.getNomecola());
+            colaboradorToUpdate.setFone1cola(colaborador.getFone1cola());
+            colaboradorToUpdate.setFone2cola(colaborador.getFone2cola());
+            colaboradorToUpdate.setEmailcola(colaborador.getEmailcola());
+            colaboradorToUpdate.setObscola(colaborador.getObscola());
+            colaboradorToUpdate.setStatuscola(colaborador.getStatuscola());
             colaborador = entityManager.merge(colaboradorToUpdate);
         }
           entityManager.getTransaction().commit();

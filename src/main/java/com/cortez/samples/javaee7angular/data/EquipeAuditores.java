@@ -49,13 +49,13 @@ public class EquipeAuditores implements Serializable {
     @SequenceGenerator(name = "IDEQUIPE", sequenceName = "seq_equipeauditores",allocationSize = 1)
     @Column(name = "idequipe")
     private Long idequipe;
-    @Size(max = 1)
+    @Size(max = 7)
     @Column(name = "tipoauditor")
     private String tipoauditor;
-    @Size(max = 1)
+    @Size(max =1)
     @Column(name = "statusequipe")
     private String statusequipe;
-    @Size(max = 21)
+    @Size(max = 19)
     @Column(name = "dthrincequipe")
     private String dthrincequipe;
     @JoinColumn(name = "idauditor", referencedColumnName = "idauditor")

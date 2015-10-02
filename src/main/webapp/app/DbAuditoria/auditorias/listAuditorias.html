@@ -15,10 +15,10 @@
                  <table style="text-align: center;" ng-show="auditorias.length > 0" class="table table-striped table-bordered table-responsive table-hover"  >		
                     <tr >  
                         <td> <b>Abrir </b></td>
-                        <td><a href="" ng-click="ordenarPor('id')"><b>Auditoria</b>  <i class="fa fa-sort"></i></a></td>                        
+                        <td><a href="" ng-click="ordenarPor('idaudit')"><b>Auditoria</b>  <i class="fa fa-sort"></i></a></td>                        
                         <td><a href="" ng-click="ordenarPor('descriaudit')"><b>Descrição</b>  <i class="fa fa-sort"></i></a></td> 
-                        <td><a href="" ng-click="ordenarPor('idCert')"><b>Certificadora</b> <i class="fa fa-sort"></i></a ></td> 
-                        <td><a href="" ng-click="ordenarPor('idCli')"><b>Cliente </b> <i class="fa fa-sort"></i></a></td>                          
+                        <td><a href="" ng-click="ordenarPor('idcert')"><b>Certificadora</b> <i class="fa fa-sort"></i></a ></td> 
+                        <td><a href="" ng-click="ordenarPor('idcli')"><b>Cliente </b> <i class="fa fa-sort"></i></a></td>                          
                     <!--    <td><b>Objetivo</b></td> -->
                         <td title="Data e Hora do cadastro da Auditoria"><b>Cadastro da Auditoria</b></td>
                         <td><a href="" ng-click="ordenarPor('statusaudit')"><b>Status </b> <i class="fa fa-sort"></i></a></td>   	
@@ -30,7 +30,7 @@
                         <td>{{auditoria.idaudit}}</td> 
                         <td><a href="" title="{{auditoria.descriaudit | name}}" style="color: #4cae4c;"> <i  class="btn btn-info btn-outline   btn-xs  fa fa-external-link  "></i></a></td>
                         <td>{{auditoria.certificadora.fantacert  }}</td>
-                        <td>{{auditoria.idcli.fantaCli  }}</td>                            
+                        <td>{{auditoria.idcli.fantacli  }}</td>                            
                     <!--    <td> {{auditoria.descriObjAudit}} </td> -->
                         <td>{{auditoria.dthrcadaudit | date:'dd/MM/yyyy HH:mm:ss' }}</td>
                         <td>{{auditoria.statusaudit | name}}</td>  
@@ -40,7 +40,7 @@
                     </table>
                    
                   <div >
-                   
+                   <!--botoes
                           <ul class="pagination">
                               <li id="dataTables-example_previous" tabindex="0" aria-controls="dataTables-example" class="paginate_button previous disabled">
                                   <a href="#">Previous</a></li>
@@ -53,7 +53,7 @@
                           </ul>
                   </div>   
                     
-                    <!--botoes
+                    
                     <a class="btn btn-outline btn-success btn-block glyphicon glyphicon-pencil " href="#/cadAuditorias"> Nova Auditoria</a>
                     <button class="btn btn-danger btn-block" ng-click="apagarAuditorias(auditorias)" ng-if="isAuditorSelecionado(auditorias)">Apagar Auditorias</button>
                     -->
@@ -67,3 +67,4 @@
    </div><!-- /#page-wrapper -->
   </div> <!-- /#wrapper --> 
 </div>
+</div>    

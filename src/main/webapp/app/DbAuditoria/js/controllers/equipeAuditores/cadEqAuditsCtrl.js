@@ -11,4 +11,10 @@ angular.module("app").controller("cadEqAuditsCtrl", function ($scope, eqAuditsAP
 			$location.path("/eqAudits");
 		});
 	};
+        
+        
+	$scope.ordenarPor = function (campo) {
+		$scope.criterioDeOrdenacao = campo;
+		$scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
+	};
 });

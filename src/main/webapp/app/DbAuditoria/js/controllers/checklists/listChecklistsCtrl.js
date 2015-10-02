@@ -35,5 +35,6 @@ angular.module("app").controller("listChecklistsCtrl", function ($scope, checkli
 		$location.path("/checklists");
 		});
 	};
+        
 	
 });

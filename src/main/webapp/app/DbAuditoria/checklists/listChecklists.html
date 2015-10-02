@@ -19,26 +19,28 @@
               <!--        <td><b>Abrir</b></td> -->
                       <td><b>CheckPoint</b></td>
                       <td><b>Auditoria</b></td>
-                      <td><a href="" ng-click="ordenarPor('descriChklist')"><b>Descrição</b><i class="fa fa-sort"></i></a></td>                     
+                      <td><a href="" ng-click="ordenarPor('descrichklist')"><b>Descrição</b><i class="fa fa-sort"></i></a></td>                     
                       <td><b>Colaborador</b></td> 
                       <td><b>Equipe</b></td>
                       <td><b>Processo</b></td>                     
                       <td><b>Data e Hora</b></td>  
-                      <td><a href="" ng-click="ordenarPor('statusChklist')"><b>Status </b> <i class="fa fa-sort"></i></a></td>   
+                      <td><a href="" ng-click="ordenarPor('statuschklist')"><b>Status </b> <i class="fa fa-sort"></i></a></td>   
                     <!--    <td><b>Editar</b></td> 
                       <td><b>Excluir</b></td>    -->         
                     </tr>
                     <tr ng-class="{'selecionado negrito': checklist.selecionado}" ng-repeat="checklist in checklists | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                 <!--      <td><a href="#/CheckPoint/{{checklist.id}}"><i  class="btn btn-success btn-outline  btn-xs  fa fa-folder-open " title="Click para abrir CheckPoint"></i></a></td>  -->           
-                      <td>{{checklist.id}}</td>
-                      <td><a href="#/auditoria/{{checklist.idAudit}}"><b title="Click para abrir">{{checklist.idAudit}}</b></a></td> 
-                      <td>{{checklist.descriChklist}}</td>
-                      <td>{{checklist.idCola}}</td>
+                      <td>{{checklist.idpontoctrl}}</td>
+                      <td><a href="#/auditoria/{{checklist.idaudit.idaudit}}"><b title="Click para abrir">{{checklist.idaudit.idaudit}}</b></a></td> 
+                      <td><a href="" title="{{checklist.descrichklist | name}}" style="color: #4cae4c;"> <i  class="btn btn-info btn-outline   btn-xs  fa fa-external-link  "></i></a></td>
+                        
+                   <!--   <td>{{checklist.descrichklist}}</td> -->
+                      <td>{{checklist.idcola.nomecola}}</td>
                      <!-- <td>{{checklist.idAudit}}</td>  -->
-                      <td>{{checklist.idEquipe}}</td>
-                      <td>{{checklist.docProcesso}}</td>                    
-                      <td>{{checklist.dtHrRealiChklist}}</td>                      
-                      <td>{{checklist.statusChklist}}</td>
+                      <td>{{checklist.idequipe.idequipe}}</td>
+                      <td>{{checklist.docprocesso}}</td>                    
+                      <td>{{checklist.dthrrealichklist}}</td>                      
+                      <td>{{checklist.statuschklist}}</td>
                 <!--        <td><a href="#/editChecklists/{{checklist.id}}" class="btn btn-outline btn-warning btn-xs glyphicon glyphicon-edit"></a></td> 
                       <td><a href="#/deleteChecklist/{{checklist.id}}" ng-click="deleteChecklist(checklists)" class="btn btn-outline btn-danger  btn-xs glyphicon glyphicon-remove"></a></td> -->
                     </tr>

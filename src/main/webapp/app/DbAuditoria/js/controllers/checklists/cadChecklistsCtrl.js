@@ -11,4 +11,9 @@ angular.module("app").controller("cadChecklistsCtrl", function ($scope, checklis
 			$location.path("/checklists");
 		});
 	};
+        
+        $scope.ordenarPor = function (campo) {
+		$scope.criterioDeOrdenacao = campo;
+		$scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
+	};
 });

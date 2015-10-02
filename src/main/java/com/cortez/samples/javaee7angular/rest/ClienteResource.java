@@ -82,39 +82,39 @@ public class ClienteResource
     @POST
     public Clientes saveClientes(Clientes cliente) {
         entityManager.getTransaction().begin();
-        if (cliente.getId() == null) {
+        if (cliente.getIdcli()== null) {
             Clientes clienteToSave = new Clientes();            
-            clienteToSave.setIdCep(cliente.getIdCep());
-            clienteToSave.setRazaoCli(cliente.getRazaoCli());
-            clienteToSave.setFantaCli(cliente.getFantaCli());
-            clienteToSave.setCompleEndCli(cliente.getCompleEndCli());
-            clienteToSave.setFone1Cli(cliente.getFone1Cli());
-            clienteToSave.setFone2Cli(cliente.getFone2Cli());
-            clienteToSave.setEmailCli(cliente.getEmailCli());
-            clienteToSave.setSiteCli(cliente.getSiteCli());
-            clienteToSave.setContatoCli(cliente.getContatoCli());
-            clienteToSave.setEmailContato(cliente.getEmailContato());
-            clienteToSave.setCnpjCli(cliente.getCnpjCli());
-            clienteToSave.setInscriCli(cliente.getInscriCli());
-            clienteToSave.setObsCli(cliente.getObsCli());
-            clienteToSave.setStatusCli(cliente.getStatusCli());
+            clienteToSave.setIdcep(cliente.getIdcep());
+            clienteToSave.setRazaocli(cliente.getRazaocli());
+            clienteToSave.setFantacli(cliente.getFantacli());
+            clienteToSave.setCompleendcli(cliente.getCompleendcli());
+            clienteToSave.setFone1cli(cliente.getFone1cli());
+            clienteToSave.setFone2cli(cliente.getFone2cli());
+            clienteToSave.setEmailcli(cliente.getEmailcli());
+            clienteToSave.setSitecli(cliente.getSitecli());
+            clienteToSave.setContatocli(cliente.getContatocli());
+            clienteToSave.setEmailcontato(cliente.getEmailcontato());
+            clienteToSave.setCnpjcli(cliente.getCnpjcli());
+            clienteToSave.setInscricli(cliente.getInscricli());
+            clienteToSave.setObscli(cliente.getObscli());
+            clienteToSave.setStatuscli(cliente.getStatuscli());
             entityManager.persist(cliente);
         } else {
-            Clientes clienteToUpdate = getClientes(cliente.getId());
-            clienteToUpdate.setIdCep(cliente.getIdCep());
-            clienteToUpdate.setRazaoCli(cliente.getRazaoCli());
-            clienteToUpdate.setFantaCli(cliente.getFantaCli());
-            clienteToUpdate.setCompleEndCli(cliente.getCompleEndCli());
-            clienteToUpdate.setFone1Cli(cliente.getFone1Cli());
-            clienteToUpdate.setFone2Cli(cliente.getFone2Cli());
-            clienteToUpdate.setEmailCli(cliente.getEmailCli());
-            clienteToUpdate.setSiteCli(cliente.getSiteCli());
-            clienteToUpdate.setContatoCli(cliente.getContatoCli());
-            clienteToUpdate.setEmailContato(cliente.getEmailContato());
-            clienteToUpdate.setCnpjCli(cliente.getCnpjCli());
-            clienteToUpdate.setInscriCli(cliente.getInscriCli());
-            clienteToUpdate.setObsCli(cliente.getObsCli());
-            clienteToUpdate.setStatusCli(cliente.getStatusCli());
+            Clientes clienteToUpdate = getClientes(cliente.getIdcli());
+            clienteToUpdate.setIdcep(cliente.getIdcep());
+            clienteToUpdate.setRazaocli(cliente.getRazaocli());
+            clienteToUpdate.setFantacli(cliente.getFantacli());
+            clienteToUpdate.setCompleendcli(cliente.getCompleendcli());
+            clienteToUpdate.setFone1cli(cliente.getFone1cli());
+            clienteToUpdate.setFone2cli(cliente.getFone2cli());
+            clienteToUpdate.setEmailcli(cliente.getEmailcli());
+            clienteToUpdate.setSitecli(cliente.getSitecli());
+            clienteToUpdate.setContatocli(cliente.getContatocli());
+            clienteToUpdate.setEmailcontato(cliente.getEmailcontato());
+            clienteToUpdate.setCnpjcli(cliente.getCnpjcli());
+            clienteToUpdate.setInscricli(cliente.getInscricli());
+            clienteToUpdate.setObscli(cliente.getObscli());
+            clienteToUpdate.setStatuscli(cliente.getStatuscli());
             cliente = entityManager.merge(clienteToUpdate);
         }
         entityManager.getTransaction().commit();

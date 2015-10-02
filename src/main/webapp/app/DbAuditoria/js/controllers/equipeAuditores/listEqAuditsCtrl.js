@@ -21,7 +21,7 @@ angular.module("app").controller("listEqAuditsCtrl", function ($scope, eqAudits,
     
 	$scope.isEqAuditSelecionado = function (eqAudits) {
 		return eqAudits.some(function (eqAuditor) {
-			return eqAudit.selecionado;
+			return eqAudits.selecionado;
 		});
 	};
     

@@ -8,7 +8,7 @@
        </div>  <br>
        <div class="container-fluid" style="text-align: center;" >
            
-      <form name="ocorrenciaForm">
+     <form name="ocorrenciaForm">
       <div class="row"> <p>       
          <div class="col-lg-12"> <!--************CheckList-->
           <div class="panel panel-red">
@@ -16,7 +16,7 @@
               CheckList
             </div> 
              <div class="panel-body">
-              <div class="col-lg-4">  <label>CheckPoint</label>    <input class="form-control"    type="number" ng-model="ocorrencia.idPontoCtrl  " name="chek" placeholder="Codigo CheckPoint"  ng-required="true" /> <p> </div>
+              <div class="col-lg-4">  <label>CheckPoint</label>    <input class="form-control"    type="number" ng-model="ocorrencia.idpontoctrl.idpontoctrl  " name="chek" placeholder="Codigo CheckPoint"  ng-required="true" /> <p> </div>
               
                      <div ng-show="ocorrenciaForm.chek.$dirty" ng-messages="ocorrenciaForm.chek.$error">
                         <div ng-message="required" class="alert alert-danger">
@@ -24,7 +24,7 @@
                         </div>
                      </div>
                  <div class="container-fluid">
-                       <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar..Digite o codigo da auditoria..!"/>
+                       <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar.. "/>
                     <div class="tab-content">
                      <div class="tab-pane fade in active" >
                       <div class="panel-body">
@@ -41,14 +41,14 @@
                               <td><a href="" ng-click="ordenarPor('statusChklist')"><b>Status </b> <i class="fa fa-sort"></i></a></td>                                           
                             </tr>
                             <tr ng-class="{'selecionado negrito': checklist.selecionado}" ng-repeat="checklist in checklists | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                              <td><a href="#/CheckPoint/{{checklist.id}}"><i  class="btn btn-success btn-outline  btn-xs  fa fa-folder-open " title="Click para abrir CheckPoint"></i></a></td>             
-                              <td>{{checklist.id}}</td>
-                              <td>{{checklist.idAudit}}</td>
-                              <td>{{checklist.descriChklist}}</td> 
-                              <td>{{checklist.dtHrRealiChklist}}</td>                      
-                              <td>{{checklist.statusChklist}}</td>
+                              <td><a href="#/CheckPoint/{{checklist.idpontoctrl}}"><i  class="btn btn-success btn-outline  btn-xs  fa fa-folder-open " title="Click para abrir CheckPoint"></i></a></td>                           
+                              <td>{{checklist.idpontoctrl}}</td>
+                              <td>{{checklist.idaudit.idaudit}}</td>
+                              <td><a href="" title="{{checklist.descrichklist | name}}" style="color: #4cae4c;"> <i  class="btn btn-info btn-outline   btn-xs  fa fa-external-link  "></i></a></td>
+                              <td>{{checklist.dthrrealichklist}}</td>                      
+                              <td>{{checklist.statuschklist}}</td>
                             </tr>
-                          </table>       
+                          </table>            
                         </div>   <p>     
                       </div>
                     </div>
@@ -59,7 +59,9 @@
           </div>
          </div> <p> 
                         
-               <!-- ***********************************************dados Auditorias -->            
+                  
+     
+                <!-- ***************************************************************************dados Auditorias -->            
              <div class="row"> <p>       
                <div class="col-lg-12"> 
                  <div class="panel panel-red">
@@ -69,20 +71,20 @@
                         
                         <div class="panel-body">
                            <div class="panel-collapse">
-                               <input class="form-control" type="hidden" ng-model="ocorrencia.descriOcorre " id="desc" name="des" placeholder="Descrição Auditoria" 
-                                  ng-required="true" ng-minlength="1" ng-maxlength="400"/>
+                               <input class="form-control" type="hidden" ng-model="ocorrencia.descriocorre " id="desc" name="des" placeholder="Descrição..." 
+                                  ng-required="true" ng-minlength="5" ng-maxlength="250"/>
           
-                               <div  class="col-lg-12"> <label>Descrição Oncorrênca</label>  <textarea class="form-control" pattern="[A-Za-z]++"  type="text" ng-model="ocorrencia.descriOcorre " name="des"  placeholder="Descrição....." ng-required="true"   ng-minlength="10" ng-maxlength="500"></textarea> </div>
+                               <div  class="col-lg-12"> <label>Descrição Oncorrênca</label>  <textarea class="form-control" pattern="[A-Za-z]++"  type="text" ng-model="ocorrencia.descriocorre " name="des"  placeholder="Descrição....." ng-required="true"   ng-minlength="5" ng-maxlength="250"></textarea> </div>
         <!--************************************************  Validadção dos campos *****************************************-->
                                <div ng-show="ocorrenciaForm.des.$dirty" ng-messages="ocorrenciaForm.des.$error">
 		                    <div ng-message="required" class="alert alert-danger">
 			                      Por favor, preencha o campo Descrição !
 		                    </div>
                                    <div ng-message="minlength" class="alert alert-danger">
-                                              O campo Descrição deve ter no minimo 10 caracteres.
+                                              O campo Descrição deve ter no minimo 5 caracteres.
                                     </div>
                                     <div ng-message="maxlength" class="alert alert-danger">
-                                              O campo Descriçãos deve ter no maximo 500 caracteres.
+                                              O campo Descriçãos deve ter no maximo 250 caracteres.
                                     </div>
 	                      </div><br>
                            </div>
@@ -90,19 +92,19 @@
                         
                         <div class="panel-body">
                            <div class="panel-collapse">
-                               <input class="form-control" iu-date type="hidden" ng-model="ocorrencia.sugesOcorre" name="sug"  placeholder="Objetivo...." ng-required="true" ng-minlength="1" ng-maxlength="500"/>
+                               <input class="form-control" iu-date type="hidden" ng-model="ocorrencia.sugesocorre" name="sug"  placeholder="Sugestão...." ng-required="true" ng-minlength="5" ng-maxlength="250"/>
 
-                               <div class="col-lg-12"> <label>Sugestão sobre a Ocorrência</label> <textarea class="form-control" iu-date type="text" ng-model="ocorrencia.sugesOcorre" name="sug"  placeholder="Sugestão..." ng-required="true" ng-minlength="10" ng-maxlength="400"/></textarea> </div>
+                               <div class="col-lg-12"> <label>Sugestão sobre a Ocorrência</label> <textarea class="form-control" iu-date type="text" ng-model="ocorrencia.sugesocorre" name="sug"  placeholder="Sugestão..." ng-required="true" ng-minlength="5" ng-maxlength="250"/></textarea> </div>
         <!--************************************************  Validadção dos campos *****************************************-->
                               <div ng-show="ocorrenciaForm.sug.$dirty" ng-messages="ocorrenciaForm.sug.$error">
 		                    <div ng-message="required" class="alert alert-danger">
-			                      Por favor, preencha o campo Objetivo !
+			                      Por favor, preencha o campo ... !
 		                    </div>
                                    <div ng-message="minlength" class="alert alert-danger">
-                                              O campo Objetivo deve ter no minimo 10 caracteres.
+                                              O campo..deve ter no minimo 5 caracteres.
                                     </div>
                                     <div ng-message="maxlength" class="alert alert-danger">
-                                              O campo Objetivo deve ter no maximo 500 caracteres.
+                                              O campo.. deve ter no maximo 250 caracteres.
                                     </div>
 	                       </div><br>
                           
@@ -112,40 +114,45 @@
                </div>  
             </div>  <p>  
             
-           
+            <!-- ***************************************************************************data e hora -->
             <div class="row"> <p>    <!--******Colaboradores-->
-      <div class="col-lg-6"> 
-        <div class="panel panel-red">
-                <div class="panel-heading">
-                  Colaboradores
-                </div>
-
-                <div class="panel-body">
-                    <div class="col-lg-12">  <label>Colaborador</label>  <input class="form-control"  type="number" ng-model="ocorrencia.idCola " name="cola" placeholder="Codigo Colaborador"  ng-required="true"/> </div>
-                     <div ng-show="ocorrenciaForm.cola.$dirty" ng-messages="ocorrenciaForm.cola.$error">
-                        <div ng-message="required" class="alert alert-danger">
-                               Por favor, preencha o campo Codigo da Colaborador!
-                        </div>                              
-                     </div>
-                     <div class="col-lg-12">
-                         <select class="form-control" ng-model="colaborador" ng-options="colaborador.nomeCola + ' ( ' + (colaborador.id) + ' )' for colaborador in colaboradores | orderBy:'nomeCola'">		        	
-                          <option value="">lista de Colaboradores</option>
-                          </select>
-                     </div>   
-                    <div >
-                       <a class="btn btn-outline btn-success  btn-sm glyphicon glyphicon-pencil "   name="s" href="#/cadOcorrencias" > Novo Colaborador</a>
+       <div class="col-md-6"> 
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                          Colaboradores
+                        </div>
+                        
+                        <div class="panel-body">
+                           <div class="col-lg-3">  <label>Codigo</label>    <input class="form-control"    type="number" ng-model="ocorrencia.idcola.idcola   " name="certi" placeholder="Codigo Colaborador"  ng-required="true" disabled=""/> </div>
+                           <div class="col-lg-9">  <label>Nome </label>    <input class="form-control"    type="text" ng-model="ocorrencia.idcola.nomecola " name="certi" placeholder="Nome"  ng-required="true" disabled="" /> </div>
+                          
+                             <div ng-show="ocorrenciaForm.certi.$dirty" ng-messages="auditoriasForm.certi.$error">
+		                <div ng-message="required" class="alert alert-danger">
+			               Por favor, preencha o campo...!
+		                </div>
+	                     </div>
+                             
+                             <div class="col-lg-12">
+                                 <select name="certi"  class="form-control" ng-model="ocorrencia.idcola " ng-options="idcola.nomecola + ' ( ' + (idcola.idcola) + ' )' for idcola in colaboradores  ">
+		        	    <option value="">Lista de Colaboradores</option>
+		                 </select>
+                             </div>
+                             <hr>
+                            <div >
+                               <a class="btn btn-outline btn-success  btn-sm glyphicon glyphicon-pencil "   name="salvar" href="#/cadCerts" > Nova Certificadora</a>
+                            </div>
+                        </div> <br>
+                       
                     </div>
-               </div><p> 
-            </div> 
-         </div>    <p>   
+                </div>    <p>   
                      
-              <div class="col-md-3">     <!-- ***************data e hora -->
-                <div class="panel panel-default">
+              <div class="col-md-3">
+                <div class="panel panel-red">
                         <div class="panel-heading">
                            Data da Ocorrência
                         </div>
                     <div class="panel-body" style="text-align: center;"> 
-                        <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="ocorrencia.dtHrOcorre" name="dtHrO " ng-required="true" ng-minlength="19"/></div>
+                        <div class="col-lg-12"> <input class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" type="text" ng-model="ocorrencia.dthrocorre" name="dtHrO " ng-required="true" ng-minlength="19" ng-maxlength="19"/></div>
                           <div ng-show="ocorrenciaForm.dtHrO.$dirty" ng-messages="ocorrenciaForm.dtHrOcorre.$error">
 		            <div ng-message="required" class="alert alert-danger">
 			          Por favor, preencha o campo Data / Hora Cadastro da Ocorrência!
@@ -153,6 +160,9 @@
                             <div ng-message="minlength" class="alert alert-danger">
                                 O formato DD/MM/AAAA HH:MM:SS.
                              </div>
+                              <div ng-message="maxlength" class="alert alert-danger">
+                                 O formato DD/MM/AAAA HH:MM:SS.
+                               </div>
 	                  </div>  <a class="btn btn-outline btn-danger  btn-sm glyphicon glyphicon-calendar "   name="d"  > </a>
                     </div><p> 
                 </div>
@@ -174,7 +184,7 @@
                 </div><p>  
               </div> -->
             </div> <p>
-                <!--******************************************Observação--> 
+                <!--*********************<div class="row"> <p>***********************************************Observação--> 
              <div class="row"> <p> 
               <div class="col-lg-12"> 
                     <div class="panel panel-default">
@@ -183,9 +193,8 @@
                         </div>
                         <div class="panel-body"> <p>
                             <div class="col-lg-12">
-                                <textarea  ng-model="ocorrencia.obsOcorre" name="obs" class="form-control" rows="2" ></textarea> 
-                                 <input class="form-control" type="hidden"   ng-model="ocorrencia.statusOcorre" name="status" placeholder="Status" />      
-                            </div>
+                                <textarea  ng-model="ocorrencia.obsocorre" name="obs" class="form-control" rows="2" ></textarea> 
+                             </div>
                         </div><p> 
                     </div>
               </div> <p>                                   
@@ -195,7 +204,7 @@
            <hr>
            <!--botoes-->
           <div >
-            <a class="btn btn-outline  btn-lg  btn-primary glyphicon glyphicon-floppy-save" ng-click="ocorrencia.statusOcorre ='A';adicionarOcorrencia(ocorrencia)" ng-disabled="ocorrenciaForm.$invalid"> ADICIONAR</a>
+            <a class="btn btn-outline  btn-lg  btn-primary glyphicon glyphicon-floppy-save" ng-click="ocorrencia.statusocorre ='A';adicionarOcorrencia(ocorrencia)" ng-disabled="ocorrenciaForm.$invalid"> ADICIONAR</a>
             <a href="#/ocorrencias" class="btn btn-lg btn-outline btn-danger glyphicon glyphicon-remove"> CANCELAR</a>
           </div>
            
@@ -204,5 +213,5 @@
          </div>              
                    <div ng-include="'footer.html'"></div>            
     </div>
-               <p>Formaçao do Objeto(json): {{ocorrencia | json }}</p>''             
+    <!--           <p>Formaçao do Objeto(json): {{ocorrencia | json }}</p>''       -->       
   </div>

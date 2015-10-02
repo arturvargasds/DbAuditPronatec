@@ -6,7 +6,7 @@
           <h4>Lista de Equpe de Auditores</h4>   
         </div> <br>
         <div class="container-fluid">
-           <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por Equipe.."/>
+           <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar.."/>
             <div class="tab-content">
               <div class="tab-pane fade in active" id="home-pills">
                 <div class="panel-body">
@@ -17,7 +17,7 @@
                       <tr> 
                         <td><b>Equipe</b></td>
                         <td><b>Auditoria</b></td>                          
-                        <td><b><a href="" ng-click="ordenarPor('tipoAuditor')">Tipo Auditoria</a> <i class="fa fa-sort"></i> </b></td>
+                        <td><b><a href="" ng-click="ordenarPor('tipoAuditor')">Tipo equipe</a> <i class="fa fa-sort"></i> </b></td>
                         <td><b>Auditor 1</b></td>
                         <td><b>Auditor 2</b></td>
                         <td><b>Data de formação Equipe</b></td>
@@ -26,13 +26,13 @@
                         <td><b>Excluir </b></td> -->
                       </tr>
                       <tr ng-class="{'selecionado negrito': eqAudit.selecionado}" ng-repeat="eqAudit in eqAudits | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">                  
-                        <td> {{eqAudit.id }} </td>
-                        <td><a href="#/auditoria/{{eqAudit.idaudit}}"><b title="Click para abrir">{{eqAudit.idaudit}}</b></a></td>                     
-                        <td> {{eqAudit.tipoAuditor | uppercase}} </td>
-                        <td> {{eqAudit.idAuditor }} </td>
-                        <td> {{eqAudit.idAuditor2 }} </td>
-                        <td> {{eqAudit.dtHrIncEquipe}} </td>
-                        <td> {{eqAudit.statusEquipe}} </td>
+                        <td> {{eqAudit.idequipe }} </td>
+                        <td><a href="#/auditoria/{{eqAudit.idaudit.idaudit}}"><b title="Click para abrir">{{eqAudit.idaudit.idaudit}}</b></a></td>                     
+                        <td> {{eqAudit.tipoauditor | uppercase}} </td>
+                        <td> {{eqAudit.idauditor.nomeaudit }} </td>
+                        <td> {{eqAudit.idauditor2.nomeaudit }} </td>
+                        <td> {{eqAudit.dthrincequipe}} </td>   
+                        <td> {{eqAudit.statusequipe}} </td>
                    <!--     <td> <a href="#/editEqAudits/{{eqAudit.id}}" class="btn btn-outline btn-warning btn-xs glyphicon glyphicon-edit"></a> </td>
                         <td> <a href="#/deleteEqAudit/{{eqAudit.id}}" class="btn btn-outline btn-danger  btn-xs glyphicon glyphicon-remove"></a></td> -->
                       </tr>
