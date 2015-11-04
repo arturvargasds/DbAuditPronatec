@@ -1,6 +1,7 @@
-angular.module("app").controller("editAuditoresCtrl", function ($scope, $routeParams, auditor, auditoresAPI, $location) {
+angular.module("app").controller("editAuditoresCtrl", function ($scope, $routeParams, auditor, ceps, auditoresAPI, $location) {
 
 	$scope.auditor = auditor.data;
+        $scope.ceps = ceps.data.list;
 
 	$scope.adicionarAuditor = function (auditor) {	
 		auditoresAPI.saveAuditor(auditor).success(function (data) {

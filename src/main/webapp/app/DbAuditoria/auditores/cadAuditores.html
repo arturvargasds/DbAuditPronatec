@@ -10,40 +10,39 @@
 
 					<!--formulario-->
 					<form name="auditorForm">
-						<input class="form-control" type="number" ng-model="auditor.idcep" name="cepAudit" placeholder="id CEP" 
-								ng-required="true" ng-minlength="1"/>                
-
-						<input class="form-control" type="text" ng-model="auditor.nomeAudit" name="nomeAudit" placeholder="Nome Auditor(a)" 
+                                                <select ng-model="auditor.cep.idcep" data-ng-options="cep.idcep as cep.cep for cep in ceps"></select>
+                                                
+						<input class="form-control" type="text" ng-model="auditor.nomeaudit" name="nomeAudit" placeholder="Nome Auditor(a)" 
 								ng-required="true" ng-minlength="3" ng-maxlength="60"/> 
 
-						<input class="form-control" type="text" ng-model="auditor.cpfAudit" name="cpfAudit" ng-pattern="/^\d{2,3}.\d{3}.\d{3}-\d{2}$/"placeholder="CPF" 
+						<input class="form-control" type="text" ng-model="auditor.cpfaudit" name="cpfAudit" ng-pattern="/^\d{2,3}.\d{3}.\d{3}-\d{2}$/"placeholder="CPF" 
 								ng-required="true" ng-minlength="13" ng-maxlength="14"/>
 
-						<input class="form-control" type="text" ng-model="auditor.fone1Audit" name="fone1Audit" ng-pattern="/^\d{4,5}-\d{4}$/" placeholder="Fone" 
+						<input class="form-control" type="text" ng-model="auditor.fone1audit" name="fone1Audit" ng-pattern="/^\d{4,5}-\d{4}$/" placeholder="Fone" 
 								ng-required="true" ng-minlength="8" ng-maxlength="9"/>
 
-						<input class="form-control" type="text" ng-model="auditor.fone2Audit" name="fone2Audit" ng-pattern="/^\d{4,5}-\d{4}$/" placeholder="Fone 2" 
+						<input class="form-control" type="text" ng-model="auditor.fone2audit" name="fone2Audit" ng-pattern="/^\d{4,5}-\d{4}$/" placeholder="Fone 2" 
 								ng-required="false" ng-minlength="8" ng-maxlength="9"/>
 
-						<input class="form-control" type="email" ng-model="auditor.emailAudit" name="emailAudit" placeholder="EMAIL" 
+						<input class="form-control" type="email" ng-model="auditor.emailaudit" name="emailAudit" placeholder="EMAIL" 
 								ng-required="true" ng-minlength="3" ng-maxlength="100"/>
 
-						<input class="form-control" type="text" ng-model="auditor.compleEndAudit" name="compleEndAudit" placeholder="Complemento" 
+						<input class="form-control" type="text" ng-model="auditor.compleendaudit" name="compleEndAudit" placeholder="Complemento" 
 								ng-required="false" ng-minlength="3" ng-maxlength="50"/>
 
-						<input class="form-control" type="text" ng-model="auditor.tipoAudit" name="tipoAudit" placeholder="Tipo Auditor" 
+						<input class="form-control" type="text" ng-model="auditor.tipoaudit" name="tipoAudit" placeholder="Tipo Auditor" 
 								ng-required="true" ng-minlength="1" ng-maxlength="1"/>
 
-						<input class="form-control" type="text" ng-model="auditor.obsAudit" name="obsAudit" placeholder="OBS" 
+						<input class="form-control" type="text" ng-model="auditor.obsaudit" name="obsAudit" placeholder="OBS" 
 								ng-required="true" ng-minlength="3" ng-maxlength="100"/>
 
-						<input class="form-control" type="text" ng-model="auditor.statusAuditores" name="statusAuditores" placeholder="Status" 
+						<input class="form-control" type="text" ng-model="auditor.statusauditores" name="statusAuditores" placeholder="Status" 
 								ng-required="true" ng-minlength="1" ng-maxlength="1"/>
 
-						<input class="form-control" type="password" ng-model="auditor.senhAudit" name="senhAudit" placeholder="Senha" 
+						<input class="form-control" type="password" ng-model="auditor.senhaudit" name="senhAudit" placeholder="Senha" 
 								ng-required="true" ng-minlength="6" ng-maxlength="8"/>
 
-						<input class="form-control" type="text" ng-model="auditor.usuAudit" name="usuAudit" placeholder="Usuario" 
+						<input class="form-control" type="text" ng-model="auditor.usuaudit" name="usuAudit" placeholder="Usuario" 
 								ng-required="true" ng-minlength="3" ng-maxlength="10"/>
 					</form>
 
@@ -150,7 +149,7 @@
 
 					<!--botoes-->
 					<div style="padding-left:280px;"   >
-						<a class="btn btn-primary glyphicon glyphicon-floppy-save" ng-click="adicionarAuditor(auditor)" ng-disabled="auditorForm.$invalid"> ADICIONAR AUDITORES</a>
+						<a class="btn btn-primary glyphicon glyphicon-floppy-save" ng-click="adicionarAuditor(auditor)"> ADICIONAR AUDITORES</a>
 						<a href="#/auditores"  class="btn btn-danger glyphicon glyphicon-remove"> CANCELAR</a>
 					</div> 
 					
@@ -159,5 +158,6 @@
             <div ng-include="'footer.html'"></div>
     	</div><!-- /.row -->
     	<p>Formaçao do Objeto(json): {{auditor| json }}</p>''
+        <p>CEPS(json): {{ceps| json }}</p>''
     </div><!-- /#page-wrapper -->
 </div> <!-- /#wrapper -->
