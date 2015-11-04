@@ -4,16 +4,7 @@ package com.cortez.samples.javaee7angular.data;
 
 import java.io.Serializable;
 import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -45,12 +36,14 @@ public class Auditores implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IDAUDITOR")
+    @SequenceGenerator(name = "IDAUDITOR", sequenceName = "seq_auditores",allocationSize = 1)
     @Column(name = "idauditor")
     private Long idauditor;
     @Size(max = 254)
     @Column(name = "nomeaudit")
     private String nomeaudit;
-    @Size(max = 11)
+    @Size(max = 14)
     @Column(name = "cpfaudit")
     private String cpfaudit;
     @Size(max = 12)
@@ -86,7 +79,7 @@ public class Auditores implements Serializable {
     private Collection<EquipeAuditores> equipeauditoresCollection1; 
     @JoinColumn(name = "idcep", referencedColumnName = "idcep")
     @ManyToOne
-    private Ceps idcep;
+    private Ceps cep;
 
     public Auditores() {
     }
@@ -209,12 +202,12 @@ public class Auditores implements Serializable {
         this.equipeauditoresCollection1 = equipeauditoresCollection1;
     }   
 
-    public Ceps getIdcep() {
-        return idcep;
+    public Ceps getCep() {
+        return cep;
     }
 
-    public void setIdcep(Ceps idcep) {
-        this.idcep = idcep;
+    public void setCep(Ceps cep) {
+        this.cep = cep;
     }
 
     @Override

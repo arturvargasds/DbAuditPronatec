@@ -167,7 +167,10 @@ angular.module("app").config(function ($routeProvider) {
         resolve    : {
             auditor: function (auditoresAPI, $route) {
                 return auditoresAPI.getAuditor($route.current.params.id);
-            }
+            },
+            ceps: function (cepsAPI) {
+                return cepsAPI.getCeps();
+            }       
         }
     });
 

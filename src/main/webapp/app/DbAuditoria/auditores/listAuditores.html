@@ -29,17 +29,17 @@
                       <th>Excluir</th>
                     </tr>
                     <tr ng-class="{'selecionado negrito': auditor.selecionado}" ng-repeat="auditor in auditores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                      <td>{{auditor.nomeAudit | uppercase }}</td>
-                      <td>{{auditor.tipoAudit | uppercase}}</td>
-                      <td>{{auditor.cpfAudit | uppercase}}</td>
-                      <td>{{auditor.fone1Audit}}</td>
-                      <td>{{auditor.fone2Audit}}</td>
-                      <td>{{auditor.emailAudit}}</td>                      
-                      <td>{{auditor.idcep}}</td>
-                      <td>{{auditor.usuAudit}}</td>                     
-                      <td>{{auditor.statusAuditores | uppercase}}</td> 
-                      <td style="text-align: center;" ><a href="#/editAuditores/{{auditor.id}}" class="btn btn-outline btn-warning btn-xs glyphicon glyphicon-edit"></a></td>
-                      <td style="text-align: center;" ><a href="#/deleteAuditor/{{auditor.id}}" class="btn btn-outline btn-danger  btn-xs glyphicon glyphicon-remove"></a></td>
+                      <td>{{auditor.nomeaudit | uppercase }}</td>
+                      <td>{{auditor.tipoaudit | uppercase}}</td>
+                      <td>{{auditor.cpfaudit | uppercase}}</td>
+                      <td>{{auditor.fone1audit}}</td>
+                      <td>{{auditor.fone2audit}}</td>
+                      <td>{{auditor.emailaudit}}</td>                      
+                      <td>{{auditor.cep.cep}}</td>
+                      <td>{{auditor.usuaudit}}</td>                     
+                      <td>{{auditor.statusauditores | uppercase}}</td> 
+                      <td style="text-align: center;" ><a href="#/editAuditores/{{auditor.idauditor}}" class="btn btn-outline btn-warning btn-xs glyphicon glyphicon-edit"></a></td>
+                      <td style="text-align: center;" ><a href="#/deleteAuditor/{{auditor.idauditor}}" class="btn btn-outline btn-danger  btn-xs glyphicon glyphicon-remove"></a></td>
                     </tr>
                   </table>   
                   
