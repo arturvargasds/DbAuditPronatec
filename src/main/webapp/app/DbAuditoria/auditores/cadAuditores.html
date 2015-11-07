@@ -10,7 +10,9 @@
 
 					<!--formulario-->
 					<form name="auditorForm">
-                                                <select ng-model="auditor.cep.idcep" data-ng-options="cep.idcep as cep.cep for cep in ceps"></select>
+                                                <select ng-model="auditor.cep" data-ng-options="cep as cep.cep for cep in ceps track by cep.idcep"></select>
+                                                <br>
+                                                {{auditor.cep.cidades.descricid}} - {{auditor.cep.cidades.ufcid}}
                                                 
 						<input class="form-control" type="text" ng-model="auditor.nomeaudit" name="nomeAudit" placeholder="Nome Auditor(a)" 
 								ng-required="true" ng-minlength="3" ng-maxlength="60"/> 

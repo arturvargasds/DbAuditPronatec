@@ -80,7 +80,7 @@ public class Auditores implements Serializable {
     @JoinColumn(name = "idcep", referencedColumnName = "idcep")
     @ManyToOne
     private Ceps cep;
-
+    //
     public Auditores() {
     }
 

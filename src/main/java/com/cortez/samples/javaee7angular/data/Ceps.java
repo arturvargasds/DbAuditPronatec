@@ -63,8 +63,8 @@ public class Ceps implements Serializable {
     private Long idcep;
     @OneToMany(mappedBy = "idcep")
     private Collection<Certificadoras> certificadorasCollection;
-    @OneToMany(mappedBy = "idcep")
-    private Collection<Auditores> auditoresCollection;
+//    @OneToMany(mappedBy = "idcep")
+//    private Collection<Auditores> auditoresCollection;
     @JoinColumn(name = "idbai", referencedColumnName = "idbai")
     @ManyToOne
     private Bairros idbai;
@@ -84,7 +84,7 @@ public class Ceps implements Serializable {
         this.statuscep = statuscep;
         this.idcep = idcep;
         this.certificadorasCollection = certificadorasCollection;
-        this.auditoresCollection = auditoresCollection;
+//        this.auditoresCollection = auditoresCollection;
         this.idbai = idbai;
         this.cidades = idcid;
         this.clientesCollection = clientesCollection;
@@ -149,15 +149,15 @@ public class Ceps implements Serializable {
         this.certificadorasCollection = certificadorasCollection;
     }
 
-    @XmlTransient
-    public Collection<Auditores> getAuditoresCollection() {
-        return auditoresCollection;
-    }
-
-    public void setAuditoresCollection(Collection<Auditores> auditoresCollection) {
-        this.auditoresCollection = auditoresCollection;
-    }
-
+//    @XmlTransient
+//    public Collection<Auditores> getAuditoresCollection() {
+//        return auditoresCollection;
+//    }
+//
+//    public void setAuditoresCollection(Collection<Auditores> auditoresCollection) {
+//        this.auditoresCollection = auditoresCollection;
+//    }
+//
     public Bairros getIdbai() {
         return idbai;
     }

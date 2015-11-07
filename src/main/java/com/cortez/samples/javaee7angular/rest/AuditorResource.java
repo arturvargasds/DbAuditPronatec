@@ -80,7 +80,7 @@ public class AuditorResource {
         entityManager.getTransaction().begin();
         if (auditor.getIdauditor()== null) {
             Auditores auditorToSave = new Auditores();
-            auditorToSave.setIdcep(auditor.getIdcep());
+            auditorToSave.setCep(auditor.getCep());
             auditorToSave.setNomeaudit(auditor.getNomeaudit());
             auditorToSave.setCpfaudit(auditor.getCpfaudit());
             auditorToSave.setFone1audit(auditor.getFone1audit());
@@ -95,7 +95,7 @@ public class AuditorResource {
             entityManager.persist(auditor);
         } else {
             Auditores auditorToUpdate = getAuditores(auditor.getIdauditor());
-            auditorToUpdate.setIdcep(auditor.getIdcep());
+            auditorToUpdate.setCep(auditor.getCep());
             auditorToUpdate.setNomeaudit(auditor.getNomeaudit());
             auditorToUpdate.setCpfaudit(auditor.getCpfaudit());
             auditorToUpdate.setFone1audit(auditor.getFone1audit());
