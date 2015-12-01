@@ -1,0 +1,39 @@
+<br/>
+<div class="container">
+    <div class="well">Auditores</div>
+
+    <table class="table">
+        <thead>
+            <th>Codigo</th>
+            <th>Cep</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Fone</th>
+            <th>Fone2</th>
+            <th>Email</th>
+            <th>Complemento</th>
+            <th>Tipo Auditor</th>
+            <th>Observação</th>
+            <th>Status</th>
+            <th>Senha</th>
+            <th>Usuario</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="auditor in list">
+                <td>{{auditor.id}}</td>
+                <td>{{auditor.cepAudit}}</td>
+                <td>{{auditor.nomeAudit}}</td>
+                <td>{{auditor.cpfAudit}}</td>
+                <td>{{auditor.fone1Audit}}</td>
+                <td>{{auditor.fone2Audit}}</td>
+                <td>{{auditor.emailAudit}}</td>
+                <td>{{auditor.compleEndAudit}}</td>
+                <td>{{auditor.tipoAudit}}</td>  
+                <td>{{auditor.obsAudit}}</td>
+                <td>{{auditor.statusAuditores}}</td>
+                <td>{{auditor.senhAudit}}</td>
+                <td>{{auditor.usuAudit}}</td>                
+            </tr>
+        </tbody>
+    </table>
+</div>

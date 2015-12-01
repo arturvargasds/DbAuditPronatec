@@ -1,0 +1,33 @@
+<div id="page-wrapper">     <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4>Lista de Ceps</h4>   
+                </div>  <br>
+                <div class="container-fluid">
+                    <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por cep.."/>
+
+                    <!--tabela-->
+                    <table ng-show="ceps.length > 0" class="table table-striped">
+                        <tr>
+                            <th><a href="" ng-click="ordenarPor('CEP')">Cep</a></th>                    
+                            <th>Status</th>
+                        </tr>
+                        <tr ng-class="{'selecionado negrito': cep.selecionado}" ng-repeat="cep in ceps | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                            <td><input type="checkbox" ng-model="cep.selecionado"/></td>                         
+                            <td>{{cep.descricao | name}}</td>
+                            <td>{{cep.statusCep}}</td>	
+                        </tr>
+                    </table>
+                    <hr/>
+                    
+                    <!--botoes-->
+                    <a class="btn btn-primary btn-block" href="#/CadCeps">Novo Cep</a>
+                    <button class="btn btn-danger btn-block" ng-click="apagarCeps(ceps)" ng-if="isCepSelecionado(ceps)">Apagar Ceps</button>
+                </div><br><br>       
+            </div><!-- /.row --><br>
+            <div ng-include="'footer.html'"></div>       
+        </div><!-- /#page-wrapper -->
+  </div> <!-- /#wrapper -->
+</div>

@@ -1,0 +1,57 @@
+<div id="page-wrapper">     <br>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h4>Lista de Clientes</h4>   
+        </div>  <br>
+        <div class="container-fluid">
+            <div> <a class="btn btn-outline btn-success glyphicon glyphicon-plus" href="#/cadClientes"> Novo(a)</a></div><br>
+          <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisar por Cliente.."/>
+           <div class="tab-content">
+            <div class="tab-pane fade in active" >
+              <div class="panel-body">
+                <div class="table-responsives">
+            <!--tabela-->
+            <table ng-show="clientes.length > 0" class="table table-striped table-bordered table-responsive table-hover">
+              <tr>
+                <th><a href="" ng-click="ordenarPor('fantaCli')">Nome Fantasia <i class="fa fa-sort"></i></a></th>                    
+                <th>CEP</th>
+                <th>Razão Social</th>
+                <th>E-mail</th>
+                <th>Contato Resp.</th>
+                <th>CNPJ</th>
+                <th>NºInscrição</th>
+                  <th><a href="" ng-click="ordenarPor('statusCli')">Status <i class="fa fa-sort"></i></a></th>      
+                <th>Editar</th>
+                <th>Excluir</th>
+              </tr>
+              <tr ng-class="{'selecionado negrito': cliente.selecionado}" ng-repeat="cliente in clientes | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">             	    
+                <td>{{cliente.fantaCli | uppercase}}</td>
+                <td>{{cliente.idCep }}</td>
+                <td>{{cliente.razaoCli | uppercase }}</td>
+                <td>{{cliente.emailCli}}</td>
+                <td>{{cliente.contatoCli | uppercase}}</td>
+                <td>{{cliente.cnpjCli}}</td>
+                <td>{{cliente.inscriCli}}</td>
+                <td>{{cliente.statusCli | uppercase}}</td>
+                <td style="text-align: center;"><a href="#/editClientes/{{cliente.id}}" class="btn btn-outline btn-warning btn-xs glyphicon glyphicon-edit "></a></td>
+                <td style="text-align: center;"><a href="#/deleteCliente/{{cliente.id}}" class="btn btn-outline btn-danger  btn-xs glyphicon glyphicon-remove "></a></td>
+              </tr>
+            </table>
+          
+<!--TESTEEEE-->
+          <!--botoes
+          <a class="btn btn-primary btn-block" href="#/cadclientes">Novo Cliente</a>
+          <button class="btn btn-danger btn-block" ng-click="apagarClientes(clientes)" ng-if="isClienteSelecionado(clientes)">Apagar Clientes</button>
+          -->
+        </div><br>       
+       </div><!-- /.row --><br>
+       </div>
+       </div>                    
+       </div>
+      </div>
+      <div ng-include="'footer.html'"></div>       
+    </div><!-- /#page-wrapper -->
+  </div> <!-- /#wrapper -->
+</div>
